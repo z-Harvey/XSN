@@ -1,0 +1,2 @@
+/* pages/register/register.wxss */
+@import "../../template/success/success.wxss";

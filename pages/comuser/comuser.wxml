@@ -1,0 +1,15 @@
+<import src="/template/comitem/comitem.wxml" />
+  <view class="blankBox" wx:if="{{show}}">
+    <image src="/img/blank.png"></image>
+    <text class="blankBoxText font-size-28">暂无共同客户，多标记一些客户，会提高客户重叠概率哦~</text>
+    <button class="blankBoxBun font-size-28" bindtap='toPath' data-type='is'>去标记</button>
+  </view>
+<view class="search">
+  <view class="result fixedWidth">
+    <block wx:for="{{list}}">
+      <view bindtap="toPath" data-id="{{item.comid}}">
+        <template is="comitem" data="{{...item}}"/>    
+      </view>
+    </block>
+  </view>
+</view>

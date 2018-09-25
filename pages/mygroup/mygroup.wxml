@@ -1,0 +1,94 @@
+<!--pages/mygroup/mygroup.wxml-->
+<view class="mygroup">
+  <view class="headnav wrap-flex">
+    <view class="headitem wrap-flex-item font-size-30">
+      <view class="mystBox {{ activeId==0?'active':''}}" bindtap="activeTab" data-index="0">我发起的
+        <view class="myst" wx:if="{{mystOne}}"></view>
+      </view>
+      <view class="mystBox {{ activeId==1?'active':''}}" bindtap="activeTab" data-index="1">我参与的
+        <view class="myst" wx:if="{{mystTwo}}"></view>
+      </view>
+    </view>
+    <view class="right font-size-28">
+      <!-- <text>全部</text> -->
+    </view>
+  </view>
+  <view wx:if="{{listNone}}" class="blankBox">
+    <image src="/img/blank.png"></image>
+    <text class="blankBoxText font-size-28">暂无我发起的悬赏</text>
+  </view>
+  <view class="mygroup-list fixedWidth" wx:if="{{activeId==0}}">
+    <view class="mygroup-item" wx:for="{{myrewardinfo}}">
+      <view class="list-header wrap-flex">
+        <view class="mygroup-row wrap-flex-item">
+          <image src="{{item.avatarurl}}" mode="widthFix"></image>
+          <text class="font-size-28 com1010">{{item.nickname}}</text>
+          <image src="/img/common/hand.png" mode="widthFix" class="shakehand"></image>
+          <image src="{{item.pavatarurl}}" mode="widthFix"></image>
+          <text class="font-size-24 com1010">{{item.pnickname}}</text>
+        </view>
+        <view class="list-right font-size-24 state" wx:if="{{item.team_status==0}}">待组队</view>
+        <view class="list-right font-size-24 state" wx:elif="{{item.team_status==1}}">已完成</view>
+        <view class="list-right font-size-24 state" wx:elif="{{item.team_status==2}}">进行中</view>
+        <view class="list-right font-size-24 state" wx:elif="{{item.team_status==3}}">已过期</view>
+
+      </view>
+      <view class="list-row companyname">{{item.comname}}</view>
+      <view class="font-size-28 com1010 last-row">{{item.message}}</view>
+      <view class="list-footer wrap-flex">
+        <view class="wrap-flex-item font-size-24 comcolor" wx:if="{{item.team_status==0}}">
+            <image src="/img/my/timeg.png" mode="widthFix" class="time" ></image>
+            <text>剩余{{item.sy_dayno}}天</text>
+        </view>
+        <view class="wrap-flex-item font-size-24 comcolor" wx:elif="{{item.status==1}}">打单成功</view>
+        <view class="wrap-flex-item font-size-24 comcolor" wx:elif="{{item.status==2}}">打单失败</view>
+        <view class="wrap-flex-item font-size-24 comcolor" wx:else></view>
+        <button plain class="end" hover-class="end1" bindtap="end" data-teamid="{{item.teamid}}" data-index="{{index}}" wx:if="{{item.team_status==2}}" data-nickname="{{item.nickname}}" data-pnickname="{{item.snickname}}">打单结束</button>
+        <button plain class="process" hover-class="process1" wx:if="{{item.team_status==2}}" data-src="{{item.pavatarurl}}" bindtap="topath" data-id="{{item.puserid}}">去沟通</button>
+        <button plain class="del" hover-class="del1" bindtap="del" data-teamid="{{item.teamid}}" data-userid="{{item.userid}}" wx:if="{{item.team_status==3||item.team_status==1}}">删除</button>
+        <button plain class="evaluate" hover-class="evaluate1" bindtap="evaluate" data-id="{{item.puserid}}" data-nickname="{{item.pnickname}}" data-pavatarurl="{{item.pavatarurl}}" wx:if="{{item.team_status==1&&item.isevalu==0}}" data-teamid="{{item.teamid}}" data-usertype="1">评价好友</button>
+      </view>
+    </view>
+  </view>
+
+   <view class="mygroup-list fixedWidth" wx:if="{{activeId==1}}">
+    <view class="mygroup-item" wx:for="{{inrewardinfo}}">
+      <view class="list-header wrap-flex">
+        <view class="mygroup-row wrap-flex-item">
+          <image src="{{item.savatarurl}}" mode="widthFix"></image>
+          <text class="font-size-28 com1010">{{item.snickname}}</text>
+          <image src="/img/common/hand.png" mode="widthFix" class="shakehand"></image>
+          <image src="{{item.avatarurl}}" mode="widthFix"></image>
+          <text class="font-size-24 com1010">{{item.nickname}}</text>
+        </view>
+        <view class="list-right font-size-24 state" wx:if="{{item.team_status==0}}">待组队</view>
+        <view class="list-right font-size-24 state" wx:elif="{{item.team_status==1}}">已完成</view>
+        <view class="list-right font-size-24 state" wx:elif="{{item.team_status==2}}">进行中</view>
+        <view class="list-right font-size-24 state" wx:elif="{{item.team_status==3}}">已过期</view>
+      </view>
+      <view class="list-row companyname">{{item.comname}}</view>
+      <view class="font-size-28 com1010 last-row">{{item.message}}</view>
+      <view class="list-footer wrap-flex">
+        <view class="wrap-flex-item font-size-24 comcolor" wx:if="{{item.team_status==0}}">
+            <image src="/img/my/timeg.png" mode="widthFix" class="time" ></image>
+            <text>剩余{{item.sy_dayno}}天</text>
+        </view>
+        <view class="wrap-flex-item font-size-24 comcolor" wx:elif="{{item.status==1}}">打单成功</view>
+        <view class="wrap-flex-item font-size-24 comcolor" wx:elif="{{item.status==2}}">打单失败</view>
+        <view class="wrap-flex-item font-size-24 comcolor" wx:else></view>
+        <button plain class="end" hover-class="end1" bindtap="end" data-teamid="{{item.teamid}}" data-index="{{index}}" wx:if="{{item.team_status==2}}" data-nickname="{{item.nickname}}" data-pnickname="{{item.snickname}}">打单结束</button>
+
+        <button plain class="agreen" hover-class="agreen1" bindtap="agrren" data-teamid="{{item.teamid}}" wx:if="{{item.team_status==0&&item.isagree==0}}" data-name="{{item.snickname}}" data-src="{{item.savatarurl}}" data-id="{{item.suerid}}">同意组队</button>
+
+        <button plain class="process" hover-class="process1" wx:if="{{item.team_status==2}}" data-src="{{item.savatarurl}}" bindtap="topath" data-id="{{item.suerid}}">去沟通</button>
+        <button plain class="del" hover-class="del1" bindtap="del" data-teamid="{{item.teamid}}" data-userid="{{item.userid}}" wx:if="{{item.team_status==3||item.team_status==1}}">删除</button>
+        <button plain class="evaluate" hover-class="evaluate1" bindtap="evaluate" data-id="{{item.suerid}}" data-nickname="{{item.snickname}}" data-pavatarurl="{{item.savatarurl}}" wx:if="{{item.team_status==1&&item.pisevalu==0}}" data-teamid="{{item.teamid}}" data-usertype="2">评价好友</button>
+      </view>
+    </view>
+  </view>
+    <view class="navHome btn-bottom btnbottom" bindtap="topath" data-type="navHome">
+    首页
+  </view> 
+</view>
+
+ 

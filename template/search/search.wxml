@@ -1,0 +1,8 @@
+<template name="search">
+  <view class="searchinput">
+      <image src="/img/search.png" mode="widthFix" class="search"></image>
+      <input placeholder="请输入您要查找的公司" placeholder-class="font-size-28 comcolor"></input>
+      <image src="/img/search.png" mode="widthFix" class="close"></image>      
+    </view>
+    <button class="searchbtn font-size-28" plain='true'>取消</button>  
+</template>

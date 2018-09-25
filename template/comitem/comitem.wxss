@@ -1,0 +1,10 @@
+.item{
+  background: #fff;
+  height: 160rpx;
+  margin: 20rpx 0;
+  align-items: center;
+}
+.item>image{
+  width: 100rpx;
+  margin: 0 20rpx;
+}

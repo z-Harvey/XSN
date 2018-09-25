@@ -1,0 +1,270 @@
+/**index.wxss**/
+.index{
+  padding-bottom: 20rpx;
+}
+.header{
+  position: relative;
+  padding-bottom: 14rpx
+}
+.header>image{
+  width: 100%;
+  margin-top:-101rpx;
+}
+.search{
+  left: 30rpx;
+  width: 605rpx;
+  height: 90rpx;
+  margin-left:40rpx; 
+  margin-top:120rpx;
+  border-radius: 45rpx;
+}
+.header .search{
+  background: #fff;
+  box-sizing: border-box;
+  align-items: center;
+  background: rgba(244, 242, 242, 1)
+}
+.headerContentTitle{
+  position: absolute;
+  padding: 30rpx 0;
+  width: 690rpx;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 10rpx;
+  box-shadow: 2rpx 2rpx 10rpx 0rpx rgba(221,221,221,1);
+  left:31rpx;
+  top:200rpx;
+}
+.search>image{
+  width: 40rpx;
+  margin: 0 20rpx;
+}
+.search input{
+  flex: 1;
+  height: 90rpx;
+}
+.searchCom{
+  color: #888;
+  width: 590rpx;
+  left: 80rpx;
+  top: 20rpx;
+  line-height: 45rpx
+}
+.headerContentTitleText{
+  position: absolute;
+  transition: ease .5s;
+  left:44rpx;
+  font-family: SourceHanSansSC-regular;
+  width: 598rpx;
+  color:rgba(255, 152, 0, 1);
+  margin:0 auto;
+  margin-bottom:30rpx;
+  animation: myfirst .8s;
+  font-style: normal;
+}
+@keyframes myfirst
+{
+  0%   {left: 900rpx;font-style: oblique;}
+  70%  {font-style: oblique;}
+  100% {left: 44rpx;font-style: normal;}
+}
+.showHide{
+  display: none;
+}
+.content{
+  width: 690rpx;
+  margin: 0 auto;
+  padding: 80rpx 0 0;
+}
+.content swiper{
+  height: 230rpx;
+}
+.content swiper image{
+  width: 100%;
+}
+.swiper-flag text{
+  display: inline-block;
+  width:16rpx;
+  height:16rpx;
+  border-radius: 8rpx;
+  background:#bbb;
+  overflow: hidden;
+  margin: 0 0 0 20rpx;
+  transition: all 1s;
+}
+.swiper-flag text.active{
+  background:#fff;
+}
+.content .swiperLeft{
+  position: relative;
+}
+.content .swiper-flag{
+  position: absolute;
+  right: 20rpx;
+  bottom: 10rpx;
+}
+.content .swiperTop{
+  height: 90rpx;
+  background: white;
+  align-items: center;
+  line-height: 90rpx;
+  margin-top: 20rpx;
+}
+.content .fixWidth{
+  flex-basis: 120rpx;
+  height: 90rpx;
+  align-items: center;
+}
+.content .fixWidth>image{
+  width: 44rpx;
+  margin-right: 8rpx;
+}
+.content .swiperTop swiper{
+  height: 90rpx;
+  line-height: 90rpx;
+}
+.recommend{
+  padding: 20rpx 0;
+}
+.recommend text.title{
+  color: #101010;
+  font-family: Arial;
+}
+.reccommendInfo swiper{
+  height: 480rpx;
+ 
+}
+.reccommendInfo swiper swiper-item{
+  padding-left: 20rpx; 
+  margin-right: 20rpx; 
+  box-sizing:border-box;
+  background: white;
+}
+
+
+
+.reccommendInfo .item{
+  height: 160rpx;
+  align-items: center;
+  border-bottom: 2rpx solid #F0EFF5;
+}
+.reccommendInfo .item:last-child{
+   border-bottom: none;
+}
+.reccommendInfo .widthFix{
+  width: 100rpx;
+}
+.reccommendInfo .widthFix>image{
+  width: 98rpx;
+  height: 98rpx;
+  border-radius: 50%;
+  border: 2rpx solid #FF9800;
+}
+.reccommendInfo .cominfo image{
+  width: 40rpx;
+  margin-right: 4rpx;
+  box-sizing: border-box;
+  vertical-align: middle;
+  border-radius: 50%;
+}
+button.btn{
+  width: 160rpx;
+  height: 50rpx;
+  line-height: 50rpx;
+  border: 2rpx solid #FF9800;
+  background: #fff;
+  border-radius: 6rpx;
+  color: #FF9800;
+  display: inline-block;
+  margin-right: 20rpx;
+}
+.reccommendInfo .item>.wrap-flex-item{
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100rpx;
+  margin-left: 20rpx;
+}
+.reccommendInfo>.cominfo{
+ justify-content: space-between;
+ align-items: center;
+ height: 50rpx;
+}
+
+.MerchantList{
+  width:632rpx;
+  height:108rpx;
+  border-radius: 10rpx;
+  margin: 0 auto 20rpx;
+  background: #fff;
+  padding:30rpx 20rpx 28rpx;
+  position: relative
+}
+.merImg{
+  width:100rpx;
+  height:100rpx;
+  border: 1rpx solid rgba(255, 152, 0, 1);
+  border-radius: 50%;
+}
+.merImg>image{
+  width:100rpx;
+  height:100rpx;
+}
+.merlistTitle{
+  position: absolute;
+  top:28rpx;
+  left:136rpx;
+}
+.merImgList{
+  position: absolute;
+  top:86rpx;
+  left: 136rpx;
+}
+.merImgList>view{
+  float: left;
+  margin-right: 4rpx;
+}
+.merImgList>text{
+  float: left;
+  color:rgba(136, 136, 136, 1);
+  line-height: 50rpx
+}
+.merImgList>view>image{
+  width: 40rpx;
+  height:40rpx;
+  border-radius: 50%;
+}
+.merBut{
+  position: absolute;
+  bottom:26rpx;
+  right: 20rpx;
+  width: 160rpx;
+  height:50rpx;
+  border:1rpx solid rgba(255, 152, 0, 1);
+  border-radius: 6rpx;
+  color:rgba(255, 152, 0, 1);
+  line-height: 50rpx;
+  background: #fff;
+}
+.merBut::after{
+  border:0;
+}
+
+.handBox{
+  width:100rpx;
+  height:100rpx;
+  position: absolute;
+  top:200rpx;
+  left:300rpx;
+}
+.handBox>image{
+  width:100rpx;
+  height:100rpx;
+  position: absolute;
+  animation:handDiv 1s infinite linear;
+}
+@keyframes handDiv
+{
+0% {opacity: 1;}
+50% {opacity: 0;}
+100%{opacity: 1}
+}

@@ -1,0 +1,8 @@
+<view class="helpinfo">
+  <view class="helpcontent">
+    <view class="title font-size-32 com1010">{{list.title}}</view>
+    <view class="content font-size-28">
+      <image src="{{list.helpdata}}" mode="widthFix" style="width: 100%;"></image>
+    </view>
+  </view>
+</view>

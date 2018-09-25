@@ -1,0 +1,8 @@
+<view class="marksuccess">
+  <image src="/img/common/right.png" mode="widthFix"></image>
+  <view class="font-size-40 com1010">评价成功</view>
+  <view class="font-size-28 colora0 fixedWidth">感谢您的评价</view>
+  <button plain class="activepublic font-size-36"  open-type="share" id="1">分享至微信群获牛币+50</button>
+  <button plain class="gray font-size-36" bindtap="toPath" data-type="2">返回我的组队</button>
+</view>
+

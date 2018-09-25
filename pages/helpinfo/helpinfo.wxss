@@ -1,0 +1,9 @@
+/* pages/helpinfo/helpinfo.wxss */
+.helpcontent{
+  padding: 30rpx;
+  background: #fff;
+}
+.content{
+  color: #888;
+  margin-top: 16rpx;
+}

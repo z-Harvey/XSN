@@ -1,0 +1,27 @@
+/* pages/markerror/markerror.wxss */
+page{
+  background: #fff;
+}
+.marksuccess{
+  text-align: center;
+}
+.marksuccess>image{
+  width: 200rpx;
+  margin: 60rpx 0;
+}
+.marksuccess button{
+  width: 696rpx;
+  height: 96rpx;
+  line-height: 96rpx;
+  border-radius: 8rpx;
+}
+.marksuccess .activepublic{
+  background-color: rgba(255, 152, 0, 1);
+  color: rgba(255, 255, 255, 1);
+  margin: 24rpx auto;
+}
+.marksuccess .gray{
+  background: #F8F8F8;
+  color: #000;
+  border: 2rpx solid #DFDFDF;
+}

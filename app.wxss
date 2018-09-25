@@ -1,0 +1,144 @@
+/**app.wxss**/
+page{
+  background: #F0EFF5;
+}
+image{
+  width: auto;
+  height: auto;
+  display: inline-block;
+}
+.wrap-flex{
+  display: -webkit-flex;
+  display: flex;
+}
+.wrap-flex-item{
+  flex: 1;
+}
+.item-input{
+  vertical-align: middle;
+}
+
+/*
+* font
+*/
+.font-size-40{
+  font-size: 40rpx;
+  line-height: 58rpx;
+}
+.font-size-36{
+  font-size: 36rpx;
+  line-height: 52rpx;
+}
+.font-size-32{
+  font-size: 32rpx;
+  line-height: 46rpx;
+}
+.font-size-30{
+  font-size: 30rpx;
+  line-height: 44rpx;
+}
+.font-size-28{
+  font-size: 28rpx;
+  line-height: 40rpx;
+}
+.font-size-24{
+  font-size: 24rpx;
+  line-height: 34rpx;
+}
+/*
+* btn
+*/
+button[plain]{
+  border:none;
+}
+button{
+  padding: 0;  
+}
+.btn-bottom{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 10000;
+}
+button.btn.active{
+  /* background: #9B7A49; */
+}
+
+/*
+input 
+ */
+textarea{
+  width: auto;
+  height: auto;
+} 
+
+.combg{
+  color: #FF9800;
+}
+.compadding{
+  padding: 0 20rpx;
+}
+.comcolor{
+  color: #888;
+}
+.com1010{
+  color: #101010;
+}
+.bodradius{
+  border-radius: 10rpx;
+}
+.padding30{
+  padding: 0 30rpx;
+}
+
+.fixedWidth{
+  width: 690rpx;
+  margin: 0 auto;
+}
+
+.refinfo .refbtn{
+  margin: 20rpx 0;
+}
+.refinfo .refbtn button{
+  width: 160rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 6rpx;
+  background: #F1F1F1;
+  color: #101010;
+  font-size: 28rpx;
+  text-align: center;
+  margin-right: 16rpx;
+  display: inline-block;
+  box-sizing: border-box;
+}
+.refinfo .second button{
+  width: 60rpx;
+}
+.refinfo .refbtn button.active{
+  background-color: rgba(255, 152, 0, 1);
+  color: rgba(255, 255, 255, 1);
+}
+.refinfo .refbtn button:last-child{
+  margin-right: 0;
+}
+button.btnbottom{
+  width: 100%;
+  height: 96rpx;
+  line-height: 96rpx;
+  background-color: rgba(255, 152, 0, 1);
+  color: rgba(255, 255, 255, 1);
+  font-size: 32rpx;
+  text-align: center;
+  border-radius: 0;
+}
+.color91{
+  color: #919191;
+}
+view,text{
+  font-family: Microsoft Yahei;
+}
+button.activebtnstyle{
+  background-color: rgba(255, 152, 0, 1);
+  color: rgba(255, 255, 255, 1);
+}

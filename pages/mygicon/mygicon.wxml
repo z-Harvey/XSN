@@ -1,0 +1,12 @@
+<view class="myicon">
+  <block wx:for="{{list}}">
+    <view class="welfare-header wrap-flex fixedWidth bodradius">
+      <view class="wrap-flex-item">
+        <view class="font-size-28 com1010">{{item.changetype}}</view>
+        <view class="font-size-24 highline">{{item.changetime}}</view>
+      </view>
+      <view class="font-size-28 blackcolor" wx:if="{{item.changeno>0}}">+{{item.changeno}}</view>
+      <view class="font-size-28 bluecolor" wx:else>{{item.changeno}}</view> 
+    </view>
+  </block>
+</view>

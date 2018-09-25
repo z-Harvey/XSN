@@ -1,0 +1,114 @@
+// pages/search/search.js
+const api = require('../../utils/api.js');
+
+Page({
+  /**
+   * 页面的初始数据
+   */
+  data: {
+    comname: '',
+    list: null,
+    page: 1
+  },
+  inputComname: function (e) {
+    this.setData({
+      comname: e.detail.value
+    })
+  },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    wx.hideShareMenu()
+    // var _this = this;
+    // var data = {
+    //   queryType: 'company',
+    //   queryKey: this.data.comname,
+    //   userid: wx.getStorageSync('userid'),
+    //   thSessionId: wx.getStorageSync('token'),
+    //   page_num: this.data.page
+    // }
+    // this.init(data, this)
+  },
+  toPath: function (e) {
+    var params = e.currentTarget.dataset,url;
+    var da={
+      userid: wx.getStorageSync('userid'),
+      thSessionId: wx.getStorageSync('token'),
+      comid: params.id,
+    }
+    api.checkmate(da,function(data){
+      if(data.data.has_mate==0){
+        url = `/pages/activityInfo/activityInfo?id=${params.id}&comname=${params.comname}`;
+        wx.navigateTo({
+          url: url,
+        })
+      } else if (data.data.has_mate==1){
+        url = `/pages/marklock/marklock?id=${params.id}&comname=${params.comname}`;
+        wx.navigateTo({
+          url: url,
+        })
+      }
+    })
+  },
+  search: function(){
+    var _this=this;
+    var data={
+      queryType:'company',
+      queryKey: this.data.comname,
+      userid: wx.getStorageSync('userid'),
+      thSessionId: wx.getStorageSync('token'),
+      page_num: this.data.page
+    }
+    this.init(data,this)
+  },
+  init: function(data,_this){
+    api.search(data, function (data) {
+      _this.setData({
+        list: data
+      })
+      // _this.ini(data,_this)
+    })
+  },
+  close: function () {
+    this.setData({
+      comname: ''
+    })
+  },
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom: function () {
+    // this.setData({
+    //   page: ++this.data.page
+    // })
+    // this.init({
+    //   queryType: 'company',
+    //   queryKey: this.data.comname,
+    //   userid: wx.getStorageSync('userid'),
+    //   thSessionId: wx.getStorageSync('token'),
+    //   page_num: this.data.page
+    // },this)
+
+    // console.log(this.data.page_num)
+    
+  },
+  // ini(data,_this) {
+  //   if (data.length) {
+  //     _this.setData({
+  //       list: _this.data.page === 1 ? data : _this.data.list.concat(data)
+  //     })
+  //   } else {
+  //     // _this.setData({
+  //     //   page: --_this.data.page
+  //     // })
+  //   }
+  // },
+
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage: function () {
+  
+  }
+})

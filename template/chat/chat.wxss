@@ -1,0 +1,28 @@
+.message>image{
+  width: 100rpx;
+  position: fixed;
+  bottom: 60rpx;
+  right: 30rpx;
+}
+.message .item{
+  height: 150rpx;
+  border-radius: 10rpx;
+  box-shadow: 0px 0px 0px 0px rgba(170, 170, 170, 0.81);
+  box-sizing: border-box;
+  background: #fff;
+  margin-top: 20rpx;
+  padding: 20rpx;
+}
+.message .item>image{
+  width: 96rpx;
+  margin-right: 20rpx;
+}
+.message .imagetext>image{
+  width: 24rpx;
+  margin-left: 4rpx;
+}
+.message .list-nick{
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 10rpx;
+}

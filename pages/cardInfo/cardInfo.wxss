@@ -1,0 +1,11 @@
+/* pages/cardInfo/cardInfo.wxss */
+@import "../../template/start/start.wxss";
+@import "../../template/card/card.wxss";
+
+.confirmstate{
+  width: 24rpx;
+  vertical-align: middle;
+}
+.cardinfo>view:nth-child(2){
+  margin-top: 120rpx;
+}

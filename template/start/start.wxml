@@ -1,0 +1,10 @@
+<template name="start">
+  <view class="start">
+    <block wx:for="{{num}}">
+      <image src="/img/common/startsolid.png"  mode="widthFix"></image>  
+    </block> 
+    <block wx:for="{{5-num}}">
+      <image src="/img/common/start.png" mode="widthFix"></image> 
+    </block> 
+  </view>
+</template>  

@@ -1,0 +1,30 @@
+<import src="/template/comitem/comitem.wxml" />
+
+<view class="createteam">
+  <template is="comitem" data="{{comname}}"/>
+  <view class="teamadvise fixedWidth">
+    <textarea placeholder="    " placeholder-class='font-size-28 comcolor info' class="font-size-28" bindinput="changeNum"  maxlength="200" value="{{message}}" bindfocus='changeshow' bindblur="changehide"></textarea>
+    <view class="font-size-28 comcolor" wx:if="{{show}}">说明你组队的意图，如：你为什么要组队、组队成功后需要一起做什么事情、事成后有多少佣金分成</view>
+    <view class="right font-size-28 comcolor">{{num}}/200</view>
+  </view>
+
+  <view class="successPrice fixedWidth bodradius wrap-flex">
+    <text class="font-size-28 com1010">成交佣金</text>
+    <text class="font-size-24 color91">（仅展示）</text>
+    <text class="font-size-28 com1010 price">￥</text>
+    <input placeholder="00.00" placeholder-class='font-size-24 comcolor' class="font-size-28 com1010" value="{{minmoney}}" bindinput="changemin" type="number"></input>
+    <text class="font-size-28 com1010 gap">-</text>    
+    <input placeholder="00.00" placeholder-class='font-size-24 comcolor' class="font-size-28 com1010" value="{{maxmoney}}" bindinput="changemax" type="number"></input>    
+  </view>
+
+  <view class="refinfo fixedWidth bodradius">
+    <text class="font-size-28 com1010">有效期</text>
+    <view class="refbtn">
+      <block wx:for="{{[1,2,3,4]}}">
+        <button plain='true' class="{{activeId==index?'active':''}}" bindtap="changeday" data-index="{{index}}">{{item}}天</button>
+      </block>
+    </view>
+  </view>
+
+  <button class="btn-bottom btnbottom" plain bindtap="toPath" hover-class="activebtnstyle">立即发布</button>
+</view>

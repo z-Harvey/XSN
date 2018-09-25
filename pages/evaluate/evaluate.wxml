@@ -1,0 +1,58 @@
+<import src="/template/start/start.wxml" />
+
+<view class="evaluate">
+  <view class="evalheader">
+    <view class="itemlist fixedWidth bodradius headertop">
+      <view class="list-header wrap-flex">
+        <image src="{{user_info.avatarurl}}" mode="widthFix"></image>
+        <view class="list-right wrap-flex wrap-flex-item">
+          <view class="list-nick">
+            <text class="font-size-28 com1010">{{user_info.nickname}}</text>
+          </view>
+          <view class="list-start wrap-flex">
+            <template is="start" data="{{num}}" />
+            <text class="font-size-24" style="color: #e5e5e5">{{eve_num}}人评</text>
+          </view>
+        </view>
+      </view>
+      <view class="list-footer" >
+        <block wx:for="{{mylist}}">
+          <button plain>{{item[0]}} {{item[1]}}</button>
+        </block>
+      </view>
+    </view>
+  </view>
+  <view class="evaluate-list message">
+    <block wx:for="{{list}}">
+      <view class="list-li fixedWidth bodradius">
+        <view class="item wrap-flex">
+          <image src="{{item.avatarurl}}" mode="widthFix"></image>
+          <view class="list-right wrap-flex-item">
+            <view class="list-nick wrap-flex" style="margin-top: -5rpx">
+              <view class="imagetext wrap-flex-item">
+                <text class="font-size-24 com1010">{{item.nickname}}</text>
+              </view>
+              <text class="font-size-24 time">{{item.crtdate}}</text>
+            </view>
+            <view class="start">
+              <block wx:for="{{item.score}}">
+                <image src="/img/common/startsolid.png" mode="widthFix"></image>
+              </block>
+              <block wx:for="{{5-item.score}}">
+                <image src="/img/common/start.png" mode="widthFix"></image>
+              </block>
+            </view>
+          </view>
+        </view>
+        <view class="list-footer">
+          <block wx:for="{{item.tags}}" wx:for-item="itemli">
+            <button plain>{{itemli}}</button>
+          </block>          
+        </view>
+        <view class="eval">
+          <text class="font-size-24 com1010">{{item.message}}</text>
+        </view>
+      </view>
+    </block>
+  </view>
+</view>

@@ -1,0 +1,5 @@
+<button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="shouquan">获取用户信息</button>
+
+<button  bindtap="login">登录</button>
+<!-- 
+<button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">手机号授权</button> -->

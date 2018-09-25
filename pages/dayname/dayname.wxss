@@ -1,0 +1,158 @@
+/* pages/dayname/dayname.wxss */
+page{
+  height: 100%;
+  background-color: rgba(15, 15, 15, 0.55);
+}
+.dayname .mask{
+  width: 690rpx;
+  height: 980rpx;
+  line-height: 40rpx;
+  border-radius: 10rpx;
+  box-shadow: 2rpx 2rpx 20rpx 2rpx rgba(229, 229, 229, 1);
+  background: #fff;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.mask>image.headerimg{
+  width: 100rpx;
+  border-radius: 50%;
+  position: absolute;
+  left: 50%;
+  margin-left: -50rpx;
+  top: -50rpx;
+}
+.signresult{
+  text-align: center;
+  margin-top: 70rpx;
+  position: relative;
+  color: #fff;
+}
+.signresult>image{
+  width: 310rpx;
+  position: absolute;
+  left: 50%;
+  margin-left: -155rpx;
+}
+.signresult>text{
+  position: relative;
+  top: 6rpx;
+}
+.dayname .mask .start{
+  width: 90%;
+  position: absolute;
+  left: 5%;
+  top: 30rpx;
+}
+.dayname .daynum{
+  color: #bbb;
+  text-align: center;
+  margin: 20rpx;
+}
+.dayname .border{
+  width: 490rpx;
+  margin: 0 auto;
+  height: 510rpx;
+  line-height: 40rpx;
+  background-color: rgba(255, 152, 0, 0.23);
+  text-align: center;
+  border: 2rpx solid rgba(255, 152, 0, 1);
+}
+.dayname .border .content{
+  width: 460rpx;
+  height: 480rpx;
+  line-height: 40rpx;
+  background-color: rgba(255, 152, 0, 0.47);
+  text-align: center;
+  border: 2rpx solid rgba(255, 152, 0, 1);
+  margin: 0 auto;
+  margin-top: 13rpx;
+  color: #fff;
+}
+.content .first{
+  margin-top: 40rpx;
+}
+.content .font-size-96{
+  font-size: 96rpx;
+  line-height: 120rpx;
+}
+.content .scorenum{
+  margin-bottom: 30rpx;
+}
+.nodo{
+  width: 64rpx;
+  height: 64rpx;
+  line-height: 64rpx;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0);
+  color: rgba(229, 28, 35, 1);
+  font-size: 36rpx;
+  text-align: center;
+  font-family: Microsoft Yahei;
+  border: 1px solid rgba(229, 28, 35, 1);
+  margin: auto;  
+}
+.do{
+  color: #259B24;
+  border: 1px solid#259B24;
+}
+.info{
+  border-top: 2rpx solid #FF9800;
+  margin-top: 40rpx;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  height: 160rpx;
+}
+.info .left{
+  height: 100%;
+  border-right: 2rpx solid #FF9800;  
+}
+.left .nodo{
+  margin-top: 20rpx;
+  margin-bottom: 10rpx;
+}
+.tip{
+  height: 46rpx;
+}
+
+.reward{
+  width: 500rpx;
+  height: 90rpx;
+  line-height: 90rpx;  
+  text-align: center;
+  border: 2rpx dashed rgba(187, 187, 187, 1);
+  margin: auto;
+  margin-top: 20rpx;
+}
+.reward .left{
+  margin-right: 80rpx;
+}
+.reward .right{
+  color: #FF9800;
+}
+.share>image{
+  width: 36rpx;
+  vertical-align: middle;
+}
+button.share{
+  width: 216rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 68rpx;
+  background-color: rgba(255, 152, 0, 1);
+  color: rgba(255, 255, 255, 1);
+  font-size: 28rpx;
+  text-align: center;
+  box-shadow: 2px 2px 2px 0px rgba(255, 152, 0, 0.47);
+  font-family: Arial;
+  margin-top: 40rpx;
+}
+.bottom{
+  text-align: center;
+  color: #bbb;
+  margin-top: 10rpx;
+}

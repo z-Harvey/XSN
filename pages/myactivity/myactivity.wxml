@@ -1,0 +1,26 @@
+<!--pages/myactivity/myactivity.wxml-->
+<view class="myactivity">
+  <view wx:if="{{listNone}}" class="blankBox">
+    <image src="/img/blank.png"></image>
+    <text class="blankBoxText font-size-28">暂无我参与的活动</text>
+  </view>
+  <view class="activity-item" wx:for="{{list}}" bindtap="toPath" data-actid="{{item.actid}}">
+    <view class="picture">
+      <image src="{{item.picture}}"></image>
+      <view class="bannertitle">{{item.title}}</view>
+    </view>
+    <view class="activity-footer">
+      <view class="activity-row">
+        <image src="/img/common/calendar.png" mode="widthFix"></image>
+        <text class="font-size-28 comcolor">{{item.activitytime.split("|")[0]}} 至  {{item.activitytime.split("|")[1]}}</text>
+      </view>
+      <view class="activity-row">
+        <image src="/img/common/location.png" mode="widthFix"></image>
+        <text class="font-size-28 comcolor">{{item.address}}</text>
+      </view>
+    </view>
+  </view>
+  <view class="navHome btn-bottom btnbottom" bindtap="toPath" data-type="navHome">
+    首页
+  </view> 
+</view>

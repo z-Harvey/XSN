@@ -1,0 +1,50 @@
+<!--pages/card/card.wxml-->
+<view class="editcard">
+  <view class="edit-header">
+    <view class="card-row">
+      <image src="/img/index/card.png" mode="widthFix"></image>
+      <text class="font-size-36 com1010">花 8 秒钟做一张属于自己的名片吧~</text>
+    </view>
+    <view class="font-size-24 comcolor">名片信息不公开，主动递出后其他用户才可查看您的名片信息</view>
+  </view>
+  <view class="fixedWidth">
+    <view class="personinfo">
+      <view class="row wrap-flex">
+        <text class="rowleft">昵称</text>
+        <input class="rowright nickname" value="{{nickname}}" bindinput="changenickname"></input>
+      </view>
+      <view class="row">
+        <text class="rowleft">电话</text>
+        <text class="rowright">{{phone}}</text>
+      </view>
+      <!-- bindtap="upload" -->
+      <view class="picture" >
+        <image src="{{src}}" mode="widthFix"></image>
+        <!-- <view class="mask">
+          <image src="/img/my/camera.png" mode="widthFix"></image>
+        </view> -->
+      </view>
+    </view>
+
+    <view class="row">
+      <text class="rowleft">性别</text>
+      <button plain class="sexbtn {{gender==1?'active':''}}" data-id="1" bindtap="changegender">帅哥</button>
+      <button plain class="sexbtn {{gender==2?'active':''}}" data-id="2" bindtap="changegender">美女</button>      
+    </view>
+    <view class="">
+      <text class="rowleft row">公司（必填）</text>
+      <textarea placeholder="现在工作的公司" placeholder-class=' rowplaceholder' class="rowinput" auto-height value="{{comname}}" bindinput="inputComname" placeholder-style='color: #ccc'></textarea>
+    </view>
+    <view class="">
+      <text class="rowleft row">行业（必填）</text>
+      <view class='rowinput rowright' bindtap="toPath" style="color: #ccc">{{work}}</view>
+    </view>
+    <view class="">
+      <text class="rowleft row">职位（必填）</text>
+      <textarea placeholder="现在的职位" placeholder-class='rowright' class="rowinput" auto-height value="{{workcard}}" bindinput="changework" maxlength="50"></textarea>
+    </view>
+  </view>
+  <view class="font-size-24 comcolor cardtip">从“我-个人名片-编辑”中可补全更多个人信息，补全信息后可领取牛币奖励哦~</view>
+
+  <button class="btn-bottom btnbottom" plain bindtap="save" hover-class="active">保存</button>
+</view>

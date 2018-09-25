@@ -1,0 +1,70 @@
+/* pages/defaultdialog/defaultdialog.wxss */
+.defaultdialog{
+  padding-bottom: 160rpx;
+}
+.defaultdialog .item{
+  margin-top:  60rpx;
+}
+.defaultdialog .item>image{
+  height: 96rpx;
+  width: 96rpx;
+  margin-right: 40rpx;
+}
+.defaultdialog .dialogBorder{
+  width: 440rpx;
+  min-height: 112rpx;
+  line-height: 34rpx;
+  border-radius: 10rpx;
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(16, 16, 16, 1);
+  border: 2rpx solid rgba(229, 229, 229, 1);
+  position: relative;
+  box-sizing: border-box;
+  padding: 20rpx 15rpx;
+}
+.defaultdialog .dialogBorder::before{
+  content: '';
+  width: 0;
+  height: 0;
+  border-width: 20rpx;
+  border-color: transparent #fff transparent transparent;
+  border-style: solid;
+  display: inline-block;
+  position: absolute;
+  left: -36rpx;
+  top: 20rpx;
+  z-index: 100;
+}
+.weal{
+  color :#FF9800;
+  display: inline-block;
+}
+
+.footer{
+  position: fixed;
+  bottom: 0;
+  height: 96rpx; 
+  background:#F1F1F1;
+  width: 100%;
+  align-items: center;
+  z-index: 101;
+  padding:0 16rpx;
+  box-sizing: border-box;
+}
+.footer input{
+  width: 598rpx;
+  height: 60rpx;
+  border: 1px solid rgba(187, 187, 187, 1);
+  background: #fff;
+  margin-right: 10rpx;
+  padding-left: 10rpx;
+}
+.footer .send{
+  width: 106rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 8rpx;
+  color: rgba(16, 16, 16, 1);
+  text-align: center;
+  border: 1px solid rgba(187, 187, 187, 1);
+}

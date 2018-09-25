@@ -1,0 +1,88 @@
+/* pages/evaluateinfo/evaluateinfo.wxss */
+page{
+  background: #fff;
+}
+.evaluate-header{
+  text-align: center;
+}
+.evaluate-header>image{
+  width: 80rpx;
+  margin-top: 34rpx;
+  margin-bottom: 20px;
+  border-radius: 50%;
+}
+.evaluate-font{
+  text-align: center;
+  margin-top: 50rpx;
+  position:relative;
+}
+.evaluate-font>view::before{
+  content: '';
+  width: 220rpx;
+  height: 2rpx;
+  border-top: 2rpx dotted #ccc;
+  display: inline-block;
+  left: 0;
+  top: 20rpx;
+  position: absolute;
+  
+}
+.evaluate-font>view::after{
+  content: '';
+  width: 220rpx;
+  height: 2rpx;
+  border-top: 2rpx dotted #ccc;
+  display: inline-block;
+  right: 0;
+  top: 20rpx;
+  position: absolute;
+}
+.start{
+  margin-top: 50rpx;
+  text-align: center;
+}
+.start>image{
+  width: 80rpx;
+}
+.start>.font-size-24{
+  color:#FF9800;
+  margin-top: 15rpx;
+}
+.tagbtn{
+  margin-top: 20rpx;
+  text-align: left;
+}
+.tagbtn>button{
+  width: 160rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 8rpx;
+  background-color: #f1f1f1;
+  color: #888;
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Microsoft Yahei;
+  display: inline-block;
+  margin-right: 30rpx;
+  margin-top: 30rpx;
+}
+.tagbtn>button.active{
+  background-color: rgba(255, 152, 0, 1);
+  color: rgba(255, 255, 255, 1);
+}
+.tagbtn>button:nth-child(3n){
+  margin-right: 0;
+}
+.fixedWidth{
+  width: 560rpx;
+}
+
+textarea{
+  text-align: left;
+  padding-left: 10rpx;
+}
+.borderView{
+  border: 2rpx solid #bbb;
+  min-height: 240rpx;
+  margin-top: 50rpx;
+}

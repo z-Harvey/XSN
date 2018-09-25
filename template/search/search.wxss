@@ -1,0 +1,40 @@
+.searchinput{
+  width: 560rpx;
+  height: 70rpx;
+  background: #F0EFF5;
+  border-radius: 10rpx;
+  position: relative;  
+  margin-right: 20rpx;
+}
+.searchinput input{
+  padding-left: 80rpx;
+}
+.searchinput input,.searchinput image{
+  position: absolute;
+}
+.searchinput input{
+  width: 70%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
+.searchinput image.search{
+  width: 40rpx;
+  left: 20rpx;
+  top: 15rpx;
+}
+.searchinput image.close{
+  width: 30rpx;
+  right: 20rpx;
+  top: 20rpx;
+}
+.searchInfo .searchbtn{
+  width: 110rpx;
+  height: 70rpx;
+  line-height: 70rpx;
+  border-radius: 6rpx;
+  background-color: rgba(255, 152, 0, 1);
+  color: #fff;
+  text-align: center;
+  box-sizing:border-box;
+}

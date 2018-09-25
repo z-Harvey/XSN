@@ -1,0 +1,71 @@
+/* pages/createteam/createteam.wxss */
+@import "../../template/comitem/comitem.wxss";
+@import "../../template/textarea/textarea.wxss";
+.createteam>.item{
+  flex-direction: column;
+  height: 240rpx;
+}
+.createteam>.item>image{
+  margin-top: 46rpx;
+}
+.createteam>.item>text{
+  margin: 20rpx 0;
+  align-items: center;
+}
+.item{
+  margin-top: 0;
+}
+.refinfo{
+  background: #fff;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+  padding: 30rpx 20rpx 20rpx;
+}
+.refinfo .refbtn{
+  margin-bottom: 0;
+}
+.refinfo .refbtn button{
+  width: 120rpx;
+  margin-right: 56rpx;
+}
+.refinfo .refbtn button:last-child{
+  margin-right: 0;
+}
+
+.successPrice{
+  background: #fff;
+  margin-top: 20rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  line-height: 90rpx;
+  height: 90rpx;  
+  align-items: center;
+}
+.successPrice input{
+  display: inline-block;
+  width: 160rpx;
+  height: 60rpx;
+  border-radius: 6rpx;
+  background-color: rgba(241, 241, 241, 1);
+  padding-left: 20rpx;
+  box-sizing: border-box;
+}
+.successPrice .price{
+  margin: 0 10rpx;
+}
+.successPrice .gap{
+  margin: 0 10rpx;
+}
+
+.teamadvise{
+  position: relative;
+}
+.teamadvise textarea{
+  position: absolute;
+  min-height: 150rpx;
+  width: 650rpx;
+}
+.teamadvise view.info{
+  position: absolute;
+  height: 230rpx;
+}

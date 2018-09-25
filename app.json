@@ -1,0 +1,90 @@
+{
+  "pages":[
+    "pages/index/index",    
+    "pages/editcard/editcard",
+    "pages/cardInfo/cardInfo",
+    "pages/my/my",
+    "pages/firstidenty/firstidenty",
+    
+    "pages/reward/reward",
+    "pages/mygroup/mygroup",
+    "pages/myreward/myreward",
+    "pages/card/card",    
+    "pages/cardFile/cardFile",
+    "pages/help/help",
+    "pages/welfare/welfare",
+    "pages/mygicon/mygicon",
+    "pages/share/share",
+    "pages/rewardin/rewardin",
+    "pages/rewardinfo/rewardinfo",
+    
+    "pages/helpinfo/helpinfo",
+    "pages/login/login",
+    "pages/activity/activity",
+    
+    "pages/group/group",
+    "pages/createteam/createteam",
+    "pages/message/message",
+    "pages/marklock/marklock",
+    "pages/search/search",
+    "pages/dialogInfo/dialogInfo",
+    "pages/activityInfo/activityInfo",
+    "pages/identy/identy",
+    
+    
+    "pages/dayname/dayname",
+    "pages/register/register",
+    "pages/defaultdialog/defaultdialog",
+    "pages/mygroupsuccess/mygroupsuccess",
+    "pages/evaluateinfo/evaluateinfo",
+    "pages/evalsuccess/evalsuccess",
+    "pages/myactivity/myactivity",
+    
+    "pages/myguest/myguest",
+    "pages/editguest/editguest",
+   
+   
+    "pages/menusuccess/menusuccess",
+    "pages/evaluate/evaluate",
+    "pages/peoplecard/peoplecard",
+    "pages/basic/industry/industry",
+    "pages/markguest/markguest",
+    "pages/markerror/markerror",
+    "pages/release/release",
+    "pages/groupsucc/groupsucc",
+    "pages/rewardmark/rewardmark",
+    "pages/comuser/comuser"
+  ],
+  "window":{
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "匹配结果",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#686868",
+    "selectedColor": "#EF8200",
+    "backgroundColor":"#fff",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "/img/tabbar/homedefault.png",
+        "selectedIconPath": "/img/tabbar/home.png"
+      },
+      {
+        "pagePath": "pages/cardFile/cardFile",
+        "text": "好友",
+        "iconPath": "/img/tabbar/friend.png",
+        "selectedIconPath": "img/tabbar/friend0.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我",
+        "iconPath": "img/tabbar/peopledefault.png",
+        "selectedIconPath": "img/tabbar/people.png"
+      }
+    ]
+  }
+}

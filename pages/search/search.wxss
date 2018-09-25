@@ -1,0 +1,31 @@
+/* pages/search/search.wxss */
+@import "../../template/comitem/comitem.wxss";
+@import "../../template/search/search.wxss";
+.bottomview{
+  text-align: center;
+  margin-top: 30rpx;
+  padding-bottom: 30rpx;
+}
+.searchInfo{
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  height: 80rpx;
+  background: #fff;
+}
+.noresult{
+  text-align:center;
+  margin-top: 400rpx;
+}
+
+.search .closebtn{
+  position: absolute;
+  width: 100rpx;
+  height: 70rpx;
+  right: 30rpx;
+  top: 0rpx;
+  z-index: 100
+}
+.searchinput image.close{
+  right: 0;
+  top: 20rpx;
+}

@@ -1,0 +1,99 @@
+/* pages/welfare/welfare.wxss */
+.welfare .welfare-header{
+  height: 160rpx;
+  padding: 0 30rpx;
+  background: #fff;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  box-sizing: border-box;  
+  z-index: 1000;
+}
+.welfare-header .wrap-flex-item>image{
+  width: 100rpx;
+  margin-right: 16rpx;
+}
+.welfare-header .highline{
+  color: #FF9800;
+}
+.welfare-header .wrap-flex-right{
+  flex-direction: column;
+}
+
+button.iconinfo{
+  width: 160rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 28rpx;
+  background-color: rgba(255, 152, 0, 1);
+  color: rgba(255, 255, 255, 1);
+  font-size: 28rpx;
+  text-align: center;
+  border: 2rpx solid rgba(255, 152, 0, 1);
+}
+button.activebtn{
+  background-color: rgba(255, 152, 0, 1);
+  color: rgba(255, 255, 255, 1);
+}
+.welfare>.iconinfo{
+  text-align: center;
+  padding: 180rpx 0 20rpx;
+  color: #888;
+}
+.iconinfo .iconnum{
+  color: #FF9800;
+}
+.welfare-content .title{
+  margin-bottom: 10rpx;
+}
+.welfare-content .item-li{
+  padding: 30rpx 20rpx;
+  background: #fff;
+  margin-bottom: 20rpx;
+  align-items: center;
+}
+.item-li-left .item-title{
+  color: rgba(16, 16, 16, 1);
+  height: 50rpx;
+}
+.item-li-left .item-list{
+  color: #919191;
+  line-height: 35rpx;
+}
+.item-li-left .item-list>image{
+  width: 30rpx;
+  vertical-align: middle;
+  margin: 0 8rpx;
+}
+.item-li-left .item-list>.iconnum{
+  color: #FF9800;
+}
+button.item-li-right{
+  width: 160rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 6rpx;
+  background-color: rgba(255, 152, 0, 1);
+  color: rgba(255, 255, 255, 1);
+  font-size: 28rpx;
+  text-align: center;
+  margin-left: 20rpx;
+}
+
+button.item-li-right.graybtn{
+  background-color:#f1f1f1;
+  color: #888;
+}
+.kongbai{
+  height: 96rpx;
+}
+.navHome{
+  width: 100%;
+  height: 96rpx;
+  background:rgba(255, 152, 0, 1);
+  text-align: center;
+  color: #fff;
+  line-height: 96rpx;
+  position: fixed;
+  bottom: 0;
+}

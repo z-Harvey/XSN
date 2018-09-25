@@ -1,0 +1,8 @@
+<view class="marksuccess">
+  <image src="/img/common/right.png" mode="widthFix"></image>
+  <view class="font-size-40 com1010">打单成功</view>
+  <view class="font-size-28 colora0 fixedWidth">恭喜您打单成功~快去与好友分享喜悦吧~</view>
+  <button plain class="activepublic font-size-36"   open-type="share" id="1">分享至微信群获牛币+30</button>
+  <button plain class="gray font-size-36" bindtap="toPath" data-type="2">返回我的组队</button>
+</view>
+

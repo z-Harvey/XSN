@@ -1,0 +1,6 @@
+<template name="comitem">
+  <view class="item wrap-flex bodradius" >
+    <image src="/img/index/icon.png" mode="widthFix"></image>
+    <text class="font-size-28 com1010">{{comname}}</text>
+  </view>
+</template>

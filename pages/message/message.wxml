@@ -1,0 +1,40 @@
+<!--pages/message/message.wxml-->
+<view class="message">
+  <block wx:for="{{list}}" wx:if="{{item.id!=0}}">
+    <view class="item bodradius fixedWidth wrap-flex" bindtap="toPath" data-type="dialog" data-id="{{item.id}}" data-src="{{item.src}}">
+      <view class="{{item.unread>=1?'defaultImg':''}} common">
+        <image src="{{item.src}}" mode="widthFix"></image>
+      </view>
+      <view class="list-right wrap-flex-item">
+        <view class="list-nick wrap-flex" style="margin-top: -5rpx">
+          <view class="imagetext wrap-flex-item">
+            <text class="font-size-28 com1010">{{item.nickname}}</text>
+            <image src="/img/common/confirm.png" mode="widthFix" wx:if="{{item.provestatus}}"></image>
+            <image src="/img/common/unconfirm.png" mode="widthFix" wx:else></image>
+          </view>
+          <text class="font-size-24 com1010">{{item.time}}</text>
+        </view>
+        <view class="list-bottom font-size-24 com1010">{{item.msgContent}}</view>
+      </view>
+    </view>
+  </block>
+
+  <block wx:for="{{list}}" wx:if="{{item.id==0}}">
+  <view class="item bodradius fixedWidth wrap-flex" bindtap="toPath" data-type="default" data-id="{{item.id}}">
+  <!-- 此图设置了具体的高度 -->
+   <view class="{{item.unread>1?'defaultImg':''}} common">
+     <image src="/img/my/logo.png" ></image>
+   </view>
+    <view class="list-right wrap-flex-item">
+      <view class="list-nick wrap-flex" style="margin-top: -5rpx">
+        <view class="imagetext wrap-flex-item">
+          <text class="font-size-28 com1010">系统通知</text>
+          <text class="font-size-24 defaulttext">官方</text>  
+        </view>           
+        <text class="font-size-24 com1010">{{item.time}}</text>
+      </view>
+    </view>
+  </view>
+  </block>
+  <image src="/img/common/cardfile.png" mode="widthFix" bindtap="toPath" data-type='3'></image>
+</view>

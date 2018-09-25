@@ -1,0 +1,19 @@
+<!--pages/defaultdialog/defaultdialog.wxml-->
+<view class="defaultdialog">
+  <block wx:for="{{currentMsgsArray}}">
+    <view class="item fixedWidth wrap-flex">
+      <image src="/img/common/default.png"></image>
+      <view class="dialogBorder font-size-24 com1010">
+        <!-- <text>感谢您关注我们的公众号，我们会竭尽所能为您带来干货、趣闻、鼓励的~关注奖励已发放，快去</text>
+        <navigator class="weal" url="/pages/welfare/welfare">福利中心</navigator>
+        <text>领取吧~</text> -->
+        <text>{{item.msgContent}}</text>
+      </view>
+    </view>
+  </block>
+
+  <!-- <view class="footer wrap-flex">
+    <input class="font-size-28 com1010" ></input>
+    <button plain class="font-size-28 com1010 send">发送</button>
+  </view> -->
+</view>

@@ -1,0 +1,29 @@
+/* pages/comuser/comuser.wxss */
+@import "../../template/comitem/comitem.wxss";
+
+.blankBox{
+  text-align: center
+}
+.blankBox > image{
+  width: 216rpx;
+  height:216rpx;
+  display: inherit;
+  margin: 94rpx auto 112rpx;
+}
+
+.blankBoxText{
+width: 112px;
+height: 16px;
+color: rgba(16, 16, 16, 1);
+text-align: left;
+font-family: PingFangSC-regular;
+}
+.blankBoxBun{
+  width:160rpx;
+  height:70rpx;
+  color:#fff;
+  border-radius: 6rpx;
+  background:rgba(255, 152, 0, 1);
+  line-height: 70rpx;
+  margin-top:58rpx;
+}

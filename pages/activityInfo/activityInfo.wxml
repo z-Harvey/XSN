@@ -1,0 +1,14 @@
+<import src="/template/comheader/comheader.wxml" />
+<view class="activityInfo wrap-flex">
+   <view bindtap='toIndex' class="indextop font-size-28">首页</view>
+  <template is="activeheader" data="{{flag,comname}}"/>
+  <view class="unlock wrap-flex-item">
+    <!-- <image src="/img/banner.png"></image> -->
+    <view class="mask">
+      <view class="font-size-28 com1010 title">标记客户后为您智能匹配其他跟进此企业的销售~</view>
+
+      <button class="markbtn font-size-32 bodradius fixedWidth" plain="true"  bindtap="toPath" wx:if="{{logincode}}" >标记后匹配</button> 
+      <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"  class="markbtn font-size-32 bodradius fixedWidth" plain="true" wx:else>标记后匹配</button>
+    </view> 
+  </view>
+</view>

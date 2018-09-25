@@ -1,0 +1,120 @@
+/* pages/editcard/editcard.wxss */
+.editcard {
+  padding-bottom: 180rpx;
+}
+.edit-header{
+  background: #fff;
+  padding: 30rpx 50rpx;
+}
+
+.editcard .personinfo .row .rowleft{
+  width: 70rpx;
+}
+.edit-header .card-row{
+  margin-bottom: 20rpx;
+}
+.edit-header image{
+  width: 54rpx;
+  margin-right: 10rpx;
+  vertical-align: middle;
+}
+.editcard .fixedWidth{
+  padding: 0 20rpx 20rpx;
+  box-sizing: border-box;
+  background: #fff;
+  border-radius: 10rpx;
+  margin-top: 20rpx;
+  font-size: 28rpx;
+  color: #101010;
+}
+.editcard .row{
+  height: 90rpx;
+  line-height: 90rpx;
+}
+.editcard .personinfo .row.wrap-flex{
+  align-items: center;
+}
+.editcard .personinfo .row.wrap-flex .rowleft{
+  flex-basis: 60rpx;
+}
+
+.editcard .row .rowright{
+  color: #888;
+  margin-left: 32rpx;
+}
+.editcard .row .nickname{
+  display: inline-block;
+}
+.editcard .row .rowplaceholder{
+  color: #ccc;
+  margin-left: 32rpx;  
+}
+.editcard .row input.rowinput{
+  height: 60rpx;
+  line-height: 60rpx;
+  display: inline-block;
+  color: #888;
+}
+.editcard .sexbtn{
+  width: 160rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 6rpx;
+  background-color: rgba(241, 241, 241, 1);
+  color: rgba(16, 16, 16, 1);
+  font-size: 28rpx;
+  text-align: center;
+  display: inline-block;
+  margin-left: 30rpx;
+}
+.editcard .sexbtn.active{
+  background: #FF9800;
+  color: #fff;
+}
+.editcard .row textarea.rowinput{
+  min-height: 60rpx;
+  padding-left: 20rpx;
+}
+
+button.btnbottomsecond{
+  bottom: 97rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background-color: rgba(255, 152, 0, 0.47);
+  color: rgba(255, 255, 255, 1);
+  font-size: 28rpx;
+}
+.cardtip{
+  width: 690rpx;
+  margin: 0 auto;
+  margin-top: 20rpx;
+}
+
+.personinfo{
+  position: relative;
+}
+.personinfo .picture{
+  position: absolute;
+  right: 20rpx;
+  top: 20rpx;
+}
+.personinfo .picture>image{
+  width: 120rpx;
+  border-radius: 50%;
+}
+.personinfo .mask{
+  width: 120rpx;
+  height: 120rpx;
+  background: linear-gradient(rgba(255,255,255,0) 50%,rgba(5, 5, 5, 0.3) 50%);
+  border-radius: 50%;
+  right: 0rpx;
+  top: 0rpx;
+  position: absolute;
+}
+.personinfo .mask>image{
+  width: 50rpx;
+  z-index: 100;
+  position: absolute;
+  bottom: 10rpx;
+  left: 35rpx;
+}

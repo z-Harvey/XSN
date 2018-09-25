@@ -1,0 +1,50 @@
+/* pages/markguest/markguest.wxss */
+@import "../../template/comitem/comitem.wxss";
+.item {
+  margin-top: 0;
+  border-radius: 0;
+}
+.ref{
+  background: #fff;
+  padding: 30rpx;
+}
+.refinfo>image{
+  width: 50rpx;
+  vertical-align: middle;
+  margin-right: 12rpx;
+}
+.refinfo .refbtn{
+  margin: 20rpx 0;
+}
+.warninfo{
+  margin-top: 20rpx;
+}
+.activebtn{
+  background-color: rgba(255, 152, 0, 1);
+  color: rgba(255, 255, 255, 1);
+}
+
+
+page{
+  height: 100%;
+}
+.markresult{
+  background: #fff;
+  height: 100%;
+}
+.process{
+  text-align: center;
+}
+.process image{
+  width: 190rpx;
+  margin: 50rpx 0 60rpx;
+  animation: name1 1s infinite linear;
+}
+@keyframes name1{
+  0%{
+    transform: rotate(0deg);
+  }
+  100%{
+    transform: rotate(360deg);
+  }
+}

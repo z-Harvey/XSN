@@ -1,0 +1,23 @@
+<!--pages/defaultdialog/defaultdialog.wxml-->
+<view class="defaultdialog">
+  <block wx:for="{{currentMsgsArray}}">
+    <view class="item fixedWidth wrap-flex left" wx:if="{{!item.isSelfSend}}">
+      <image src="{{src}}"></image>
+      <view class="dialogBorder font-size-24 com1010">
+        <text>{{item.msgContent}}</text>
+      </view>
+    </view>
+
+    <view class="item fixedWidth wrap-flex right" wx:else>
+      <image src="{{item.avatarUrl}}"></image>
+      <view class="dialogBorder font-size-24 com1010">
+        <text>{{item.msgContent}}</text>
+      </view>
+    </view>
+  </block>
+
+  <view class="footer wrap-flex" >
+    <textarea class="font-size-28 com1010" value="{{content}}" bindinput="changecontent" auto-height='true' fixed="true" cursor-spacing="10" show-confirm-bar="{{confirm}}"></textarea>
+    <button plain class="font-size-28 com1010 send" bindtap="bindConfirm">发送</button>
+  </view>
+</view>

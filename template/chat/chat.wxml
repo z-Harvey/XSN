@@ -1,0 +1,14 @@
+<template name="chat">
+  <view class="item bodradius fixedWidth wrap-flex" >
+      <image src="{{}}" mode="widthFix"></image>
+      <view class="list-right wrap-flex-item">
+        <view class="list-nick wrap-flex" style="margin-top: -5rpx">
+          <view class="imagetext wrap-flex-item">
+            <text class="font-size-28 com1010">{{nickname}}</text>
+            <image src="/img/wx.png" mode="widthFix"></image>
+          </view>
+        </view>
+        <view class="list-bottom font-size-24 com1010">[握手]</view>
+      </view>
+    </view>
+</template>  

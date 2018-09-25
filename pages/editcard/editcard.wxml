@@ -1,0 +1,86 @@
+<view class="editcard">
+  <view class="fixedWidth personinfo">
+    <view class="row wrap-flex">
+      <text class="rowleft">昵称</text>
+      <input class="rowright comcolor" bindchange="changenickname" value="{{nickname}}" />
+    </view>
+    <view class="row wrap-flex">
+      <text class="rowleft">姓名</text>
+      <input placeholder="请输入真实姓名" placeholder-class='comcolor' class="rowinput rowright" value="{{name}}" bindinput="changename" maxlength="10"/>
+    </view>
+    <view class="row sexline">
+      <text class="rowleft">性别</text>
+      <button plain class="sexbtn {{gender==1?'active':''}}" data-id="1" bindtap="changegender">帅哥</button>
+      <button plain class="sexbtn {{gender==2?'active':''}}" data-id="2" bindtap="changegender">美女</button>      
+    </view>
+    <view class="row">
+      <text class="rowleft">电话</text>
+      <text class="rowright comcolor">{{list.phoneno}}</text>
+    </view>
+    <!-- bindtap="upload" -->
+    <view class="picture" >
+      <image src="{{src}}" mode="widthFix"></image>
+      <!-- <view class="mask">
+        <image src="/img/my/camera.png" mode="widthFix" ></image>
+      </view> -->
+    </view>
+  </view>
+
+  <view class="fixedWidth require">
+    <view class="">
+      <text class="rowleft row">公司（必填）</text>
+      <textarea placeholder="{{list.comname}}" placeholder-class='rowright' class="rowinput" auto-height value="{{comname}}" bindinput="changecomname" maxlength="50"></textarea>
+    </view>
+    <view class="" bindtap="toPath"  data-type="{{work}}">
+      <text class="rowleft row">行业（必填）</text>
+      <view class='rowinput rowright'style="color: #ccc">{{work}}    
+      </view>
+    </view>
+    <view class="">
+      <text class="rowleft row">职位（必填）</text>
+      <textarea placeholder="现在的职位是" placeholder-class='rowright' class="rowinput" auto-height value="{{workcard}}" bindinput="changework" maxlength="50"></textarea>
+    </view>
+  </view>
+
+  <view class="fixedWidth require location">
+    <view class="">
+      <text class="row">所在地</text>
+      <view class="row wrap-flex">
+        <!-- <input placeholder="请选择地区" placeholder-class='rowright' class="rowinput locationinput" value="{{region}}"></input>
+         -->
+         <view  class="rowinput locationinput wrap-flex-item" >{{region?region:'请选择地区'}}</view>
+        <view class="getlocbtn" bindtap="location">
+          <image src="/img/common/getlocation.png" mode="widthFix"></image>
+          <text>定位获取</text>
+        </view>
+      </view>
+      <!-- <textarea placeholder="请输入详细地址" placeholder-class='rowright' class="rowinput address" value="{{address}}"></textarea> -->
+       <input placeholder="请输入详细地址" placeholder-class='rowright' class="rowinput address" value="{{address}}" bindinput="changeaddress"></input>
+    </view>
+    <view class="">
+      <text class="row">邮件</text>
+      <input placeholder="请输入邮箱" placeholder-class='rowright' class="row rowinput" value="{{email}}" bindinput="changeemail"/>
+      <view class="tip {{onoff?'showonoff':''}}" style="color: red">您输入的不是合法的邮箱</view>
+    </view>
+    <view class="">
+      <text class="row">微信号</text>
+      <input placeholder="请输入微信号" placeholder-class='rowright' class="row rowinput" value="{{wxno}}" bindinput="changewxno"/>
+    </view>
+  </view>
+  <view class="fixedWidth require salepro">
+    <view class="">
+      <text class="rowleft row">销售产品</text>
+      <block wx:for="{{productlist}}">
+        <!-- <textarea placeholder="请输入产品名称" placeholder-class='rowright' class="rowinput" auto-height="true" value="{{item}}" bindinput="changeproduct" data-index="{{index}}"></textarea> -->
+
+        <input placeholder="请输入产品名称" placeholder-class='rowright' class="rowinput" auto-height="true" value="{{item}}" bindinput="changeproduct" data-index="{{index}}"></input>
+      </block>
+      <view class="add" bindtap="changenum">+</view>
+    </view>
+  </view>
+
+  <view class="btn-bottom btnbottom btnbottomsecond">
+    <button class="btn-bottom btnbottom btnbottomsecond" plain>完成度：{{completion}}%</button>
+  </view>
+  <button class="btn-bottom btn-bottom btnbottom" plain bindtap="save" hover-class="active">保存</button>
+</view>

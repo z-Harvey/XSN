@@ -1,0 +1,22 @@
+ <view class='left'>
+ <scroll-view class='scroll' scroll-y scroll-with-animation="500">
+<block wx:for="{{maplist}}" wx:key="item" wx:for-index="index">
+<text catchtap='araename' data-id="{{item.id}}" class="{{araename==item.id?'active':''}}" >{{item.araename}}</text>
+</block>
+</scroll-view>
+</view>
+<view class='right'>
+ <scroll-view class='scroll' scroll-y scroll-with-animation="500">
+<block wx:for="{{areamaplist}}" wx:key="item" wx:for-index="idx">
+<text catchtap='depositname' data-id="{{item.id}}" class="{{depositname==item.id?'active':''}}">{{item.araename}}</text>
+</block>
+</scroll-view>
+</view> 
+<view class='right1'>
+ <scroll-view class='scroll' scroll-y scroll-with-animation="500">
+<block wx:for="{{depositmaplist}}" wx:key="item" wx:for-index="idx">
+<view catchtap='villageitemTap' data-id="{{item.id}}" class="{{villageitem==item.id?'active':''}}">
+{{item.araename}} <icon type='success_no_circle' size="20" color='#fe9517' wx:if="{{villageitem==item.id}}"></icon></view>
+</block>
+</scroll-view>
+</view> 

@@ -1,0 +1,80 @@
+<!--pages/mygroup/mygroup.wxml-->
+<view class="mygroup">
+  <view class="headnav wrap-flex">
+    <view class="headitem wrap-flex-item font-size-30">
+      <view class="{{ activeId==0?'active':''}}" bindtap="activeTab" data-index="0">我发起的  
+      <view class="redBot" wx:if="{{redBotOne}}"></view> 
+      </view>
+      <view class="{{ activeId==1?'active':''}}" bindtap="activeTab" data-index="1">我参与的
+        <view class="redBot" wx:if="{{redBotTwo}}"></view>
+      </view>
+    </view>
+  </view>
+  
+  <view wx:if="{{listNone}}" class="blankBox">
+    <image src="/img/blank.png"></image>
+    <text class="blankBoxText font-size-28">暂无我发起的悬赏</text>
+  </view>
+  <view wx:if="{{listNone1}}" class="blankBox">
+    <image src="/img/blank.png"></image>
+    <text class="blankBoxText font-size-28">暂无我参与的悬赏</text>
+  </view>
+  <view class="mygroup-list fixedWidth" wx:if="{{activeId==0}}">
+    <view class="mygroup-item"  wx:for="{{myrewardinfo}}" data-type='1' bindtap="toPath" data-id="{{item.recid}}" data-comid="{{item.comid}}" data-type="my" data-type="One">
+      <view class="list-header wrap-flex">
+        <view class="mygroup-row wrap-flex-item">
+          <image src="{{item.avatarurl}}" mode="widthFix"></image>
+          <text class="font-size-28 com1010">{{item.nickname}}</text>
+        </view>
+        <view class="list-right font-size-24 state" style="color: {{item.rec_status==1?'#FF9800':'#888888'}}">{{item.rec_status==1?'悬赏中':'已结束'}}</view>
+      </view>
+      <view class="list-row companyname">{{item.comname}}</view>
+      <view class="font-size-28 com1010 last-row">{{item.message}}</view>
+      <view class="list-footer wrap-flex">
+        <view class="looknum">
+          <image src="/img/my/eyeg.png" mode="widthFix"></image>
+          <text class="font-size-24 comcolor">{{item.seenum}}</text>
+        </view>
+        <view class="looknum">
+          <image src="/img/my/timeg.png" mode="widthFix"></image>
+          <text class="font-size-24 comcolor">剩余{{item.sy_dayno}}天</text>
+        </view>
+        <view class="looknum">
+          <image src="/img/my/flagg.png" mode="widthFix"></image>
+          <text class="font-size-24 comcolor">{{item.invatednum}}人受邀</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="mygroup-list fixedWidth" wx:if="{{activeId==1}}">
+    <view class="mygroup-item"  wx:for="{{inmyrewardinfo}}" bindtap="toPath" data-type='1' data-id="{{item.recid}}" data-comid="{{item.comid}}" data-type="in" data-userid="{{item.puserid}}" data-type="Two">
+      <view class="list-header wrap-flex">
+        <view class="mygroup-row wrap-flex-item">
+          <image src="{{item.pavatarurl}}" mode="widthFix"></image>
+          <text class="font-size-28 com1010">{{item.pnickname}}</text>
+        </view>
+        <view class="list-right font-size-24 state" style="color: {{item.rec_status==1?'#FF9800':'#888888'}}">{{item.rec_status==1?'悬赏中':'已结束'}}</view>
+      </view>
+      <view class="list-row companyname">{{item.comname}}</view>
+      <view class="font-size-28 com1010 last-row">{{item.message}}</view>
+      <view class="list-footer wrap-flex">
+        <view class="looknum">
+          <image src="/img/my/eyeg.png" mode="widthFix"></image>
+          <text class="font-size-24 comcolor">{{item.seenum}}</text>
+        </view>
+        <view class="looknum">
+          <image src="/img/my/timeg.png" mode="widthFix"></image>
+          <text class="font-size-24 comcolor">剩余{{item.sy_dayno}}天</text>
+        </view>
+        <view class="looknum">
+          <image src="/img/my/flagg.png" mode="widthFix"></image>
+          <text class="font-size-24 comcolor">{{item.invatednum}}人受邀</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="navHome btn-bottom btnbottom" bindtap="toPath" data-type="navHome">
+    首页
+  </view> 
+</view>

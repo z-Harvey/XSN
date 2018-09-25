@@ -1,0 +1,23 @@
+<import src="/template/comitem/comitem.wxml" />
+
+<view class="search">
+  <view class="searchInfo wrap-flex">
+    <view class="searchinput">
+      <image src="/img/index/search.png" mode="widthFix" class="search"></image>
+      <input placeholder="请输入您要查找的公司" placeholder-class="font-size-28 comcolor" value="{{comname}}" bindinput="inputComname" class="font-size-28 com101010" auto-focus></input>
+      <view class="closebtn" bindtap="close">
+        <image src="/img/common/close.png" mode="widthFix" class="close" ></image> 
+      </view>   
+    </view>
+    <button class="searchbtn font-size-28" plain='true' bindtap="search">搜索</button> 
+  </view>
+  <view class="result fixedWidth" >
+    <block wx:for="{{list}}">
+      <view bindtap="toPath" data-id="{{item.comid}}" data-comname="{{item.comname}}">
+        <template is="comitem" data="{{...item}}"/>    
+      </view>
+    </block>
+  </view>
+  <view class="font-size-28 comcolor bottomview" wx:if="{{list.length>0}}">没搜到？试试看输入更全的企业名称</view>
+  <view class="font-size-28 comcolor bottomview" wx:if="{{list.length<=0}}">查无此公司</view>
+</view>

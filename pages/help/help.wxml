@@ -1,0 +1,13 @@
+<view class="help">
+  <view wx:if="{{list.length>0}}">
+    <block wx:for="{{list}}">
+      <view class="fixedWidth bodradius wrap-flex" bindtap="toPath" data-id="{{item.helpid}}" wx:if="{{list}}"> 
+        <view class="title font-size-28 com1010 wrap-flex-item">{{item.title}}</view>
+        <image src="/img/my/right.png" mode="widthFix"></image>
+      </view>
+    </block>
+  </view>  
+  <view wx:else class="font-size-28 com1010 helptip">暂时还没有帮助信息</view>
+
+  <button open-type="contact" class="guest-server" plain><image src="/img/my/guest.png"  mode="widthFix"></image></button>
+</view>

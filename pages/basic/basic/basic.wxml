@@ -1,0 +1,108 @@
+<form bindsubmit='formSbumit'>
+  <view class="head" catchtap='tiao'>
+    <text >商户名称</text>
+    <input type="text" placeholder='请输入商品名称 ' name="name"value ="1" placeholder-class="hui"></input>
+<view class="clear"></view>
+  </view>
+
+  <view class='logo head'>
+ <text>商户LOGO</text>
+    <view class="img">+</view>
+<view class="clear"></view>
+<input name="storeLogo"value="logo" catchtap='aaa' style='display:none;'></input>
+    </view>
+<view class="image">
+    <text>商户照片(最多上传四张)</text>
+<!-- value="{{imgurl}}"  -->
+    <input name="storeBackgroundPicture" style='display:none;' value="image"></input>
+    <view class="clear"></view>
+    <view class="img"  catchtap='imgTap'>+</view>
+  <view class="clear"></view>
+ <view >
+ <scroll-view scroll-x="true" scroll-with-animation="true">
+    <block wx:for="{{imgurl}}" wx:key="item">
+      <image class="img_url" src=" {{item}}" mode='widthFix'></image>
+    </block>
+    </scroll-view>
+ </view>
+    <view class="clear"></view>
+  </view>
+
+
+  <view class="content">
+  <view class='border'></view>
+    <view class="li ">
+      <text>行业</text>  
+           <image src="/images/right.png" class='imgright' mode='widthFix'></image>
+      <navigator url='typework/typework'><input type="text" placeholder='选择行业 ' disabled='0' name="businessIndName" value='2'  placeholder-class="hui"></input></navigator>
+ 
+      <view class="clear"></view>
+    </view>
+<view class='border'></view>
+    <view class="li">
+      <text>所在地区</text>
+       <image src="/images/right.png" class='imgright' mode='widthFix'></image>
+     <navigator url='industry/industry'> <input type="text" placeholder='选择省/市/区 ' name="businessCityName" disabled='true'  value='3'  placeholder-class="hui"></input></navigator>
+      <view class="clear"></view>
+    </view>
+
+    <view class="li">
+      <text>详细地址</text>
+      <image src="/images/right.png" class='imgright transp' mode='widthFix'></image>
+      <input type="text" placeholder='请输入详细地址 '  value='4'  name="detailAddress" placeholder-class="hui"></input>
+      <view class="clear"></view>
+    </view>
+    <view class="li">
+      <text>地图标记</text>
+       <image src="/images/right.png" class='imgright' mode='widthFix'></image>
+      <input type="text" placeholder='去标记' value='5' placeholder-class="hui"></input>
+      <view class="clear"></view>
+    </view>
+    <view class="li">
+      <text>所属商圈</text>
+       <image src="/images/right.png" class='imgright' mode='widthFix'></image>
+       
+      <input type="text" placeholder='选择商圈 ' name="businessDistrict" value="6" placeholder-class="hui"></input>
+      <view class="clear"></view>
+    </view>
+    <view class='border'></view>
+    <view class="li">
+      <text>商户介绍</text>
+       <image src="/images/right.png" class='imgright' mode='widthFix'></image>
+      <input type="text" placeholder='请输入商户介绍 ' name="merchantIntroduction"  placeholder-class="hui" value='7'></input>
+      <view class="clear"></view>
+    </view>
+    <view class="li">
+     <image src="/images/right.png" class='imgright' mode='widthFix'></image>
+      <text>便利设施</text>
+      <input type="text" placeholder='选择便利设施 ' name="facilities_content" placeholder-class="hui" value='8'></input>
+      <view class="clear"></view>
+    </view>
+    <view class='border'></view>
+    <view class="li">
+      <text>客服电话</text>
+      <image src="/images/right.png" class='imgright transp' mode='widthFix'></image>
+      <input type="text" placeholder='请输入客服电话 ' name="storePhone" value="9" placeholder-class="hui"></input>
+      <view class="clear"></view>
+    </view>
+  <view class="li">
+      <text>营业时间</text>
+       <image src="/images/right.png" class='imgright' mode='widthFix'></image>
+      <input type="text" placeholder='设置 ' name="businessHours" value="10" placeholder-class="hui"></input>
+      <view class="clear"></view>
+    </view>
+      <view class="li">
+      <text>联系人</text>
+       <image src="/images/right.png" class='imgright transp' mode='widthFix'></image>
+      <input type="text" placeholder='请输入联系人姓名 ' value="11" name="personInChargeName"  placeholder-class="hui"></input>
+      <view class="clear"></view>
+    </view>
+      <view class="li">
+      <text>联系人电话</text>
+      <image src="/images/right.png" class='imgright transp' mode='widthFix'></image>
+      <input type="number"  name="personInChargePhone"   placeholder='请输入联系人电话 'placeholder-class="hui" value="18888888888"></input>
+      <view class="clear"></view>
+    </view>
+<button class='shi' form-type='submit'>保存</button>
+  </view>
+</form>

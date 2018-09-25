@@ -1,0 +1,58 @@
+/* pages/help/help.wxss */
+.help{
+  padding-bottom: 40rpx;
+}
+.fixedWidth{
+  background: #fff;
+  min-height: 100rpx;
+  margin-top: 20rpx;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  padding: 20rpx 20rpx 20rpx 45rpx;
+}
+.fixedWidth image{
+  width: 34rpx;
+}
+.help>image{
+  width: 100rpx;
+  position: fixed;
+  bottom: 56rpx;
+  right: 30rpx;
+}
+.help .title{
+  padding-left:6rpx;
+  position: relative;
+}
+.help .title::before{
+  content: '';
+  position: absolute;
+  display: inline-block;
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 50%;
+  background: #DEFCF9;
+  bottom: 0;
+  top: 0;
+  margin: auto;
+  left: -25rpx;
+}
+.helptip{
+  text-align: center;
+  margin-top: 400rpx;
+}
+.help .guest-server>image,.guest-server{
+  width: 100rpx;
+  position: fixed;
+  bottom: 40rpx;
+  right: 30rpx;
+}
+.help .guest-server>image{
+  z-index:1000;
+}
+.guest-server{
+  width: 200rpx;
+  height: 200rpx;
+  background: transparent;
+  border: none;
+}

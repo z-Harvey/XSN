@@ -1,0 +1,85 @@
+<view class="identy">
+  <view class="tipinfo wrap-flex" style="display:{{show?'flex':'none'}}">
+    <image src="/img/my/tan.png" mode="widthFix" class="tipimg"></image>
+    <view class="font-size-24 com1010 wrap-flex-item">
+      以下为私密信息
+      <text class="highline">仅好友可见</text>，请放心填写
+    </view>
+    <image src="/img/common/closex.png" mode="widthFix" class="close" bindtap="close"></image>
+  </view>
+  <view class="identyinfo fixedWidth">
+    <view class="identyname">
+      <view class="font-size-28 com1010 title">当前职位</view>
+      <view class="name font-size-28 com1010">
+        <view>{{comname}}</view>
+      </view>
+    </view>
+
+    <view class="identyname upload">
+      <view class="font-size-28 com1010 title">
+        <text>当前认证</text>
+      </view>
+      <view class="namea font-size-28 com1010" bindtap="upload" wx:if="{{!src}}">
+        <view class="font-size-40" style="font-size: 80rpx;">+</view>
+        <view class="font-size-28">上传职位身份证明</view>
+        <view class="font-size-24" style="color: #A1A0A0">名片、工牌、企业邮箱、在职证明等</view>
+      </view>
+      <image src="{{src}}" mode="widthFix" wx:else style="width: 100%" bindtap="upload"></image>
+    </view>
+
+    <view class="identyname">
+      <view class="font-size-28 com1010 title">
+        <text>更新记录</text>
+      </view>
+      <view class="name">
+        <view class="wrap-router wrap-flex" wx:key="index" wx:for="{{list}}" wx:if="{{item.type==3}}">
+          <view class="router-left">
+            <text class="font-size-28 com1010">{{item.date}}</text>
+          </view>
+          <view class="wrap-flex-item router-right">
+            <text class="font-size-28 com1010" wx:if="{{item.type==2}}">认证为:</text>
+            <text class="font-size-28 com1010 fontiden">{{item.work}}</text>
+            <image src="{{item.proveurl}}"></image>
+          </view>
+        </view>
+        <view class="wrap-router wrap-flex" wx:key="index" wx:for="{{list}}" wx:if="{{item.type==2}}">
+          <view class="router-left">
+            <text class="font-size-28 com1010">{{item.date}}</text>
+          </view>
+          <view class="wrap-flex-item router-right">
+            <text class="font-size-28 com1010">认证中:</text>
+            <text class="font-size-28 com1010 fontiden">{{item.work}}</text>
+            <image src="{{item.proveurl}}"></image>
+          </view>
+        </view>
+
+        <!-- <view class="wrap-router wrap-flex" wx:key="index" wx:for="{{list}}" wx:if="{{item.type==4}}">
+          <view class="router-left">
+            <text class="font-size-28 com1010">{{item.date}}</text>
+          </view>
+          <view class="wrap-flex-item router-right">
+            <text class="font-size-28 com1010">更改公司:</text>
+            <text class="font-size-28 com1010 fontiden">{{item.work}}</text>
+          </view>
+        </view> -->
+
+        <view class="wrap-router wrap-flex" wx:key="index" wx:key="index" wx:for="{{list}}" wx:if="{{item.type==1}}">
+          <view class="router-left">
+            <text class="font-size-28 com1010">{{item.date}}</text>
+          </view>
+          <view class="wrap-flex-item router-right">
+            <text class="font-size-28 com1010">注册</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+
+  <button class="btnbottom btn-bottom" plain="true" hover-class="activebtn" bindtap="myworkprove" wx:if="{{state==0}}">提交</button>
+
+  <button class="btnbottom btn-bottom" plain="true" hover-class="activebtn" wx:else disabled>认证中</button>
+
+  <!-- <button class="btnbottom btn-bottom" plain="true" hover-class="activebtn" bindtap="myworkprove">提交</button> -->
+
+</view>

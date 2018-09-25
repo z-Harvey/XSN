@@ -1,0 +1,8 @@
+<view class="marksuccess">
+  <image src="/img/common/right.png" mode="widthFix"></image>
+  <view class="font-size-40 com1010">邀请成功</view>
+  <view class="font-size-28 colora0 fixedWidth">成功向{{nickname}}发起组队邀请，组队成功后我们将为您发送通知~</view>
+  <button plain class="activepublic font-size-36" bindtap="toPath" data-type="1">返回匹配结果</button>
+  <button plain class="gray font-size-36" bindtap="toPath" data-type="2">返回首页</button>
+</view>
+

@@ -1,0 +1,15 @@
+.teamadvise{
+  background: #fff;
+  min-height: 230rpx;
+  padding: 20rpx 20rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.teamadvise .info{
+  line-height: 90rpx;
+}
+.teamadvise .right{
+  position: absolute;
+  bottom: 20rpx;
+  right: 20rpx;
+}

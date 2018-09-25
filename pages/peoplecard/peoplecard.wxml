@@ -1,0 +1,114 @@
+<!--pages/cardInfo/cardInfo.wxml-->
+<import src="/template/start/start.wxml" />
+<view class="cardinfo">
+  <view class="cardheader">
+    <view class="bg"></view>
+    <view class="border"></view>
+    <view class="fixedWidth bodradius personInfo">
+      <view class="header">
+        <view class="wrap-flex">
+          <view class="header-left wrap-flex-item ">
+            <view class="row wrap-flex">
+              <text class="font-size-40 com1010">{{list.name?list.name:'未设置'}}</text>
+              <text class="font-size-40 line comcolor">|</text>
+              <text class="font-size-40 comcolor wrap-flex-item">{{list.position?list.position:'未设置'}}</text>
+            </view>
+            <view class="row">
+              <text class="font-size-24 com1010">{{list.comname?list.comname:'未设置'}}</text>
+              <image src="{{list.provestatus==1?'/img/common/confirm.png':'/img/common/unconfirm.png'}}" mode="widthFix" class="confirmstate"></image>
+            </view>
+          </view>
+          <view class="header-right">
+            <image src="{{list.avatarurl}}" mode="widthFix"></image>
+            <view class="nick">
+              <image src="/img/card/man.png" class="smallsex" mode="widthFix" wx:if="{{list.gender==1}}"></image>
+      <image src="/img/card/woman.png" class="smallsex" mode="widthFix" wx:elif="{{list.gender==2}}"></image>
+              <text class="font-size-28 com1010">{{list.nickname?list.nickname:'未设置'}}</text>
+            </view>
+          </view>
+        </view>
+
+        <view class="rowline first" >
+          <image src="/img/common/tel.png" mode="widthFix"></image>
+          <text class="font-size-28 comcolor">{{list.phoneno?list.phoneno:'未设置'}}</text>
+        </view>
+        <view class="rowline" >
+          <image src="/img/common/email.png" mode="widthFix"></image>
+          <text class="font-size-28 comcolor">{{list.email?list.email:'未设置'}}</text>
+        </view>
+        <view class="rowline wrap-flex" >
+          <view class="rowleft wrap-flex-item">
+            <image src="/img/common/wx.png" mode="widthFix"></image>
+            <text class="font-size-28 comcolor">{{list.wxno?list.wxno:'未设置'}}</text>
+          </view>
+          <text class="www">互联网</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="fixedWidth bodradius comperson wrap-flex" bindtap="toPath" data-type="comuser" wx:if="{{list.com_cus_num}}">
+    <text class="font-size-28 com1010 wrap-flex-item">共同客户</text>
+    <view class="font-size-28 right" style="color: #686868;" >
+      <text>共{{list.com_cus_num}}个</text>
+      <image src="/img/my/right.png" class="rightarrow"></image>
+    </view>
+  </view>
+
+  <view class="fixedWidth bodradius evaluate common" bindtap="toPath" data-type="evaluate" wx:if="{{num}}">
+    <view class="wrap-flex title">
+      <text class="font-size-28 com1010 wrap-flex-item">评分</text>
+      <view class="font-size-28 right wrap-flex" style="color: #686868;" >
+        <template is="start" data="{{num}}" />
+        <image src="/img/my/right.png" class="rightarrow"></image>
+      </view>
+    </view>
+
+    <view class="evalbtn" >
+      <block wx:for="{{list.tags_list}}"> 
+        <button plain>{{item[0]}} {{item[1]}}</button>
+      </block> 
+    </view>
+  </view>
+
+  <view class="fixedWidth bodradius evaluate common" wx:if="{{list.product}}">
+    <view class="wrap-flex title">
+      <text class="font-size-28 com1010 wrap-flex-item">产品</text>
+    </view>
+    <block wx:for="{{product}}">
+      <view class="product font-size-28" wx:if="{{item}}">{{item}}</view>
+    </block>
+  </view>
+
+  <view class="fixedWidth bodradius comperson wrap-flex location" wx:if="{{address}}">
+    <image src="/img/common/location.png" mode="widthFix"></image>
+    <text class="font-size-28 com1010 wrap-flex-item">所在地</text>
+    <view class="font-size-28 right  wrap-flex-item" style="color: #686868;">
+      <text>{{address}}</text>
+    </view>
+  </view>
+  <image src="/img/home.png" mode="widthFix" bindtap="toPath" data-type='navHome'></image>
+  <view class="btmBtn wrap-flex btn-bottom">
+      <view>
+        <button wx:if="{{transmit}}" class="wrap-flex-item firstbtn font-size-32" style="color:#fff;line-height: 96rpx;" plain="true" hover-class="activebtn" bindtap="share"  open-type="share" id="1">递名片</button>
+        <button wx:elif="{{!transmit}}" class="wrap-flex-item firstbtn font-size-32" plain="true" hover-class="activebtn" style="line-height: 96rpx;color:#fff;" bindtap="clickShare" id="2">递名片</button>
+      </view>
+    <view>
+      <button class='wrap-flex-item firstbtn edi font-size-32' bindtap="toPath" data-type='edit'>编辑</button>
+    </view>
+  </view>
+  <view class="wrap-flex btn-bottom motNone" wx:if="{{motIfblock}}">
+      <view class="motTextBox">
+        <view class="motContent font-size-28">递出名片后，所有打开名片的人均能查看您的个人信息，当陌生人与您沟通时将自动建立好友关系，是否确认递出？</view>
+      <view class="cheBoxs">
+        <view class="che_box" bindtap="clickChebox">
+            <view wx:if="{{chexBox}}" class="cheButImg"><image src="/img/peoplecard/true.png"></image></view>
+            <view wx:if="{{!chexBox}}" class="cheBut"></view>
+        </view>
+        <text class="font-size-28">不在提示</text></view>
+        <view class="motButs">
+          <button class=" font-size-32" bindtap="clickShare" data-type='1'>取消</button>
+          <button style="border-top:1rpx solid rgba(0,0,0,.1);" class="wrap-flex-item firstbtn font-size-32 colordes" plain="true" hover-class="activebtn" bindtap="share" open-type="share" id="1">递名片</button>
+        </view>
+    </view>
+  </view>
+</view>

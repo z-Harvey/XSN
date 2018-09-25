@@ -1,0 +1,33 @@
+/* pages/message/message.wxss */
+@import "../../template/chat/chat.wxss";
+.defaulttext{
+  color: #EE8102;
+  border: 2rpx solid #EE8102;
+  margin-left: 4rpx;
+  border-radius: 32rpx;
+  width: 70rpx;
+  height: 28rpx;
+  line-height: 28rpx;
+  display: inline-block;
+  text-align: center;
+}
+.defaultImg{
+  position: relative;
+}
+.defaultImg::before{
+  content: '';
+  width: 16rpx;
+  height: 16rpx;
+  border-radius: 50%;
+  background-color: rgba(229, 28, 35, 1);
+  display: inline-block;
+  position: absolute;
+  left: 91rpx;
+  top: -8rpx;
+  z-index: 100;
+}
+.message .item .common image{
+  height: 96rpx;
+  width: 96rpx;
+  margin-right: 20rpx;
+}

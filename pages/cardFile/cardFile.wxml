@@ -1,0 +1,54 @@
+<import src="/template/comitem/comitem.wxml" />
+<import src="/template/chat/chat.wxml" />
+
+<view class="search message">
+  <view class="searchInfo wrap-flex">
+    <view class="searchinput">
+      <image src="/img/index/search.png" mode="widthFix" class="search"></image>
+      <input placeholder="输入昵称、姓名搜索名片" placeholder-class="font-size-28 comcolor" value="{{comname}}" bindinput="inputComname" class="font-size-28 com101010"></input>
+      <view class="closebtn" bindtap="close">
+        <image src="/img/common/close.png" mode="widthFix" class="close" ></image> 
+      </view>   
+    </view>
+    <button class="searchbtn font-size-28" plain='true' bindtap="search">搜索</button> 
+  </view>
+  <view class="carTips">
+    <image src="/img/my/tan.png"></image>
+    <text class="font-size-24">当前版本聊天记录只能保留7天，必要时请注意做好截图备份~</text>
+  </view>
+  <view wx:if="{{listNone}}" class="blankBox">
+    <image src="/img/blank.png"></image>
+    <text class="blankBoxText font-size-28">暂时没有好友，把名片递给其他人互加好友吧~</text>
+    <button class="font-size-28" bindtap='toPath' data-type='myName'>查看名片</button>
+  </view>
+  <view class="result fixedWidth" >
+    <block wx:for="{{list}}">
+      <view class="item bodradius fixedWidth wrap-flex" bindtap="toPath" data-id="{{item.id}}" wx:if="{{item.id!=userid}}">
+      <image class="userImg" src="{{item.avatarurl}}" mode="widthFix"></image>
+      <view class="userContent list-right wrap-flex-item">
+        <view class="list-nick wrap-flex" style="margin-top: -5rpx">
+          <view class="imagetext wrap-flex-item">
+            <text class="font-size-28 com1010">{{item.nickname}}</text>
+            <image src="/img/common/confirm.png" mode="widthFix" wx:if="{{item.provestatus==1}}"></image>
+            <image src="/img/common/unconfirm.png" mode="widthFix" wx:else></image>
+          </view>
+        </view>
+        <view class="list-bottom font-size-24 com1010">{{item.comname}}</view>
+      </view>
+    </view>
+
+    </block>
+  </view>
+
+  <view class="mask" animation="{{animation}}" style="visibility: {{show ? 'visible' : 'hidden'}}" catchtap="hideModal">
+    <view class="maskContent">
+      <view class="head">
+        <text class="title" catchtap="show">提示</text>
+      </view>
+      <view class="content" catchtap="show">请您先登录后再查看</view>
+      <view class="footer">
+        <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="mymarkcode font-size-28" plain="true" >登陆</button>
+      </view>
+    </view>
+  </view>
+</view>

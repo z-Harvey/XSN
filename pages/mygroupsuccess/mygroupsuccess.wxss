@@ -1,0 +1,6 @@
+/* pages/mygroupsuccess/mygroupsuccess.wxss */
+/* pages/groupsucc/groupsucc.wxss */
+@import "../../template/success/success.wxss";
+.fixedWidth{
+  width: 660rpx;
+}

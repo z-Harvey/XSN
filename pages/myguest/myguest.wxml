@@ -1,0 +1,52 @@
+<view class="myguest">
+  <view class="searchInfo wrap-flex">
+    <view class="searchinput">
+      <image src="/img/index/search.png" mode="widthFix" class="search"></image>
+      <input placeholder="请输入您要查找的客户" placeholder-class="font-size-28 comcolor" class="font-size-28 com1010" bindinput="inputComname" value="{{comname}}"></input>
+      <view class="closebtn" bindtap="close">
+        <image src="/img/common/close.png" mode="widthFix" class="close"></image>
+      </view>
+    </view>
+    <button class="searchbtn font-size-28" plain='true' bindtap="search">搜索</button>
+  </view>
+  <view wx:if="{{listNone}}" class="blankBox">
+    <image src="/img/blank.png"></image>
+    <text class="blankBoxText font-size-28">暂时没有标记过客户</text>
+    <button bindtap='toPath' data-type='soce' class="font-size-28">搜索客户去标记</button>
+  </view>
+  <view class="lock">
+    <block wx:for="{{list}}">
+      <view class="itemlist fixedWidth bodradius">
+        <view class="list-header wrap-flex" bindtap="markguest" data-comname="{{item.comname}}" data-comid="{{item.comid}}">
+          <image src="/img/index/icon.png" mode="widthFix"></image>
+          <view class="list-right wrap-flex">
+            <view class="list-nick">
+              <text class="font-size-28 com1010">{{item.comname}}</text>
+            </view>
+            <view class="list-content">
+              <button plain class="refbtn font-size-24" wx:if="{{ item.relation==0}}">有过合作</button>
+              <button plain class="refbtn font-size-24" wx:elif="{{ item.relation==1}}">正在合作</button>
+              <button plain class="refbtn font-size-24" wx:elif="{{ item.relation==2}}">有过跟进</button>
+              <button plain class="refbtn font-size-24" wx:elif="{{ item.relation==3}}">正在跟进</button>
+              <button plain class="refbtn font-size-24" wx:if="{{item.hasdecision==0}}">有决策链线索</button>
+              <button plain class="refbtn font-size-24" wx:elif="{{item.hasdecision==1}}">无决策链线索</button>
+            </view>
+          </view>
+        </view>
+
+        <view class="list-footer wrap-flex">
+          <view class="date">
+            <text class="font-size-24">{{item.crtdate}}</text>
+            <text class="font-size-24 update">更新</text>
+          </view>
+          <button class="font-size-28 tap" plain bindtap="toPath" data-type="edit" data-index="{{index}}">编辑</button>
+        </view>
+      </view>
+    </block>
+  </view>
+  <view class="blankBox"></view>
+  <button class="btn-bottom btnbottom" plain bindtap="toPath" data-type="mark">标记新客户</button>
+  <view class="navHome font-size-32" bindtap="toPath" data-type="navHome">
+    <image src="/img/home.png"></image>
+  </view> 
+</view>

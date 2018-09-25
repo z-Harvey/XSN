@@ -1,0 +1,9 @@
+.left,.right,.right1{width: 33%;display: inline-block;font-size:14px;float: left;position: fixed;top:0;bottom:0;} 
+.scroll{ position:absolute;top:0;height: 100%;bottom:0;}
+.left{background: #f0f0f0;left:0;}
+.right{background: #fff;left:33%;}
+.right1{left:66%;}
+.right1 view{padding:10px;}
+text{display:block;padding:10px;}
+.active{color:#fe9517;background: #fff;}
+.right1 icon{float:right;margin-right:2px;}

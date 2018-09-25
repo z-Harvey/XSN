@@ -1,0 +1,99 @@
+@import "../../template/reward/reward.wxss";
+
+.rewardInfo{
+  padding-bottom: 140rpx;
+}
+.reward-header{
+  background: #FF9800;
+}
+.header-nick{
+  text-align: center;
+  color: #fff;
+}
+.header-nick>image{
+  margin-top: 45rpx;
+  width: 100rpx;
+  border-radius: 50%;
+}
+.dialogBorder{
+  min-height: 112rpx;
+  line-height: 34rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+  color: rgba(16, 16, 16, 1);
+  position: relative;
+  box-sizing: border-box;
+  padding: 20rpx 20rpx 50rpx;
+  margin-top: 40rpx;
+  text-align: center;
+}
+.dialogBorder::before{
+  content: '';
+  width: 0;
+  height: 0;
+  border-width: 20rpx;
+  border-color:transparent transparent  #fff transparent;
+  border-style: solid;
+  display: inline-block;
+  position: absolute;
+  top: -35rpx;
+  left: 330rpx;
+  z-index: 100;
+}
+.dialogBorder .tip{
+  background: #f1f1f1;
+  padding: 10rpx;
+  text-align: left;
+}
+.dialogBorder .fixed{
+  margin: 50rpx 0 20rpx;
+} 
+
+.looknum>image{
+  width: 24rpx;
+  vertical-align: middle;
+  margin-right: 6rpx;
+}
+.looknum:nth-child(2){
+  margin: 0 50rpx;
+}
+.list-info .title{
+  margin: 20rpx 0;
+}
+.fixedWidth.list-li{
+  background: #fff;
+}
+.itemlist {
+  padding: 20rpx 20rpx 0;
+}
+.infofooter{
+  padding: 0 30rpx;
+}
+.rewardInfo>image{
+  width: 100rpx;
+  position: fixed;
+  bottom: 120rpx;
+  right: 30rpx;
+}
+
+
+
+.noFens{
+  position: fixed;
+  bottom: 0;
+  width: 750rpx;
+  height:96rpx;
+  background: #888;
+}
+.noFens>button::after{
+  border:0;
+}
+.noFens>button{
+    width: 750rpx;
+  height:96rpx;
+  border:0;
+  text-align: center;
+  line-height: 96rpx;
+  color:#fff;
+  background: rgba(0,0,0,0);
+}

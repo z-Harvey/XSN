@@ -1,0 +1,12 @@
+<template name="activeheader">
+  <view class="header">
+    <image src="/img/index/icon.png" mode="widthFix"></image>
+    <view class="companyinfo font-size-28 com1010">{{comname}}</view>
+    <view class="num">
+      <!-- 这个图片设置了高度 -->
+      <text class="font-size-28 {{personnum?'com1010':'image'}}">{{personnum?personnum:3}}</text>
+      <text class="companyinfo font-size-28 com1010">个跟进人</text>
+    </view>
+  </view>
+  <view class="info font-size-28 comcolor">以下用户与当前企业标记过往来关系</view>
+</template>

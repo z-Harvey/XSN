@@ -1,0 +1,25 @@
+/* pages/mygicon/mygicon.wxss */
+page{
+  background: #F8F8F8;
+}
+.myicon{
+  padding-bottom: 65rpx;
+}
+.myicon .welfare-header{
+  padding: 0 30rpx;
+  background: #fff;
+  align-items: center;
+  box-sizing: border-box;
+  margin-top: 20rpx;
+  height: 160rpx;
+}
+.highline{
+  color: #999;
+  margin-top: 15rpx;
+}
+.blackcolor{
+  color: rgba(255, 152, 0, 1);
+}
+.bluecolor{
+  color: #8BC34A;
+}

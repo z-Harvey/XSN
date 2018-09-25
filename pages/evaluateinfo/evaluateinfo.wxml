@@ -1,0 +1,28 @@
+<view class="evaluateinfo">
+  <view class="evaluate-header">
+    <image src="{{pavatarurl}}" mode="widthFix"></image>
+    <view class="font-size-28 com1010">{{nickname}}</view>
+  </view>
+  <view class="evaluate-font font-size-28 fixedWidth">
+    <view>评价队友</view>
+  </view>
+
+  <view class="start fixedWidth">
+    <block wx:for="{{[1,2,3,4,5]}}">
+      <image src="/img/common/startsolid.png" mode="widthFix" data-index="{{index}}" bindtap="changescore" wx:if="{{score>index}}"></image>
+      <image src="/img/common/start.png" mode="widthFix"   data-index="{{index}}" bindtap="changescore" wx:else></image>
+    </block>
+
+    <view class="font-size-24">{{scoreinfo}}</view>
+    <view class="tagbtn">
+      <block wx:for="{{list}}">
+        <button plain class="{{item==1?'active':''}}" bindtap="changetag" data-index="{{index}}">{{info[index].tagmsg}}</button>
+      </block>
+    </view>
+    <view class="borderView">
+      <textarea placeholder="说说你的其他意见吧" placeholder-class="font-size-28 comcolor" auto-height='true' value="{{message}}" bindinput="changemessage" class="font-size-28 com1010"></textarea>
+    </view>
+  </view>
+
+  <button class="btn-bottom btnbottom" plain bindtap="toPath" hover-class="active">提交</button>
+</view>

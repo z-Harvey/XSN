@@ -1,0 +1,119 @@
+/* pages/peoplecard/peoplecard.wxss */
+@import "../../template/start/start.wxss";
+@import "../../template/card/card.wxss";
+
+.confirmstate{
+  width: 24rpx;
+  vertical-align: middle;
+}
+.cardinfo>view:nth-child(2){
+  margin-top: 120rpx;
+}
+
+
+.motTextBox{
+  width: 560rpx;
+  height:356rpx;
+  background: #fff;
+  border-radius: 16rpx;
+  position: relative;
+  overflow: hidden;
+  left:96rpx;
+  top:-100rpx;
+}
+.motContent{
+  width:476rpx;
+  height:120rpx;
+  margin: 42rpx auto 0;
+}
+.cheBoxs{
+  padding-left:46rpx;
+  border:1rpx solid rgba(0,0,0,0);
+  position: relative;
+  top:38rpx;
+}
+.che_box{
+  height:40rpx;
+  position: relative
+}
+.cheBut{
+  position: absolute;
+  border:1rpx solid #888888;
+  width:28rpx;
+  height:28rpx;
+  border-radius:50%;
+}
+.cheButImg{
+  position: absolute;
+  width:28rpx;
+  height:28rpx;
+  border-radius:50%;
+}
+.cheButImg>image{
+  position: absolute;
+  width:30rpx;
+  height:30rpx;
+  border-radius:50%;
+}
+.cheBoxs>text{
+  position: absolute;
+  top:0;
+  left:88rpx;
+  color:rgba(136, 136, 136, 1);
+  line-height: 34rpx;
+}
+.motButs{
+  width:560rpx;
+  height:90rpx;
+  position: absolute;
+  bottom: 0;
+}
+.motButs>button{
+  width:50%;
+  height:90rpx;
+  float: left;
+  line-height: 90rpx;
+  border:1rpx solid #888888 100%;
+  background: #fff;
+}
+.motButs>button::after{
+  border-radius: 0
+}
+.motButs>button:first-child{
+  border-radius: 0 0 0 16rpx;
+}
+.motButs>button:last-child{
+  border-radius: 0 0 16rpx 0;
+}
+.colordes{
+  color:#3DBE1C;
+}
+.motNone{
+  position: fixed;
+  top:0;
+  bottom: 0;
+  width: 100%;
+  height:100%;
+  background: rgba(0,0,0,.5)
+}
+.btmBtn{
+  background:rgba(255, 152, 0, 1);
+}
+.btmBtn>view{
+  width:374rpx;
+  height:96rpx;
+  float: left;
+}
+.btmBtn>view>.edi{
+  width:100%;
+  height:100%;
+  background: rgba(0,0,0,0);
+  border-radius: 0;
+  border: 0;
+  line-height: 96rpx;
+  color:#fff;
+  border-left: 1rpx solid #fff
+}
+.btmBtn>view>.edi::after{
+  border:0;
+}

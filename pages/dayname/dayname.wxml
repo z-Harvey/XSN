@@ -1,0 +1,42 @@
+<view class="dayname">
+  <view class="mask">
+     <image src="{{userinfo.avatarUrl}}" mode="widthFix" class="headerimg"></image>
+     <image src="/img/start.png" mode="widthFix" class="start"></image>
+     <view class="signresult">
+       <image src="/img/tag.png" mode="widthFix"></image>
+       <text class="font-size-32">签到成功</text>
+     </view>
+     <view class="font-size-24 daynum">累计签到 666 天</view>
+     <view class="border">
+       <view class="content">
+          <view class="font-size-32 first">今日牛运</view>
+          <view class="font-size-24 scorenum">
+            <text class="font-size-96">{{list.today_niuqi}}</text>分
+          </view>
+          <view class="font-size-24 tip">{{list.niuqimsg}}</view>
+          <view class="info wrap-flex">
+            <view class="wrap-flex-item left">
+              <view class="nodo">忌</view>
+              <view class="font-size-32">{{list.yi_field}}</view>
+            </view>
+            <view class="wrap-flex-item left right">
+              <view class="nodo do">宜</view>
+              <view class="font-size-32">{{list.ji_field}}</view>
+            </view>
+          </view>
+       </view>
+     </view>
+
+     <view class="reward">
+        <text class="font-size-28 left">签到获得</text>
+        <text class="font-size-28 right">+{{list.changeniub}}牛币</text>        
+     </view>
+
+     <button class="share" plain open-type="share">
+      <image src="/img/share.png" mode="widthFix"></image>
+      分享好运 
+     </button>
+
+     <view class="font-size-24 bottom">分享领取牛币+10</view>
+  </view>
+</view>

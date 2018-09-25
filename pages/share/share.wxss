@@ -1,0 +1,88 @@
+/* pages/share/share.wxss */
+page{
+  height: 100%;
+  background: #EA282F;
+}
+.register{
+  position: relative;
+  height: 100%;
+}
+.register>image.bg{
+  width: 100%;
+  position: absolute;
+}
+.register .mask{
+  position: absolute;
+  top: 450rpx;
+  text-align: center;
+  width:100%;
+}
+.mask>image{
+  width: 100rpx;
+  border-radius: 50%;
+}
+.nick{
+  color: #fff;
+}
+.mask .tel{
+  margin-top: 60rpx;
+}
+.mask input.tel,.mask .code{
+  width: 650rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-radius: 96rpx;
+  background-color: rgba(255, 255, 255, 1);
+  color: rgba(255, 152, 0, 1);
+  font-size: 28rpx;
+  text-align: left;
+  font-family: Arial;
+  padding-left: 48rpx;
+  box-sizing: border-box;
+  margin: 30rpx auto 30rpx;  
+}
+.mask input.tel{
+  margin: 60rpx auto 30rpx;
+}
+.telinput{
+  color: rgba(255, 152, 0, 1);
+}
+.mask .code .input{
+  width: 650rpx;
+  height: 100rpx;
+  position: relative;
+}
+.mask button.register{
+  z-index: 10000;
+  width: 650rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  font-size: 28rpx;
+  text-align: center;
+  font-family: Arial;
+  margin: 30rpx auto; 
+  box-sizing: border-box;
+  background: #FFD42A;
+  color: #fff;
+}
+.mask .code .input{
+  width: 350rpx;
+  border-right: 2rpx solid #FFD42A;
+  position: absolute;
+}
+.mask .code{
+  position: relative;
+  color:  rgba(255, 152, 0, 1);
+}
+.mask .code button{
+  color:  rgba(255, 152, 0, 1);
+}
+.mask .code .getcode{
+  position: absolute;
+  right: 53rpx;
+  top: 36rpx;
+}
+.mask .registerbtn{
+  background: #FFD42A;
+  color: #fff;
+}

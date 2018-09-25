@@ -1,0 +1,12 @@
+.left,.right,.right1{font-size:14px;position: fixed;top:0;bottom:0;} 
+.scroll{ position:absolute;top:0;height: 100%;bottom:0;}
+.left{background: #f0f0f0;left:0;width: 40%;}
+.right{background: #fff;left:40%;width: 60%}
+text{display:block;padding:10px;padding-left: 100rpx;}
+.left text{
+  padding-left: 80rpx;
+  padding-right: 80rpx;
+}
+.active{color:#fe9517;background: #fff;}
+.activeright{color:#fe9517;background: #f0f0f0;}
+

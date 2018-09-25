@@ -1,0 +1,148 @@
+/* pages/myguest/myguest.wxss */
+@import "../../template/search/search.wxss";
+
+.myguest {
+  padding-bottom: 100rpx;
+}
+.myguest .closebtn{
+  position: absolute;
+  width: 100rpx;
+  height: 70rpx;
+  right: 20rpx;
+  top: 0rpx;
+  z-index: 100
+}
+.searchinput image.close{
+  right: 0;
+  top: 20rpx;
+}
+.lock{
+  margin-top: 20rpx;
+}
+.searchInfo {
+  padding: 0 30rpx;
+  box-sizing: border-box;
+  height: 80rpx;
+  background: #fff;
+}
+.activityInfo {
+  flex-direction: column;
+  padding-bottom: 100rpx;
+}
+.itemlist {
+  background: #fff;
+  box-sizing: border-box;
+  padding: 20rpx 20rpx 0;
+}
+.lock .itemlist {
+  margin-bottom: 20rpx;
+}
+.lock .list-header>image {
+  width: 100rpx;
+  margin-right: 16rpx;
+}
+.list-header .list-right {
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80rpx;
+}
+.list-content{
+  margin-top: 5rpx;
+}
+.list-content .refbtn {
+  margin-right: 16rpx;
+  line-height: 44rpx;
+  text-align: center;
+  display: inline-block;
+  width: 160rpx;
+  height: 44rpx;
+  border-radius: 40rpx;
+  background-color: rgba(241, 241, 241, 1);
+  color: rgba(85, 85, 85, 1);
+}
+.list-content .refbtn:nth-of-type(2) {
+  width: 180rpx;
+}
+
+.list-footer {
+  height: 90rpx;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 2rpx solid #f0eff5;
+  margin-top: 30rpx;
+}
+
+.list-footer .date {
+  color: #d2d2d2;
+  flex: 1;
+}
+
+.date .update {
+  margin-left: 10rpx;
+}
+
+.list-footer>button {
+  flex-basis: 120rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 6rpx;
+  text-align: center;
+  display: inline-block;
+}
+
+.list-footer>button.tap {
+  color: rgba(255, 152, 0, 1);
+  border: 2rpx solid rgba(255, 152, 0, 1);
+}
+
+.blankBox{
+  height: 116rpx;
+  width: 1rpx;
+}
+
+.navHome{
+  position: fixed;
+  right: 28rpx;
+  bottom: 116rpx;
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+.navHome>image{
+  width: 100rpx;
+  height:100rpx;
+}
+
+.blankBox{
+  text-align: center;
+  width: 100%
+}
+.blankBox > image{
+  width: 216rpx;
+  height:216rpx;
+  display: inherit;
+  margin: 94rpx auto 112rpx;
+}
+.blankBox>button{
+  border:0;
+  width:260rpx;
+  height:70rpx;
+  line-height: 70rpx;
+  background: rgba(255, 152, 0, 1);
+  text-align: center;
+  color:#fff;
+  margin-top:60rpx;
+  border-radius: 6rpx;
+}
+.blankBox>button::after{
+  border:0;
+}
+
+.blankBoxText{
+width: 112px;
+height: 16px;
+color: rgba(16, 16, 16, 1);
+text-align: left;
+font-family: PingFangSC-regular;
+margin-bottom: 60rpx;
+}

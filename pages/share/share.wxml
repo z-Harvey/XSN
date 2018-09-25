@@ -1,0 +1,13 @@
+<!--pages/share/share.wxml-->
+<view class="register">
+  <image src="/img/my/register.png" mode="widthFix" class="bg"></image>
+  <view class="mask">
+    <image src="{{header}}" mode="widthFix"></image>
+    <view class="nick font-size-28">{{nickname}}</view>
+    <view class="code">
+      <view class="input telinput">{{phone?phone:'手机号'}}</view>
+      <button class="font-size-28 getcode"  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" plain>获取手机号</button>
+    </view>
+    <button plain class="register" hover-class="registerbtn" bindtap="save">进入销售牛</button>
+  </view>
+</view>

@@ -1,0 +1,88 @@
+@import "../../template/start/start.wxss";
+.activityInfo{
+  flex-direction: column; 
+  padding-bottom: 100rpx;
+}
+.itemlist{
+  background: #fff;
+  box-sizing: border-box;
+  padding: 20rpx;
+}
+.itemlist{
+  margin-bottom: 20rpx;
+}
+.list-header>image{
+  width: 80rpx;
+  margin-right: 16rpx;
+  border-radius: 50%;
+}
+.list-header .list-right{
+  flex-direction: column;
+  justify-content: space-between;
+  height: 80rpx;
+}
+.list-header .list-nick>image{
+  width: 24rpx;
+  margin-left: 4rpx;
+  /* vertical-align: middle; */
+}
+.list-content{
+  margin: 16rpx 0 0;
+  padding-bottom: 20rpx;
+  border-bottom: 2rpx solid #F0EFF5;
+}
+.list-content .refbtn{
+  margin-right: 16rpx;
+  border-radius: 40rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  background-color: rgba(241, 241, 241, 1);
+  color: rgba(16, 16, 16, 1);
+  text-align: center;
+  display: inline-block;
+}
+.list-content .refbtn:first-child{
+  width: 160rpx;
+}
+.list-content .refbtn:nth-of-type(2){
+  width: 240rpx;
+}
+
+.list-footer .date{
+  color: rgba(206, 206, 206, 1);
+  flex: 1;
+}
+.date .update{
+  margin-left: 10rpx;
+}
+.list-footer>button{
+  flex-basis: 160rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 6rpx;
+  text-align: center;
+  display: inline-block;
+}
+.list-footer>button.tap{
+  background-color: rgba(255, 152, 0, 1);
+  color: rgba(255, 255, 255, 1);
+}
+.list-footer>button.process{
+  border: 1rpx solid rgba(255, 152, 0, 1);
+  color: rgba(255, 152, 0, 1);
+  background: #fff;
+}
+.list-footer>button.own{
+  color: #888;
+  background-color:#f1f1f1;
+}
+
+.list-footer {
+  height:100rpx;
+  line-height:100rpx;
+  align-items:center;
+  color:#fff;
+  padding: 0;
+  margin-top: 0;
+  justify-content: space-between;  
+}

@@ -1,0 +1,8 @@
+<view class="marksuccess">
+  <image src="/img/common/right.png" mode="widthFix"></image>
+  <view class="font-size-40 com1010">报名成功</view>
+  <view class="font-size-28 colora0 fixedWidth">已成功报名“此处限时活动名称”活动~</view>
+  <button plain class="activepublic font-size-36" bindtap="toPath" data-type="1" oepn-type="share">查看活动列表</button>
+  <button plain class="gray font-size-36" bindtap="toPath" data-type="2">返回活动详情</button>
+</view>
+

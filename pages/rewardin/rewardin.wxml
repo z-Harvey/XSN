@@ -1,0 +1,97 @@
+<import src="/template/start/start.wxml" />
+
+<view class="rewardInfo">
+  <view class="reward-header">
+    <view class='header-nick'>
+      <image src="{{list.avatarurl}}" mode="widthFix"></image>
+      <view class="font-size-28">{{list.nickname}}</view>
+    </view>
+    <view class="dialogBorder font-size-24 com1010 fixedWidth">
+      <view class="tip">{{list.message}}</view>
+      <view class="font-size-30 com1010 fixed">我想找与</view>
+      <view class="font-size-28 com1010">
+        <text style="color: #FF9800">{{list.comname}}</text>有过合作的人
+      </view>
+      <view class="font-size-30 com1010 fixed">成交佣金</view>
+      <view class="font-size-28 com1010">￥{{list.minmoney}}~{{list.maxmoney}}元</view>
+    </view>
+
+    <view class="list-footer wrap-flex infofooter">
+      <view class="wrap-flex-item wrap-flex">
+        <view class="looknum">
+          <image src="/img/my/eyew.png" mode="widthFix"></image>
+          <text class="font-size-24">{{list.seenum}}</text>
+        </view>
+        <view class="looknum">
+          <image src="/img/my/glagw.png" mode="widthFix"></image>
+          <text class="font-size-24 ">{{list.invatednum}}人受邀</text>
+        </view>
+        <view class="looknum">
+          <image src="/img/my/timew.png" mode="widthFix"></image>
+          <text class="font-size-24">剩余{{list.sy_dayno}}天</text>
+        </view>
+      </view>
+      <view class="font-size-28">{{list.rec_status==1?'悬赏中':'已结束'}}</view>
+    </view>
+  </view>
+  <view class="list-info fixedWidth" wx:if="{{list.invatednum>0&&mytype=='my'}}" >
+    <view class="font-size-28 com1010 title">
+      受邀者({{list.invatednum}})
+    </view>
+
+    <view>
+      <block wx:for="{{invitees}}">
+        <view class="itemlist fixedWidth bodradius">
+          <view class="list-header wrap-flex">
+            <image src="{{item.avatarurl}}" mode="widthFix"></image>
+            <view class="list-right wrap-flex">
+              <view class="list-nick" style="margin-top: -5rpx">
+                <text class="font-size-28 com1010">{{item.nickname}}</text>
+                <!-- /img/common/unconfirm.png -->
+                <image src="{{item.provestatus==1?'/img/common/confirm.png':'/img/common/unconfirm.png'}}" mode="widthFix"></image>
+              </view>
+              <view class="list-start">
+                <view class="start">
+                  <block wx:for="{{item.score}}">
+                    <image src="/img/common/startsolid.png" mode="widthFix"></image>
+                  </block>
+                  <block wx:for="{{5-item.score}}">
+                    <image src="/img/common/start.png" mode="widthFix"></image>
+                  </block>
+                </view>
+              </view>
+            </view>
+          </view>
+          <view class="list-content">
+            <button plain class="refbtn font-size-24" wx:if="{{ item.relation==0}}">有过合作</button>
+            <button plain class="refbtn font-size-24" wx:elif="{{ item.relation==1}}">正在合作</button>
+            <button plain class="refbtn font-size-24" wx:elif="{{ item.relation==2}}">有过跟进</button>
+            <button plain class="refbtn font-size-24" wx:elif="{{ item.relation==3}}">正在跟进</button>
+            <button plain class="refbtn font-size-24" wx:if="{{item.hasdecision==0}}">有决策链线索</button>
+            <button plain class="refbtn font-size-24" wx:elif="{{item.hasdecision==1}}">无决策链线索</button>
+            <text class="font-size-24 comcolor">已组队3次</text>
+          </view>
+          <view class="list-footer wrap-flex">
+            <view class="date">
+              <text class="font-size-24">{{item.crtdate}}</text>
+              <text class="font-size-24 update">更新</text>
+            </view>
+            <!-- <button class="font-size-28 tap" plain bindtap="onclick" data-type="1">邀请Ta组队</button> -->
+            <!-- <button class="font-size-28 own" plain bindtap="onclick" data-type="2">自己</button>
+          <button class="font-size-28 process" plain bindtap="onclick" data-type="3">沟通</button> -->
+          <button class="font-size-28 tap" plain bindtap="onclick" data-type="1" data-id="{{item.userid}}" wx:if="{{item.isfriend==0&&item.userid!=userid}}" data-nickname="{{item.nickname}}" >与Ta组队</button>
+          <button class="font-size-28 own" plain bindtap="onclick" data-type="2" wx:if="{{item.userid==userid}}" disabled>自己</button>
+          <button class="font-size-28 process" plain bindtap="onclick" data-type="3" wx:if="{{item.isfriend==1&&item.userid!=userid}}" data-id="{{item.userid}}" data-src="{{item.avatarurl}}">沟通</button>
+          </view>
+        </view>
+      </block>
+    </view>
+  </view>
+  <image src="/img/common/index.png" mode="widthFix" class="top" bindtap="toPath" data-type='3' ></image>
+
+  <view wx:if="{{noFen}}">
+    <button class="btn-bottom btnbottom" plain bindtap="save" hover-class="active" wx:if="{{mytype=='in'}}" open-type="share" id="1">邀请好友帮Ta</button>
+
+  <button class="btn-bottom btnbottom"  plain bindtap="save" hover-class="active" wx:else open-type="share" id="2">分享</button>
+  </view>
+</view>

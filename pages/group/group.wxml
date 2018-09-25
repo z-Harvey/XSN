@@ -1,0 +1,13 @@
+<import src="/template/comitem/comitem.wxml" />
+
+<view class="group">
+  <template is="comitem" data="{{comname}}"/>
+  <view class="teamadvise fixedWidth">
+    <textarea placeholder="    " placeholder-class='font-size-28 comcolor info' class="font-size-28" bindinput="changeNum"  maxlength="200" value="{{message}}" bindfocus='changeshow' bindblur="changehide"></textarea>
+    <view class="font-size-28 comcolor" wx:if="{{show}}">捎句话：说明你组队的意图，如：你为什么要组队、组队成功后需要一起做什么事情、事成后有多少佣金分成</view>
+    <view class="right font-size-28 comcolor">{{num}}/200</view>
+  </view>
+
+  <view class="fixedWidth font-size-24 comcolor warn">48小时后未组队成功组队将被自动取消</view>
+  <button class="btn-bottom btnbottom" plain bindtap="toPath" hover-class="activebtnstyle">发出邀请</button>
+</view>

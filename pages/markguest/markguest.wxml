@@ -1,0 +1,37 @@
+<import src="/template/comitem/comitem.wxml" />
+<view class="markguest" wx:if="{{!show}}">
+  <template is="comitem" data="{{comname}}"/>
+  <view class="ref padding30">
+    <view class="refinfo">
+      <image src="/img/common/ref.png" mode="widthFix"></image>
+      <text class="font-size-28 com1010">你跟这家企业的关系？</text>
+      <view class="refbtn">
+        <block wx:for="{{btninfo}}">
+          <button plain='true' class="{{activeBtn==index?'active':''}}" bindtap="changeBtn" data-index="{{index}}">{{item}}</button>
+        </block>
+      </view>
+    </view>
+    <view class="refinfo">
+      <image src="/img/common/line.png" mode="widthFix"></image>
+      <text class="font-size-28 com1010">有决策链线索？</text>
+      <view class="refbtn second">
+         <button plain='true' class="{{activebtn==0?'active':''}}" bindtap="changebtn" data-index="0">是</button>
+        <button plain='true' bindtap="changebtn" data-index="1" class="{{activebtn==1?'active':''}}" wx:if="{{activeBtn==1}}" disabled>否</button>
+        <button plain='true' bindtap="changebtn" data-index="1" class="{{activebtn==1?'active':''}}" wx:else>否</button>
+      </view>
+    </view>
+  </view>
+
+  <view class="warninfo font-size-28 comcolor padding30">请确保所填信息真实性，如投诉，有可能会被永久封号！</view>
+
+  <button class="btn-bottom btnbottom" plain bindtap="toPath" hover-class="activebtn">开始匹配</button>
+</view>
+<view class="markresult" wx:else>
+  <view class="process">
+    <image src="/img/common/zhuan.png" mode="widthFix" animation="{{animation}}"></image>
+    <view class="font-size-36 com1010">正在匹配</view>
+  </view>
+</view>
+
+
+
