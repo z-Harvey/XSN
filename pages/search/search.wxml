@@ -20,4 +20,5 @@
   </view>
   <view class="font-size-28 comcolor bottomview" wx:if="{{list.length>0}}">没搜到？试试看输入更全的企业名称</view>
   <view class="font-size-28 comcolor bottomview" wx:if="{{list.length<=0}}">查无此公司</view>
+  <loginMot id='dialog'></loginMot>
 </view>

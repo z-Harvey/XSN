@@ -15,27 +15,21 @@ Page({
       url: '/pages/index/index',
     })
   },
-  getPhoneNumber: function (e) {
-    if (e.detail.errMsg == 'getPhoneNumber:ok') {
-    var data = {
-      thSessionId: wx.getStorageSync("token"),
-      iv: e.detail.iv,
-      encryptedData: e.detail.encryptedData
-    }
-    api.bindTel(data, function (data) {   
-      wx.setStorageSync('phone', data.data.phoneno);
-      wx.navigateTo({
-        url: '/pages/card/card',
-      })
-    });
-    }
-  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     wx.hideShareMenu()
     var that=this;
+    if (wx.getStorageSync('userid')){
+      that.setData({
+        logincode:true
+      })
+    }else{
+      that.setData({
+        logincode: true
+      })
+    }
     this.init(options.id,that)
   },
   init: function(id,that){

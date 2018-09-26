@@ -10,7 +10,7 @@ Page({
   data: {
     userInfo:null,
     comname: '',
-    work: '选择你的行业/职能',
+    work: '',
     phone: null,
     workcard: ''
   },
@@ -28,6 +28,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    var _this=this;
     wx.hideShareMenu()
     if(options.typea){
       this.setData({
@@ -35,20 +36,26 @@ Page({
       })
     }
     var userInfo = wx.getStorageSync('userInfo');
-    // this.setData({
-    //   userInfo: wx.getStorageSync('userInfo'),
-    //   phone: wx.getStorageSync('phone'),
-    //   gender: userInfo.gender||1,
-    //   nickname: userInfo.nickName||'nickname',
-    //   src: userInfo.avatarUrl||'ddjdjd'    
-    // })
-
-    this.setData({
-      userInfo: wx.getStorageSync('userInfo'),
-      phone: wx.getStorageSync('phone'),
-      gender: userInfo.gender,
-      nickname: userInfo.nickName,
-      src: userInfo.avatarUrl
+    var data = {
+      thSessionId: wx.getStorageSync('token'),
+      userid: wx.getStorageSync("userid")
+    }
+    api.mycard(data, function (result) {
+      console.log('名片制作页面', result[0])
+      var product = result[0].product ? result[0].product.split(",") : '';
+      var region = result[0].address ? result[0].address.split("|")[0] : '';
+      var address = result[0].address ? result[0].address.split("|")[1] : '';
+      _this.setData({
+        list: result[0],
+        name: result[0].name,
+        comname: result[0].comname,
+        work: _this.data.work || result[0].work,
+        gender: result[0].gender,
+        src: result[0].avatarurl,
+        nickname: result[0].nickname,
+        workcard: result[0].position,
+        phone: result[0].phoneno
+      })
     })
   },
   changenickname: function (e) {
@@ -66,56 +73,28 @@ Page({
       url: `/pages/basic/industry/industry?comname=${this.data.comname}`,
     })
   },
-  // upload: function () {
-  //   var _this = this;
-  //   demoNoSdk('用户id', function (res, bucket, path) {
-  //     _this.setData({
-  //       proveurl: res,
-  //       src: res
-  //     })
-  //   })
-  // },
   save: function(){
     var that=this;
     if (vail.empty(this.data.comname, "您的公司名字") && vail.empty(this.data.work, "您的行业") && vail.empty(this.data.workcard, "您的职位")){
       var data = {
         thSessionId: wx.getStorageSync("token"),
-        comname: this.data.comname,
-        work: this.data.work,
         nickname: this.data.nickname,
-        phoneno: this.data.phone,
+        comname: this.data.comname,
         gender: this.data.gender,
         avatarurl: this.data.src,
-        position: this.data.workcard
+        work: this.data.work,
+        phoneno: this.data.phone,
+        position: this.data.workcard,
+        userid: wx.getStorageSync("userid")
       }
-      api.saveCard(data, function (result) {
+      api.saveCardUpdate(data, function (result) {
         console.log(result,'-----------');
         // wx.clearStorage();
-        wx.setStorageSync("userid",result.data.userid)
-        wx.setStorageSync("UserSig", result.data.UserSig)
-        wx.setStorageSync("import_status", result.data.import_status)
-        wx.setStorageSync("register_status", new Date());
-        wx.setStorageSync("logincode",result.data.userid);
-      
         if(result.code==0){
           console.log("code 0",that.data.typea)
           wx.navigateBack({
             detail: 1
           })
-          // wx.switchTab({
-          //   url: `/pages/index/index`,
-          // })
-          // if (that.data.typea){
-          //   console.log("1111111111")
-          //   wx.switchTab({
-          //     url: `/pages/index/index`,
-          //   })
-          // }else{
-            
-          // }
-          // wx.navigateTo({
-          //   url: '/pages/dayname/dayname',
-          // })
         }
       });
     }

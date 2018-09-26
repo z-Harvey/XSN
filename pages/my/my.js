@@ -8,6 +8,9 @@ Page({
   data: {
     userinfo: null,
   },
+  showDialog() {
+    this.selectComponent("#dialog").gits()
+  },
   toPath: function (e) {
     var url;
     var data = e.currentTarget.dataset;
@@ -55,9 +58,23 @@ Page({
         //   show: false
         // })
         wx.setStorageSync('phone', data.data.phoneno);
-        wx.navigateTo({
-          url: '/pages/card/card',
+
+        let obj={
+          thSessionId: wx.getStorageSync("token"),
+          phoneno: wx.getStorageSync("phone")
+        }
+        api.bindTelCallUserImg(obj,function(res){
+          res.data['Sign_in'] = true;
+          that.setData({
+            list: res.data
+          })
+          wx.setStorageSync('userid', res.data.userid);
+          wx.setStorageSync('UserSig', res.data.UserSig);
         })
+        //跳转到名片编辑页面
+        // wx.navigateTo({
+        //   url: '/pages/card/card',
+        // })
       } else {
         wx.showModal({
           title: "系统提示",
@@ -77,28 +94,33 @@ Page({
     obj['nickname'] = '未登录';
     obj['Sign_in'] = false;
     this.setData({
-      list: obj
-    })
-    // if(wx.getStorageSync("userid")){
-    //   this.setData({
-    //     show: true
-    //   })
-    // }else{
-    //   this.setData({
-    //     show: true
-    //   })
-    // }
-    this.setData({
+      list: obj,
       userinfo: wx.getStorageSync("userInfo")
     })
-    // var commondata = {
-    //   thSessionId: wx.getStorageSync("token"),
-    //   userid: wx.getStorageSync("userid")
-    // }
-    // this.init(commondata);
+  },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
+    if (wx.getStorageSync("userid")) {
+      console.log(wx.getStorageSync("userid"))
+      var commondata = {
+        thSessionId: wx.getStorageSync("token"),
+        userid: wx.getStorageSync("userid")
+      }
+      this.init(commondata);
+    }else{
+      let obj = new Object();
+      obj['avatarurl'] = '/img/my/noneSign.png';
+      obj['nickname'] = '未登录';
+      obj['Sign_in'] = false;
+      this.setData({
+        list: obj
+      })
+    }
   },
   init: function(data){
-    var that=this;    
+    var that=this; 
     api.getmyinfo(data,function(res){
       res.data['Sign_in']=true;
       that.setData({
@@ -121,16 +143,6 @@ Page({
     }else{
       return true
     }
-    // var my=data.split("|")[0];
-    // var mysign=data.split("|")[1];
-    // var smy=wx.getStorageSync(cat);
-    // var smysign=wx.getStorageSync(mycat);
-    
-    // if(my==smy&&mysign==smysign){
-    //   return false
-    // }else{
-    //   return true
-    // }
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -140,33 +152,12 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-    if(wx.getStorageSync("userid")){
-      var commondata = {
-        thSessionId: wx.getStorageSync("token"),
-        userid: wx.getStorageSync("userid")
-      }
-      this.init(commondata);
-    }
-    // if (wx.getStorageSync("userid")) {
-    //   this.setData({
-    //     show: true
-    //   })
-    // } else {
-    //   this.setData({
-    //     show: true
-    //   })
-    // }
-  },
-  /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
   
   },
-
+  
   /**
    * 生命周期函数--监听页面卸载
    */

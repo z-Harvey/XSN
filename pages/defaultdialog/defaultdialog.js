@@ -100,6 +100,7 @@ Page({
           webim.Log.error('未知连接状态: =' + resp.ErrorInfo); //错误信息
           break;
       }
+      
     };
 
     function onMsgNotify(newMsgList) {
@@ -263,6 +264,7 @@ Page({
     )
   },
   SendMsg: function (msg, userid, currentMsgsArray) {
+    
     var _this = this;
     var selSess = new webim.Session(webim.SESSION_TYPE.C2C, userid);
     var msgtosend = msg;
@@ -308,7 +310,6 @@ Page({
       text_obj = new webim.Msg.Elem.Text(msgtosend);
       msg.addText(text_obj);
     }
-
     webim.sendMsg(msg, function (resp) {
       if (selType == webim.SESSION_TYPE.C2C) { //私聊时，在聊天窗口手动添加一条发的消息，群聊时，长轮询接口会返回自己发的消息
         _this.addMsg(msg, currentMsgsArray);

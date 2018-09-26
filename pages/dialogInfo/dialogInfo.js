@@ -110,7 +110,7 @@ Page({
           break;
       }
     };
-
+    
     function onMsgNotify(newMsgList) {
       var sess, newMsg, selSess;
       //获取所有聊天会话

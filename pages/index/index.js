@@ -12,9 +12,6 @@ Page({
     handBoxNone:true
   },
   refresh: function(){
-    if (wx.getStorageSync("token")) {
-      this.init()
-    } else {
       var that = this;
       wx.login({
         success: (res) => {
@@ -46,17 +43,37 @@ Page({
                 // })
               }
               wx.setStorageSync('logincode', result.code)
+              if (wx.getStorageSync('userid')) {
+                that.setData({
+                  butLogin: true
+                })
+              } else {
+                that.setData({
+                  butLogin: false
+                })
+              }
+
+              // //请求会话对象，头像、昵称
+              // let data = {
+              //   thSessionId: result.data.thSessionId,
+              //   userid: 1
+              // }
+              // api.converList(data, function (res) {
+              //   console.log(res)
+              // })
               that.init();
             }
           })
         }
       })
-    }
+    
   },
-  onLoad: function(){
-    var _this=this;
+  onLoad: function(options){
+    // wx.switchTab({
+    //   url: '../twoSeaHome/twoSeaHome',
+    // })
     this.refresh();
-  },
+  }, 
   onShow: function(){
     let _this=this;
     setTimeout(function () {
@@ -64,6 +81,15 @@ Page({
         handBoxNone: false
       })
     }, 5500)
+    if (wx.getStorageSync("userid")){
+      this.setData({
+        butLogin: true
+      })
+    } else {
+      this.setData({
+        butLogin: false
+      })
+    }
   },
   init: function(){
     var _this = this;
@@ -71,7 +97,6 @@ Page({
       thSessionId: wx.getStorageSync("token")
     }
     api.getindex(data, function (data) {
-      console.log("首页加载返回的数据",data)
       if(data.code==0){
         _this.setData({
           list: data.data,
@@ -117,9 +142,23 @@ Page({
       current: e.detail.current
     })
   },
-
+  showDialog() {
+    this.selectComponent("#dialog").gits()
+  },
   toPath: function(e){
     var data = e.currentTarget.dataset,url;
+    if (data.id == 0) {
+      console.log(data.id == 0)
+      wx.switchTab({
+        url: '../twoSeaHome/twoSeaHome',
+      })
+      return
+    }else if(data.id == 1){
+      wx.navigateTo({
+        url: '/pages/welfare/welfare',
+      })
+      return
+    }
     if(data.id){
       url = `/pages/activity/activity?id=${data.id}&type=${data.type}`
       console.log(url);
@@ -165,8 +204,36 @@ Page({
     })
   },
   getPhoneNumber:function(e){
-    console.log(e)
-    console.log(e.detail.iv)
-    console.log(e.detail.encryptedData) 
+    if (e.detail.errMsg == 'getPhoneNumber:ok') {
+      console.log(1111111111)
+      var that = this;
+      var data = {
+        thSessionId: wx.getStorageSync("token"),
+        iv: e.detail.iv,
+        encryptedData: e.detail.encryptedData
+      }
+      api.bindTel(data, function (data) {
+        console.log(data);
+        if (data.code == 0) {
+          wx.setStorageSync('phone', data.data.phoneno);
+          let obj = {
+            thSessionId: wx.getStorageSync("token"),
+            phoneno: wx.getStorageSync("phone")
+          }
+          api.bindTelCallUserImg(obj, function (res) {
+            that.setData({
+              butLogin: false
+            })
+            wx.setStorageSync('userid', res.data.userid);
+            wx.setStorageSync('UserSig', res.data.UserSig);
+          })
+        } else {
+          wx.showModal({
+            title: "系统提示",
+            content: data.msg,
+          })
+        }
+      });
+    }
   }
 })

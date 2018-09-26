@@ -37,7 +37,7 @@
     </view>
     <view class="">
       <text class="rowleft row">行业（必填）</text>
-      <view class='rowinput rowright' bindtap="toPath" style="color: #ccc">{{work}}</view>
+      <view class='rowinput rowright' bindtap="toPath" style="color: #ccc">{{work||'请选择行业'}}</view>
     </view>
     <view class="">
       <text class="rowleft row">职位（必填）</text>

@@ -33,12 +33,12 @@
     </view>
     <view class="" bindtap="toPath"  data-type="{{work}}">
       <text class="rowleft row">行业（必填）</text>
-      <view class='rowinput rowright'style="color: #ccc">{{work}}    
+      <view class='rowinput rowright'style="color: #ccc">{{work||'选择你的行业/职能'}}    
       </view>
     </view>
     <view class="">
       <text class="rowleft row">职位（必填）</text>
-      <textarea placeholder="现在的职位是" placeholder-class='rowright' class="rowinput" auto-height value="{{workcard}}" bindinput="changework" maxlength="50"></textarea>
+      <textarea placeholder="" placeholder-class='rowright' class="rowinput" auto-height value="{{workcard||'现在的职位是'}}" bindinput="changework" maxlength="50"></textarea>
     </view>
   </view>
 

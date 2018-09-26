@@ -38,7 +38,6 @@ Page({
     this.init(this)
   },
   init: function (_this) {
-    console.log(_this.data.comname)
     var that=this;
     var data = {
       queryType: 'user',
@@ -91,8 +90,20 @@ Page({
             show: false
           })
           wx.setStorageSync('phone', data.data.phoneno);
-          wx.navigateTo({
-            url: '/pages/card/card',
+
+          let obj = {
+            thSessionId: wx.getStorageSync("token"),
+            phoneno: wx.getStorageSync("phone")
+          }
+          api.bindTelCallUserImg(obj, function (res) {
+            res.data['Sign_in'] = true;
+            that.setData({
+              list: res.data,
+              show: false
+            })
+            wx.setStorageSync('userid', res.data.userid);
+            wx.setStorageSync('UserSig', res.data.UserSig);
+            console.log(res)
           })
         }else{
           wx.showModal({

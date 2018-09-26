@@ -1,0 +1,47 @@
+<import src="/template/comitem/comitem.wxml" />
+
+<view class="search">
+  <view class="searchInfo wrap-flex" bindtap='topage'>
+    <view class="searchinput">
+      <image src="/img/index/search.png" mode="widthFix" class="search"></image>
+      <input placeholder="请输入您要查找的公司" disabled="disabled" placeholder-class="font-size-28 comcolor"  class="font-size-28 com101010" auto-focus></input>
+      <view class="closebtn">
+        <image src="/img/common/close.png" mode="widthFix" class="close" ></image> 
+      </view>   
+    </view>
+    <button class="searchbtn font-size-28" >搜索</button> 
+  </view>
+  <!-- <view class="linkageList font-size-28">
+    <view class="{{navState[0]===1?'acetiv':''}}" bindtap="navClick" data-index='0'>行业<image src="/img/hand1.png"></image></view>
+    <view class="{{navState[1]===1?'acetiv':''}}" bindtap="navClick" data-index='1'>城市<image src="/img/hand1.png"></image></view>
+    <view class="{{navState[2]===1?'acetiv':''}}" bindtap="navClick" data-index='2'>默认排序<image src="/img/hand1.png"></image></view>
+  </view>
+  <view class="ulLst font-size-28" wx:if="{{ulLstNone}}">
+    <view>
+      <view wx:for="{{ULlistDate}}" wx:key bindtap='industrys' data-id='{{item.id}}'>{{item.name}}</view>
+    </view>
+    <view>
+      <view wx:for="{{LilistDate}}" wx:key data-id='{{item.id}}'>{{item.name}}</view>
+    </view>
+  </view> -->
+
+    <view class="sizeSeat"></view>
+    <view wx:for="{{listData}}"  wx:for-item="idx" wx:key>
+      <view class="MerchantList">
+        <view class="merImg">
+          <image src="/img/index/icon.png" mode="widthFix"></image>
+        </view>
+        <text class="merlistTitle font-size-28">{{idx.comname}}</text>
+        <view class="merImgList">
+          <view wx:for="{{idx.avatarurl_list}}" wx:for-item="im" wx:key>
+            <image src="{{im}}"></image>
+          </view>
+          <text class="font-size-24">有{{idx.allnum}}个销售在跟进</text>
+        </view>
+        <button class="merBut font-size-24" data-id="{{idx.comid}}" bindtap="togroup" data-comname="{{idx.comname}}"  wx:if="{{butLogin}}">100牛币查看</button>
+        <button class="merBut font-size-24" bindtap='showDialog' wx:else >联合组队</button>
+      </view>
+    </view>
+  
+  <loginMot id='dialog'></loginMot>  
+</view>

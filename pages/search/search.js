@@ -29,8 +29,16 @@ Page({
     //   page_num: this.data.page
     // }
     // this.init(data, this)
+
+  },
+  showDialog() {
+    this.selectComponent("#dialog").gits()
   },
   toPath: function (e) {
+    if ((wx.getStorageSync('userid') == "" || wx.getStorageSync('userid')== undefined)){
+      this.showDialog()
+      return
+    }
     var params = e.currentTarget.dataset,url;
     var da={
       userid: wx.getStorageSync('userid'),

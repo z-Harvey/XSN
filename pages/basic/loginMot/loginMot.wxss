@@ -1,0 +1,46 @@
+.loginMot{
+  width:100%;
+  height:100%;
+  position: fixed;
+  top:0;
+  left:0;
+  background: rgba(16, 16, 16, .55);
+}
+.loginMotContent{
+  width:560rpx;
+  height:380rpx;
+  margin:300rpx auto 0;
+  background: rgba(255, 255, 255, 1);
+  padding-top:38rpx;
+  border-radius: 8rpx;
+}
+.loginMotContent>view{
+  margin:0 auto 24rpx;
+  width: 480rpx;
+  height:52rpx;
+  text-align: center;
+  font-size: 34rpx
+}
+
+.loginMotContent>button{
+  width:472rpx;
+  height:100rpx;
+  background: #259B24;
+  color:#fff;
+}
+.loginMotContent>button:last-child{
+  margin-top:34rpx;
+  color:#000;
+  background:#ECECED;
+}
+.loginMotContent>button>image{
+  float: left;
+  margin:26rpx 26rpx 0 56rpx;
+  width:48rpx;
+  height:48rpx;
+}
+.loginMotContent>button>text{
+  float: left;
+  line-height: 100rpx;
+  font-size: 32rpx;
+}

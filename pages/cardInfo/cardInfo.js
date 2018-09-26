@@ -99,7 +99,6 @@ Page({
     if (data.type == 'look') {
       url = "/pages/peoplecard/peoplecard"
     } else if (data.type == 'sendmess') {
-
       url = "/pages/dialogInfo/dialogInfo"
     } else if (data.type == "comuser") {
       url = `/pages/comuser/comuser?userid=${this.data.userid}&puserid=${e.currentTarget.dataset.id}`

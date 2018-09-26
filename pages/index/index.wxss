@@ -98,21 +98,21 @@
 .content .swiperLeft{
   position: relative;
 }
+
 .content .swiper-flag{
   position: absolute;
   right: 20rpx;
   bottom: 10rpx;
 }
 .content .swiperTop{
-  height: 90rpx;
+  height: 60rpx;
   background: white;
-  align-items: center;
-  line-height: 90rpx;
-  margin-top: 20rpx;
+  line-height: 60rpx;
 }
+
 .content .fixWidth{
   flex-basis: 120rpx;
-  height: 90rpx;
+  height: 60rpx;
   align-items: center;
 }
 .content .fixWidth>image{
@@ -120,19 +120,24 @@
   margin-right: 8rpx;
 }
 .content .swiperTop swiper{
-  height: 90rpx;
-  line-height: 90rpx;
+  height: 60rpx;
+  line-height: 60rpx;
 }
 .recommend{
-  padding: 20rpx 0;
+  padding: 20rpx 0 6rpx;
+  position: relative
 }
 .recommend text.title{
   color: #101010;
   font-family: Arial;
 }
+.recommend>text:last-child{
+  position: absolute;
+  right:10rpx;
+  top:33rpx;
+}
 .reccommendInfo swiper{
   height: 480rpx;
- 
 }
 .reccommendInfo swiper swiper-item{
   padding-left: 20rpx; 
@@ -191,7 +196,7 @@ button.btn{
 }
 
 .MerchantList{
-  width:632rpx;
+  width:650rpx;
   height:108rpx;
   border-radius: 10rpx;
   margin: 0 auto 20rpx;
@@ -267,4 +272,38 @@ button.btn{
 0% {opacity: 1;}
 50% {opacity: 0;}
 100%{opacity: 1}
+}
+.dynamic{
+  width:690rpx;
+  height:230rpx;
+  border-radius: 10rpx;
+  background:rgba(255, 152, 0, 0.8);
+  position: relative;
+  padding-top:16rpx;
+  margin-top:20rpx;
+}
+.swiperTop{
+  width:658rpx;
+  top:0rpx;
+  left:0;
+  border-radius:10rpx;
+  margin:0 auto;
+}
+.dynamicText{
+  margin: 20rpx 0 22rpx;
+  color:#fff;
+  text-align: center;
+}
+.dynamicButs{
+  width:500rpx;
+  display: flex;
+  justify-content: space-around;
+  margin:0 auto;
+}
+.dynamicButs>button{
+  width:160rpx;
+  height:60rpx;
+  border-radius:72rpx;
+  color:rgba(255, 152, 0, 1);
+  line-height: 60rpx;
 }

@@ -7,7 +7,8 @@ App({
   onLaunch: function () {
     // 登录
     this.globalData.userInfo=wx.getStorageSync('userInfo');
-    wxapi.getUser();
+    // wxapi.getUser();
+
     // wxapi.login();
     
     // wx.getUserInfo({

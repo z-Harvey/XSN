@@ -80,9 +80,23 @@ const api = function(fn) {
     /**
      * 绑定手机号
      */
-    bindTel: function(data, fn) {
+    bindTel: function (data, fn) {
       Util.requestpost({
         modules: '/user/phoneno',
+        method: 'post',
+        data: data,
+        success: (result) => {
+          console.log('获取手机号', result)
+          fn(result)
+        }
+      })
+    },
+    /**
+     * 提交手机号返回  /用户头像 /姓名
+     */
+    bindTelCallUserImg: function (data, fn) {
+      Util.requestpost({
+        modules: '/user/regist',
         method: 'post',
         data: data,
         success: (result) => {
@@ -112,7 +126,22 @@ const api = function(fn) {
         method: 'post',
         data: data,
         success: (result) => {
-          console.log("result-------------",result)
+          console.log("result-------------", result)
+          fn(result)
+        }
+      })
+    },
+    /**
+    * 制作名片
+    */
+    saveCardUpdate: function (data, fn) {
+      console.log(data);
+      Util.requestpost({
+        modules: '/user/firstmakecard',
+        method: 'post',
+        data: data,
+        success: (result) => {
+          console.log("result-------------", result)
           fn(result)
         }
       })
@@ -691,7 +720,7 @@ const api = function(fn) {
       })
     },
     // 获取共同的而用户
-    getcomuser: function(data,fn){
+    getcomuser: function (data, fn) {
       Util.request({
         modules: '/user/getcomcompany',
         method: 'get',
@@ -699,6 +728,18 @@ const api = function(fn) {
         success: (result) => {
           console.log("获取共同的而用户", result.data)
           fn(result.data)
+        }
+      })
+    },
+    // 获取 会话列表
+    converList: function (data, fn) {
+      Util.request({
+        modules: '/user/getnick',
+        method: 'get',
+        data: data,
+        success: (result) => {
+          console.log("会话列表：", result)
+          fn(result)
         }
       })
     }

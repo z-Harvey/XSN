@@ -1,15 +1,14 @@
 {
-  "pages":[
-    "pages/index/index",    
+  "pages": [
+    "pages/index/index",
     "pages/editcard/editcard",
     "pages/cardInfo/cardInfo",
     "pages/my/my",
     "pages/firstidenty/firstidenty",
-    
     "pages/reward/reward",
     "pages/mygroup/mygroup",
     "pages/myreward/myreward",
-    "pages/card/card",    
+    "pages/card/card",
     "pages/cardFile/cardFile",
     "pages/help/help",
     "pages/welfare/welfare",
@@ -17,11 +16,9 @@
     "pages/share/share",
     "pages/rewardin/rewardin",
     "pages/rewardinfo/rewardinfo",
-    
     "pages/helpinfo/helpinfo",
     "pages/login/login",
     "pages/activity/activity",
-    
     "pages/group/group",
     "pages/createteam/createteam",
     "pages/message/message",
@@ -30,8 +27,6 @@
     "pages/dialogInfo/dialogInfo",
     "pages/activityInfo/activityInfo",
     "pages/identy/identy",
-    
-    
     "pages/dayname/dayname",
     "pages/register/register",
     "pages/defaultdialog/defaultdialog",
@@ -39,11 +34,8 @@
     "pages/evaluateinfo/evaluateinfo",
     "pages/evalsuccess/evalsuccess",
     "pages/myactivity/myactivity",
-    
     "pages/myguest/myguest",
     "pages/editguest/editguest",
-   
-   
     "pages/menusuccess/menusuccess",
     "pages/evaluate/evaluate",
     "pages/peoplecard/peoplecard",
@@ -53,9 +45,12 @@
     "pages/release/release",
     "pages/groupsucc/groupsucc",
     "pages/rewardmark/rewardmark",
-    "pages/comuser/comuser"
+    "pages/comuser/comuser",
+    "pages/Conversation/Conversation",
+    "pages/twoSeaHome/twoSeaHome",
+    "pages/basic/loginMot/loginMot"
   ],
-  "window":{
+  "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "匹配结果",
@@ -64,7 +59,7 @@
   "tabBar": {
     "color": "#686868",
     "selectedColor": "#EF8200",
-    "backgroundColor":"#fff",
+    "backgroundColor": "#fff",
     "borderStyle": "white",
     "list": [
       {
@@ -72,6 +67,12 @@
         "text": "首页",
         "iconPath": "/img/tabbar/homedefault.png",
         "selectedIconPath": "/img/tabbar/home.png"
+      },
+      {
+        "pagePath": "pages/twoSeaHome/twoSeaHome",
+        "text": "公海",
+        "iconPath": "/img/tabbar/sea.png",
+        "selectedIconPath": "/img/tabbar/sea.png"
       },
       {
         "pagePath": "pages/cardFile/cardFile",

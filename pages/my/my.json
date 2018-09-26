@@ -2,5 +2,8 @@
   "navigationBarBackgroundColor": "#FFAD01",
   "navigationBarTitleText": "我",
   "navigationBarTextStyle": "white",
-  "disableScroll": true
+  "disableScroll": true,
+  "usingComponents": {
+    "loginMot": "../basic/loginMot/loginMot"
+  }
 }
