@@ -1,5 +1,11 @@
 <!--index.wxml-->
 <view class="index" bindtouchmove="queryMultipleNodes">
+    <!-- <view class="flexd" wx:if="{{showss}}">
+      <view id="searchInp" class="search1 wrap-flex bodradius" bindtap="toPath">
+          <image src="/img/index/search.png" mode="widthFix"></image>
+          <view class="searchCom font-size-28">输入客户名称关键字，例：聚牛天下</view>
+      </view>
+    </view> -->
   <view class="header">
     <image src="/img/index/banner.jpg" mode="widthFix"></image>
     <view class="headerContentTitle">
@@ -72,7 +78,8 @@
         <view class="merImg">
           <image src="/img/index/icon.png" mode="widthFix"></image>
         </view>
-        <text class="merlistTitle font-size-28">{{idx.comname}}</text>
+        <view class="content_right">
+          <text class="merlistTitle font-size-28">{{idx.comname}}</text>
         <view class="merImgList">
           <view wx:for="{{idx.avatarurl_list}}" wx:for-item="im" wx:key>
             <image src="{{im.avatarurl}}"></image>
@@ -81,6 +88,7 @@
         </view>
         <button wx:if="{{idx.isunlock==1}}" class="merBut font-size-24" data-id="{{idx.comid}}" bindtap="togroup" data-comname="{{idx.comname}}" data-mate="{{idx.has_mate}}" data-unlock="{{idx.isunlock}}" >查看</button>
         <button wx:else class="merBut font-size-24" data-id="{{idx.comid}}" bindtap="togroup" data-comname="{{idx.comname}}" data-unlock='{{idx.isunlock}}' data-mate='{{idx.has_mate}}'>{{idx.prices}}牛币查看</button>
+        </view>
       </view>
   </view>
       <button class="chexQb" bindtap='chexQb'>查看全部<text class="but_Text">{{numtotal}}</text>家已被跟进的客户</button>  

@@ -9,3 +9,21 @@
 .cardinfo>view:nth-child(2){
   margin-top: 120rpx;
 }
+.mpimg>.imgp{
+  width:100rpx;
+  height:100rpx;
+  border-radius: 100rpx;
+  overflow: hidden;
+}
+.mpimg>.imgp>image{
+  width:100rpx;
+  height:100rpx;
+}
+.nick{
+  text-align: right;
+}
+.nick>image{
+  width:24rpx;
+  height:24rpx;
+  margin-right:2rpx;
+}

@@ -18,8 +18,10 @@
               <image src="{{list.provestatus==1?'/img/common/confirm.png':'/img/common/unconfirm.png'}}" mode="widthFix" class="confirmstate"></image>
             </view>
           </view>
-          <view class="header-right">
-            <image src="{{list.avatarurl}}" mode="widthFix"></image>
+          <view class="mpimg">
+            <view class="imgp">
+              <image src="{{list.avatarurl}}" mode="widthFix"></image>
+            </view>
             <view class="nick">
               <image src="/img/card/man.png" class="smallsex" mode="widthFix" wx:if="{{list.gender==1}}"></image>
       <image src="/img/card/woman.png" class="smallsex" mode="widthFix" wx:elif="{{list.gender==2}}"></image>

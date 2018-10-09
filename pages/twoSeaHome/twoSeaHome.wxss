@@ -165,7 +165,6 @@
 }
 .MerchantList{
   width:632rpx;
-  height:108rpx;
   border-radius: 10rpx;
   margin: 0 auto 20rpx;
   background: #fff;
@@ -183,14 +182,10 @@
   height:100rpx;
 }
 .merlistTitle{
-  position: absolute;
-  top:28rpx;
-  left:136rpx;
+
 }
 .merImgList{
-  position: absolute;
-  top:86rpx;
-  left: 136rpx;
+
 }
 .merImgList>view{
   float: left;
@@ -206,10 +201,8 @@
   height:40rpx;
   border-radius: 50%;
 }
-
 .merBut{
   position: absolute;
-  bottom:26rpx;
   right: 20rpx;
   width: 160rpx;
   height:50rpx;
@@ -224,4 +217,15 @@
 }
 .sizeSeat{
   height:200rpx;
+}
+.merImg{
+  float: left;
+}
+.content_right{
+  margin-left:18rpx;
+  display: inline-block;  
+  width:500rpx;
+}
+.content_right>button{
+  float: right;
 }

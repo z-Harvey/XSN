@@ -91,7 +91,6 @@ Page({
       api.bindTelCallUserImg(data, function (res) {
         wx.setStorageSync('UserSig', res.data.UserSig);
         wx.setStorageSync('userid', res.data.userid);
-        console.log(res)
         wx.navigateBack({
           detail: 1
         })
@@ -120,6 +119,11 @@ Page({
       }
       api.z_yzcode(data,function(res){
         if(res.code==0){
+          _this.setData({
+            yzmText: s + 's',
+            show: false
+          })
+          s--
           var index = setInterval(function () {
             _this.setData({
               yzmText: s + 's',

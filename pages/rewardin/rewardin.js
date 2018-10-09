@@ -9,7 +9,7 @@ Page({
   data: {
     num: 0,
     userinfo: null,
-    mytype: ''
+    mytype: 'my'
   },
   /**
    * 生命周期函数--监听页面加载
@@ -24,6 +24,8 @@ Page({
       recid: options.id,
     })
     var commondata; 
+    console.log(options)
+    console.log(options.type)
     if (options.type=='in'){
       this.setData({
         mytype: options.type,
@@ -182,11 +184,12 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function (res) {
+    console.log(this.data)
     var that=this;
     if (res.target.id == 1) {
       return {
         title: `【${this.data.list.nickname}@你】邀你组队联合打单，${this.data.minmoney}元佣金等你来拿~~`,
-        path: `/pages/reward/reward?id=${this.data.recid}&myid=${this.data.myid}`,
+        path: `/pages/reward/reward?id=${this.data.recid}&myid=${this.data.myid}&myname=${wx.getStorageSync("my_user_name")}`,
         success: function(){
           console.log(that.data.recid, that.data.myid)
         }
@@ -195,7 +198,7 @@ Page({
     if (res.target.id == 2) {
       return {
         title: `【${this.data.list.nickname}@你】邀你组队联合打单，${this.data.minmoney}元佣金等你来拿~~`,
-        path: `/pages/reward/reward?id=${this.data.recid}&myid=${this.data.myid}`,
+        path: `/pages/reward/reward?id=${this.data.recid}&myid=${this.data.myid}&myname=${wx.getStorageSync("my_user_name")}`,
         success: function () {
           console.log(that.data.recid, that.data.myid)
         }

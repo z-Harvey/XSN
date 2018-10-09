@@ -88,14 +88,15 @@
   
   <!-- <view class="wrap-flex btn-bottom" wx:if="{{myid!=reactid&&list.rec_status==1}}"> -->
   <view class="wrap-flex btn-bottom" wx:if="{{!butBlockNone}}">
-    <button class="wrap-flex-item firstbtn" plain="true" hover-class="activebtn" bindtap="totop" open-type="share" id="1">邀请好友帮Ta</button>
-    <button class="wrap-flex-item" plain="true" hover-class="activebtn" bindtap="toPath" data-type="1" wx:if="{{!showbtn&&!successbtn}}">我来帮Ta</button>
-    <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="mymarkcode wrap-flex-item" plain="true" wx:elif="{{showbtn}}" hover-class="activebtn">我来帮Ta</button>
-    <button class="wrap-flex-item" plain="true" hover-class="activebtn" disabled wx:elif="{{successbtn}}">已申请</button>
+    <button class="wrap-flex-item firstbtn" plain="true" hover-class="activebtn"  open-type="share" id="1">邀请好友帮Ta</button>
+    <button class="wrap-flex-item" plain="true" hover-class="activebtn" bindtap="toPath" data-type="1" wx:if="{{!showbtn&&!successbtn&&isfriend==0}}">我来帮Ta</button>
+    <button  class="mymarkcode wrap-flex-item" plain="true" bindtap='logins' wx:elif="{{showbtn}}" hover-class="activebtn">我来帮Ta</button>
+    <button class="wrap-flex-item" plain="true" hover-class="activebtn" disabled wx:elif="{{successbtn&&isfriend==0}}">已申请</button>
+    <button class="wrap-flex-item" plain="true" hover-class="activebtn" disabled wx:elif="{{isfriend==1}}">去沟通</button>
   </view>
   <!-- <view class="wrap-flex btn-bottom" wx:if="{{myid==reactid&&list.rec_status==1}}"> -->
   <view class="wrap-flex btn-bottom" wx:if="{{butBlockNone}}">
     <button class="btn-bottom btnbottom" plain bindtap="save" hover-class="active" open-type="share" id="2">分享</button>
   </view>
-
+  <loginMot id='dialog'></loginMot>
 </view>

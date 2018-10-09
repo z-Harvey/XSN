@@ -7,9 +7,11 @@
         <view class="bigPicBox">
          <image src="{{list.avatarurl||userinfo.avatarUrl}}" mode="widthFix" class="bigPic"></image>
         </view>
-        <text class="font-size-32 nickname">{{list.nickname||userinfo.nickName}}</text>
+        <view class="font-size-32 nickname">{{list.nickname||userinfo.nickName}}
         <image src="/img/common/man.png" class="smallsex" mode="widthFix" wx:if="{{list.gender==1}}"></image>
         <image src="/img/common/woman.png" class="smallsex" mode="widthFix" wx:elif="{{list.gender==2}}"></image>
+        </view>
+        
       </view>
       <view class="myownright" bindtap="toPath" data-type="0" wx:if="{{list.Sign_in}}">
         <text class="personCard">个人名片</text>

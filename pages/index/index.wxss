@@ -10,6 +10,14 @@
   width: 100%;
   margin-top:-101rpx;
 }
+.flexd{
+  width:100%;
+  position: fixed;
+  top:0;
+  left:0;
+  z-index: 9;
+  background: #FEB101;
+}
 .search{
   left: 30rpx;
   width: 605rpx;
@@ -17,6 +25,24 @@
   margin-left:40rpx; 
   margin-top:120rpx;
   border-radius: 45rpx;
+}
+.flexd>.search1{
+  width: 605rpx;
+  height: 90rpx;
+  border-radius: 45rpx;
+  align-items: center;
+  margin:0 auto;
+  background: #fff;
+  margin-bottom: 20rpx;
+}
+
+.search1>image{
+  width: 40rpx;
+  margin: 0 20rpx;
+}
+.search1 input{
+  flex: 1;
+  height: 90rpx;
 }
 .header .search{
   background: #fff;
@@ -197,7 +223,6 @@ button.btn{
 
 .MerchantList{
   width:650rpx;
-  height:108rpx;
   border-radius: 10rpx;
   margin: 0 auto 20rpx;
   background: #fff;
@@ -214,16 +239,6 @@ button.btn{
   width:100rpx;
   height:100rpx;
 }
-.merlistTitle{
-  position: absolute;
-  top:28rpx;
-  left:136rpx;
-}
-.merImgList{
-  position: absolute;
-  top:86rpx;
-  left: 136rpx;
-}
 .merImgList>view{
   float: left;
   margin-right: 4rpx;
@@ -239,9 +254,6 @@ button.btn{
   border-radius: 50%;
 }
 .merBut{
-  position: absolute;
-  bottom:26rpx;
-  right: 20rpx;
   width: 160rpx;
   height:50rpx;
   border:1rpx solid rgba(255, 152, 0, 1);
@@ -249,6 +261,8 @@ button.btn{
   color:rgba(255, 152, 0, 1);
   line-height: 50rpx;
   background: #fff;
+  position: absolute;
+  right:20rpx;
 }
 .merBut::after{
   border:0;
@@ -321,4 +335,18 @@ button.btn{
 .but_Text{
   color:rgba(255, 152, 0, 1);
   font-size: 40rpx;
+}
+.merImg{
+  float: left;
+}
+.content_right{
+  margin-left:18rpx;
+  display: inline-block;  
+  width:500rpx;
+}
+.content_right>button{
+  float: right;
+}
+.merlistTitle{
+  margin-bottom: 10rpx;
 }

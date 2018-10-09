@@ -135,7 +135,7 @@
   margin-top:-4rpx;
 }
 button.btnbottomsecond{
-  bottom: 97rpx;
+  bottom: 95rpx;
   height: 60rpx;
   line-height: 60rpx;
   background-color: rgba(255, 152, 0, 0.47);

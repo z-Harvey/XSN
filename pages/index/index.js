@@ -9,7 +9,8 @@ Page({
   data: {
     current: 0,
     scrollTop:null,
-    handBoxNone:true
+    handBoxNone:true,
+    showss:false
   },
   refresh: function(){
       var that = this;
@@ -56,7 +57,7 @@ Page({
                 })
               }
 
-              // //请求会话对象，头像、昵称
+              // // 会话列表 请求会话对象的，头像、昵称
               // let data = {
               //   thSessionId: result.data.thSessionId,
               //   userid: 1
@@ -80,6 +81,7 @@ Page({
     // return
   }, 
   onShow: function(){
+    console.log(1)
     let _this=this;
     setTimeout(function () {
       _this.setData({
@@ -111,8 +113,6 @@ Page({
           numtotal: data.data.all_mate_com_num + 10000,
           company: data.data.com_info
         })
-        console.log('--------------------------')
-        console.log(data.data)
       }else if(data.code==-1){
         _this.refresh()
       }
@@ -209,11 +209,23 @@ Page({
     
   },
   queryMultipleNodes: function () {
+    var _this=this;
     var query = wx.createSelectorQuery()
     query.select('#searchInp').boundingClientRect()
     query.selectViewport().scrollOffset()
     query.exec(function (res) {
-      console.log(res[0].top)       // 节点[0]的上边界坐标
+      // 节点[0]的上边界坐标
+      if(res[0].top<0){
+        console.log(true)
+        _this.setData({
+          showss:true
+        })
+      }else{
+        console.log(false)        
+        _this.setData({
+          showss: false
+        })
+      }
       res[1].scrollTop // 显示区域的竖直滚动位置
     })
   },

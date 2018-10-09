@@ -20,19 +20,19 @@
   height:100rpx;
   border-radius:100rpx;
   overflow: hidden;
-  border:1rpx solid red;
+  padding:0;
 }
 .bigPic {
   width: 100rpx;
   height:100rpx;
-  margin-right: 10rpx;
   vertical-align: middle;
+  margin: -5rpx auto 0;
 }
 .nickname {
   color: #fff;
-  /* position: absolute;
+  position: absolute;
   top:60rpx;
-  left:150rpx; */
+  left:150rpx;
   float: left;
 }
 .smallsex {

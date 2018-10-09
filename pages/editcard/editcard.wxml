@@ -6,7 +6,7 @@
     </view>
     <view class="row wrap-flex">
       <text class="rowleft">姓名</text>
-      <input placeholder="请输入真实姓名" placeholder-class='comcolor' class="rowinput rowright" value="{{name}}" bindinput="changename" maxlength="10"/>
+      <input style="color:#ccc;" placeholder="请输入真实姓名" placeholder-class='comcolor' class="rowinput rowright" value="{{name}}" bindinput="changename" maxlength="10"/>
     </view>
     <view class="row sexline">
       <text class="rowleft">性别</text>
@@ -32,7 +32,7 @@
   <view class="fixedWidth require">
     <view class="">
       <text class="rowleft row">公司（必填）</text>
-      <textarea placeholder="{{list.comname||'请输入公司名称'}}" placeholder-class='rowright' class="rowinput" auto-height value="{{comname}}" bindinput="changecomname" maxlength="50"></textarea>
+      <textarea style="color:#ccc;" placeholder="{{list.comname||'请输入公司名称'}}" placeholder-class='rowright' class="rowinput" auto-height value="{{comname}}" bindinput="changecomname" maxlength="50"></textarea>
     </view>
     <view class="" bindtap="toPath"  data-type="{{work}}">
       <text class="rowleft row">行业（必填）</text>
@@ -41,7 +41,7 @@
     </view>
     <view class="">
       <text class="rowleft row">职位（必填）</text>
-      <textarea placeholder="{{workcard||'现在的职位是'}}" placeholder-class='rowright' class="rowinput" auto-height value="{{workcard}}" bindinput="changework" maxlength="50"></textarea>
+      <textarea style="color:#ccc;" placeholder="{{workcard||'现在的职位是'}}" placeholder-class='rowright' class="rowinput" auto-height value="{{workcard}}" bindinput="changework" maxlength="50"></textarea>
     </view>
   </view>
 
@@ -67,7 +67,7 @@
     </view>
     <view class="">
       <text class="row">微信号</text>
-      <input placeholder="请输入微信号" placeholder-class='rowright' class="row rowinput" value="{{wxno}}" bindinput="changewxno"/>
+      <input placeholder="请输入微信号" style="color:#ccc;" placeholder-class='rowright' class="row rowinput" value="{{wxno}}" bindinput="changewxno"/>
     </view>
   </view>
   <view class="fixedWidth require salepro">

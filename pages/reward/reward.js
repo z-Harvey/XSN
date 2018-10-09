@@ -3,13 +3,19 @@ const wxapi = require("../../utils/wxapi.js");
 const api = require("../../utils/api");
 const Util = require("../../utils/util");
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    nickname: wx.getStorageSync("userInfo").nickName,
+    nickname: wx.getStorageSync("my_user_name"),
     show: true,
+    NoLogin: 0
+  },
+  logins:function(){
+    this.setData({
+      NoLogin: 3
+    })
+    this.showDialog()
   },
   showModal: function (that) {
     wx.showModal({
@@ -105,9 +111,9 @@ Page({
           show: false
         })
         wx.setStorageSync('phone', data.data.phoneno);
-        wx.navigateTo({
-          url: `/pages/card/card?typea='recid'`,
-        })
+        // wx.navigateTo({
+        //   url: `/pages/card/card?typea='recid'`,
+        // })
       } else {
         wx.showModal({
           title: "系统提示",
@@ -118,12 +124,12 @@ Page({
     }
   },
   /**
-   * 生命周期函数--监听页面加载
+   * 生命周期函数--监听页面展示
    */
   onLoad: function (options) {
+    console.log(options)
     wx.hideShareMenu()
-    console.log(options.userid == wx.getStorageSync('userid'))
-    if (options.userid == wx.getStorageSync('userid')) {
+    if (options.myid == wx.getStorageSync('userid')) {
       this.setData({
         butBlockNone: true
       })
@@ -137,7 +143,8 @@ Page({
       recid: options.id,
       myid: options.myid,
       reactid: wx.getStorageSync('userid'),
-      puserid: options.myid
+      puserid: options.myid,
+      myname: options.myname
     })
     if (wx.getStorageSync("token")) {
       var commondata = {
@@ -146,12 +153,13 @@ Page({
         userid: wx.getStorageSync('userid')
       }
       if (options.myid == wx.getStorageSync('userid')) {
+        //是自己
         this.ini(commondata);
       } else {
+        //不是自己
         this.init(commondata);
       }
     } else {
-      wxapi.getUser();
       wx.login({
         success: (res) => {
           Util.request({
@@ -169,25 +177,17 @@ Page({
                 wx.setStorageSync("token", result.data.thSessionId)
                 wx.setStorageSync('userid', result.data.userid)
                 wx.setStorageSync("UserSig", result.data.UserSig)
-
               } else if (result.code == 2) {
                 console.log("未注册")
                 wx.setStorageSync("token", result.data.thSessionId)
                 wx.setStorageSync('userid', '')
-                // wx.reLaunch({
-                //   url: '/pages/index/index',
-                // })
               }
-
               wx.setStorageSync('logincode', result.code)
-              // that.init(that, options.userid);
-
             }
           })
         }
       })
     }
-
     if (wx.getStorageSync("userid")) {
       this.setData({
         showbtn: false
@@ -198,10 +198,30 @@ Page({
       })
     }
   },
+  onShow:function(){
+    if(!wx.getStorageSync('userid')){
+      console.log(wx.getStorageSync('phone'))
+      var obj={
+        thSessionId: wx.getStorageSync('token'),
+        phoneno: wx.getStorageSync('phone')
+      }
+      api.bindTelCallUserImg(obj,function(res){
+        console.log('-------------------------------')
+        console.log('-------------------------------')
+        console.log('-------------------------------')
+        console.log(res)
+      })
+    }
+  },
+  showDialog() {
+    this.selectComponent("#dialog").gits()
+  },
   ini: function (data) {
-    //助力的请求--我的助力详情接口
+    // 是自己
+    // 助力的请求--我的助力详情接口 
     var that = this;
     api.getmine(data,function(result){
+      console.log('是用户：')
       console.log(result);
       that.setData({
         list: result,
@@ -216,8 +236,10 @@ Page({
     })
   },
   init: function(data){
+    // 不是自己
     var that=this;
     api.myrewardshare(data, function (result){
+      console.log('不是自己：');
       console.log(result);
       that.setData({
         list: result[0],
@@ -226,61 +248,50 @@ Page({
         comid: result[0].comid,
         comname: result[0].comname,
         message: result[0].message,
-        successbtn: result[0].isinvited
+        successbtn: result[0].isinvited,
+        isfriend: result[0].isfriend
       })
     })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
+  onReady: function () {},
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function () {
-  
-  },
+  onHide: function () {},
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function () {
-  
-  },
+  onUnload: function () {},
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function () {
-  
-  },
+  onPullDownRefresh: function () { },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-  
-  },
-
+  onReachBottom: function () {},
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function (res) {
-    if (res.target.id == 1) {
-      return {
-        title: `【${this.data.nickname}@你】邀你组队联合打单，${this.data.minmoney}元佣金等你来拿~~`,
-        path: `/pages/reward/reward?id=${this.data.recid}&myid=${this.data.reccreate}`
+    console.log(this.data)
+      if (res.target.id == 1) {
+        return {
+          title: `【${this.data.myname}@你】邀你组队联合打单，${this.data.minmoney}元佣金等你来拿~~`,
+          path: `/pages/reward/reward?id=${this.data.recid}&myid=${this.data.myid}&myname=${this.data.myname}`
+        }
+      } else if (res.target.id == 2){
+        return {
+          title: `【${this.data.myname}@你】邀你组队联合打单，${this.data.minmoney}元佣金等你来拿~~`,
+          path: `/pages/reward/reward?id=${this.data.recid}&myid=${this.data.myid}&myname=${this.data.myname}`
+        }
       }
-    }
   }
 })

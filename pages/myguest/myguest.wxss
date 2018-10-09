@@ -44,10 +44,10 @@
 .list-header .list-right {
   flex-direction: column;
   justify-content: space-between;
-  height: 80rpx;
+  word-wrap: break-word;
 }
 .list-content{
-  margin-top: 5rpx;
+  margin-top: 8rpx;
 }
 .list-content .refbtn {
   margin-right: 16rpx;
@@ -145,4 +145,14 @@ color: rgba(16, 16, 16, 1);
 text-align: left;
 font-family: PingFangSC-regular;
 margin-bottom: 60rpx;
+}
+.icon_img{
+  width:100rpx;
+  height:100rpx;
+  float: left;
+}
+.icon_centent{
+  width:500rpx;
+  border:1rpx solid red;
+  float: left;
 }

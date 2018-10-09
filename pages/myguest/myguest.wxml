@@ -17,9 +17,9 @@
   <view class="lock">
     <block wx:for="{{list}}">
       <view class="itemlist fixedWidth bodradius">
-        <view class="list-header wrap-flex" bindtap="markguest" data-comname="{{item.comname}}" data-comid="{{item.comid}}">
-          <image src="/img/index/icon.png" mode="widthFix"></image>
-          <view class="list-right wrap-flex">
+        <view class="list-header" bindtap="markguest" data-comname="{{item.comname}}" data-comid="{{item.comid}}">
+          <image class="icon_img" src="/img/index/icon.png" mode="widthFix"></image>
+          <view class="list-right">
             <view class="list-nick">
               <text class="font-size-28 com1010">{{item.comname}}</text>
             </view>

@@ -47,12 +47,25 @@
   border-radius: 10rpx;
   padding: 20rpx 20rpx 0;
 }
-.list-header .mygroup-row>image{
-  width: 60rpx;
-  vertical-align: middle;
+.list-header .mygroup-row>.txBox{
+  width:60rpx;
   margin: 0 14rpx 0 0;  
-  border-radius: 50%;
-} 
+  height:60rpx;
+  border-radius:50%;  
+  overflow: hidden;
+}
+.list-header .mygroup-row>.txBox>image{
+  width:60rpx;
+  height:60rpx;
+}
+.imBoxOptions{
+  position: relative;
+}
+.imBoxOptions>text{
+  position: absolute;
+  top:15rpx;
+  left:80rpx;
+}
 .list-header .state{
   height: 60rpx;
   line-height: 60rpx;

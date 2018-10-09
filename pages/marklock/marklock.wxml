@@ -56,7 +56,7 @@
   <view class="hehe">
       <view class="meiyou">暂时没有其他跟进者，发布助力寻找队友吧~</view>
       <view class="butBox">
-        <button class="btn1" bindtap="toPath">寻找助力</button>
+        <button class="btn1" bindtap="toPath">分享</button>
         <image src='/img/hand2.png'></image>
         <view>
           <button class="btn2" bindtap='clock' data-ind='0'>查看我的客户</button>

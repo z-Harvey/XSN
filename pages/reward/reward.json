@@ -2,5 +2,8 @@
   "navigationBarBackgroundColor": "#FF9800",
   "navigationBarTitleText": "寻找助力",
   "navigationBarTextStyle": "white",
-  "disableScroll": true
+  "disableScroll": true,
+  "usingComponents": {
+    "loginMot": "../basic/loginMot/loginMot"
+  }
 }

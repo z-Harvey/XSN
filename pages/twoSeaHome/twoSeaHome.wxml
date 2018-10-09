@@ -72,6 +72,7 @@
         <view class="merImg">
           <image src="/img/index/icon.png" mode="widthFix"></image>
         </view>
+        <view class="content_right">
         <text class="merlistTitle font-size-28">{{idx.comname}}</text>
         <view class="merImgList">
           <view wx:for="{{idx.avatarurl_list}}" wx:for-item="im" wx:key>
@@ -81,6 +82,7 @@
         </view>
         <button wx:if="{{idx.isunlock==1}}" class="merBut font-size-24" data-id="{{idx.comid}}" bindtap="togroup" data-comname="{{idx.comname}}" data-mate='{{idx.has_mate}}' data-unlock='{{idx.isunlock}}' >查看</button>
         <button wx:else class="merBut font-size-24" data-id="{{idx.comid}}" bindtap="togroup" data-unlock='{{idx.isunlock}}' data-comname="{{idx.comname}}" data-mate='{{idx.has_mate}}'>{{idx.prices}}牛币查看</button>
+        </view>
       </view>
     </view>
     <view style="height:150rpx;"></view>

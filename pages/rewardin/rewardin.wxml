@@ -38,7 +38,6 @@
     <view class="font-size-28 com1010 title">
       受邀者({{list.invatednum}})
     </view>
-
     <view>
       <block wx:for="{{invitees}}">
         <view class="itemlist fixedWidth bodradius">
@@ -86,6 +85,7 @@
         </view>
       </block>
     </view>
+    <view style="height:100rpx;"></view>
   </view>
   <image src="/img/common/index.png" mode="widthFix" class="top" bindtap="toPath" data-type='3' ></image>
 

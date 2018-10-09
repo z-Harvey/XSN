@@ -46,7 +46,7 @@
 .list-header .mygroup-row>image.shakehand{
   width: 36rpx;
   vertical-align: middle;
-  margin: 0 16rpx;
+  margin: 12rpx 16rpx;
 }
 .list-header .state{
   height: 60rpx;
@@ -143,4 +143,25 @@ font-family: PingFangSC-regular;
   width:16rpx;
   height:16rpx;
   border-radius: 50%;
+}
+.txBox{
+  width:60rpx;
+  height:60rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  float: left;
+}
+.floaLeft>view{
+  margin-left:14rpx;
+  line-height: 60rpx;
+  float: left;
+  height:60rpx;
+}
+.floaLeft>image{
+  float: left;
+  border-radius: 0;
+}
+.txBox>image{
+  width:60rpx;
+  height:60rpx;
 }
