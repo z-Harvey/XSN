@@ -1,4 +1,5 @@
 // pages/editcard/editcard.js
+var demoNoSdk = require('../../utils/demo-no-sdk.js');
 var wxapi=require('../../utils/wxapi.js');
 const api = require("../../utils/api");
 const vail = require("../../utils/vail");
@@ -7,7 +8,6 @@ var demo = new QQMapWX({
   key: '2X4BZ-VCR64-XX3UU-X7L7D-P7XS3-M5BD7'
 }); 
 
-var demoNoSdk = require('../../utils/demo-no-sdk.js');
 
 Page({
   /**
@@ -32,6 +32,30 @@ Page({
     }
   },
   save: function(){
+    console.log(this.data)
+    console.log(this.data.comname.length)
+    if (this.data.comname.length<=0){
+      wx.showToast({
+        title:'请填写公司名称',
+        image:'/img/common/tan.png',
+        duration:2000
+      })
+      return
+    } else if (this.data.work.length <= 0){
+      wx.showToast({
+        title: '请填写您的行业/职能',
+        image: '/img/common/tan.png',
+        duration: 2000
+      })
+      return
+    } else if (this.data.workcard.length <= 0){
+      wx.showToast({
+        title: '请填写职位',
+        image: '/img/common/tan.png',
+        duration: 2000
+      })
+      return
+    }
     this.changepercent();
     if(this.data.percent==100){
       this.dialogtotal();
@@ -44,6 +68,7 @@ Page({
     wxapi.dialog('', `还差${100 - _this.data.percent}%的信息填写完即可可领取牛币+10，请确认是否放弃机会？`, '稍后完善', '返回填写', function () {
       console.log("继续填写该页面")
     }, function () {
+      console.log(_this.data.state)
       if (_this.data.state) {
         _this.alert();
       } else {
@@ -234,20 +259,20 @@ Page({
     var data = {
       thSessionId: wx.getStorageSync('token'),
       userid: wx.getStorageSync("userid"),
-      nickname: that.data.nickname,
-      name: that.data.name,
+      nickname: that.data.nickname||'',
+      name: that.data.name||'',
       phoneno: that.data.list.phoneno,
-      comname: that.data.comname,
-      email: that.data.email,
-      product: that.data.productlist ? that.data.productlist.join(",") : that.data.productlist,
+      comname: that.data.comname || '',
+      email: that.data.email || '',
+      product: that.data.productlist ? that.data.productlist.join(",") : that.data.productlist || '',
       gender: that.data.gender,
-      avatarurl: that.data.src,
-      work: that.data.work,
-      completion: that.data.percent,
-      wxno: that.data.wxno,
-      address: that.data.region+'|'+that.data.address,
-      is_change_company: that.data.state?1:0,
-      position: that.data.workcard
+      avatarurl: that.data.src || '',
+      work: that.data.work || '',
+      completion: that.data.percent || '',
+      wxno: that.data.wxno || '',
+      address: that.data.region + '|' + that.data.address || '',
+      is_change_company: (that.data.state ? 1 : 0)||'',
+      position: that.data.workcard || ''
     }
     console.log(data);
     api.savecard(data, function (result) {
@@ -292,7 +317,17 @@ Page({
     let currPage = pages[pages.length - 1];
     // this.init()
   },
-
+  upload:function(){
+    let _this=this;
+    let data={
+      auth_type: 'avatar'
+    }
+    demoNoSdk(data, function (res, bucket, path) {
+      _this.setData({
+        src: bucket
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */

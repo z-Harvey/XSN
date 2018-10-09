@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "好友"
+  "navigationBarTitleText": "好友",
+  "usingComponents": {
+    "loginMot": "../basic/loginMot/loginMot"
+  }
 }

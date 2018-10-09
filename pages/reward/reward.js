@@ -14,8 +14,8 @@ Page({
   showModal: function (that) {
     wx.showModal({
       title: '提交成功',
-      content: '您的组队申请已发送至悬赏发起者，请耐心等待悬赏结果~',
-      confirmText: '我的悬赏',
+      content: '您的组队申请已发送至助力发起者，请耐心等待助力结果~',
+      confirmText: '我的助力',
       cancelText: '返回',
       success: function (res) {
         console.log("成功",res)
@@ -199,7 +199,7 @@ Page({
     }
   },
   ini: function (data) {
-    //悬赏的请求--我的悬赏详情接口
+    //助力的请求--我的助力详情接口
     var that = this;
     api.getmine(data,function(result){
       console.log(result);

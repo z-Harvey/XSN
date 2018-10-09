@@ -40,7 +40,7 @@ Page({
     this.init(commondata);
   },
   init: function (data){
-    //悬赏的请求--我的悬赏详情接口
+    //助力的请求--我的助力详情接口
     var that = this;
     api.myrewardinfo(data, function (result) {
       console.log(result)

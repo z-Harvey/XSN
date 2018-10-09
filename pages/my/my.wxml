@@ -4,7 +4,9 @@
     <image src="/img/my/bg.png" mode='widthFix'></image>
     <view class="header wrap-flex">
       <view class="myownleft wrap-flex-item">
-        <image src="{{list.avatarurl||userinfo.avatarUrl}}" mode="widthFix" class="bigPic"></image>
+        <view class="bigPicBox">
+         <image src="{{list.avatarurl||userinfo.avatarUrl}}" mode="widthFix" class="bigPic"></image>
+        </view>
         <text class="font-size-32 nickname">{{list.nickname||userinfo.nickName}}</text>
         <image src="/img/common/man.png" class="smallsex" mode="widthFix" wx:if="{{list.gender==1}}"></image>
         <image src="/img/common/woman.png" class="smallsex" mode="widthFix" wx:elif="{{list.gender==2}}"></image>
@@ -15,10 +17,10 @@
       <view class="myownrights" wx:if="{{!list.Sign_in}}">
         <button class="mybutn" bindtap='showDialog' class="mymarkcode font-size-28" plain="true" >登陆</button>
       </view>
-      <view class="mytool wrap-flex" wx:if="list.Sign_in">
+      <view class="mytool wrap-flex">
         <view class="wrap-flex-item wrap-flex item {{rec_status?'defaultImg':''}}" bindtap="toPath" data-type='1'>
           <image src="/img/my/reward.png" mode="widthFix" class="toolimg"></image>
-          <text class="font-size-24 comcolor">我的悬赏</text>
+          <text class="font-size-24 comcolor">我的助力</text>
         </view>
         <view class="wrap-flex-item wrap-flex item {{team_status?'defaultImg':''}}" bindtap="toPath" data-type='2'>
           <image src="/img/my/group.png" mode="widthFix" class="toolimg"></image>
@@ -33,30 +35,11 @@
           <text class="font-size-24 comcolor">我的活动</text>
         </view>
       </view>
-      
-      <view class="mytool wrap-flex" wx:if="{{!list.Sign_in}}">
-        <view class="wrap-flex-item wrap-flex item "  bindtap='showDialog'>
-          <image src="/img/my/reward.png" mode="widthFix" class="toolimg"></image>
-          <text class="font-size-24 comcolor">我的悬赏</text>
-        </view>
-        <view class="wrap-flex-item wrap-flex item" bindtap='showDialog'>
-          <image src="/img/my/group.png" mode="widthFix" class="toolimg"></image>
-          <text class="font-size-24 comcolor">我的组队</text>
-        </view>
-        <view class="wrap-flex-item wrap-flex item" bindtap='showDialog'>
-          <image src="/img/my/myguest.png" mode="widthFix" class="toolimg"></image>
-          <text class="font-size-24 comcolor">我的客户</text>
-        </view>
-        <view class="wrap-flex-item wrap-flex item" bindtap='showDialog'>
-          <image src="/img/my/activity.png" mode="widthFix" class="toolimg"></image>
-          <text class="font-size-24 comcolor">我的活动</text>
-        </view>
-      </view>
     </view>
   </view>
 
   <view class="mypage">
-    <view class="fixedWidth bgwhite" bindtap="toPath" data-type='5' wx:if="{{list.Sign_in}}">
+    <view class="fixedWidth bgwhite" bindtap="toPath" data-type='5'>
       <view class="wrap-flex row myicon">
         <view class="myIconleft wrap-flex-item">
           <image src="/img/my/icon.png" mode="widthFix"></image>
@@ -68,20 +51,8 @@
         </view>
       </view>
     </view>
-   
-    <view class="fixedWidth bgwhite" wx:if="{{!list.Sign_in}}" bindtap='showDialog'>
-      <view class="wrap-flex row myicon">
-        <view class="myIconleft wrap-flex-item">
-          <image src="/img/my/icon.png" mode="widthFix"></image>
-          <text class="font-size-28 com1010">我的牛币0枚</text>
-        </view>
-        <view class="myIconright">
-          <text class="font-size-28">赚牛币</text>
-        </view>
-      </view>
-    </view>
 
-    <view class="fixedWidth bgwhite" bindtap="toPath" data-type='6' wx:if="{{list.Sign_in}}">
+    <view class="fixedWidth bgwhite" bindtap="toPath" data-type='6'>
       <view class="wrap-flex row mycard">
         <view class="myIconleft wrap-flex-item">
           <image src="/img/my/peopleinfo.png" mode="widthFix"></image>
@@ -94,20 +65,8 @@
       </view>
     </view>
 
-    <view class="fixedWidth bgwhite" wx:if="{{!list.Sign_in}}" bindtap='showDialog'>
-      <view class="wrap-flex row mycard">
-        <view class="myIconleft wrap-flex-item">
-          <image src="/img/my/peopleinfo.png" mode="widthFix"></image>
-          <text class="font-size-28 com1010">个人名片</text>
-        </view>
-        <view class="myIconright">
-          <text class="font-size-28 color8080">完成度{{list.completion}}%</text>
-          <image src="/img/my/right.png" mode="widthFix"></image>
-        </view>
-      </view>
-    </view>
 
-    <view class="fixedWidth bgwhite" bindtap="toPath" data-type='7' data-num="{{list.provestatus}}" data-order="{{list.isfirst}}" wx:if="{{list.Sign_in}}">
+    <view class="fixedWidth bgwhite" bindtap="toPath" data-type='7' data-num="{{list.provestatus}}" data-order="{{list.isfirst}}">
       <view class="wrap-flex row mycard">
         <view class="myIconleft wrap-flex-item">
           <image src="/img/my/job.png" mode="widthFix"></image>
@@ -121,20 +80,6 @@
         </view>
       </view>
     </view>
-
-    <view class="fixedWidth bgwhite" wx:if="{{!list.Sign_in}}" bindtap='showDialog'>
-      <view class="wrap-flex row mycard">
-        <view class="myIconleft wrap-flex-item">
-          <image src="/img/my/job.png" mode="widthFix"></image>
-          <text class="font-size-28 com1010">职位认证</text>
-        </view>
-        <view class="myIconright">
-          <text class="font-size-28 color8080">已认证</text>
-          <image src="/img/my/right.png" mode="widthFix"></image>
-        </view>
-      </view>
-    </view>
-
     <view class="fixedWidth bgwhite" bindtap="toPath" data-type='8'>
       <view class="wrap-flex row mycard">
         <view class="myIconleft wrap-flex-item">
@@ -151,20 +96,6 @@
   <button open-type="contact" class="guest-server" plain>
     <image src="/img/my/guest.png" bindtap="guest" data-type='3' mode="widthFix"></image>
   </button>
-
-  <!-- <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="mymarkcode" plain="true" >我</button> -->
-
-  <!-- <view class="mask" animation="{{animation}}" style="visibility: {{show ? 'visible' : 'hidden'}}" catchtap="hideModal">
-    <view class="maskContent">
-      <view class="head">
-        <text class="title" catchtap="show">提示</text>
-      </view>
-      <view class="content" catchtap="show">请您先登录后再查看</view>
-      <view class="footer">
-        <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="mymarkcode font-size-28" plain="true" >登陆</button>
-      </view>
-    </view>
-  </view> -->
   
   <loginMot id='dialog'></loginMot>
 </view>

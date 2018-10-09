@@ -1,0 +1,5 @@
+<!--pages/basic/Jump/Jump.wxml-->
+<view class="Jump" bindtap='click'>
+  <image src='/img/index/Gold_coin.png'></image>
+  <view class="jumpText">赚牛币</view>
+</view>

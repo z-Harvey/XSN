@@ -2,6 +2,6 @@
   <view class='loginMotContent'>
     <view class="font-size-34">登录</view>
     <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber"><image src="/img/wx.png"></image><text>微信账号快速登录</text></button>
-    <button><image src="/img/phone.png"></image><text>手机号注册/登录</text></button>
+    <button bindtap='phone'><image src="/img/phone.png"></image><text>手机号注册/登录</text></button>
   </view>
 </view>

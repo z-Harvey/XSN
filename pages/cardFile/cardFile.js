@@ -116,33 +116,27 @@ Page({
     
   },
   /**
+   * 登录框
+   */
+  showDialog() {
+    this.selectComponent("#dialog").gits()
+  },
+  /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
     wx.hideShareMenu()
-    if (wx.getStorageSync("userid")) {
-      this.setData({
-        show: false
-      })
-    } else {
-      this.setData({
-        show: true
-      })
+    if (!wx.getStorageSync("userid")) {
+      this.showDialog();
+      console.log('meiyou')
+      return;
     }
   },
   onShow: function(){
     if (wx.getStorageSync("userid")) {
+      console.log('有userid');
       var _this = this;
       this.init(_this)
-    }
-    if (wx.getStorageSync("userid")) {
-      this.setData({
-        show: false
-      })
-    } else {
-      this.setData({
-        show: true
-      })
     }
   },
   /**
@@ -151,7 +145,9 @@ Page({
   onReady: function () {
   
   },
-
+  /**
+   * 上拉加载数据
+   */
   onReachBottom: function () {
     var that = this;
     if(this.data.totalnum>this.data.page*9){

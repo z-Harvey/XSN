@@ -15,18 +15,26 @@
   width: 100%;
   position: absolute;
 }
-
+.bigPicBox{
+  width: 100rpx;
+  height:100rpx;
+  border-radius:100rpx;
+  overflow: hidden;
+  border:1rpx solid red;
+}
 .bigPic {
   width: 100rpx;
+  height:100rpx;
   margin-right: 10rpx;
   vertical-align: middle;
-  border-radius: 50%;
 }
-
 .nickname {
   color: #fff;
+  /* position: absolute;
+  top:60rpx;
+  left:150rpx; */
+  float: left;
 }
-
 .smallsex {
   width: 24rpx;
   margin-left: 4rpx;

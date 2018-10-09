@@ -72,6 +72,7 @@
          <button class="item-li-right" hover-class="activebtn" plain wx:if="{{item.taskid==10&&item.isdone==0}}" data-id="{{item.taskid}}" bindtap="toPath">去标记</button>
          <button class="item-li-right" hover-class="activebtn" plain wx:if="{{item.taskid==10&&item.isdone==1}}" data-id="{{item.taskid}}" bindtap="toPath" disabled>已领取</button>
         <button class="item-li-right" hover-class="activebtn" plain wx:if="{{item.taskid==11}}" data-id="{{item.taskid}}" bindtap="toPath">去评价</button>
+        <button class="item-li-right" hover-class="activebtn" plain wx:if="{{item.taskid==13}}" data-id="{{item.taskid}}" bindtap="toPath">去标记</button>
       </view>
     </block>
   </view>

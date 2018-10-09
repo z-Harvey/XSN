@@ -7,16 +7,17 @@ Page({
    * 页面的初始数据
    */
   data: {
-
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.hideShareMenu()
+    wx.updateShareMenu({
+      withShareTicket: true
+    })
     this.setData({
-      nickname: wx.getStorageSync("userInfo").nickName
+      nickname: wx.getStorageSync("my_user_name")
     })
     this.init();
   },
@@ -50,8 +51,13 @@ Page({
     var data = e.currentTarget.dataset, url;
     if(data.id==1){
       url = `/pages/editcard/editcard`;
-    } else if (data.id == 4 || data.id == 5 || data.id == 12){
+    } else if (data.id == 4 || data.id == 5 || data.id == 12) {
       url = `/pages/search/search`;
+    } else if (data.id == 13 ) {
+      wx.switchTab({
+        url: '/pages/twoSeaHome/twoSeaHome',
+      })
+      return;
     } else if (data.id == 11 || data.id == 10) {
       url = `/pages/mygroup/mygroup`;
     } else if (data.type==="navHome") {
@@ -112,16 +118,17 @@ Page({
   onReachBottom: function () {
   
   },
-  sharesuccess: function(){
+  sharesuccess: function(data){
     var data = {
       thSessionId: wx.getStorageSync("token"),
       userid: wx.getStorageSync("userid"),
-      changetype: 'ShareGroups'
+      changetype: data
     }
     api.changecode(data, function (res) {
       console.log("已经分享成功了");
+      console.log(res)
       if (res.code == 0) {
-        console.log("分享到微信群成功")
+        console.log("分享成功")
       }
     })
   },
@@ -156,19 +163,31 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function (res) {
-    var that=this;
-    wx.showShareMenu({
-      withShareTicket: true
-    })
-    if (res.target.id == 2) {
+    var that = this;
+    if (res.target.id == 1){
       return {
-        title: `【${this.data.nickname}@你】我在销售牛遇到贵人，组队一起联合打单，你也来试试吧~~`,
+        title: `【${that.data.nickname}@你】我在销售牛遇到贵人，组队一起联合打单，你也来试试吧~~`,
         path: '/pages/index/index',
-        success: (res) => {   
+        success: (res) => {
+          var num = wx.getStorageSync("sharenums") ? wx.getStorageSync("sharenums") : 0;
+          num++;
+          wx.setStorageSync("sharenums", num);
+          that.sharesuccess('ShareFriends');
+        },
+        fail: function (res) {
+          // 分享失败
+          console.log(res)
+        }
+      }
+    }else if (res.target.id == 2) {
+      return {
+        title: `【${that.data.nickname}@你】我在销售牛遇到贵人，组队一起联合打单，你也来试试吧~~`,
+        path: '/pages/index/index',
+        success: (res) => {
           var num = wx.getStorageSync("sharenum") ? wx.getStorageSync("sharenum"):0;
           num++;
           wx.setStorageSync("sharenum",num);
-            that.sharesuccess();
+          that.sharesuccess('ShareGroups');
           // var shareTickets = res.shareTickets;
           // wx.getShareInfo({
           //   shareTicket: shareTickets[0],
@@ -186,7 +205,7 @@ Page({
           // var group = wx.getStorageSync("group") ? wx.getStorageSync("group"):0+1;
           // wx.setStorageSync("group",group);
           // console.log(group);
-            // `/pages/share/share?userid=${wx.getStorageSync("userid")}`
+          // `/pages/share/share?userid=${wx.getStorageSync("userid")}`
         },
         fail: function (res) {
           // 分享失败
@@ -196,7 +215,7 @@ Page({
     }else if (res.target.id == 3) {
       console.log("邀请页面")
       return {
-        title: `【${this.data.nickname}@你】我在销售牛轻松搞定客户，还把老资源变现了，邀你一起赚钱，快来注册吧~`,
+        title: `【${that.data.nickname}@你】我在销售牛轻松搞定客户，还把老资源变现了，邀你一起赚钱，快来注册吧~`,
         path: `/pages/share/share?userid=${wx.getStorageSync("userid")}`,
         success: function (res){
           console.log(res)

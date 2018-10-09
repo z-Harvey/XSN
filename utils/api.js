@@ -14,6 +14,19 @@ const api = function(fn) {
         }
       })
     },
+    /**
+     * "公海"API接口 请求类型POST 
+     */
+    z_companysea: function (data, fn) {
+      Util.request({
+        modules: '/companysea',
+        method: 'get',
+        data: data,
+        success: (result) => {
+          fn(result)
+        }
+      })
+    },
     mycreatein: function(data, fn) {
       Util.requestpost({
         modules: '/team/recteam',
@@ -224,8 +237,8 @@ const api = function(fn) {
       })
     },
     /**
-   * 未标记用户标记客户
-   */
+      * 未标记用户标记客户
+    */
     markguest: function (data, fn) {
       Util.requestpost({
         modules: '/user/mate',
@@ -238,7 +251,7 @@ const api = function(fn) {
       })
     },
     /**
-   * 标记用户标记客户
+   *   获取 已标记 公司
    */
     markguestlock: function (data, fn) {
       Util.request({
@@ -252,7 +265,7 @@ const api = function(fn) {
       })
     },
     /**
-       * 创建悬赏
+       * 创建助力
        */
     createrecruit: function (data, fn) {
       Util.requestpost({
@@ -260,7 +273,7 @@ const api = function(fn) {
         method: 'post',
         data: data,
         success: (result) => {
-          console.log("创建悬赏", result)
+          console.log("创建助力", result)
           fn(result)
         }
       })
@@ -377,7 +390,7 @@ const api = function(fn) {
       })
     },
     /**
-      * 我的悬赏---我发起的
+      * 我的助力---我发起的
     */
     myreward: function (data, fn) {
       Util.request({
@@ -385,13 +398,13 @@ const api = function(fn) {
         method: 'get',
         data: data,
         success: (result) => {
-          console.log("我的悬赏", result.data)
+          console.log("我的助力", result.data)
           fn(result.data)
         }
       })
     },
     /**
-      * 我的悬赏---我参与的
+      * 我的助力---我参与的
     */
     myrewardin: function (data, fn) {
       Util.request({
@@ -399,7 +412,7 @@ const api = function(fn) {
         method: 'get',
         data: data,
         success: (result) => {
-          console.log("我的悬赏", result,result.data)
+          console.log("我的助力", result,result.data)
           fn(result.data)
         }
       })
@@ -410,13 +423,13 @@ const api = function(fn) {
         method: 'get',
         data: data,
         success: (result) => {
-          console.log("chakan我的悬赏", result, result.data)
+          console.log("chakan我的助力", result, result.data)
           fn(result.data)
         }
       })
     },
     /**
-      * 我的悬赏详情页面
+      * 我的助力详情页面
     */
     myrewardinfo: function (data, fn) {
       Util.request({
@@ -424,13 +437,13 @@ const api = function(fn) {
         method: 'get',
         data: data,
         success: (result) => {
-          console.log("我的悬赏详情页面", result.data)
+          console.log("我的助力详情页面", result.data)
           fn(result.data)
         }
       })
     },
     /**
-      * 我的悬赏分享页
+      * 我的助力分享页
     */
     myrewardshare: function (data, fn) {
       Util.request({
@@ -438,7 +451,7 @@ const api = function(fn) {
         method: 'get',
         data: data,
         success: (result) => {
-          console.log("我的悬赏分享页", result.data)
+          console.log("我的助力分享页", result.data)
           fn(result.data)
         }
       })
@@ -739,6 +752,41 @@ const api = function(fn) {
         data: data,
         success: (result) => {
           console.log("会话列表：", result)
+          fn(result)
+        }
+      })
+    },
+    // 获取 部门信息
+    z_department: function (data, fn) {
+      Util.request({
+        modules: '/department',
+        method: 'get',
+        data: data,
+        success: (result) => {
+          console.log("部门信息", result)
+          fn(result)
+        }
+      })
+    },
+    // 解锁公司  扣除牛币  
+    z_unlockmate: function (data, fn) {
+      Util.requestpost({
+        modules: '/unlockmate',
+        method: 'post',
+        data: data,
+        success: (result) => {
+          console.log('扣除牛币'+result)
+          fn(result)
+        }
+      })
+    },// 手机号获取验证码
+    z_yzcode: function (data, fn) {
+      Util.request({
+        modules: '/user/yzcode',
+        method: 'get',
+        data: data,
+        success: (result) => {
+          console.log("获取验证码成功", result)
           fn(result)
         }
       })

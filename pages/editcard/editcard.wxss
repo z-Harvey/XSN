@@ -60,10 +60,14 @@
   position: absolute;
   right: 20rpx;
   top: 20rpx;
+  width:120rpx;
+  height:120rpx;
+  border-radius: 50%;
+  overflow: hidden;
 }
 .personinfo .picture>image{
+  height:120rpx;
   width: 120rpx;
-  border-radius: 50%;
 }
 .personinfo .mask{
   width: 120rpx;
@@ -161,4 +165,21 @@ view.btnbottomsecond{
 }
 textarea{
   position: static;
+}
+.picture{
+  position: relative;
+}
+.cameraBox{
+  width:120rpx;
+  height:60rpx;
+  position: absolute;
+  top:60rpx;
+  left:0;
+  border-radius:0 0 60rpx 60rpx;
+  background:rgba(16, 16, 16, 0.5);
+}
+.cameraBox>image{
+  width:44rpx;
+  height:44rpx;
+  margin:6rpx 0 0 38rpx;
 }

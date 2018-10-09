@@ -9,7 +9,7 @@
   </view>
 
   <view class="successPrice fixedWidth bodradius wrap-flex">
-    <text class="font-size-28 com1010">成交佣金</text>
+    <text class="font-size-28 com1010">助力佣金</text>
     <text class="font-size-24 color91">（仅展示）</text>
     <text class="font-size-28 com1010 price">￥</text>
     <input placeholder="00.00" placeholder-class='font-size-24 comcolor' class="font-size-28 com1010" value="{{minmoney}}" bindinput="changemin" type="number"></input>

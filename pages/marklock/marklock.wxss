@@ -9,6 +9,7 @@ page{
 }
 .activityInfo {
   position: relative;
+  padding-bottom: 0;
 }
 .activityInfo .indextop{
   position: absolute;
@@ -25,5 +26,159 @@ page{
 }
 
 
+.unlock{
+  width:750rpx;
+  height:820rpx;
+  position: relative;
+}
+.unlock>image{
+  position: absolute;
+  top:0;
+  left:0;
+  width:750rpx;
+  height: 820rpx;
+}
+.unlockContent{
+  position: absolute;
+  top:96rpx;
+  left:32rpx;
+  width:690rpx;
+  margin:0 auto;
+}
+.unlockTitle{
+  width:690rpx;
+  height:66rpx;
+}
+.unlockContent>.unlockTitle>view>image{
+  width: 66rpx;
+  height:66rpx;
+  margin-right:14rpx;
+  float: left;
+}
+.unlockContent>.unlockTitle>view>text{
+  color:rgba(16, 16, 16, 1);
+  font-size: 28rpx;
+  height:66rpx;
+  line-height: 66rpx;
+  float: left;
+}
+.unlockTitleRight{
+  float: right;
+}
+.unlockContent>.unlockTitle>.unlockTitleRight>text{
+  color:rgba(255, 152, 0, 1);
+}
+.unlockContent>.unlockTitle>.unlockTitleRight>image{
+  width:28rpx;
+  height:28rpx;
+  margin:23rpx 28rpx 0 4rpx;
+}
 
-
+.unlockButs{
+  width:690rpx;
+  margin-top:50rpx;
+}
+.unlockButs>button:first-child{
+  width:690rpx;
+  height:96rpx;
+  border:0;
+  background: rgba(255, 152, 0, 1);
+  color:#fff;
+  font-size: 32rpx;
+  line-height: 96rpx;
+  border-radius: 10rpx;
+}
+.unlockButs>view{
+  width:690rpx;
+  height:96rpx;
+  margin-top: 20rpx;
+  display: flex;
+  justify-content: space-around
+}
+.unlockButs>view>button{
+  width: 340rpx;
+  height:96rpx;
+  font-size: 32rpx;
+  line-height: 96rpx;
+  border:10rpx;
+  background:#fff;
+  color:#888;
+}
+.unlockButs>view>button:last-child{
+  color:rgba(255, 152, 0, 1);
+}
+.unlockButs button::after{
+  border:0;
+}
+.unlockFooter{
+  width:690rpx;
+  height:86rpx;
+  font-size: 28rpx;
+  line-height: 43rpx;
+  color:rgba(136, 136, 136, 1);
+  margin-top:196rpx;
+}
+.hehe{
+  margin: 70rpx 0 0 0
+}
+.meiyou{
+  text-align: center;
+  font-size: 28rpx;
+  color:rgba(16, 16, 16, 1);
+  margin-bottom: 26rpx;
+}
+.butBox>button::after{
+  border:0;
+}
+.btn1{
+  width:690rpx;
+  height:96rpx;
+  background:rgba(255, 152, 0, 1);
+  color:#fff;
+  font-size: 32rpx;
+  line-height: 96rpx;
+  border:0;  
+}
+.btn2{
+  width:340rpx;
+  height:96rpx;
+  color:#888888 100%;
+  font-size: 32rpx;
+  line-height: 96rpx;
+  float: left;
+  border:0;
+}
+.btn2::after{
+  border:0;
+}
+.butBox>view{
+  margin-top:20rpx;
+}
+.btn2:first-child{
+  margin-left: 30rpx;
+}
+.btn2:last-child{
+  margin-left: 10rpx;
+  color:#FF9800;
+}
+.butBox{
+  position: relative;
+}
+.butBox>image{
+  width:84rpx;
+  height:84rpx;
+  position: absolute;
+  top:23rpx;
+  left:440rpx;
+}
+.touxiang{
+  width:80rpx;
+  height:80rpx;
+  border-radius: 50rpx;
+  overflow: hidden
+}
+.touxiang>image{
+  width:80rpx;
+  height:80rpx;
+  border-radius:0 
+}

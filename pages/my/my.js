@@ -14,6 +14,12 @@ Page({
   toPath: function (e) {
     var url;
     var data = e.currentTarget.dataset;
+    if(data.type!=8){
+      if(!wx.getStorageSync('userid')){
+        this.showDialog();
+        return
+      }
+    }
     //用于解决后期 分享时 出现 undefined 的情况
     wx.setStorageSync('my_user_name',this.data.list.nickname)
     if (data.type == 1) {

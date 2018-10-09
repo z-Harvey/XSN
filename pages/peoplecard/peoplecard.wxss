@@ -117,3 +117,14 @@
 .btmBtn>view>.edi::after{
   border:0;
 }
+.imgBox{
+  margin-left:50rpx;
+  width:120rpx;
+  height:120rpx;
+  border-radius: 50%;
+  overflow: hidden;
+}
+.imgBox>image{
+  width:120rpx;
+  height:120rpx;
+}

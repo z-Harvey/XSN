@@ -76,7 +76,7 @@ Page({
       aging: this.data.activeId+1,
       nickname: wx.getStorageSync('userInfo').nickName
     };
-    if (vail.empty(this.data.message, "您的组队意图") && vail.empty(this.data.minmoney, "您的成交佣金") && vail.empty(this.data.maxmoney, "您的成交佣金") && vail.empty(this.data.activeId+1, "有效期")) {
+    if (vail.empty(this.data.message, "您的组队意图") && vail.empty(this.data.minmoney, "您的助力佣金") && vail.empty(this.data.maxmoney, "您的助力佣金") && vail.empty(this.data.activeId+1, "有效期")) {
       api.createrecruit(data, function (result) {
         console.log(result);
         if (result.code == 0) {

@@ -1,0 +1,87 @@
+/* pages/basic/numReg/numReg.wxss */
+.numReg{
+  position: fixed;
+  width:100%;
+  top:0;
+  height:100%;
+  background:rgba(0,0,0,.5);
+}
+.contBox{
+  width:690rpx;
+  height:580rpx;
+  background:rgba(255, 255, 255, 1);
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  margin:200rpx auto 0;
+  overflow: hidden;
+}
+.titleImg{
+  width:690rpx;
+  height:160rpx;
+  position: relative;  
+}
+.titleImg>image{
+  width:690rpx;
+  height:160rpx;
+  position: absolute;
+  top:0;
+  left:0;
+}
+.titleImg>text{
+  position: absolute;
+  width:280rpx;
+  height:56rpx;
+  font-size: 40rpx;
+  color:#fff;
+  top:52rpx;
+  left:44rpx;
+}
+.ContentInp{
+  width:690rpx;
+  height:420rpx;
+  padding:40rpx 0 0 30rpx;
+}
+.ContentInp>input{
+  width:570rpx;
+  height:100rpx;
+  border-radius:60rpx;
+  margin:0 auto;
+  padding-left:60rpx;
+  background: rgba(236, 236, 237, 1);
+  font-size: 32rpx;
+  float: left;
+  margin-bottom: 20rpx;
+}
+.ContentInp>.inp2{
+  width:350rpx;
+}
+.ContentInp>.btn1{
+  width:200rpx;
+  height:100rpx;
+  border-radius: 60rpx;
+  font-size: 32rpx;
+  background:#FF9800 100%;
+  line-height: 100rpx;
+  color:#fff;
+  float: left;
+  margin-left: 20rpx;
+}
+.ContentInp>.btn1::after{
+  border: 0;
+}
+.OK{
+  width:630rpx;
+  height:100rpx;
+  border-radius: 60rpx;
+  border: 1rpx solid #FF9800;
+  margin-left:0;
+  font-size: 32rpx;
+  color:#FF9800;
+  line-height: 100rpx
+}
+[disabled]{
+  border:1rpx solid rgba(236, 236, 237, 1);  
+}
+.OK::after{
+  border:0;
+}

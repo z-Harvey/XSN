@@ -15,7 +15,7 @@
   </view>
   <view wx:if="{{listNone}}" class="blankBox">
     <image src="/img/blank.png"></image>
-    <text class="blankBoxText font-size-28">暂无我发起的悬赏</text>
+    <text class="blankBoxText font-size-28">暂无我发起的助力</text>
   </view>
   <view class="mygroup-list fixedWidth" wx:if="{{activeId==0}}">
     <view class="mygroup-item" wx:for="{{myrewardinfo}}">

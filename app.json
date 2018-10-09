@@ -48,7 +48,9 @@
     "pages/comuser/comuser",
     "pages/Conversation/Conversation",
     "pages/twoSeaHome/twoSeaHome",
-    "pages/basic/loginMot/loginMot"
+    "pages/basic/loginMot/loginMot",
+    "pages/basic/numReg/numReg",
+    "pages/basic/Jump/Jump"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -71,8 +73,8 @@
       {
         "pagePath": "pages/twoSeaHome/twoSeaHome",
         "text": "公海",
-        "iconPath": "/img/tabbar/sea.png",
-        "selectedIconPath": "/img/tabbar/sea.png"
+        "iconPath": "/img/tabbar/twoHome2.png",
+        "selectedIconPath": "/img/tabbar/twoHome1.png"
       },
       {
         "pagePath": "pages/cardFile/cardFile",

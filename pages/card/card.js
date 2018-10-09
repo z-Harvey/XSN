@@ -93,7 +93,7 @@ Page({
         if(result.code==0){
           console.log("code 0",that.data.typea)
           wx.navigateBack({
-            detail: 1
+            detail: 2
           })
         }
       });

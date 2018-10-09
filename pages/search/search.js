@@ -29,13 +29,12 @@ Page({
     //   page_num: this.data.page
     // }
     // this.init(data, this)
-
   },
   showDialog() {
     this.selectComponent("#dialog").gits()
   },
   toPath: function (e) {
-    if ((wx.getStorageSync('userid') == "" || wx.getStorageSync('userid')== undefined)){
+    if (!wx.getStorageSync('userid')){
       this.showDialog()
       return
     }
@@ -72,6 +71,7 @@ Page({
   },
   init: function(data,_this){
     api.search(data, function (data) {
+      console.log(data)
       _this.setData({
         list: data
       })

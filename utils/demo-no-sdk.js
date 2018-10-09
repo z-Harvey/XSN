@@ -12,10 +12,10 @@ var uploadFile = function (id,fn) {
         thSessionId: wx.getStorageSync('token'),
         userid: wx.getStorageSync('userid'),
         method: options.method,        
+        auth_type: id.auth_type
       },
       dataType: 'json',
       success: function (result) {
-        console.log(result);
         callback(result.data.data);
       }
     });
@@ -40,6 +40,8 @@ var uploadFile = function (id,fn) {
           'key': AuthData.Cos_work_prove_path+Key,
         },
         success: function (res) {
+          console.log('-------------------------------------------------------')
+          console.log(res)
           var Location = AuthData.Cos_work_prove_path + Key;
           var bucket = AuthData.Host+'/'+AuthData.Cos_work_prove_path + Key;
           // var url=path+Key;

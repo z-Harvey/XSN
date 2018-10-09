@@ -1,6 +1,7 @@
 {
   "navigationBarTitleText": "公海",
   "usingComponents": {
-    "loginMot": "../basic/loginMot/loginMot"
+    "loginMot": "../basic/loginMot/loginMot",
+    "Jump": "../basic/Jump/Jump"
   }
 }

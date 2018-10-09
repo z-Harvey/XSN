@@ -23,9 +23,11 @@ Page({
     })
   },
   upload: function(){
-    wx.hideShareMenu()
     var _this=this;
-    demoNoSdk('', function (res, bucket, path) {
+    let data={
+      auth_type:'work'
+    }
+    demoNoSdk(data, function (res, bucket, path) {
       console.log(bucket,path,res);
       _this.setData({
         state: false,
@@ -39,6 +41,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.hideShareMenu()    
     if(options.state){
       this.setData({
         state: options.state

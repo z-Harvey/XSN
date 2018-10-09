@@ -13,11 +13,11 @@
   
   <view wx:if="{{listNone}}" class="blankBox">
     <image src="/img/blank.png"></image>
-    <text class="blankBoxText font-size-28">暂无我发起的悬赏</text>
+    <text class="blankBoxText font-size-28">暂无我发起的助力</text>
   </view>
   <view wx:if="{{listNone1}}" class="blankBox">
     <image src="/img/blank.png"></image>
-    <text class="blankBoxText font-size-28">暂无我参与的悬赏</text>
+    <text class="blankBoxText font-size-28">暂无我参与的助力</text>
   </view>
   <view class="mygroup-list fixedWidth" wx:if="{{activeId==0}}">
     <view class="mygroup-item"  wx:for="{{myrewardinfo}}" data-type='1' bindtap="toPath" data-id="{{item.recid}}" data-comid="{{item.comid}}" data-type="my" data-type="One">
@@ -26,7 +26,7 @@
           <image src="{{item.avatarurl}}" mode="widthFix"></image>
           <text class="font-size-28 com1010">{{item.nickname}}</text>
         </view>
-        <view class="list-right font-size-24 state" style="color: {{item.rec_status==1?'#FF9800':'#888888'}}">{{item.rec_status==1?'悬赏中':'已结束'}}</view>
+        <view class="list-right font-size-24 state" style="color: {{item.rec_status==1?'#FF9800':'#888888'}}">{{item.rec_status==1?'助力中':'已结束'}}</view>
       </view>
       <view class="list-row companyname">{{item.comname}}</view>
       <view class="font-size-28 com1010 last-row">{{item.message}}</view>
@@ -54,7 +54,7 @@
           <image src="{{item.pavatarurl}}" mode="widthFix"></image>
           <text class="font-size-28 com1010">{{item.pnickname}}</text>
         </view>
-        <view class="list-right font-size-24 state" style="color: {{item.rec_status==1?'#FF9800':'#888888'}}">{{item.rec_status==1?'悬赏中':'已结束'}}</view>
+        <view class="list-right font-size-24 state" style="color: {{item.rec_status==1?'#FF9800':'#888888'}}">{{item.rec_status==1?'助力中':'已结束'}}</view>
       </view>
       <view class="list-row companyname">{{item.comname}}</view>
       <view class="font-size-28 com1010 last-row">{{item.message}}</view>

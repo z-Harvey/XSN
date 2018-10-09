@@ -134,7 +134,7 @@
 .recommend>text:last-child{
   position: absolute;
   right:10rpx;
-  top:33rpx;
+  top:20rpx;
 }
 .reccommendInfo swiper{
   height: 480rpx;
@@ -306,4 +306,19 @@ button.btn{
   border-radius:72rpx;
   color:rgba(255, 152, 0, 1);
   line-height: 60rpx;
+}
+.chexQb{
+  width:690rpx;
+  height:90rpx;
+  background:#fff;
+  color:#101010;
+  font-size: 32rpx;
+  line-height: 90rpx
+}
+.chexQb::after{
+  border:0;
+}
+.but_Text{
+  color:rgba(255, 152, 0, 1);
+  font-size: 40rpx;
 }

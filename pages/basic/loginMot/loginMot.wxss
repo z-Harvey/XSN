@@ -5,6 +5,7 @@
   top:0;
   left:0;
   background: rgba(16, 16, 16, .55);
+  z-index: 20;
 }
 .loginMotContent{
   width:560rpx;

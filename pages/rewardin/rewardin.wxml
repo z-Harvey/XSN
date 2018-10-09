@@ -12,7 +12,7 @@
       <view class="font-size-28 com1010">
         <text style="color: #FF9800">{{list.comname}}</text>有过合作的人
       </view>
-      <view class="font-size-30 com1010 fixed">成交佣金</view>
+      <view class="font-size-30 com1010 fixed">助力佣金</view>
       <view class="font-size-28 com1010">￥{{list.minmoney}}~{{list.maxmoney}}元</view>
     </view>
 
@@ -31,7 +31,7 @@
           <text class="font-size-24">剩余{{list.sy_dayno}}天</text>
         </view>
       </view>
-      <view class="font-size-28">{{list.rec_status==1?'悬赏中':'已结束'}}</view>
+      <view class="font-size-28">{{list.rec_status==1?'助力中':'已结束'}}</view>
     </view>
   </view>
   <view class="list-info fixedWidth" wx:if="{{list.invatednum>0&&mytype=='my'}}" >

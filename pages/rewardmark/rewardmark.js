@@ -41,9 +41,9 @@ Page({
   showModal: function(){
     wx.showModal({
       title: '提交成功',
-      content: '您的组队申请已发送至悬赏发起者，请耐心等待悬赏结果~',
-      confirmText:'我的悬赏',
-      cancelText: '悬赏详情',
+      content: '您的组队申请已发送至助力发起者，请耐心等待助力结果~',
+      confirmText:'我的助力',
+      cancelText: '助力详情',
       success: function () {
         // 需要传递返回的数据
         wx.navigateTo({
@@ -112,7 +112,7 @@ Page({
       }
       wx.showModal({
         title: '',
-        content: '悬赏发起者需要通过您的标记信息来选择是否与您进行组队~请先进行企业标记~',
+        content: '助力发起者需要通过您的标记信息来选择是否与您进行组队~请先进行企业标记~',
         showCancel: false,
         success: function () {
 

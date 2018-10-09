@@ -32,6 +32,14 @@ Component({
         })
       }
     },
+    phone:function(){
+      this.setData({
+        MotNone: false
+      })
+      wx.navigateTo({
+        url: '/pages/basic/numReg/numReg',
+      })
+    },
     getPhoneNumber(e){
       if (e.detail.errMsg == 'getPhoneNumber:ok') {
         var that = this;

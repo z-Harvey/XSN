@@ -29,7 +29,8 @@ Page({
         nickname: options.nickname,
         gender: options.gender,
         headsrc: options.src,
-        id: options.id
+        id: options.id,
+        niubi: options.niubi
       })
     }
   },

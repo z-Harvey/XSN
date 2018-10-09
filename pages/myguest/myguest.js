@@ -49,7 +49,9 @@ Page({
    */
   onLoad: function (options) {
     wx.hideShareMenu()
-    wx.setStorageSync('guest_status', options.guest_status);
+    if (options.guest_status){
+      wx.setStorageSync('guest_status', options.guest_status);
+    }
     this.init();
   },
   init: function (actid) {

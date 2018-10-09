@@ -24,7 +24,9 @@
   <view class="result fixedWidth" >
     <block wx:for="{{list}}">
       <view class="item bodradius fixedWidth wrap-flex" bindtap="toPath" data-id="{{item.id}}" wx:if="{{item.id!=userid}}">
-      <image class="userImg" src="{{item.avatarurl}}" mode="widthFix"></image>
+      <view class="userImg">
+        <image src="{{item.avatarurl}}" mode="widthFix"></image>        
+      </view>
       <view class="userContent list-right wrap-flex-item">
         <view class="list-nick wrap-flex" style="margin-top: -5rpx">
           <view class="imagetext wrap-flex-item">
@@ -39,16 +41,6 @@
 
     </block>
   </view>
-
-  <view class="mask" animation="{{animation}}" style="visibility: {{show ? 'visible' : 'hidden'}}" catchtap="hideModal">
-    <view class="maskContent">
-      <view class="head">
-        <text class="title" catchtap="show">提示</text>
-      </view>
-      <view class="content" catchtap="show">请您先登录后再查看</view>
-      <view class="footer">
-        <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="mymarkcode font-size-28" plain="true" >登陆</button>
-      </view>
-    </view>
-  </view>
+  
+  <loginMot id='dialog'></loginMot>
 </view>

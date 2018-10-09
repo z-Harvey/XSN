@@ -63,15 +63,15 @@ Page({
         }else{
           state = 2          
         }
-        _this.aggreensuccess(state,name,src,id);
+        _this.aggreensuccess(state,name,src,id,result.niub);
       })
     }, function () {
       
     })
   },
-  aggreensuccess: function(gender,name,src,id){
+  aggreensuccess: function(gender,name,src,id,niubi){
     wx.navigateTo({
-      url: `/pages/mygroupsuccess/mygroupsuccess?nickname=${name}&gender=${gender}&src=${src}&id=${id}`,
+      url: `/pages/mygroupsuccess/mygroupsuccess?nickname=${name}&gender=${gender}&src=${src}&id=${id}&niubi=${niubi}`,
     })
   },
   end: function(e){
@@ -152,6 +152,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    console.log('-------------------------------')
     wx.hideShareMenu()
     wx.setStorageSync('team_status', options.team_status)  
     commondata = {

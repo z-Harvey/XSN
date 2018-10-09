@@ -1,0 +1,16 @@
+<view class="numReg">
+  <view class="contBox">
+    <view class="titleImg">
+      <image src='/img/back.png'></image>
+      <text>欢迎加入销售牛</text>
+    </view>
+    <view class="ContentInp">
+      <input class="inp1" bindinput='cheng' data-type='0' placeholder="请输入手机号" type='number' value='{{phoneNum}}'></input>
+      <input class="inp2" bindinput='cheng' data-type='1' placeholder="请输入短信验证码" value="{{yzm}}"></input>
+      <button wx:if="{{show}}" bindtap="yzmUP" class="btn1">{{yzmText}}</button>
+      <button wx:else disabled='true' class="btn1">{{yzmText}}</button>
+      <button wx:if="{{OKshow}}" bindtap="phoneOK" class="OK">确认</button>
+      <button wx:else disabled='true' class="OK">确认</button>
+    </view>
+  </view>
+</view>

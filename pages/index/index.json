@@ -3,6 +3,7 @@
   "navigationBarTitleText": "销售牛",
   "navigationBarTextStyle": "white",
   "usingComponents": {
-    "loginMot": "../basic/loginMot/loginMot"
+    "loginMot": "../basic/loginMot/loginMot",
+    "Jump": "../basic/Jump/Jump"
   }
 }

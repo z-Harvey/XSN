@@ -2,6 +2,6 @@
   <image src="/img/common/tan.png" mode="widthFix"></image>
   <view class="font-size-40 com1010">抱歉，匹配失败
 </view>
-  <button plain class="activepublic font-size-36" bindtap="toPath" data-type="1">发布悬赏海报寻找队友吧~</button>
+  <button plain class="activepublic font-size-36" bindtap="toPath" data-type="1">发布助力海报寻找队友吧~</button>
   <button plain class="gray font-size-36" bindtap="toPath" data-type="2">返回首页</button>
 </view>

@@ -11,19 +11,60 @@
     </view>
     <button class="searchbtn font-size-28" >搜索</button> 
   </view>
-  <!-- <view class="linkageList font-size-28">
-    <view class="{{navState[0]===1?'acetiv':''}}" bindtap="navClick" data-index='0'>行业<image src="/img/hand1.png"></image></view>
-    <view class="{{navState[1]===1?'acetiv':''}}" bindtap="navClick" data-index='1'>城市<image src="/img/hand1.png"></image></view>
-    <view class="{{navState[2]===1?'acetiv':''}}" bindtap="navClick" data-index='2'>默认排序<image src="/img/hand1.png"></image></view>
+  <view class="linkageList font-size-28">
+    <view class="{{navState[0]===1?'acetiv':''}}" bindtap="navClick" data-index='0'>
+      客户关系/线索
+      <image wx:if="{{!(navState[0]===1)}}" src="/img/bot2.png"></image>
+      <image wx:else src="/img/bot1.png"></image>
+    </view>
+    <view class="{{navState[1]===1?'acetiv':''}}" bindtap="navClick" data-index='1'>
+      默认排序
+      <image wx:if="{{!(navState[1]===1)}}" src="/img/pai2.png"></image>
+      <image wx:else src="/img/pai1.png"></image>
+    </view>
   </view>
   <view class="ulLst font-size-28" wx:if="{{ulLstNone}}">
-    <view>
-      <view wx:for="{{ULlistDate}}" wx:key bindtap='industrys' data-id='{{item.id}}'>{{item.name}}</view>
+    <view wx:if="{{navState[0]==1}}">
+      <view class="ulLstTitle">客户关系</view>
+      <view class="ulLstButs1">
+        <view class="{{relaArr1[0] === 1?'relaActiv':''}}" bindtap='rela1' data-num='0'>有过合作</view>
+        <view class="{{relaArr1[1] === 1?'relaActiv':''}}" bindtap='rela1' data-num='1'>正在合作</view>
+        <view class="{{relaArr1[2] === 1?'relaActiv':''}}" bindtap='rela1' data-num='2'>有过跟进</view>
+        <view class="{{relaArr1[3] === 1?'relaActiv':''}}" bindtap='rela1' data-num='3'>正在跟进</view>
+      </view>
+      <view class="ulLstTitle">决策链线索</view>
+      <view class="ulLstButs2">
+        <view class="{{relaArr2[0] === 1?'relaActiv':''}}" bindtap='rela2' data-num='0'>有</view>
+        <view class="{{relaArr2[1] === 1?'relaActiv':''}}" bindtap='rela2' data-num='1'>无</view>
+      </view>
+      <view class="ulLstButs3">
+        <button bindtap="industry" data-bur='false'>重置</button>
+        <button bindtap="industry" data-bur='true'>确定</button>
+      </view>
     </view>
-    <view>
-      <view wx:for="{{LilistDate}}" wx:key data-id='{{item.id}}'>{{item.name}}</view>
+    <view class="pxs" wx:if="{{navState[1]==1}}">
+      <view class="{{sortArr[0]==1?'pxscli':''}}" bindtap='sortBtn' data-num='0'>
+        <text>默认排序</text>
+        <image wx:if="{{sortArr[0]==1}}" src="/img/yes.png"></image>
+      </view>
+      <view class="{{sortArr[1]==1?'pxscli':''}}" bindtap='sortBtn' data-num='1'>
+        <text>按跟进人数由高到低排序</text>
+        <image wx:if="{{sortArr[1]==1}}" src="/img/yes.png"></image>
+      </view>
+      <view class="{{sortArr[2]==1?'pxscli':''}}" bindtap='sortBtn' data-num='2'>
+        <text>按跟进人数由低到高排序</text>
+        <image wx:if="{{sortArr[2]==1}}" src="/img/yes.png"></image>
+      </view>
+      <view class="{{sortArr[3]==1?'pxscli':''}}" bindtap='sortBtn' data-num='3'>
+        <text>按牛币价格由高到低排序</text>
+        <image wx:if="{{sortArr[3]==1}}" src="/img/yes.png"></image>
+      </view>
+      <view class="{{sortArr[4]==1?'pxscli':''}}" bindtap='sortBtn' data-num='4'>
+        <text>按牛币价格由低到高排序</text>
+        <image wx:if="{{sortArr[4]==1}}" src="/img/yes.png"></image>
+      </view>
     </view>
-  </view> -->
+  </view>
 
     <view class="sizeSeat"></view>
     <view wx:for="{{listData}}"  wx:for-item="idx" wx:key>
@@ -34,14 +75,15 @@
         <text class="merlistTitle font-size-28">{{idx.comname}}</text>
         <view class="merImgList">
           <view wx:for="{{idx.avatarurl_list}}" wx:for-item="im" wx:key>
-            <image src="{{im}}"></image>
+            <image src="{{im.avatarurl}}"></image>
           </view>
-          <text class="font-size-24">有{{idx.allnum}}个销售在跟进</text>
+          <text class="font-size-24">有{{idx.matenum}}个销售在跟进</text>
         </view>
-        <button class="merBut font-size-24" data-id="{{idx.comid}}" bindtap="togroup" data-comname="{{idx.comname}}"  wx:if="{{butLogin}}">100牛币查看</button>
-        <button class="merBut font-size-24" bindtap='showDialog' wx:else >联合组队</button>
+        <button wx:if="{{idx.isunlock==1}}" class="merBut font-size-24" data-id="{{idx.comid}}" bindtap="togroup" data-comname="{{idx.comname}}" data-mate='{{idx.has_mate}}' data-unlock='{{idx.isunlock}}' >查看</button>
+        <button wx:else class="merBut font-size-24" data-id="{{idx.comid}}" bindtap="togroup" data-unlock='{{idx.isunlock}}' data-comname="{{idx.comname}}" data-mate='{{idx.has_mate}}'>{{idx.prices}}牛币查看</button>
       </view>
     </view>
-  
-  <loginMot id='dialog'></loginMot>  
+    <view style="height:150rpx;"></view>
+    <Jump></Jump>
+  <loginMot id='dialog'></loginMot>
 </view>

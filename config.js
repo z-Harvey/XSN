@@ -1,6 +1,6 @@
 // 请求域名
-// const URL = 'https://www.xiaoshouniu.cn'
-const URL = 'http://test.xiaoshouniu.cn'
+const URL = 'https://www.xiaoshouniu.cn'
+// const URL = 'http://test.xiaoshouniu.cn'
 
 const fileHost = ''
 const KEY = ''

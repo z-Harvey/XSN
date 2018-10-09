@@ -45,7 +45,7 @@
         </swiper> 
       </view>
       <view wx:if="{{butLogin}}">
-        <view class="dynamicText font-size-28">您有888枚牛币，最多可查看66666个已被跟进的客户</view>
+        <view class="dynamicText font-size-28">您有{{list.niub}}枚牛币，最多可查看{{list.can_unlock}}个已被跟进的客户</view>
         <view class="dynamicButs">
           <button class="font-size-28" bindtap='toPath' data-id='1'>去赚牛币</button>
           <button class="font-size-28" bindtap='toPath' data-id='0'>查看客户</button>
@@ -64,69 +64,9 @@
       <text class="font-size-24 comcolor" >（共有</text>
       <text class="font-size-24 title" > {{numtotal}} </text>
       <text class="font-size-24 comcolor" >家客户被跟进）</text>  
-      <text class="font-size-28 title" bindtap='toPath' data-id='0'>查看全部</text>
+      <text class="font-size-28 title titleright" bindtap='toPath' data-id='0'>查看全部</text>
     </view>
   </view>
-
-  <!-- <view class="reccommendInfo bodradius">
-      <swiper class="bodradius fixedWidth" bindchange="changepage">
-        <block wx:for="{{company}}" wx:for-item="content" >
-          <swiper-item wx:if="{{content}}">
-            <block wx:for="{{content}}">
-              <view class="wrap-flex item bodradius" >
-                <view class="widthFix">
-                  <image src="/img/index/icon.png" mode="widthFix"></image>
-                </view>
-                <view class="wrap-flex-item wrap-flex">
-                  <text class="comName font-size-28 com1010">{{item.comname}}</text>
-                  <view class="cominfo wrap-flex">
-                    <view class="wrap-flex-item">
-                      <block wx:for="{{item.avatarurl_list}}">
-                        <image src="{{item}}" mode="widthFix"></image>
-                      </block>
-                      <text class="font-size-24 comcolor">有{{item.allnum}}个销售在跟进</text>
-                    </view>
-                    <button class="btn font-size-24" plain="true" data-id="{{item.comid}}" bindtap="togroup" data-comname="{{item.comname}}">联合组队</button>
-                  </view>
-                </view>
-              </view> 
-            </block> 
-            <view wx:if="{{in==2}}">换一批</view>
-          </swiper-item>
-          <!-- <swiper-item  wx:if="{{index==2}}"> -->
-          <!-- </swiper-item> -->
-        <!-- </block> -->
-      <!-- </swiper>   -->
-
-      <!-- <swiper class="bodradius" next-margin="20rpx">
-        <block wx:for="{{list}}" wx:for-index="in">
-          <swiper-item>
-            <block wx:for="{{[1,2,3]}}">
-              <view class="wrap-flex item {{in==2?'lastscroll':''}}">
-                <view class="widthFix">
-                  <image src="/img/home.png" mode="widthFix"></image>
-                </view>
-                <view class="wrap-flex-item wrap-flex">
-                  <text class="comName font-size-28 com1010">北京聚牛天下网络科技有限公司</text>
-                  <view class="cominfo wrap-flex">
-                    <view class="wrap-flex-item">
-                      <block wx:for="{{[1,2,3]}}">
-                        <image src="/img/home.png" mode="widthFix"></image>
-                      </block>
-                      <text class="font-size-24 comcolor">有50个销售在跟进</text>
-                    </view>
-                    <button class="btn font-size-24" plain="true">联合组队</button>
-                  </view>
-                </view>
-              </view> 
-            </block> 
-            <view wx:if="{{in==2}}">换一批</view>
-          </swiper-item>
-        </block>
-      </swiper> -->
-    <!-- </view> -->
-
-
   <view wx:for="{{company}}"  wx:for-item="idx" wx:key>
       <view class="MerchantList">
         <view class="merImg">
@@ -139,11 +79,14 @@
           </view>
           <text class="font-size-24">有{{idx.matenum}}个销售在跟进</text>
         </view>
-        <button class="merBut font-size-24" data-id="{{idx.comid}}" bindtap="togroup" data-comname="{{idx.comname}}"  wx:if="{{butLogin}}">{{idx.prices}}牛币查看</button>
-        <button class="merBut font-size-24" bindtap='showDialog' wx:else >联合组队</button>
+        <button wx:if="{{idx.isunlock==1}}" class="merBut font-size-24" data-id="{{idx.comid}}" bindtap="togroup" data-comname="{{idx.comname}}" data-mate="{{idx.has_mate}}" data-unlock="{{idx.isunlock}}" >查看</button>
+        <button wx:else class="merBut font-size-24" data-id="{{idx.comid}}" bindtap="togroup" data-comname="{{idx.comname}}" data-unlock='{{idx.isunlock}}' data-mate='{{idx.has_mate}}'>{{idx.prices}}牛币查看</button>
       </view>
   </view>
+      <button class="chexQb" bindtap='chexQb'>查看全部<text class="but_Text">{{numtotal}}</text>家已被跟进的客户</button>  
+      <view style="height:150rpx;"></view>
   <loginMot id='dialog'></loginMot>
+  <Jump id='jump'></Jump>
 </view>
 
 

@@ -1,9 +1,18 @@
 <view class="marksuccess">
   <image src="/img/common/right.png" mode="widthFix"></image>
   <view class="font-size-40 com1010">组队成功</view>
-  <view class="font-size-28 colora0 fixedWidth" wx:if="{{gender==0}}">成功与{{nickname}}进行组队~兄弟组队，事半功倍~</view>
-   <view class="font-size-28 colora0 fixedWidth" wx:if="{{gender==1}}">成功与{{nickname}}进行组队~姐妹组队，效率翻倍~</view>
-    <view class="font-size-28 colora0 fixedWidth" wx:if="{{gender==2}}">成功与{{nickname}}进行组队~男女组队，打单不累~</view>
+  <view class="font-size-28 colora0 fixedWidth" wx:if="{{gender==0}}">
+    <text wx:if="{{niubi}}">成功与{{nickname}}进行组队并获得{{niubi}}牛币~兄弟组队，事半功倍~</text>
+    <text wx:else>成功与{{nickname}}进行组队~兄弟组队，事半功倍~</text>    
+  </view>
+   <view class="font-size-28 colora0 fixedWidth" wx:if="{{gender==1}}">
+   <text wx:if="{{niubi}}">成功与{{nickname}}进行组队并获得{{niubi}}牛币~姐妹组队，效率翻倍~</text>
+   <text wx:else>成功与{{nickname}}进行组队~姐妹组队，效率翻倍~</text>
+   </view>
+    <view class="font-size-28 colora0 fixedWidth" wx:if="{{gender==2}}">
+    <text wx:if="{{niubi}}">成功与{{nickname}}进行组队并获得{{niubi}}牛币~男女组队，打单不累~</text>
+    <text wx:else>成功与{{nickname}}进行组队并~男女组队，打单不累~</text>
+    </view>
   <button plain class="activepublic font-size-36" bindtap="toPath" data-type="1" data-src="{{headsrc}}" data-id="{{id}}">去沟通</button>
   <button plain class="gray font-size-36" bindtap="toPath" data-type="2">返回我的组队</button>
 </view>

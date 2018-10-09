@@ -15,6 +15,8 @@ Page({
       var that = this;
       wx.login({
         success: (res) => {
+          console.log('code')
+          console.log(res)
           Util.request({
             modules: '/login',
             method: 'get',
@@ -22,6 +24,7 @@ Page({
               code: res.code
             },
             success: (result) => {
+              console.log(result)
               if (result.code == 0) {
                 console.log("首次，已经登陆")
                 wx.setStorageSync("token", result.data.thSessionId)
@@ -66,13 +69,15 @@ Page({
           })
         }
       })
-    
   },
   onLoad: function(options){
     // wx.switchTab({
-    //   url: '../twoSeaHome/twoSeaHome',
+    //   url: '/pages/twoSeaHome/twoSeaHome',
     // })
-    this.refresh();
+    // wx.navigateTo({
+    //   url: '/pages/basic/Jump/Jump'
+    // });
+    // return
   }, 
   onShow: function(){
     let _this=this;
@@ -90,11 +95,13 @@ Page({
         butLogin: false
       })
     }
+    this.refresh();
   },
   init: function(){
     var _this = this;
     var data = {
-      thSessionId: wx.getStorageSync("token")
+      thSessionId: wx.getStorageSync("token"),
+      userid: wx.getStorageSync('userid')||''
     }
     api.getindex(data, function (data) {
       if(data.code==0){
@@ -102,22 +109,25 @@ Page({
           list: data.data,
           totalcomnum: data.data.show_com_num,
           numtotal: data.data.all_mate_com_num + 10000,
+          company: data.data.com_info
         })
+        console.log('--------------------------')
+        console.log(data.data)
       }else if(data.code==-1){
         _this.refresh()
       }
     })
-    var data1 = {
-      thSessionId: wx.getStorageSync("token"),
-      page_num: 1
-    }
-    api.myindexcompany(data1, function (data) {
-      console.log("首页加载返回的数据", data)
-      var data = data.data.com_info;
-      _this.setData({
-        company: data,
-      })
-    })
+    // var data1 = {
+    //   thSessionId: wx.getStorageSync("token"),
+    //   page_num: 1
+    // }
+    // api.myindexcompany(data1, function (data) {
+    //   console.log("首页加载返回的数据", data)
+    //   var data = data.data.com_info;
+    //   _this.setData({
+    //     company: data,
+    //   })
+    // })
   },
   changepage: function(e){
     var _this=this;
@@ -170,21 +180,25 @@ Page({
     })
   },
   togroup: function (e) {
+    console.log(!wx.getStorageSync('userid'))
+    if(!wx.getStorageSync('userid')){
+      this.showDialog();
+      return;
+    }
     var params = e.currentTarget.dataset, url;
     var da = {
       userid: wx.getStorageSync('userid'),
       thSessionId: wx.getStorageSync('token'),
       comid: params.id
     }
-    api.checkmate(da, function (data) {
-      console.log(data);
+    api.checkmate(da, function (data) {//判断是否有标记关系
       if (data.data.has_mate == 0) {
-        url = `/pages/activityInfo/activityInfo?id=${params.id}&comname=${params.comname}`;
+        url = `/pages/markguest/markguest?id=${params.id}&comname=${params.comname}&unlock=${params.unlock}`;
         wx.navigateTo({
           url: url,
         })
       } else if (data.data.has_mate == 1) {
-        url = `/pages/marklock/marklock?id=${params.id}&comname=${params.comname}`;
+        url = `/pages/marklock/marklock?id=${params.id}&comname=${params.comname}&unlock=${params.unlock}`;
         wx.navigateTo({
           url: url,
         })
@@ -205,7 +219,6 @@ Page({
   },
   getPhoneNumber:function(e){
     if (e.detail.errMsg == 'getPhoneNumber:ok') {
-      console.log(1111111111)
       var that = this;
       var data = {
         thSessionId: wx.getStorageSync("token"),
@@ -226,6 +239,7 @@ Page({
             })
             wx.setStorageSync('userid', res.data.userid);
             wx.setStorageSync('UserSig', res.data.UserSig);
+            that.onShow()
           })
         } else {
           wx.showModal({
@@ -235,5 +249,10 @@ Page({
         }
       });
     }
+  },
+  chexQb:function(){
+    wx.switchTab({
+      url: '/pages/twoSeaHome/twoSeaHome',
+    })
   }
 })
