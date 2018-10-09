@@ -2,7 +2,6 @@
 const ald = require('./utils/ald-stat.js');
 const wxapi = require("./utils/wxapi.js");
 const api = require("./utils/api.js");
-console.log(1)
 App({
   onLaunch: function () {
     // 登录
