@@ -44,17 +44,17 @@ Page({
       content: '您的组队申请已发送至助力发起者，请耐心等待助力结果~',
       confirmText:'我的助力',
       cancelText: '助力详情',
-      success: function () {
-        // 需要传递返回的数据
-        wx.navigateTo({
-          url: `/pages/myreward/myreward`,
-        })
-      },
-      fail: function(){
-        // 需要传递返回的数据
-        wx.navigateTo({
-          url: `/pages/reward/reward`,
-        })
+      success: function (e) {
+        if (e.cancel){
+          wx.navigateTo({
+            url: `/pages/reward/reward?id=${this.data.recid}&myid=${wx.getStorageSync('userid')}&myname=${wx.getStorageSync("my_user_name")}`,
+          })
+        }else{
+          // 需要传递返回的数据
+          wx.navigateTo({
+            url: `/pages/myreward/myreward`,
+          })
+        }
       }
     })
   },

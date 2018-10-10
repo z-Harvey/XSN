@@ -6,7 +6,7 @@
     <!-- <image src="/img/banner.png"></image> -->
     <view class="mask">
       <view class="font-size-28 com1010 title">标记客户后为您智能匹配其他跟进此企业的销售~</view>
-      <button class="markbtn font-size-32 bodradius fixedWidth" plain="true"  bindtap="toPath">标记后匹配</button> 
-    </view> 
+      <button class="markbtn font-size-32 bodradius fixedWidth" plain="true"  bindtap="toPath">标记后匹配</button>
+    </view>
   </view>
 </view>

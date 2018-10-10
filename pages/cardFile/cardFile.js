@@ -14,6 +14,7 @@ Page({
   },
   toPath: function (e) {
     var data = e.currentTarget.dataset;
+ 
     if (data.type ==='myName'){
       wx.navigateTo({
         url: "/pages/peoplecard/peoplecard",

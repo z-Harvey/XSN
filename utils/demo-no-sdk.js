@@ -40,14 +40,12 @@ var uploadFile = function (id,fn) {
           'key': AuthData.Cos_work_prove_path+Key,
         },
         success: function (res) {
-          console.log('-------------------------------------------------------')
-          console.log(res)
           var Location = AuthData.Cos_work_prove_path + Key;
           var bucket = AuthData.Host+'/'+AuthData.Cos_work_prove_path + Key;
           // var url=path+Key;
           var url=Key;
           if (res.statusCode === 200) {
-            wx.showModal({ title: '上传成功', content: Location, showCancel: false });
+            wx.showModal({ title: '上传成功', showCancel: false });
             fn(filept, bucket, url);
           } else {
             wx.showModal({ title: '上传失败', content: JSON.stringify(res), showCancel: false });

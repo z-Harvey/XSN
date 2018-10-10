@@ -20,7 +20,7 @@
     <text class="blankBoxText font-size-28">暂无我参与的助力</text>
   </view>
   <view class="mygroup-list fixedWidth" wx:if="{{activeId==0}}">
-    <view class="mygroup-item"  wx:for="{{myrewardinfo}}" data-type='1' bindtap="toPath" data-id="{{item.recid}}" data-comid="{{item.comid}}" data-type="my">
+    <view class="mygroup-item"  wx:for="{{myrewardinfo}}" data-type='1' bindtap="toPath" data-id="{{item.recid}}" data-comid="{{item.comid}}" data-type="my" data-redtype="One">
       <view class="list-header wrap-flex">
         <view class="imBoxOptions mygroup-row wrap-flex-item">
           <view class="txBox">
@@ -50,7 +50,7 @@
   </view>
 
   <view class="mygroup-list fixedWidth" wx:if="{{activeId==1}}">
-    <view class="mygroup-item"  wx:for="{{inmyrewardinfo}}" bindtap="toPath" data-type='1' data-id="{{item.recid}}" data-comid="{{item.comid}}" data-type="in" data-userid="{{item.puserid}}" data-type="Two">
+    <view class="mygroup-item"  wx:for="{{inmyrewardinfo}}" bindtap="toPath" data-type='1' data-id="{{item.recid}}" data-comid="{{item.comid}}" data-type="in" data-userid="{{item.puserid}}" data-redtype="Two">
       <view class="list-header wrap-flex">
         <view class="imBoxOptions mygroup-row wrap-flex-item">
           <view class="txBox">

@@ -3,7 +3,7 @@
 </button>
   <view class="activityinfo padding30">
     <image src="{{detail.picture}}" mode="widthFix" class="bodradius"></image>
-    <view class="font-size-30 com1010" >{{detail.title}}</view>
+    <view class="font-size-30 com1010" style="padding-bottom:20rpx;">{{detail.title}}</view>
     <view class="wrap-flex"  wx:if="{{typea==1}}">
       <view class="wrap-flex-item">
         <image src="/img/common/icon.png" mode="widthFix"></image>
@@ -50,7 +50,7 @@
     
   <image src="/img/common/index.png" class="totop" bindtap="totop" mode="widthFix" wx:if="{{typea==1}}"></image>
 
-  <view class="wrap-flex btn-bottom" wx:if="{{typea==1}}">
+  <view class="wrap-flex btn-bottom flexD" wx:if="{{typea==1}}">
     <button class="wrap-flex-item firstbtn" plain="true" hover-class="activebtn" open-type="share">分享</button>
     <button class="wrap-flex-item" plain="true" hover-class="activebtn" bindtap="signUp" wx:if="{{detail.aci_status==2&&issignup==0}}">兑换</button>
     <button class="wrap-flex-item" plain="true" hover-class="activebtn"  wx:if="{{detail.aci_status==2&&issignup==1}}" disabled>已兑换</button>
@@ -58,7 +58,7 @@
     <button class="wrap-flex-item" plain="true" hover-class="activebtn" disabled wx:elif="{{detail.aci_status==4 }}">已结束</button>
     <button class="wrap-flex-item" plain="true" hover-class="activebtn"  wx:elif="{{detail.aci_status==4&&detail.aci_status==1}}" disabled>未开始</button>
   </view>
-  <view class="wrap-flex btn-bottom" wx:else>
+  <view class="wrap-flex btn-bottom flexD" wx:else>
     <button class="wrap-flex-item firstbtn" plain="true" hover-class="activebtn" bindtap="totop">首页</button>
     <button class="wrap-flex-item" plain="true" hover-class="activebtn" open-type="share">分享</button>
   </view>

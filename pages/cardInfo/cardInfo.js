@@ -43,6 +43,9 @@ Page({
     var _this = this;
     var name = e.currentTarget.dataset.name;
     var src = e.currentTarget.dataset.src;
+    console.log('--------------------')
+    console.log(src)
+    console.log('--------------------')    
     console.log(name);
     var data = {
       thSessionId: wx.getStorageSync('token'),

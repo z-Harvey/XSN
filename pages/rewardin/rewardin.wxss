@@ -97,3 +97,23 @@
   color:#fff;
   background: rgba(0,0,0,0);
 }
+.txBox{
+  width:100rpx;
+  height:100rpx;
+  border-radius:50%;
+  overflow: hidden;
+  margin: 0 auto 4rpx;
+}
+.txBox>image{
+  width:100rpx;
+}
+.yizudui{
+  height:60rpx;
+  display: inline-block;
+  line-height: 60rpx;
+  border:0;
+  background:rgba(0,0,0,0);
+}
+.yizudui::after{
+  border:0;
+}

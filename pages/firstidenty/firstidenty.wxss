@@ -40,7 +40,22 @@
   line-height: 100rpx;
 }
 .identyname .title{
+  height:60rpx;
+  line-height: 60rpx;
   margin: 32rpx 0 16rpx;
+}
+.identyname .title>button{
+  background:rgba(255, 152, 0, 1);
+  width:208rpx;
+  font-size: 28rpx;
+  height:60rpx;
+  border-radius: 8rpx;
+  line-height: 60rpx;
+  color:#fff;
+  float: right;
+}
+.identyname .title>button::after{
+  border:0;
 }
 .identyname .name textarea{
   width: 100%;
@@ -145,7 +160,22 @@
 .wrap-router .fontiden{
   margin: 6rpx 0 16rpx;
 }
-.wrap-router .fontiden+image{
+/* .wrap-router .fontiden+image{
   width: 144rpx;
   height: 74rpx;
+} */
+.motTitle{
+  width:670rpx;
+  min-height: 88rpx;
+  font-size: 28rpx;
+  color:#fff;
+  line-height: 88rpx;
+  background: rgba(0,0,0,.5);
+  position: absolute;
+  bottom: 0;
+  padding-left:20rpx;
+}
+.imgbos>image{
+  width:100%;
+  height:100%;
 }

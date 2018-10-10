@@ -4,7 +4,9 @@
   <view class="evalheader">
     <view class="itemlist fixedWidth bodradius headertop">
       <view class="list-header wrap-flex">
-        <image src="{{user_info.avatarurl}}" mode="widthFix"></image>
+        <view class="txBox">
+          <image src="{{user_info.avatarurl}}" mode="widthFix"></image>          
+        </view>
         <view class="list-right wrap-flex wrap-flex-item">
           <view class="list-nick">
             <text class="font-size-28 com1010">{{user_info.nickname}}</text>
@@ -26,7 +28,9 @@
     <block wx:for="{{list}}">
       <view class="list-li fixedWidth bodradius">
         <view class="item wrap-flex">
-          <image src="{{item.avatarurl}}" mode="widthFix"></image>
+          <view class="txBos">
+            <image src="{{item.avatarurl}}" mode="widthFix"></image>            
+          </view>
           <view class="list-right wrap-flex-item">
             <view class="list-nick wrap-flex" style="margin-top: -5rpx">
               <view class="imagetext wrap-flex-item">

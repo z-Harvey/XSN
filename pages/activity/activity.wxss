@@ -99,3 +99,7 @@
   color: #888;
   background: #f1f1f1;
 }
+.flexD{
+  position: fixed;
+  bottom: -4rpx;
+}

@@ -3,7 +3,9 @@
 <view class="rewardInfo">
   <view class="reward-header">
     <view class='header-nick'>
-      <image src="{{list.pavatarurl||list.avatarurl}}" mode="widthFix"></image>
+      <view class="txBox">
+        <image src="{{list.pavatarurl||list.avatarurl}}" mode="widthFix"></image>        
+      </view>
       <view class="font-size-28">{{list.pnickname||list.nickname}}</view>
     </view>
     <view class="dialogBorder font-size-24 com1010 fixedWidth">
@@ -35,7 +37,7 @@
       <view class="font-size-28">{{list.rec_status==1?'助力中':'已结束'}}</view>
     </view>
   </view>
-  <view class="list-info fixedWidth" wx:if="{{list.invatednum>0&&invitees&&list.rec_status==1}}" >
+      <view class="list-info fixedWidth" wx:if="{{list.invatednum>0&&invitees&&list.rec_status==1}}" >
     <view class="font-size-28 com1010 title">
       受邀者({{list.invatednum}})
     </view>
@@ -43,7 +45,9 @@
       <block wx:for="{{invitees}}">
         <view class="itemlist fixedWidth bodradius">
           <view class="list-header wrap-flex">
-            <image src="{{item.avatarurl}}" mode="widthFix"></image>
+            <view class="txBox" style="margin:0 16rpx 0 0;">
+              <image src="{{item.avatarurl}}" mode="widthFix"></image>
+            </view>
             <view class="list-right wrap-flex">
               <view class="list-nick" style="margin-top: -5rpx">
                 <text class="font-size-28 com1010">{{item.nickname}}</text>
@@ -92,7 +96,7 @@
     <button class="wrap-flex-item" plain="true" hover-class="activebtn" bindtap="toPath" data-type="1" wx:if="{{!showbtn&&!successbtn&&isfriend==0}}">我来帮Ta</button>
     <button  class="mymarkcode wrap-flex-item" plain="true" bindtap='logins' wx:elif="{{showbtn}}" hover-class="activebtn">我来帮Ta</button>
     <button class="wrap-flex-item" plain="true" hover-class="activebtn" disabled wx:elif="{{successbtn&&isfriend==0}}">已申请</button>
-    <button class="wrap-flex-item" plain="true" hover-class="activebtn" disabled wx:elif="{{isfriend==1}}">去沟通</button>
+    <button class="wrap-flex-item" plain="true" bindtap='toCard' data-id='{{myid}}' hover-class="activebtn"  wx:elif="{{isfriend==1}}">去沟通</button>
   </view>
   <!-- <view class="wrap-flex btn-bottom" wx:if="{{myid==reactid&&list.rec_status==1}}"> -->
   <view class="wrap-flex btn-bottom" wx:if="{{butBlockNone}}">

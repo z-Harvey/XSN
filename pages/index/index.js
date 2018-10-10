@@ -12,6 +12,21 @@ Page({
     handBoxNone:true,
     showss:false
   },
+  onPageScroll: function (e) {
+    var _this=this;
+    if (e.scrollTop > 150) {
+      console.log(true)
+      _this.setData({
+        showss: true
+      })
+    } else {
+      console.log(false)
+      _this.setData({
+        showss: false
+      })
+    }
+    console.log(e);//{scrollTop:99}
+  },
   refresh: function(){
       var that = this;
       wx.login({
@@ -207,27 +222,6 @@ Page({
   },
   onShareAppMessage: function () {
     
-  },
-  queryMultipleNodes: function () {
-    var _this=this;
-    var query = wx.createSelectorQuery()
-    query.select('#searchInp').boundingClientRect()
-    query.selectViewport().scrollOffset()
-    query.exec(function (res) {
-      // 节点[0]的上边界坐标
-      if(res[0].top<0){
-        console.log(true)
-        _this.setData({
-          showss:true
-        })
-      }else{
-        console.log(false)        
-        _this.setData({
-          showss: false
-        })
-      }
-      res[1].scrollTop // 显示区域的竖直滚动位置
-    })
   },
   getPhoneNumber:function(e){
     if (e.detail.errMsg == 'getPhoneNumber:ok') {

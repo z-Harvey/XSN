@@ -82,8 +82,8 @@
     </view>
   </view>
 
-  <view class="btn-bottom btnbottom btnbottomsecond">
-    <button class="btn-bottom btnbottom btnbottomsecond" plain>完成度：{{completion}}%</button>
+  <view class="bottomTitle">
+    完成度：{{completion}}%
   </view>
   <button class="btn-bottom btn-bottom btnbottom" plain bindtap="save" hover-class="active">保存</button>
 </view>

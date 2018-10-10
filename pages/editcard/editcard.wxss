@@ -183,3 +183,14 @@ textarea{
   height:44rpx;
   margin:6rpx 0 0 38rpx;
 }
+.bottomTitle{
+  width:100%;
+  height:60rpx;
+  background: rgba(255, 152, 0, 0.47);
+  font-size: 28rpx;
+  line-height: 60rpx;
+  color:#fff;
+  text-align: center;
+  position: fixed;
+  bottom: 96rpx;
+}

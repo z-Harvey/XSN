@@ -72,11 +72,11 @@ Page({
       api.checkmate(da, function (result) {
         console.log(result);
         that.setData({
-          content: result.data.mate_info[0],
-          comname: result.data.mate_info[0].comname,
-          comid: result.data.mate_info[0].comid, 
-          activebtn: result.data.mate_info[0].hasdecision,
-          activeBtn: result.data.mate_info[0].relation            
+          content: result.data,
+          comname: result.data.comname,
+          comid: result.data.comid, 
+          activebtn: result.data.hasdecision,
+          activeBtn: result.data.relation            
         })
       })
     }

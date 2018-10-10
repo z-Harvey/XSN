@@ -37,7 +37,7 @@ Page({
     if(res.target.id==1){
       return {
         title: `【${wx.getStorageSync('my_user_name')}@你】邀你组队联合打单，${this.data.minmoney}元佣金等你来拿~~`,
-        path: `/pages/reward/reward?id=${this.data.recid}&myid=${this.data.reccreate}`
+        path: `/pages/reward/reward?id=${this.data.recid}&myid=${this.data.reccreate}&myname=${wx.getStorageSync('my_user_name')}`
       }
     }
   }

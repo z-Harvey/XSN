@@ -57,7 +57,7 @@ Page({
         that.showModal(that);    
         that.setData({
           successbtn: 1
-        })  
+        })
       }
     })
   },
@@ -198,6 +198,21 @@ Page({
       })
     }
   },
+  toCard:function(e){
+    var _this=this
+    var data = e.currentTarget.dataset;
+    console.log(data)
+    var obj = {
+      thSessionId: wx.getStorageSync('token'),
+      userid: wx.getStorageSync("userid"),
+      puserid: _this.data.myid
+    }
+    api.getmycard(obj, function (res) {
+      wx.navigateTo({
+        url: `/pages/dialogInfo/dialogInfo?id=${_this.data.myid}&src=${res.data.avatarurl}`
+      })
+    })
+  },
   onShow:function(){
     if(!wx.getStorageSync('userid')){
       console.log(wx.getStorageSync('phone'))
@@ -282,16 +297,16 @@ Page({
    */
   onShareAppMessage: function (res) {
     console.log(this.data)
-      if (res.target.id == 1) {
+      // if (res.target.id == 1) {
         return {
           title: `【${this.data.myname}@你】邀你组队联合打单，${this.data.minmoney}元佣金等你来拿~~`,
           path: `/pages/reward/reward?id=${this.data.recid}&myid=${this.data.myid}&myname=${this.data.myname}`
         }
-      } else if (res.target.id == 2){
-        return {
-          title: `【${this.data.myname}@你】邀你组队联合打单，${this.data.minmoney}元佣金等你来拿~~`,
-          path: `/pages/reward/reward?id=${this.data.recid}&myid=${this.data.myid}&myname=${this.data.myname}`
-        }
-      }
+      // } else if (res.target.id == 2){
+      //   return {
+      //     title: `【${this.data.myname}@你】邀你组队联合打单，${this.data.minmoney}元佣金等你来拿~~`,
+      //     path: `/pages/reward/reward?id=${this.data.recid}&myid=${this.data.myid}&myname=${this.data.myname}`
+      //   }
+      // }
   }
 })

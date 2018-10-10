@@ -172,6 +172,7 @@ page{
   left:440rpx;
 }
 .touxiang{
+  margin-right:16rpx;
   width:80rpx;
   height:80rpx;
   border-radius: 50rpx;
@@ -181,4 +182,13 @@ page{
   width:80rpx;
   height:80rpx;
   border-radius:0 
+}
+.yizudui{
+  height:60rpx;
+  display: inline-block;
+  line-height: 60rpx;
+  background:rgba(0,0,0,0);
+}
+.yizudui::after{
+  border:0;
 }

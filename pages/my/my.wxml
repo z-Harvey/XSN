@@ -57,7 +57,7 @@
     <view class="fixedWidth bgwhite" bindtap="toPath" data-type='6'>
       <view class="wrap-flex row mycard">
         <view class="myIconleft wrap-flex-item">
-          <image src="/img/my/peopleinfo.png" mode="widthFix"></image>
+          <image src="/img/my/job.png" mode="widthFix"></image>
           <text class="font-size-28 com1010">个人名片</text>
         </view>
         <view class="myIconright">
@@ -67,11 +67,10 @@
       </view>
     </view>
 
-
     <view class="fixedWidth bgwhite" bindtap="toPath" data-type='7' data-num="{{list.provestatus}}" data-order="{{list.isfirst}}">
       <view class="wrap-flex row mycard">
         <view class="myIconleft wrap-flex-item">
-          <image src="/img/my/job.png" mode="widthFix"></image>
+          <image src="/img/my/peopleinfo.png" mode="widthFix"></image>
           <text class="font-size-28 com1010">职位认证</text>
         </view>
         <view class="myIconright">

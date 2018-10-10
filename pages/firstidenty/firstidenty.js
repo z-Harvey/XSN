@@ -34,6 +34,7 @@ Page({
         proveurl: res,
         src: res,
         bucket: bucket,
+        showTit: false
       })
     })
   },
@@ -56,26 +57,48 @@ Page({
   init: function (data) {
     var _this=this;
     api.myworkinfo(data, function (result) {
-      console.log(result,'这里要获取名片的相关信息',result[0]);
-      if(_this.data.state==0){
+      // if(_this.data.state==0){
+      //   console.log('asdfasdfasfsdf')
+      //   _this.setData({
+      //     comname: result[0] ? result[0].work : wx.getStorageSync("rzcomname"),
+      //     proveurl: result[0] ? result[0].proveurl : wx.getStorageSync("rzsrc"),
+      //     list: result,
+      //     src: result[0] ? result[0].proveurl : wx.getStorageSync("rzsrc"),
+      //     work: result[0] ? result[0].work : wx.getStorageSync("rzcomname"),
+      //     date: result.length > 1 ? result[result.length - 1].date : ''
+      //   })
+      // } else if (_this.data.state == 2){
+        console.log(result)
+        var no = result.nowworkdetail;
+        var wor = result.workinfo_list;
+        var comname, proveurl, list, src, work, date, workTitle
+        comname = no.work;
+        // proveurl = result.nowworkdetail.proveurl;
+        list = wor;
+        src = no.proveurl || wor[0].proveurl;
+        if (no.provestatus == 2){
+          _this.setData({
+            btnShow: false,
+            showTit:false
+          })
+        }else{
+          workTitle = wor[0].work       
+          _this.setData({
+            btnShow:true,
+            showTit:true
+          })
+        }
+
         _this.setData({
-          comname: result[0] ? result[0].work : wx.getStorageSync("rzcomname"),
-          proveurl: result[0] ? result[0].proveurl : wx.getStorageSync("rzsrc"),
-          list: result,
-          src: result[0] ? result[0].proveurl : wx.getStorageSync("rzsrc"),
-          work: result[0] ? result[0].work : wx.getStorageSync("rzcomname"),
-          date: result.length > 1 ? result[result.length - 1].date : ''
+          comname: comname,
+          proveurl: proveurl,
+          list: list,
+          src: src,
+          work: work,
+          date: date,
+          workTitle: workTitle
         })
-      } else if (_this.data.state == 2){
-        _this.setData({
-          comname: result[0] ? result[0].work : wx.getStorageSync("rzcomname"),
-          proveurl: result[0] ? result[0].proveurl : wx.getStorageSync("rzsrc"),
-          list: result,
-          src: wx.getStorageSync("rzsrc"),
-          work: result[0] ? result[0].work : wx.getStorageSync("rzcomname"),
-          date: result.length>1?result[result.length - 1].date:''
-        })
-      }
+      // }
     })
   },
   myworkprove: function(){

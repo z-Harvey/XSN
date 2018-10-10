@@ -108,3 +108,23 @@
 .evaluate-list{
   margin-top: 220rpx;
 }
+.txBox{
+  width:100rpx;
+  height:100rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 18rpx 0 0;
+}
+.txBox>image{
+  width:100rpx;
+}
+.txBos{
+  width:80rpx;
+  height:80rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 18rpx 0 0;  
+}
+.txBos>image{
+  width:80rpx;
+}

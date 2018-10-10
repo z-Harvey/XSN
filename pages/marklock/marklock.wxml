@@ -97,9 +97,9 @@
           <button plain class="refbtn font-size-24" wx:elif="{{ item.relation==1}}">正在合作</button>
           <button plain class="refbtn font-size-24" wx:elif="{{ item.relation==2}}">有过跟进</button>
           <button plain class="refbtn font-size-24" wx:elif="{{ item.relation==3}}">正在跟进</button>
-         <button plain class="refbtn font-size-24" wx:if="{{item.hasdecision==0}}">有决策链线索</button>
-              <button plain class="refbtn font-size-24" wx:elif="{{item.hasdecision==1}}">无决策链线索</button>
-          <text class="font-size-24 comcolor">已组队{{item.team_count}}次</text>
+          <button plain class="refbtn font-size-24" wx:if="{{item.hasdecision==0}}">有决策链线索</button>
+          <button plain class="refbtn font-size-24" wx:elif="{{item.hasdecision==1}}">无决策链线索</button>
+          <button class="font-size-24 comcolor yizudui">已组队{{item.team_count}}次</button>
         </view>
         <view class="list-footer wrap-flex">
           <view class="date">

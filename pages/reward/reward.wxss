@@ -80,4 +80,14 @@
 .btn-bottom>button.activebtn{background: #FF9800;}
 .btn-bottom>button.firstbtn{border-right: 1rpx solid #fff;}
 
-
+.txBox{
+  width:100rpx;
+  height:100rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  margin:0 auto; 
+  }
+  .txBox>image{
+    width:100rpx;
+  }
+  

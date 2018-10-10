@@ -32,11 +32,11 @@ Page({
       })
       return
     }
-    if(e.currentTarget.dataset.type==="One"){
+    if(e.currentTarget.dataset.redtype==="One"){
       this.setData({
         redBotOne: false
       })
-    } else if (e.currentTarget.dataset.type === "Two"){
+    } else if (e.currentTarget.dataset.redtype === "Two"){
       this.setData({
         redBotTwo: false
       })

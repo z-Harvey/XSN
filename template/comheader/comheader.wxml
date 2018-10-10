@@ -2,7 +2,7 @@
   <view class="header">
     <image src="/img/index/icon.png" mode="widthFix"></image>
     <view class="companyinfo font-size-28 com1010">{{comname}}</view>
-    <view class="num">
+    <view class="num" style="padding-bottom:20rpx;">
       <!-- 这个图片设置了高度 -->
       <text class="font-size-28 {{personnum?'com1010':'image'}}">{{personnum?personnum:3}}</text>
       <text class="companyinfo font-size-28 com1010">个跟进人</text>

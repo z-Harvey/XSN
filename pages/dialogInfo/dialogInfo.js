@@ -25,20 +25,23 @@ Page({
   bindConfirm: function () {
     var that = this;
     var content = this.data.content;
-    if (!content.replace(/^\s*|\s*$/g, '')) return;
+    if (!content.replace(/^\s*|\s*$/g, '')){
+      console.log('return')
+      return
+    };
     console.log(selToID,'发送的id');
-    that.SendMsg(content, selToID, this.data.currentMsgsArray,function (result) {      
+    that.SendMsg(content, selToID, this.data.currentMsgsArray,function (result) {  
       that.setData({
         currentMsgsArray: result,
         content: ""
       })
     })
-    that.clearInput();
-  },
-  clearInput: function () {
-    this.setData({
-      content: ""
-    })
+    setTimeout(function(){
+      console.log(that.data.content)
+      that.setData({
+        content: ""
+      })
+    },50)
   },
   /**
    * 生命周期函数--监听页面加载
@@ -47,7 +50,7 @@ Page({
     wx.hideShareMenu()
     var puserid = options.id;
     selToID = puserid;
-    console.log(puserid,options.id,selToID);
+    console.log(options);
 
     this.setData({
       src: options.src
