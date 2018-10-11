@@ -27,17 +27,14 @@ Page({
       return
     }
     var that=this;
-    var has = this.data.activebtn;
-
     var data = {
       thSessionId: wx.getStorageSync('token'),
       userid: wx.getStorageSync('userid'),
       comid: this.data.comid,
       comname: this.data.comname,
       relation: this.data.activeBtn,
-      hasdecision: has,
-      nickname: wx.getStorageSync('userInfo').nickName,
-      department: this.data.UpStr
+      hasdecision: this.data.activebtn,
+      department: this.data.UpStr ? this.data.UpStr : ''
     }
     
     this.changestate();

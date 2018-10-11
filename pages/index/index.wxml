@@ -82,7 +82,7 @@
           <text class="merlistTitle font-size-28">{{idx.comname}}</text>
         <view class="merImgList">
           <view wx:for="{{idx.avatarurl_list}}" wx:for-item="im" wx:key>
-            <image src="{{im.avatarurl}}"></image>
+            <image src="{{im.avatarurl=='undefined'?'/img/my/noneSign.png':im.avatarurl}}"></image>
           </view>
           <text class="font-size-24">有{{idx.matenum}}个销售在跟进</text>
         </view>

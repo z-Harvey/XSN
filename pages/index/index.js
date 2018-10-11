@@ -91,12 +91,14 @@ Page({
     //   url: '/pages/twoSeaHome/twoSeaHome',
     // })
     // wx.navigateTo({
-    //   url: '/pages/basic/Jump/Jump'
+    //   url: '/pages/basic/LackNb/LackNb'
     // });
+    // wx.navigateTo({
+    //   url: "/pages/editguest/editguest?comid=21844"
+    // })
     // return
   }, 
   onShow: function(){
-    console.log(1)
     let _this=this;
     setTimeout(function () {
       _this.setData({
@@ -147,7 +149,6 @@ Page({
   changepage: function(e){
     var _this=this;
     var num = parseInt(e.detail.current)+1;
-    console.log(num, _this.data.totalcomnum)
     if (num % 4 == 0 && num<_this.data.totalcomnum/3){
       var data = {
         thSessionId: wx.getStorageSync("token"),
@@ -219,9 +220,6 @@ Page({
         })
       }
     })
-  },
-  onShareAppMessage: function () {
-    
   },
   getPhoneNumber:function(e){
     if (e.detail.errMsg == 'getPhoneNumber:ok') {

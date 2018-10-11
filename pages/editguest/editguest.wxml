@@ -20,6 +20,22 @@
         <button plain='true' bindtap="changebtn" data-index="1" class="{{activebtn==1?'active':''}}" wx:else>否</button>
       </view>
     </view>
+    <view class="seleBox" wx:if="{{seleBox}}">
+      <view class="seleClick" bindtap='seleOK'>
+        <text>{{playContent}}</text>
+        <image src='/img/bot1.png'></image>
+        <image src='/img/bot2.png'></image>
+      </view>
+      <view class="seleContent" wx:if="{{seleCShow}}">
+        <view>
+          <view wx:for="{{department}}" wx:key bindtap='listClick' data-data='{{item}}' data-index='{{index}}'>
+            {{item.department}}
+            <image wx:if="{{item.show}}" src="/img/yes.png"></image>
+          </view>
+        </view>
+        <button bindtap='seleOK'>确认</button>
+      </view>
+    </view>
   </view>
 
   <view class="warninfo font-size-28 comcolor padding30">请确保所填信息真实性，如被投诉，有可能会被永久封号！</view>

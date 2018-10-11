@@ -178,7 +178,14 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+    return{
+      title: 'ddddddddddddddddddd',
+      path: 'asdfffffffffffffffff',
+      imageUrl: 'asdf'
+    }
+  },
+  motShow: function () {
+    this.selectComponent("#LackNb").show()
   },
   /**
    * 确认 解锁 按钮
@@ -217,6 +224,8 @@ Page({
         }
       })
     }else{
+      _this.motShow()
+      return;
       wx.showModal({
         title: '提示',
         content: '牛币不足',

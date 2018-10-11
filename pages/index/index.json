@@ -4,6 +4,7 @@
   "navigationBarTextStyle": "white",
   "usingComponents": {
     "loginMot": "../basic/loginMot/loginMot",
-    "Jump": "../basic/Jump/Jump"
+    "Jump": "../basic/Jump/Jump",
+    "LackNb": "../basic/LackNb/LackNb"
   }
 }

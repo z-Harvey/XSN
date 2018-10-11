@@ -1,1 +1,5 @@
-{}
+{
+  "usingComponents": {
+    "LackNb": "../basic/LackNb/LackNb"
+  }
+}
