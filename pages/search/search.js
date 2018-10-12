@@ -8,7 +8,18 @@ Page({
   data: {
     comname: '',
     list: null,
-    page: 1
+    page: 1,
+    toView: 'eeede',    
+    none:false
+  },
+  jumpTo: function (e) {
+    console.log(e)
+    // 获取标签元素上自定义的 data-opt 属性的值
+    let target = e.currentTarget.dataset.opt;
+    console.log(target)
+    this.setData({
+      toView: target
+    })
   },
   inputComname: function (e) {
     this.setData({
@@ -69,12 +80,34 @@ Page({
     }
     this.init(data,this)
   },
-  init: function(data,_this){
+  sdsrceach:function(){
+    var _this = this;
+    var data = {
+      is_deepquery:1,
+      queryType: 'company',
+      queryKey: this.data.comname,
+      userid: wx.getStorageSync('userid'),
+      thSessionId: wx.getStorageSync('token'),
+      page_num: this.data.page
+    }
+    this.init(data, this,1)
+  },
+  init: function(data,_this,t){
+    let that=this;
     api.search(data, function (data) {
       console.log(data)
       _this.setData({
         list: data
       })
+      if(t==1){
+        that.setData({
+          none:false
+        })
+      }else{
+        that.setData({
+          none: true
+        })
+      }
       // _this.ini(data,_this)
     })
   },

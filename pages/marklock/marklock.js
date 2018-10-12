@@ -82,18 +82,20 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.hideShareMenu()    
+    wx.hideShareMenu()
     let _this = this;
+    let loginInfo=_this.data.loginInfo = wx.getStorageSync('loginInfo');
+    _this.data.userInfo=wx.getStorageSync('userInfo')
     // 利用页面传递数据进行渲染  公司名称
     _this.setData({
       comname: options.comname,
       id: options.id,
-      userid: wx.getStorageSync("userid")
+      userid: loginInfo.userid
     })
     //判断是否解锁 
     let obj = {
-      thSessionId: wx.getStorageSync('token'),
-      userid: wx.getStorageSync('userid'),
+      thSessionId: loginInfo.token,
+      userid: loginInfo.userid,
       comname: options.comname,
       comeid: options.id
     }
@@ -102,8 +104,8 @@ Page({
           lockShow: false
         })
         let data = {
-          thSessionId: wx.getStorageSync('token'),
-          userid: parseInt(wx.getStorageSync('userid')),
+          thSessionId: loginInfo.token,
+          userid: parseInt(loginInfo.userid),
           comid: options.id,
           comname: options.comname
         }
@@ -112,10 +114,14 @@ Page({
             money: res.data
           })
         })
+        api.getmyinfo(data, function (res) {
+          console.log(res)
+        })
+        
       }else{
         var data = {
-          thSessionId: wx.getStorageSync('token'),
-          userid: wx.getStorageSync("userid")
+          thSessionId: loginInfo.token,
+          userid: loginInfo.userid
         }
         api.mycard(data, function (result) {
           if (result[0].comname != null && result[0].comname != "" && result[0].position != "" && result[0].position != null && result[0].work != "" && result[0].work != null) {
@@ -134,14 +140,19 @@ Page({
   },
   init: function (id, comname){
     var that=this;
+    let loginInfo = that.data.loginInfo = wx.getStorageSync('loginInfo')
     var data = {
-      thSessionId: wx.getStorageSync("token"),
-      userid: wx.getStorageSync("userid"),
+      thSessionId: loginInfo.token,
+      userid: loginInfo.userid,
       comid: id,
       comname: comname,
       page_num: that.data.page
     };
     api.markguestlock(data,function(result){
+      result.data.map(function(p1,p2){
+        console.log(p1,p2)
+        p1.department_list != null ? p1.department_list = p1.department_list.join('、') : p1.department_list=false;
+      })   
       if (result.data.length==1){
         that.setData({
           list: that.data.page === 1 ? result.data : that.data.list.concat(result.data),
@@ -169,19 +180,21 @@ Page({
    */
   onReachBottom: function () {
     var that=this;
-    this.setData({
-      page: ++this.data.page
-    })
-    this.init(that.data.id,that.data.comname);
+    if(that.data.lockShow){
+      that.setData({
+        page: ++that.data.page
+      })
+      that.init(that.data.id, that.data.comname);
+    }
   },
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
     return{
-      title: 'ddddddddddddddddddd',
-      path: 'asdfffffffffffffffff',
-      imageUrl: 'asdf'
+      title: `【${this.data.userInfo.nickname}@你】我在销售牛遇到贵人相助，一起组队打单，你也来试试吧~`,
+      path: `pages/share/share?username=${this.data.userInfo.nickname}&userid=${this.data.loginInfo.userid}&userimg=${this.data.userInfo.avatarurl}`,
+      imageUrl: '/img/my/noneSign.png'
     }
   },
   motShow: function () {
@@ -191,9 +204,10 @@ Page({
    * 确认 解锁 按钮
    */
   Unlock:function(e){
+    let loginInfo=this.data.loginInfo
     let data={
-      thSessionId: wx.getStorageSync('token'),
-      userid: wx.getStorageSync('userid'),
+      thSessionId: loginInfo.token,
+      userid: loginInfo.userid,
       changeno: '-' + e.target.dataset.money, //需要扣除的牛币 负
       comid: this.data.money.comid // 需要解锁的公司ID
     },_this=this;

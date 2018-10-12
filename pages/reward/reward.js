@@ -127,7 +127,6 @@ Page({
    * 生命周期函数--监听页面展示
    */
   onLoad: function (options) {
-    console.log(options)
     wx.hideShareMenu()
     if (options.myid == wx.getStorageSync('userid')) {
       this.setData({
@@ -214,19 +213,16 @@ Page({
     })
   },
   onShow:function(){
-    if(!wx.getStorageSync('userid')){
-      console.log(wx.getStorageSync('phone'))
-      var obj={
-        thSessionId: wx.getStorageSync('token'),
-        phoneno: wx.getStorageSync('phone')
-      }
-      api.bindTelCallUserImg(obj,function(res){
-        console.log('-------------------------------')
-        console.log('-------------------------------')
-        console.log('-------------------------------')
-        console.log(res)
-      })
-    }
+    // if(!wx.getStorageSync('userid')){
+    //   console.log(wx.getStorageSync('phone'))
+      // var obj={
+      //   thSessionId: wx.getStorageSync('token'),
+      //   phoneno: wx.getStorageSync('phone')
+      // }
+      // api.bindTelCallUserImg(obj,function(res){
+      //   console.log(res)
+      // })
+    // }
   },
   showDialog() {
     this.selectComponent("#dialog").gits()

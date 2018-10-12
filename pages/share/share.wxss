@@ -17,9 +17,19 @@ page{
   text-align: center;
   width:100%;
 }
-.mask>image{
-  width: 100rpx;
+.userImgName{
+  padding-bottom: 20rpx;
+  width:100%;
+}
+.userImgName>.imgBox{
+  width:100rpx;
+  height:100rpx;
   border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto;
+}
+.userImgName>.imgBox>image{
+  width:100rpx;
 }
 .nick{
   color: #fff;
@@ -85,4 +95,23 @@ page{
 .mask .registerbtn{
   background: #FFD42A;
   color: #fff;
+}
+.code>input{
+  border-right:1rpx solid #FFD42A;
+  width:60%;
+  height:100rpx;
+  float: left;
+}
+.code>button{
+  width:39%;
+  float: right;
+  height:100rpx;
+  border:0;
+  border-radius: 0 96rpx 96rpx 0;
+  background: #fff;
+  line-height: 100rpx;
+  font-size: 28rpx;
+}
+.code>button::after{
+  border:0;
 }

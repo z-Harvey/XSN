@@ -1,6 +1,10 @@
 /* pages/search/search.wxss */
 @import "../../template/comitem/comitem.wxss";
+@import "../../template/roll/roll.wxss";
 @import "../../template/search/search.wxss";
+page{
+  height:100%;
+}
 .bottomview{
   text-align: center;
   margin-top: 30rpx;
@@ -228,4 +232,22 @@
 }
 .content_right>button{
   float: right;
+}
+.roll{
+  width:100%;
+  top:180rpx;
+}
+.GoTop{
+  width:100rpx;
+  height:100rpx;
+  position: fixed;
+  bottom: 60rpx;
+  right:20rpx;
+  border-radius: 50%;
+  z-index: 9;
+  background:rgba(255, 152, 0, 1);
+}
+.GoTop>image{
+  width:100rpx;
+  height:100rpx;
 }

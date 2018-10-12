@@ -609,8 +609,8 @@ const api = function(fn) {
       })
     },  
     /**
-     * 获取验证码
-   */
+     *  建立邀请关系
+    */
     getCode: function (data, fn) {
       Util.request({
         modules: '/user/invitenew',
@@ -779,7 +779,8 @@ const api = function(fn) {
           fn(result)
         }
       })
-    },// 手机号获取验证码
+    },
+    // 手机号获取验证码
     z_yzcode: function (data, fn) {
       Util.request({
         modules: '/user/yzcode',

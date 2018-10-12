@@ -12,6 +12,7 @@ Page({
     sortArr:[1,0,0,0,0],//排序数组
     ulLstNone:false,
     pages_num:1,
+    toView:'eeede',
     listData: null//公海数据列表
   },
   /**
@@ -20,6 +21,15 @@ Page({
   topage: function () {
     wx.navigateTo({
       url: '/pages/search/search',
+    })
+  },
+  jumpTo: function (e) {
+    console.log(e)
+    // 获取标签元素上自定义的 data-opt 属性的值
+    let  target = e.currentTarget.dataset.opt;
+    console.log(target)
+    this.setData({
+      toView: target
     })
   },
   /**

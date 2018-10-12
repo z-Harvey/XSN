@@ -192,3 +192,6 @@ page{
 .yizudui::after{
   border:0;
 }
+.xiansuo{
+  font-size: 28rpx;
+}

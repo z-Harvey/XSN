@@ -9,25 +9,35 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userinfo: null
+    userifo: null,
+    ophone:null,//用户输入的手机号
+    yzm:null,//用户输入的验证码
+    yamCont:'获取验证码',
+    yzmBtn: true,
+    resYzm:null//获取到的验证码
   },
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
-    wx.hideShareMenu()
-    // options.id=3;
-    // options.userid=3;
-
-    var that=this;
-    if(wx.getStorageSync("userid")){
-      wx.reLaunch({
-        url: '/pages/index/index',
+  inp:function(e){
+    if(e.target.dataset.typ=='oph'){
+      this.setData({
+        ophone: e.detail.value
       })
-    }else if (wx.getStorageSync("token")) {
-      this.init(that, options.userid)
-    } else {
-      wxapi.getUser();
+      console.log(e.target.dataset.typ+':'+e.detail.value)
+    }else{
+      this.setData({
+        yzm: e.detail.value
+      })
+      console.log(e.target.dataset.typ + ':' + e.detail.value)      
+    }
+  },
+  onLoad: function (options) {
+    this.setData({
+      userifo: options
+    })
+    wx.hideShareMenu()
+    var that=this;
       wx.login({
         success: (res) => {
           Util.request({
@@ -37,130 +47,109 @@ Page({
               code: res.code
             },
             success: (result) => {
-              console.log(result);
-              if (result.code == 0) {
-                wx.setStorageSync("token", result.data.thSessionId)
-                wx.setStorageSync('userid', result.data.userid)
-              } else if (result.code == 1) {
-                wx.setStorageSync("token", result.data.thSessionId)
-                wx.setStorageSync('userid', result.data.userid)
-                wx.setStorageSync("UserSig", result.data.UserSig)
-
-              } else if (result.code == 2) {
+              if (result.code == 2) {
                 console.log("未注册")
                 wx.setStorageSync("token", result.data.thSessionId)
                 wx.setStorageSync('userid', '')
-                // wx.reLaunch({
+              }else{
+                wx.setStorageSync("token", result.data.thSessionId)                
+                // wx.switchTab({
                 //   url: '/pages/index/index',
                 // })
               }
               wx.setStorageSync('logincode', result.code)
-              that.init(that, options.userid);
             }
           })
         }
       })
-    }
     this.setData({
       shareuserid: options.userid
     })
   },
-  init: function(that,id){
-    var data = {
-      userid: id,
-      thSessionId: wx.getStorageSync('token')
-    }
-    api.getfriendimg(data, function (res) {
-      console.log(res);
-      that.setData({
-        header: res.data.avatarurl,
-        nickname: res.data.nickname
-      })
-    })  
-  },
-  getPhoneNumber: function (e) {
-    if (e.detail.errMsg == 'getPhoneNumber:ok') {
-    var that = this;
-    var data = {
-      thSessionId: wx.getStorageSync("token"),
-      iv: e.detail.iv,
-      encryptedData: e.detail.encryptedData
-    }
-    api.bindTel(data, function (data) {
-      that.setData({
-        phone: data.data.phoneno
-      })
-      wx.setStorageSync('phone', data.data.phoneno);
-    });
-    }
-  },
   save: function(){
-    var data = {
-      userid: this.data.shareuserid,
-      phone: this.data.phone,
-      jy_status: 1,
-      thSessionId: wx.getStorageSync("token"),
-    }
-    console.log(data);
-    if(wx.getStorageSync("userid")){
-      console.log("userid------------")
-    }else{
-      api.getregistercode(data, function (result) {
-        console.log(result)
-        // if(result){
-          wx.navigateTo({
-            url: '/pages/card/card',
+    let that=this;
+    if (this.data.resYzm == this.data.yzm) {
+      let data = {
+        thSessionId: wx.getStorageSync("token"),        
+        phoneno: this.data.ophone,
+        userid: this.data.userifo.userid,
+        jy_status: 1
+      }
+      api.getregistercode(data, function (res) {//建立邀请关系
+        if(res.code==0){
+          let obj = {
+            thSessionId: wx.getStorageSync("token"),
+            phoneno: that.data.ophone
+          }
+          api.bindTelCallUserImg(obj, function (res) {
+            wx.setStorageSync('userid', res.data.userid);
+            wx.setStorageSync('UserSig', res.data.UserSig);
+            wx.showToast({
+              title: '注册成功',
+              mask:true
+            })
+            setTimeout(function(){
+              wx.switchTab({
+                url: '/pages/index/index',
+              })
+            },1500)
           })
-        // }
+        }
       })
     }
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-  
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-  
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-  
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-  
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-  
+  yzcode:function(){
+    console.log(this.data.ophone)
+    if (this.data.ophone == '' || this.data.ophone == null){
+      wx.showToast({
+        title: ' 请输入手机号码 ',
+        image:'/img/my/tan.png'
+      })
+      return
+    }
+    if (!(this.data.ophone.length === 11)){
+      wx.showToast({
+        title: ' 号码错误 ',
+        image: '/img/my/tan.png'        
+      })
+      return
+    }
+    let data={
+      thSessionId: wx.getStorageSync("token"),
+      phoneno: this.data.ophone
+    },that=this,num=60;
+    that.setData({
+      yzmBtn: false,
+      yzmCont: num + 's'
+    })
+    var index = setInterval(function () {
+      num = num - 1
+      that.setData({
+        yzmCont: num + 's'
+      })
+      if (num === 0) {
+        clearInterval(index)
+        that.setData({
+          yzmBtn: true
+        })
+      }
+    }, 1000)
+    api.z_yzcode(data,function(res){
+      if(res.data.is_user==1){
+        wx.showToast({
+          title: ' 号码已被注册 ',
+          image: '/img/my/tan.png'
+        })
+        clearInterval(index)
+        that.setData({
+          yzmBtn: true
+        })
+      } else {
+        that.setData({
+          resYzm: res.data.yzm_code
+        })
+      }
+      console.log(res)
+    })
   }
 })

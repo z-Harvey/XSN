@@ -2,11 +2,18 @@
 <view class="register">
   <image src="/img/my/register.png" mode="widthFix" class="bg"></image>
   <view class="mask">
-    <image src="{{header}}" mode="widthFix"></image>
-    <view class="nick font-size-28">{{nickname}}</view>
+    <view class="userImgName">
+      <view class="imgBox">
+        <image src="{{userifo.userimg}}" mode="widthFix"></image>
+      </view>
+      <view class="nick font-size-28">{{userifo.username}}</view>
+    </view>
+    <input wx:if="{{yzmBtn}}" bindinput='inp' data-typ='oph' maxlength='11' class="code" placeholder='请输入手机号码' value='{{ophone}}'></input>
+    <input wx:else disabled class="code" value='{{ophone}}'></input>
     <view class="code">
-      <view class="input telinput">{{phone?phone:'手机号'}}</view>
-      <button class="font-size-28 getcode"  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" plain>获取手机号</button>
+      <input bindinput='inp' data-typ='yzm' placeholder='获取验证码' value='{{yzm}}'></input>
+      <button bindtap='yzcode' wx:if="{{yzmBtn}}">获取验证码</button>
+      <button disabled='disabled' wx:else>{{yzmCont}}</button>
     </view>
     <button plain class="register" hover-class="registerbtn" bindtap="save">进入销售牛</button>
   </view>

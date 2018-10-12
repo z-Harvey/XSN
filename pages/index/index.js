@@ -29,6 +29,7 @@ Page({
   },
   refresh: function(){
       var that = this;
+      let obj=new Object()
       wx.login({
         success: (res) => {
           console.log('code')
@@ -43,18 +44,27 @@ Page({
               console.log(result)
               if (result.code == 0) {
                 console.log("首次，已经登陆")
+                obj['token'] = result.data.thSessionId
+                obj['userid'] = result.data.userid
                 wx.setStorageSync("token", result.data.thSessionId)
                 wx.setStorageSync('userid', result.data.userid)
+                that.userInfo(obj)
               } else if (result.code == 1) {
                 console.log("已经登陆多次")
                 // wx.reLaunch({
                 //   url: '/pages/index/index',
                 // })
+                obj['token'] = result.data.thSessionId
+                obj['userid'] = result.data.userid
+                obj['UserSig'] = result.data.UserSig
                 wx.setStorageSync("token", result.data.thSessionId)
                 wx.setStorageSync('userid', result.data.userid)
                 wx.setStorageSync("UserSig", result.data.UserSig)
+                that.userInfo(obj)                
               } else if (result.code == 2) {
                 console.log("未注册")
+                obj['token'] = result.data.thSessionId
+                obj['userid'] = ''
                 wx.setStorageSync("token", result.data.thSessionId)
                 wx.setStorageSync('userid', '')
                 // wx.reLaunch({
@@ -62,7 +72,12 @@ Page({
                 // })
               }
               wx.setStorageSync('logincode', result.code)
-              if (wx.getStorageSync('userid')) {
+              obj['logincode'] = result.code;
+              wx.setStorageSync('loginInfo', obj)
+              that.setData({
+                loginInfo: obj
+              })
+              if (result.data.userid) {
                 that.setData({
                   butLogin: true
                 })
@@ -86,6 +101,15 @@ Page({
         }
       })
   },
+  userInfo:function(data){
+    let datas={
+      thSessionId: data.token,
+      userid: data.userid
+    }
+    api.getmyinfo(datas, function (res) {
+      wx.setStorageSync('userInfo',res.data)
+    })
+  },
   onLoad: function(options){
     // wx.switchTab({
     //   url: '/pages/twoSeaHome/twoSeaHome',
@@ -94,7 +118,7 @@ Page({
     //   url: '/pages/basic/LackNb/LackNb'
     // });
     // wx.navigateTo({
-    //   url: "/pages/editguest/editguest?comid=21844"
+    //   url: "/pages/Conversation/Conversation"
     // })
     // return
   }, 
@@ -117,10 +141,10 @@ Page({
     this.refresh();
   },
   init: function(){
-    var _this = this;
+    var _this = this, loginInfo = this.data.loginInfo;
     var data = {
-      thSessionId: wx.getStorageSync("token"),
-      userid: wx.getStorageSync('userid')||''
+      thSessionId: loginInfo.token,
+      userid: loginInfo.userid||''
     }
     api.getindex(data, function (data) {
       if(data.code==0){
@@ -147,11 +171,11 @@ Page({
     // })
   },
   changepage: function(e){
-    var _this=this;
+    var _this = this, loginInfo = _this.data.loginInfo;
     var num = parseInt(e.detail.current)+1;
     if (num % 4 == 0 && num<_this.data.totalcomnum/3){
       var data = {
-        thSessionId: wx.getStorageSync("token"),
+        thSessionId: loginInfo.token,
         page_num: (num/4)+1
       }
       api.myindexcompany(data, function (data) {
@@ -174,7 +198,6 @@ Page({
   toPath: function(e){
     var data = e.currentTarget.dataset,url;
     if (data.id == 0) {
-      console.log(data.id == 0)
       wx.switchTab({
         url: '../twoSeaHome/twoSeaHome',
       })
@@ -187,7 +210,6 @@ Page({
     }
     if(data.id){
       url = `/pages/activity/activity?id=${data.id}&type=${data.type}`
-      console.log(url);
     }else{
       url ="/pages/search/search"
     }
@@ -196,15 +218,15 @@ Page({
     })
   },
   togroup: function (e) {
-    console.log(!wx.getStorageSync('userid'))
-    if(!wx.getStorageSync('userid')){
+    let loginInfo = this.data.loginInfo
+    if (!loginInfo.userid){
       this.showDialog();
       return;
     }
     var params = e.currentTarget.dataset, url;
     var da = {
-      userid: wx.getStorageSync('userid'),
-      thSessionId: wx.getStorageSync('token'),
+      userid: loginInfo.userid,
+      thSessionId: loginInfo.token,
       comid: params.id
     }
     api.checkmate(da, function (data) {//判断是否有标记关系
@@ -221,11 +243,12 @@ Page({
       }
     })
   },
-  getPhoneNumber:function(e){
+  getPhoneNumber: function (e) {
+    let loginInfo = this.data.loginInfo
     if (e.detail.errMsg == 'getPhoneNumber:ok') {
       var that = this;
       var data = {
-        thSessionId: wx.getStorageSync("token"),
+        thSessionId: loginInfo.token,
         iv: e.detail.iv,
         encryptedData: e.detail.encryptedData
       }
@@ -234,7 +257,7 @@ Page({
         if (data.code == 0) {
           wx.setStorageSync('phone', data.data.phoneno);
           let obj = {
-            thSessionId: wx.getStorageSync("token"),
+            thSessionId: loginInfo.token,
             phoneno: wx.getStorageSync("phone")
           }
           api.bindTelCallUserImg(obj, function (res) {

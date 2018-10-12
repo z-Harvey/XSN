@@ -53,21 +53,17 @@ Page({
     if (e.detail.errMsg == 'getPhoneNumber:ok') {
     var that = this;
     var data = {
-      thSessionId: wx.getStorageSync("token"),
+      thSessionId: that.data.loginInfo.token,
       iv: e.detail.iv,
       encryptedData: e.detail.encryptedData
     }
     api.bindTel(data, function (data) {
-      console.log(data);
+      let that=this;
       if (data.code == 0) {
-        // that.setData({
-        //   show: false
-        // })
         wx.setStorageSync('phone', data.data.phoneno);
-
         let obj={
-          thSessionId: wx.getStorageSync("token"),
-          phoneno: wx.getStorageSync("phone")
+          thSessionId: that.data.loginInfo.token,
+          phoneno: data.data.phoneno
         }
         api.bindTelCallUserImg(obj,function(res){
           res.data['Sign_in'] = true;
@@ -101,20 +97,29 @@ Page({
     obj['Sign_in'] = false;
     this.setData({
       list: obj,
-      userinfo: wx.getStorageSync("userInfo")
+      userInfo: wx.getStorageSync("userInfo"),
+      loginInfo: wx.getStorageSync("loginInfo")
     })
   },
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
+    let _this=this;
     if (wx.getStorageSync("userid")) {
-      console.log(wx.getStorageSync("userid"))
-      var commondata = {
-        thSessionId: wx.getStorageSync("token"),
-        userid: wx.getStorageSync("userid")
-      }
-      this.init(commondata);
+      let userInfo = wx.getStorageSync('userInfo')
+      userInfo['Sign_in'] = true;
+      _this.setData({
+        list: userInfo,
+        rec: userInfo.rec_status,
+        team: userInfo.team_status,
+        guest: userInfo.comid_status,
+        activity: userInfo.actid_status,
+        rec_status: _this.changestate(userInfo.rec_status, 'rec', 'myrec'),
+        team_status: _this.changestate(userInfo.team_status, 'team', 'myteam'),
+        guest_status: _this.changestate(userInfo.comid_status, 'guest', 'myguest'),
+        activity_status: _this.changestate(userInfo.actid_status, 'activity', 'myactivity'),
+      })
     }else{
       let obj = new Object();
       obj['avatarurl'] = '/img/my/noneSign.png';
@@ -124,23 +129,6 @@ Page({
         list: obj
       })
     }
-  },
-  init: function(data){
-    var that=this; 
-    api.getmyinfo(data,function(res){
-      res.data['Sign_in']=true;
-      that.setData({
-        list: res.data,
-        rec: res.data.rec_status,
-        team: res.data.team_status,
-        guest: res.data.comid_status,
-        activity: res.data.actid_status,
-        rec_status: that.changestate(res.data.rec_status,'rec','myrec'),
-        team_status: that.changestate(res.data.team_status, 'team', 'myteam'),
-        guest_status: that.changestate(res.data.comid_status, 'guest', 'myguest'),
-        activity_status: that.changestate(res.data.actid_status, 'activity', 'myactivity'),
-      })
-    })
   },
   changestate: function(data,cat,mycat){
     var data1=cat+'_status';

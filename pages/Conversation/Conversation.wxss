@@ -1,1 +1,15 @@
-/* pages/Conversation/Conversation.wxss */
+.ssssss{
+  position: fixed;
+  top:0;
+  height:100%;
+  border:1rpx solid red;
+}
+.scr{
+    position: fixed;
+    height: 100%;
+    overflow: hidden;
+}
+.test{
+    height: 80rpx;
+}
+.list{ position: fixed; z-index: 9; top:30rpx; right: 10rpx; }
