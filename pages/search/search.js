@@ -31,6 +31,11 @@ Page({
    */
   onLoad: function (options) {
     wx.hideShareMenu()
+    if (options.sea) {
+      this.setData({
+        my_sea: options.sea
+      })
+    }
     // var _this = this;
     // var data = {
     //   queryType: 'company',
@@ -45,11 +50,19 @@ Page({
     this.selectComponent("#dialog").gits()
   },
   toPath: function (e) {
+    let params = e.currentTarget.dataset, url;    
+    let that=this;
     if (!wx.getStorageSync('userid')){
       this.showDialog()
       return
+    }else if(that.data.my_sea){
+      console.log(e)
+      wx.setStorageSync('editcard_comname', params.comname)
+      wx.navigateBack({
+        delta: '-1'
+      })
+      return
     }
-    var params = e.currentTarget.dataset,url;
     var da={
       userid: wx.getStorageSync('userid'),
       thSessionId: wx.getStorageSync('token'),

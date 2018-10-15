@@ -4,7 +4,8 @@
     <text class="blankBoxText font-size-28">暂无共同客户，多标记一些客户，会提高客户重叠概率哦~</text>
     <button class="blankBoxBun font-size-28" bindtap='toPath' data-type='is'>去标记</button>
   </view>
-<view class="search">
+<scroll-view bindscrolltolower="onReachBottom" scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true" class="search roll">
+<view id='a'></view>
   <view class="result fixedWidth">
     <block wx:for="{{list}}">
       <view bindtap="toPath" data-id="{{item.comid}}">
@@ -12,4 +13,8 @@
       </view>
     </block>
   </view>
+</scroll-view>
+<view class="GoTop" bindtap='jumpTo' data-opt='a'>
+  <image src="/img/top.png"></image>
 </view>
+

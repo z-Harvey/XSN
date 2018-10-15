@@ -24,7 +24,8 @@
       </view>
     </view>
   </view>
-  <view class="evaluate-list message">
+  <scroll-view bindscrolltolower="onReachBottom" scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true"  class="evaluate-list message roll">
+  <view id='a'></view>
     <block wx:for="{{list}}">
       <view class="list-li fixedWidth bodradius">
         <view class="item wrap-flex">
@@ -58,5 +59,9 @@
         </view>
       </view>
     </block>
-  </view>
+  </scroll-view>
+<view class="GoTop" bindtap='jumpTo' data-opt='a'>
+  <image src='/img/top.png'></image>
+</view>
+  
 </view>

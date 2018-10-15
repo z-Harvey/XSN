@@ -10,30 +10,27 @@ Page({
     current: 0,
     scrollTop:null,
     handBoxNone:true,
-    showss:false
+    showss:false,
+    butLogin:true
   },
   onPageScroll: function (e) {
     var _this=this;
     if (e.scrollTop > 150) {
-      console.log(true)
       _this.setData({
         showss: true
       })
     } else {
-      console.log(false)
       _this.setData({
         showss: false
       })
     }
-    console.log(e);//{scrollTop:99}
+    // console.log(e);//{scrollTop:99}
   },
   refresh: function(){
       var that = this;
       let obj=new Object()
       wx.login({
         success: (res) => {
-          console.log('code')
-          console.log(res)
           Util.request({
             modules: '/login',
             method: 'get',
@@ -41,35 +38,32 @@ Page({
               code: res.code
             },
             success: (result) => {
-              console.log(result)
+              if (result.errcode == 40163){
+                that.refresh()
+                return false;
+              }
               if (result.code == 0) {
-                console.log("首次，已经登陆")
+                // console.log("首次，已经登陆")
                 obj['token'] = result.data.thSessionId
                 obj['userid'] = result.data.userid
                 wx.setStorageSync("token", result.data.thSessionId)
                 wx.setStorageSync('userid', result.data.userid)
                 that.userInfo(obj)
               } else if (result.code == 1) {
-                console.log("已经登陆多次")
-                // wx.reLaunch({
-                //   url: '/pages/index/index',
-                // })
+                // console.log("已经登陆多次")
                 obj['token'] = result.data.thSessionId
                 obj['userid'] = result.data.userid
                 obj['UserSig'] = result.data.UserSig
                 wx.setStorageSync("token", result.data.thSessionId)
                 wx.setStorageSync('userid', result.data.userid)
                 wx.setStorageSync("UserSig", result.data.UserSig)
-                that.userInfo(obj)                
+                that.userInfo(obj)
               } else if (result.code == 2) {
-                console.log("未注册")
+                // console.log("未注册")
                 obj['token'] = result.data.thSessionId
                 obj['userid'] = ''
                 wx.setStorageSync("token", result.data.thSessionId)
                 wx.setStorageSync('userid', '')
-                // wx.reLaunch({
-                //   url: '/pages/index/index',
-                // })
               }
               wx.setStorageSync('logincode', result.code)
               obj['logincode'] = result.code;
@@ -107,6 +101,7 @@ Page({
       userid: data.userid
     }
     api.getmyinfo(datas, function (res) {
+      console.log('请求成功')
       wx.setStorageSync('userInfo',res.data)
     })
   },

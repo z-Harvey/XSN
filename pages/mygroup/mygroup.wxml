@@ -17,6 +17,8 @@
     <image src="/img/blank.png"></image>
     <text class="blankBoxText font-size-28">暂无我发起的助力</text>
   </view>
+<scroll-view bindscrolltolower="onReachBottom" scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true" class="roll">
+<view id='a'></view>
   <view class="mygroup-list fixedWidth" wx:if="{{activeId==0}}">
     <view class="mygroup-item" wx:for="{{myrewardinfo}}">
       <view class="list-header wrap-flex">
@@ -94,9 +96,11 @@
       </view>
     </view>
   </view>
-    <view class="navHome btn-bottom btnbottom" bindtap="topath" data-type="navHome">
+  </scroll-view>
+  <view class="navHome btn-bottom btnbottom" bindtap="topath" data-type="navHome">
     首页
   </view> 
 </view>
-
- 
+<view class="GoTop" bindtap='jumpTo' data-opt='a'>
+  <image src="/img/top.png"></image>
+</view>

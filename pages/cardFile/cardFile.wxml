@@ -21,7 +21,8 @@
     <text class="blankBoxText font-size-28">暂时没有好友，把名片递给其他人互加好友吧~</text>
     <button class="font-size-28" bindtap='toPath' data-type='myName'>查看名片</button>
   </view>
-  <view class="result fixedWidth" >
+  <scroll-view bindscrolltolower="onReachBottom" scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true"  class="result fixedWidth roll">
+    <view style='height:120rpx;' id="a"></view>
     <block wx:for="{{list}}">
       <view class="item bodradius fixedWidth wrap-flex" bindtap="toPath" data-id="{{item.id}}" wx:if="{{item.id!=userid}}">
       <view class="userImg">
@@ -40,7 +41,11 @@
     </view>
 
     </block>
-  </view>
+    <view style='height:20rpx;'></view>
+  </scroll-view >
+<view class="GoTop" bindtap='jumpTo' data-opt='a'>
+  <image src='/img/top.png'></image>
+</view>
   
   <loginMot id='dialog'></loginMot>
 </view>

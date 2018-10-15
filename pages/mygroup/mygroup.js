@@ -14,7 +14,16 @@ Page({
     mystOne:false,
     mystTwo:false,
     myrewardinfo:new Array(),
-    inrewardinfo:new Array()
+    inrewardinfo:new Array(),
+    toView: 'eeede'      
+  },
+  jumpTo: function (e) {
+    console.log(e)
+    // 获取标签元素上自定义的 data-opt 属性的值
+    let target = e.currentTarget.dataset.opt;
+    this.setData({
+      toView: target
+    })
   },
   topath: function(e){
     var data=e.currentTarget.dataset;

@@ -1,6 +1,7 @@
 <view class="activity">
-  <button open-type="contact" class="guest-server" >客服
-</button>
+<scroll-view bindscrolltolower="onReachBottom" scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true" class="scr roll">
+  <view id="a"></view>
+  <button open-type="contact" class="guest-server" >客服</button>
   <view class="activityinfo padding30">
     <image src="{{detail.picture}}" mode="widthFix" class="bodradius"></image>
     <view class="font-size-30 com1010" style="padding-bottom:20rpx;">{{detail.title}}</view>
@@ -47,10 +48,10 @@
         <image src="{{detail.details}}" wx:if="{{detail.details}}" mode='widthFix' style="width: 100%"></image>
       </view>
     </view>
-    
   <image src="/img/common/index.png" class="totop" bindtap="totop" mode="widthFix" wx:if="{{typea==1}}"></image>
-
-  <view class="wrap-flex btn-bottom flexD" wx:if="{{typea==1}}">
+  <view style='height:100rpx;'></view>
+</scroll-view>
+<view class="wrap-flex btn-bottom flexD" wx:if="{{typea==1}}">
     <button class="wrap-flex-item firstbtn" plain="true" hover-class="activebtn" open-type="share">分享</button>
     <button class="wrap-flex-item" plain="true" hover-class="activebtn" bindtap="signUp" wx:if="{{detail.aci_status==2&&issignup==0}}">兑换</button>
     <button class="wrap-flex-item" plain="true" hover-class="activebtn"  wx:if="{{detail.aci_status==2&&issignup==1}}" disabled>已兑换</button>
@@ -62,5 +63,7 @@
     <button class="wrap-flex-item firstbtn" plain="true" hover-class="activebtn" bindtap="totop">首页</button>
     <button class="wrap-flex-item" plain="true" hover-class="activebtn" open-type="share">分享</button>
   </view>
-
+<view class="GoTop" bindtap='jumpTo' data-opt='a'>
+  <image src='/img/top.png'></image>
+</view>
 </view>

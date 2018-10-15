@@ -66,9 +66,9 @@
     </view>
   </view>
 
-  <button class="GoTop" bindtap='jumpTo' data-opt='a'>
-    <image src="/img/hand2.png"></image>
-  </button>  
+  <veiw class="GoTop" bindtap='jumpTo' data-opt='a'>
+    <image src="/img/top.png"></image>
+  </veiw>  
 
       <view class="sizeSeat"></view>
       <scroll-view bindscrolltolower="onReachBottom" scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true" class="scr roll">

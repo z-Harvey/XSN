@@ -17,7 +17,9 @@ Page({
       withShareTicket: true
     })
     this.setData({
-      nickname: wx.getStorageSync("my_user_name")
+      nickname: wx.getStorageSync("my_user_name"),
+      userInfo: wx.getStorageSync('userInfo'),
+      loginInfo: wx.getStorageSync('loginInfo')
     })
     this.init();
   },
@@ -30,7 +32,7 @@ Page({
     api.mywelfare(data,function(result){
       var day = [], newperson = [];
       for (var i = 0; i < result.taskinfo.length; i++) {
-        if (result.taskinfo[i].isdaily && result.taskinfo[i].taskid != 9 && result.taskinfo[i].taskid != 6) {
+        if (result.taskinfo[i].isdaily  && result.taskinfo[i].taskid != 6) {
           day.push(result.taskinfo[i])
         } else if (!result.taskinfo[i].isdaily){
           newperson.push(result.taskinfo[i])
@@ -48,6 +50,7 @@ Page({
     })
   },
   toPath: function (e) {
+    let userInfo=wx.getStorageSync('userInfo')
     var data = e.currentTarget.dataset, url;
     if(data.id==1){
       url = `/pages/editcard/editcard`;
@@ -60,10 +63,16 @@ Page({
       return;
     } else if (data.id == 11 || data.id == 10) {
       url = `/pages/mygroup/mygroup`;
-    } else if (data.type==="navHome") {
+    } else if (data.type === "navHome") {
       wx.switchTab({
         url: '../index/index',
       })
+    } else if (data.id == 14) {
+      if ((userInfo.isfirst == 0 && userInfo.provestatus == 1) || (userInfo.isfirst == 1 && userInfo.provestatus == 1)) {
+        url = `/pages/identy/identy?state=${data.provestatus}`
+      } else if (userInfo.isfirst == 1 || userInfo.provestatus == 4 || userInfo.provestatus == 2 || (userInfo.isfirst == 0 && userInfo.provestatus == 0)) {
+        url = `/pages/firstidenty/firstidenty?state=${userInfo.provestatus}`
+      }
     }
     wx.navigateTo({
       url: url,
@@ -214,12 +223,11 @@ Page({
       }
     }else if (res.target.id == 3) {
       console.log("邀请页面")
+      console.log(this.data.userInfo)
       return {
-        title: `【${that.data.nickname}@你】我在销售牛轻松搞定客户，还把老资源变现了，邀你一起赚钱，快来注册吧~`,
-        path: `/pages/share/share?userid=${wx.getStorageSync("userid")}`,
-        success: function (res){
-          console.log(res)
-        }
+        title: `【${this.data.userInfo.nickname}@你】我在销售牛遇到贵人相助，一起组队打单，你也来试试吧~`,
+        path: `pages/share/share?username=${this.data.userInfo.nickname}&userid=${this.data.loginInfo.userid}&userimg=${this.data.userInfo.avatarurl}`,
+        imageUrl: '/img/my/noneSign.png'
       }
     }
   }

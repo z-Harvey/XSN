@@ -1,13 +1,39 @@
 @import "../../template/chat/chat.wxss";
 @import "../../template/search/search.wxss";
+.roll{
+  width:100%;
+  height:100%;
+  position: fixed;
+  top:0rpx;
+  left:0rpx;
+  overflow: auto;
+}
+.GoTop{
+  width:88rpx;
+  height:88rpx;
+  position: fixed;
+  bottom: 50rpx;
+  right:20rpx;
+  border-radius: 50%;
+  z-index: 9;
+}
+.GoTop>image{
+  width:88rpx;
+  height:88rpx;
+}
 .search{
   padding-bottom: 50rpx;
 }
 .searchInfo{
+  width: 100%;
   padding: 0 30rpx;
   box-sizing: border-box;
   height: 80rpx;
   background: #fff;
+  position: fixed;
+  top:0rpx;
+  left:0rpx;
+  z-index: 9;
 }
 .noresult{
   text-align:center;
@@ -73,10 +99,12 @@ page {
 }
 
 .carTips{
+  position: fixed;
+  top:80rpx;left:0rpx;
   width:750rpx;
   height:52rpx;
-  background:rgba(16, 16, 16, .1);
-  position: relative;
+  background:rgb(201, 200, 200);
+  z-index: 9;
 }
 .carTips>image{
   width:26rpx;

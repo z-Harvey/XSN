@@ -8,7 +8,16 @@ Page({
    */
   data: {
     btninfo: ['有过合作', '正在合作', '有过跟进', '正在跟进'],
-    page: 1
+    page: 1,
+    toView: 'eeede'          
+  },
+  jumpTo: function (e) {
+    console.log(e)
+    // 获取标签元素上自定义的 data-opt 属性的值
+    let target = e.currentTarget.dataset.opt;
+    this.setData({
+      toView: target
+    })
   },
   inputComname: function (e) {
     this.setData({

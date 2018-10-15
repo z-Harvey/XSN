@@ -1,4 +1,5 @@
 .roll{
   position: fixed;
   height:100%;
+  overflow-y: visible;
 }

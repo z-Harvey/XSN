@@ -9,7 +9,16 @@ Page({
     page: 1,
     personnum:null,
     lockShow:true, // 根据解锁状态控制显示
-    money: null //未解锁状态时 获取自己的牛币数量与 当前公司解锁需要的牛币数量
+    money: null, //未解锁状态时 获取自己的牛币数量与 当前公司解锁需要的牛币数量
+    toView: 'eeede'
+  },
+  jumpTo: function (e) {
+    console.log(e)
+    // 获取标签元素上自定义的 data-opt 属性的值
+    let target = e.currentTarget.dataset.opt;
+    this.setData({
+      toView: target
+    })
   },
   toIndex: function(){
     wx.reLaunch({

@@ -1,6 +1,26 @@
 /* pages/comuser/comuser.wxss */
 @import "../../template/comitem/comitem.wxss";
-
+.roll{
+  width:100%;
+  height:100%;
+  position: fixed;
+  top:0rpx;
+  left:0rpx;
+  overflow: auto;
+}
+.GoTop{
+  width:88rpx;
+  height:88rpx;
+  position: fixed;
+  bottom: 120rpx;
+  right:20rpx;
+  border-radius: 50%;
+  z-index: 9;
+}
+.GoTop>image{
+  width:88rpx;
+  height:88rpx;
+}
 .blankBox{
   text-align: center
 }

@@ -66,9 +66,10 @@
       </view>
   </view>
   </view>
-
 <!-- 多人 -->
-  <view wx:elif="{{lockShow}}">
+  <view wx:elif="{{lockShow}}">  
+    <scroll-view bindscrolltolower="onReachBottom" scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true"  class=" roll">
+<view id="a"></view>
     <view class="lock">
     <block wx:for="{{list}}" wx:key>
       <view class="itemlist fixedWidth bodradius">
@@ -117,9 +118,14 @@
       </view>
     </block>
   </view>
-  <button class="btn-bottom btnbottom" plain bindtap="toPath" hover-class="activebtnstyle">没找到合适的人选？发起助力寻找队友吧~</button>
-  <view style="height:100rpx;"></view>
+  <view style='height:150rpx;'></view>
+</scroll-view>
+    <button class="btn-bottom btnbottom" plain bindtap="toPath" hover-class="activebtnstyle">没找到合适的人选？发起助力寻找队友吧~</button>
+    <view class="GoTop" bindtap='jumpTo' data-opt='a'>
+      <image src='/img/top.png'></image>
+    </view>
   </view>
+  
 <!-- 未解锁 -->
   <view class="unlock" wx:else>
     <image src='/img/BG.png'></image>

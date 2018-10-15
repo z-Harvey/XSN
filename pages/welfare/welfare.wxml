@@ -33,7 +33,6 @@
         <button class="item-li-right" hover-class="activebtn" plain wx:if="{{item.taskid==1&&item.isdone==1}}" data-id="{{item.taskid}}" disabled>已领取</button>
 
         <button class="item-li-right" hover-class="activebtn" plain wx:if="{{item.taskid==2}}" disabled>已领取</button>
-
         <button class="item-li-right" hover-class="activebtn" plain wx:if="{{item.taskid==3&&item.isdone==0}}" >去关注</button>
         <button class="item-li-right" hover-class="activebtn" plain wx:if="{{item.taskid==3&&item.isdone==1}}" disabled>已领取</button>
 
@@ -44,6 +43,8 @@
          <button class="item-li-right" hover-class="activebtn" plain wx:if="{{item.taskid==5&&item.isdone==1}}" disabled>已领取</button>
          <button class="item-li-right" hover-class="activebtn" plain wx:if="{{item.taskid==12&&item.isdone==0}}" data-id="{{item.taskid}}" bindtap="toPath">去标记</button>
          <button class="item-li-right" hover-class="activebtn" plain wx:if="{{item.taskid==12&&item.isdone==1}}" disabled>已领取</button>
+         <button class="item-li-right" hover-class="activebtn" plain wx:if="{{item.taskid==14&&item.isdone==0}}" data-id="{{item.taskid}}" bindtap="toPath">去认证</button>
+         <button class="item-li-right" hover-class="activebtn" plain wx:if="{{item.taskid==14&&item.isdone==1}}" disabled>已领取</button>
       </view>
     </block>
   </view>
@@ -52,7 +53,7 @@
     <view class="font-size-28 com1010 title">日常福利
     </view>
     <block wx:for="{{day}}" >
-      <view class="item-li bodradius wrap-flex" wx:if="{{item.taskid!=6&&item.taskid!=9}}}">
+      <view class="item-li bodradius wrap-flex" wx:if="{{item.taskid!=6}}}">
         <view class="item-li-left wrap-flex-item">
           <view class="item-title font-size-28">{{item.taskmsg}}</view>
           <view class="item-list font-size-24"> 条件：{{item.taskdetail}}</view>
@@ -62,13 +63,12 @@
             <text class="iconnum">{{item.taskniub}}</text>
           </view>
         </view>
-        
         <button class="item-li-right" hover-class="activebtn" plain wx:if="{{item.taskid==6}}" disabled >已领取</button>
         <button class="item-li-right" hover-class="activebtn" plain wx:if="{{item.taskid==7&&item.isdone==0}}" open-type="share" id= "1">去分享</button>
         <button class="item-li-right" hover-class="activebtn" plain wx:if="{{item.taskid==7&&item.isdone==1}}" disabled>已领取</button>
         <button class="item-li-right" hover-class="activebtn" plain wx:if="{{item.taskid==8&&item.isdone==0}}" open-type="share" id="2">去分享</button>
         <button class="item-li-right" hover-class="activebtn" plain wx:if="{{item.taskid==8&&item.isdone==1}}" open-type="share" id="2" disabled>已领取</button>
-        <button class="item-li-right" hover-class="activebtn" plain wx:if="{{item.taskid==9&&item.isdone==0}}" open-type="share" id="3" style="display: none">去邀请</button>
+        <button class="item-li-right" hover-class="activebtn" plain wx:if="{{item.taskid==9&&item.isdone==0}}" open-type="share" id="3">去邀请</button>
          <button class="item-li-right" hover-class="activebtn" plain wx:if="{{item.taskid==10&&item.isdone==0}}" data-id="{{item.taskid}}" bindtap="toPath">去标记</button>
          <button class="item-li-right" hover-class="activebtn" plain wx:if="{{item.taskid==10&&item.isdone==1}}" data-id="{{item.taskid}}" bindtap="toPath" disabled>已领取</button>
         <button class="item-li-right" hover-class="activebtn" plain wx:if="{{item.taskid==11}}" data-id="{{item.taskid}}" bindtap="toPath">去评价</button>

@@ -9,9 +9,16 @@ Page({
   data: {
     num:0,
     userinfo: null,
-
+    toView:'eeede'
   },
-
+  jumpTo: function (e) {
+    console.log(e)
+    // 获取标签元素上自定义的 data-opt 属性的值
+    let target = e.currentTarget.dataset.opt;
+    this.setData({
+      toView: target
+    })
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -19,7 +26,6 @@ Page({
     wx.hideShareMenu()
     this.setData({
       userinfo: wx.getStorageSync("userInfo") || app.globalData.userInfo,
-      
     })
     if(options.id){
       this.setData({

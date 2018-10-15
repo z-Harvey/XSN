@@ -10,7 +10,16 @@ Page({
     list: null,
     page: 1,
     userid: wx.getStorageSync("userid"),
-    listNone:false
+    listNone:false,
+    toView: 'eeede'        
+  },
+  jumpTo: function (e) {
+    console.log(e)
+    // 获取标签元素上自定义的 data-opt 属性的值
+    let target = e.currentTarget.dataset.opt;
+    this.setData({
+      toView: target
+    })
   },
   toPath: function (e) {
     var data = e.currentTarget.dataset;

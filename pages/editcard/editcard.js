@@ -20,6 +20,11 @@ Page({
     list: [],
     onoff: true
   },
+  company:function(){
+    wx.navigateTo({
+      url: '/pages/search/search?sea=my',
+    })
+  },
   changework: function (e) {
     var name = this.data.workcard;
     this.setData({
@@ -171,16 +176,18 @@ Page({
       gender: e.currentTarget.dataset.id
     })
   },
-  changecomname: function(e){
-    var name=this.data.comname;
-    this.setData({
-      comname: e.detail.value
-    })
-    if(name!=e.detail.value){
+  changecomname: function(name){
+    var listname=this.data.list.comname;
+    console.log('----------------------')
+    console.log(name)
+    console.log(listname)
+    console.log(name != listname)
+    console.log('----------------------')
+    if(name!=listname){
+      console.log('运行了')
       this.setData({
         state: true
       })
-      
     }
   },
   changeemail: function(e){
@@ -202,7 +209,6 @@ Page({
     })
   },
   changeproduct: function (e) {
-    console.log(e)
     var index=e.currentTarget.dataset.index;
     this.data.productlist[index]=e.detail.value;
     console.log(this.data.productlist)
@@ -213,7 +219,6 @@ Page({
     this.setData({
       productlist: product
     })
-    console.log("111")
   },
   changepercent: function(){
     var percent = 20;
@@ -313,9 +318,15 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function (options) {
+    let edi_com = wx.getStorageSync('editcard_comname');
+    if (edi_com) {
+      this.setData({
+        comname:edi_com
+      })
+      this.changecomname(edi_com)
+    }
     let pages = getCurrentPages();
     let currPage = pages[pages.length - 1];
-    // this.init()
   },
   upload:function(){
     let _this=this;

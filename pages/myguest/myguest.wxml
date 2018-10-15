@@ -14,7 +14,8 @@
     <text class="blankBoxText font-size-28">暂时没有标记过客户</text>
     <button bindtap='toPath' data-type='soce' class="font-size-28">搜索客户去标记</button>
   </view>
-  <view class="lock">
+  <scroll-view bindscrolltolower="onReachBottom" scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true"  class="lock roll">
+  <view id='a'></view>
     <block wx:for="{{list}}">
       <view class="itemlist fixedWidth bodradius">
         <view class="list-header" bindtap="markguest" data-comname="{{item.comname}}" data-comid="{{item.comid}}">
@@ -43,10 +44,13 @@
         </view>
       </view>
     </block>
-  </view>
+  </scroll-view>
   <view class="blankBox"></view>
   <button class="btn-bottom btnbottom" plain bindtap="toPath" data-type="mark">标记新客户</button>
   <view class="navHome font-size-32" bindtap="toPath" data-type="navHome">
     <image src="/img/home.png"></image>
-  </view> 
+  </view>
+</view>
+<view class="GoTop" bindtap='jumpTo' data-opt='a'>
+  <image src="/img/top.png"></image>
 </view>

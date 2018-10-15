@@ -107,19 +107,25 @@ Page({
   onShow: function () {
     let _this=this;
     if (wx.getStorageSync("userid")) {
-      let userInfo = wx.getStorageSync('userInfo')
-      userInfo['Sign_in'] = true;
-      _this.setData({
-        list: userInfo,
-        rec: userInfo.rec_status,
-        team: userInfo.team_status,
-        guest: userInfo.comid_status,
-        activity: userInfo.actid_status,
-        rec_status: _this.changestate(userInfo.rec_status, 'rec', 'myrec'),
-        team_status: _this.changestate(userInfo.team_status, 'team', 'myteam'),
-        guest_status: _this.changestate(userInfo.comid_status, 'guest', 'myguest'),
-        activity_status: _this.changestate(userInfo.actid_status, 'activity', 'myactivity'),
-      })
+      let loginInfo=wx.getStorageSync('loginInfo')
+      let data={
+        thSessionId: loginInfo.token,
+        userid: loginInfo.userid
+      }
+      _this.init(data)
+      // let userInfo = wx.getStorageSync('userInfo')
+      // userInfo['Sign_in'] = true;
+      // _this.setData({
+      //   list: userInfo,
+      //   rec: userInfo.rec_status,
+      //   team: userInfo.team_status,
+      //   guest: userInfo.comid_status,
+      //   activity: userInfo.actid_status,
+      //   rec_status: _this.changestate(userInfo.rec_status, 'rec', 'myrec'),
+      //   team_status: _this.changestate(userInfo.team_status, 'team', 'myteam'),
+      //   guest_status: _this.changestate(userInfo.comid_status, 'guest', 'myguest'),
+      //   activity_status: _this.changestate(userInfo.actid_status, 'activity', 'myactivity'),
+      // })
     }else{
       let obj = new Object();
       obj['avatarurl'] = '/img/my/noneSign.png';
@@ -137,6 +143,23 @@ Page({
     }else{
       return true
     }
+  },
+  init: function(data){
+    var that=this;
+    api.getmyinfo(data,function(res){
+      res.data['Sign_in']=true
+      that.setData({
+        list: res.data,
+        rec: res.data.rec_status,
+        team: res.data.team_status,
+        guest: res.data.comid_status,
+        activity: res.data.actid_status,
+        rec_status: that.changestate(res.data.rec_status,'rec','myrec'),
+        team_status: that.changestate(res.data.team_status, 'team', 'myteam'),
+        guest_status: that.changestate(res.data.comid_status, 'guest', 'myguest'),
+        activity_status: that.changestate(res.data.actid_status, 'activity', 'myactivity'),
+      })
+    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成

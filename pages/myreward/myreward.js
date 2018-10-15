@@ -13,7 +13,17 @@ Page({
     redBotOne:false,
     redBotTwo:false,
     myrewardinfo:new Array(),
-    inmyrewardinfo:new Array()
+    inmyrewardinfo:new Array(),
+    toView: 'eeede'      
+    
+  },
+  jumpTo: function (e) {
+    console.log(e)
+    // 获取标签元素上自定义的 data-opt 属性的值
+    let target = e.currentTarget.dataset.opt;
+    this.setData({
+      toView: target
+    })
   },
   activeTab: function (e) {
     this.setData({

@@ -9,14 +9,13 @@ Page({
    * 页面的初始数据
    */
   data: {
-    state: null
+    state: null,
+    toView: 'eeede'    
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log('------------------------------')
-    console.log(options)
     this.setData({
       id: options.id,
       typea: options.type
@@ -50,6 +49,14 @@ Page({
       }
     })
     
+  },
+  jumpTo: function (e) {
+    console.log(e)
+    // 获取标签元素上自定义的 data-opt 属性的值
+    let target = e.currentTarget.dataset.opt;
+    this.setData({
+      toView: target
+    })
   },
   computeTime: function (year, month, day, hour, minute, second){
       var leftTime = (new Date(year, month - 1, day, hour, minute, second)) - (new Date()); 

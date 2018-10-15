@@ -49,12 +49,11 @@ Component({
           encryptedData: e.detail.encryptedData
         }
         api.bindTel(data, function (data) {
-          console.log(data);
           if (data.code == 0) {
             wx.setStorageSync('phone', data.data.phoneno);
             let obj = {
               thSessionId: wx.getStorageSync("token"),
-              phoneno: wx.getStorageSync("phone")
+              phoneno: data.data.phoneno
             }
             api.bindTelCallUserImg(obj, function (res) {
               wx.setStorageSync('userid', res.data.userid);
