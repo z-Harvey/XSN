@@ -90,7 +90,7 @@ Page({
     if (res.target.id == 1) {
       console.log("分享页面")
       return {
-        title: `【${this.data.nickname}@你】我在销售牛遇到贵人相助，一起组队打单，你也来试试吧~`,
+        title: `【${wx.setStorageSync('my_user_name')}@你】我在销售牛遇到贵人相助，一起组队打单，你也来试试吧~`,
         path: '/pages/index/index',
         success: function(){
           var data = {
