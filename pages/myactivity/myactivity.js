@@ -49,6 +49,10 @@ Page({
         })
         return true;
       }
+      result.map(function(p1){
+        p1.activitytime = p1.activitytime.split('|')
+        console.log(p1)
+      })
       that.setData({
         list: result
       })

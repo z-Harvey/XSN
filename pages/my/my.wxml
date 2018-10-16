@@ -13,7 +13,7 @@
         </view>
       </view>
       <view class="myownright" bindtap="toPath" data-type="0" wx:if="{{list.Sign_in}}">
-        <text class="personCard">个人信息</text>
+        <text class="personCard">个人名片</text>
       </view>
       <view class="myownrights" wx:if="{{!list.Sign_in}}">
         <button class="mybutn" bindtap='showDialog' class="mymarkcode font-size-28" plain="true" >登陆</button>
@@ -57,7 +57,7 @@
       <view class="wrap-flex row mycard">
         <view class="myIconleft wrap-flex-item">
           <image src="/img/my/job.png" mode="widthFix"></image>
-          <text class="font-size-28 com1010">个人名片</text>
+          <text class="font-size-28 com1010">个人信息</text>
         </view>
         <view class="myIconright">
           <text class="font-size-28 color8080">完成度{{list.completion}}%</text>

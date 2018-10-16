@@ -193,4 +193,5 @@ textarea{
   text-align: center;
   position: fixed;
   bottom: 96rpx;
+  z-index: 20;
 }

@@ -32,7 +32,7 @@
   <view class="fixedWidth require">
     <view class="">
       <text class="rowleft row">公司（必填）</text>
-      <textarea style="color:#ccc;" placeholder="{{list.comname||'请输入公司名称'}}" placeholder-class='rowright' class="rowinput" auto-height value="{{comname}}" bindtap='company'></textarea>
+      <view style="color:#ccc;" class="rowinput" auto-height bindtap='company'>{{list.comname||'请输入公司名称'}}</view>
     </view>
     <view class="" bindtap="toPath"  data-type="{{work}}">
       <text class="rowleft row">行业（必填）</text>

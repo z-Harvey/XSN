@@ -66,4 +66,5 @@
 <view class="GoTop" bindtap='jumpTo' data-opt='a'>
   <image src='/img/top.png'></image>
 </view>
+  <LackNb id="LackNb"></LackNb>
 </view>

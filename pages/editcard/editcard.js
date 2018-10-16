@@ -177,16 +177,11 @@ Page({
     })
   },
   changecomname: function(name){
-    var listname=this.data.list.comname;
-    console.log('----------------------')
-    console.log(name)
-    console.log(listname)
-    console.log(name != listname)
-    console.log('----------------------')
+    var listname=this.data.comname;
     if(name!=listname){
-      console.log('运行了')
       this.setData({
-        state: true
+        state: true,
+        comname: name
       })
     }
   },
@@ -319,9 +314,11 @@ Page({
    */
   onShow: function (options) {
     let edi_com = wx.getStorageSync('editcard_comname');
+    var edi=this.data.list
+    edi.comname=edi_com
     if (edi_com) {
       this.setData({
-        comname:edi_com
+        list: edi
       })
       this.changecomname(edi_com)
     }

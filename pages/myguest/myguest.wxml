@@ -14,11 +14,11 @@
     <text class="blankBoxText font-size-28">暂时没有标记过客户</text>
     <button bindtap='toPath' data-type='soce' class="font-size-28">搜索客户去标记</button>
   </view>
-  <scroll-view bindscrolltolower="onReachBottom" scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true"  class="lock roll">
+  <scroll-view wx:else bindscrolltolower="onReachBottom" scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true"  class="lock roll">
   <view id='a'></view>
     <block wx:for="{{list}}">
       <view class="itemlist fixedWidth bodradius">
-        <view class="list-header" bindtap="markguest" data-comname="{{item.comname}}" data-comid="{{item.comid}}">
+        <view class="list-header" bindtap="markguest" data-unlock='{{item.isunlock}}' data-comname="{{item.comname}}" data-comid="{{item.comid}}">
           <image class="icon_img" src="/img/index/icon.png" mode="widthFix"></image>
           <view class="list-right">
             <view class="list-nick">
@@ -31,15 +31,17 @@
               <button plain class="refbtn font-size-24" wx:elif="{{ item.relation==3}}">正在跟进</button>
               <button plain class="refbtn font-size-24" wx:if="{{item.hasdecision==0}}">有决策链线索</button>
               <button plain class="refbtn font-size-24" wx:elif="{{item.hasdecision==1}}">无决策链线索</button>
+              <view class="BmTxt">线索部门：{{item.department_list||'无线索部门'}}</view>
+              <view class="date dateTxt">
+                <text class="font-size-24">{{item.crtdate}}</text>
+                <text class="font-size-24 update">更新</text>
+              </view>
             </view>
           </view>
         </view>
 
         <view class="list-footer wrap-flex">
-          <view class="date">
-            <text class="font-size-24">{{item.crtdate}}</text>
-            <text class="font-size-24 update">更新</text>
-          </view>
+        <view class="date"></view>
           <button class="font-size-28 tap" plain bindtap="toPath" data-type="edit" data-index="{{index}}">编辑</button>
         </view>
       </view>

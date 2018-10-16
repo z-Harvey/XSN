@@ -6,7 +6,6 @@
   padding: 30rpx;
   position: relative;
 }
-
 .myown-header {
   position: relative;
 }

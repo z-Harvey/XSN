@@ -1,6 +1,7 @@
 <import src="/template/start/start.wxml" />
 
-<view class="rewardInfo">
+<scroll-view bindscrolltolower="onReachBottom" scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true" class="rewardInfo roll">
+<view id="a"></view>
   <view class="reward-header">
     <view class='header-nick'>
       <view class="txBox">
@@ -41,44 +42,46 @@
       受邀者({{list.invatednum}})
     </view>
     <view>
-      <block wx:for="{{invitees}}">
+      <block wx:for="{{invitees}}" wx:key>
         <view class="itemlist fixedWidth bodradius">
           <view class="list-header wrap-flex">
           <view class="txBox" style="margin: 0 16rpx 0 0;">
             <image src="{{item.avatarurl}}" mode="widthFix"></image>          
           </view>
             <view class="list-right wrap-flex">
-              <view class="list-nick" style="margin-top: -5rpx">
+              <view class="list-nick">
                 <text class="font-size-28 com1010">{{item.nickname}}</text>
                 <!-- /img/common/unconfirm.png -->
                 <image src="{{item.provestatus==1?'/img/common/confirm.png':'/img/common/unconfirm.png'}}" mode="widthFix"></image>
               </view>
               <view class="list-start">
                 <view class="start">
-                  <block wx:for="{{item.score}}">
+                  <block wx:for="{{item.score}}" wx:key>
                     <image src="/img/common/startsolid.png" mode="widthFix"></image>
                   </block>
-                  <block wx:for="{{5-item.score}}">
+                  <block wx:for="{{5-item.score}}" wx:key>
                     <image src="/img/common/start.png" mode="widthFix"></image>
                   </block>
                 </view>
               </view>
             </view>
           </view>
-          <view class="list-content">
+          <text class="font-size-24 comcolor yizudui">已组队{{item.team_count}}次</text>
+          <view class="list-content list-cont-right">
             <button plain class="refbtn font-size-24" wx:if="{{ item.relation==0}}">有过合作</button>
             <button plain class="refbtn font-size-24" wx:elif="{{ item.relation==1}}">正在合作</button>
             <button plain class="refbtn font-size-24" wx:elif="{{ item.relation==2}}">有过跟进</button>
             <button plain class="refbtn font-size-24" wx:elif="{{ item.relation==3}}">正在跟进</button>
             <button plain class="refbtn font-size-24" wx:if="{{item.hasdecision==0}}">有决策链线索</button>
             <button plain class="refbtn font-size-24" wx:elif="{{item.hasdecision==1}}">无决策链线索</button>
-            <button class="font-size-24 comcolor yizudui">已组队3次</button>
-          </view>
-          <view class="list-footer wrap-flex">
-            <view class="date">
+            <view class="font-size-28 comcolor "  style='margin:12rpx 0 8rpx;'>线索部门：{{item.department_list||'无决策部门'}}</view>
+            <view class="date dateTxt">
               <text class="font-size-24">{{item.crtdate}}</text>
               <text class="font-size-24 update">更新</text>
             </view>
+          </view>
+          <view class="list-footer wrap-flex">
+            <view class="date"></view>
             <!-- <button class="font-size-28 tap" plain bindtap="onclick" data-type="1">邀请Ta组队</button> -->
             <!-- <button class="font-size-28 own" plain bindtap="onclick" data-type="2">自己</button>
           <button class="font-size-28 process" plain bindtap="onclick" data-type="3">沟通</button> -->
@@ -89,13 +92,15 @@
         </view>
       </block>
     </view>
-    <view style="height:100rpx;"></view>
+    <view style="height:280rpx;"></view>
   </view>
-  <image src="/img/common/index.png" mode="widthFix" class="top" bindtap="toPath" data-type='3' ></image>
-
   <view wx:if="{{noFen}}">
     <button class="btn-bottom btnbottom" plain bindtap="save" hover-class="active" wx:if="{{mytype=='in'}}" open-type="share" id="1">邀请好友帮Ta</button>
-
-  <button class="btn-bottom btnbottom"  plain bindtap="save" hover-class="active" wx:else open-type="share" id="2">分享</button>
+    <button class="btn-bottom btnbottom"  plain bindtap="save" hover-class="active" wx:else open-type="share" id="2">分享</button>
   </view>
-</view>
+</scroll-view>
+  <view wx:if="{{!listNone}}" class="GoTop" bindtap='jumpTo' data-opt='a'>
+    <image src="/img/top.png"></image>
+  </view>
+  <image src="/img/common/index.png" mode="widthFix" class="top" bindtap="toPath" data-type='3' ></image>
+  

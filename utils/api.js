@@ -251,7 +251,7 @@ const api = function(fn) {
       })
     },
     /**
-   *   获取 已标记 公司
+   *   获取 已标记 公司 
    */
     markguestlock: function (data, fn) {
       Util.request({

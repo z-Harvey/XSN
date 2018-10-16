@@ -213,6 +213,8 @@ Page({
    * 确认 解锁 按钮
    */
   Unlock:function(e){
+    console.log(1)
+    
     let loginInfo=this.data.loginInfo
     let data={
       thSessionId: loginInfo.token,
@@ -249,11 +251,6 @@ Page({
     }else{
       _this.motShow()
       return;
-      wx.showModal({
-        title: '提示',
-        content: '牛币不足',
-        showCancel: false,
-      })
     }
   }
 })

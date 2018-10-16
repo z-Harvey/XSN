@@ -42,7 +42,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    wx.hideShareMenu()    
+    wx.hideShareMenu()  
+    console.log('-----------------------')
+    console.log(options.state)  
+    console.log('-----------------------')    
     if(options.state){
       this.setData({
         state: options.state

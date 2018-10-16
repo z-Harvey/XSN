@@ -9,7 +9,7 @@ Page({
   data: {
     btninfo: ['有过合作', '正在合作', '有过跟进', '正在跟进'],
     page: 1,
-    toView: 'eeede'          
+    toView: 'eeede'
   },
   jumpTo: function (e) {
     console.log(e)
@@ -26,7 +26,8 @@ Page({
   },
   markguest: function(e){
     var data = e.currentTarget.dataset;
-    var url=`/pages/marklock/marklock?id=${data.comid}&comname=${data.comname}`;
+    console.log(data)
+    var url = `/pages/marklock/marklock?id=${data.comid}&comname=${data.comname}&unlock=${data.unlock}`;
     wx.navigateTo({
       url: url,
     })
@@ -71,11 +72,15 @@ Page({
       page_num: that.data.page
     }
     api.myguest(data, function (result) {
-      if(result.length===0){
+      console.log(result.data)
+      if(result.data.length===0){
         that.setData({
           listNone:true
         })
       }else{
+        result.data.map(function(p1){
+          p1.department_list = p1.department_list.length > 0 ? p1.department_list.join('、'):false;
+        })
         that.setData({
           listNone:false
         })

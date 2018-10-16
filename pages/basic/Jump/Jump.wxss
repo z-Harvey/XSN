@@ -2,23 +2,23 @@
 .Jump{
   position: fixed;
   bottom: 14rpx;
-  right:14rpx;
+  right:24rpx;
 }
 .Jump>image{
-  width:100rpx;
-  height:100rpx;
+  width:80rpx;
+  height:80rpx;
   position: absolute;
   bottom: 52rpx;
   animation: jump 2s infinite linear;
   
 }
 .jumpText{
-  width:100rpx;
+  width:80rpx;
   height:50rpx;
   background:rgba(255, 152, 0, 1);
   color:#fff;
   border-radius: 50rpx;
-  font-size: 24rpx;
+  font-size: 20rpx;
   text-align: center;
   line-height: 50rpx;
 }

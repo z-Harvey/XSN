@@ -56,7 +56,6 @@ Page({
       this.showDialog()
       return
     }else if(that.data.my_sea){
-      console.log(e)
       wx.setStorageSync('editcard_comname', params.comname)
       wx.navigateBack({
         delta: '-1'
@@ -75,7 +74,7 @@ Page({
           url: url,
         })
       } else if (data.data.has_mate==1){
-        url = `/pages/marklock/marklock?id=${params.id}&comname=${params.comname}`;
+        url = `/pages/marklock/marklock?id=${params.id}&comname=${params.comname}&unlock=${params.unlock}`;
         wx.navigateTo({
           url: url,
         })

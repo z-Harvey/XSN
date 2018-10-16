@@ -215,3 +215,20 @@ page{
 .xiansuo{
   font-size: 28rpx;
 }
+.list-cont-right{
+  width: 100%;
+  padding-left: 96rpx;
+  margin-top:36rpx;
+}
+.dateTxt{
+  margin-top:16rpx;
+  color:#888;
+  font-size: 24rpx;
+  font-style:italic;
+}
+.zdNum{
+  height:80rpx;
+  line-height: 80rpx;
+  float: right;
+  margin:-80rpx 10rpx 0 0;
+}

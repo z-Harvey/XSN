@@ -142,11 +142,15 @@ Page({
       url: '/pages/index/index',
     })
   },
+  motShow: function () {
+    this.selectComponent("#LackNb").show()
+  },
   signUp: function(){
+    console.log(this.data.iconnun > this.data.totalicon)
     if (this.data.iconnun>this.data.totalicon){
       this.confirm()
     }else{
-      this.close();
+      this.motShow();
     }
   },
   confirm: function(){

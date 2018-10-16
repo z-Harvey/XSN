@@ -9,7 +9,16 @@ Page({
   data: {
     num: 0,
     userinfo: null,
+    toView: 'eeede',
     mytype: 'my'
+  },
+  jumpTo: function (e) {
+    console.log(e)
+    // 获取标签元素上自定义的 data-opt 属性的值
+    let target = e.currentTarget.dataset.opt;
+    this.setData({
+      toView: target
+    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -24,8 +33,6 @@ Page({
       recid: options.id,
     })
     var commondata; 
-    console.log(options)
-    console.log(options.type)
     if (options.type=='in'){
       this.setData({
         mytype: options.type,
@@ -49,9 +56,7 @@ Page({
         myid: wx.getStorageSync("userid")
       })
     }
-    console.log(options.type,this.data.mytype)
     this.init(commondata);
-    console.log(this.data.myid,this.data.recid)
   },
 
   init: function (data){
@@ -59,6 +64,11 @@ Page({
     var that = this;
     api.myrewardinfo(data, function (result) {
       console.log(result)
+      if (result.invitees.length>0){
+        result.invitees.map(function(p1){
+          p1.department_list = p1.department_list>0?p1.department_list.join('、'):false;
+        })
+      }
       that.setData({
         list: result,
         invitees: result.invitees,

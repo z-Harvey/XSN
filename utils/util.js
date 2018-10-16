@@ -83,7 +83,6 @@ var defaultOptions = {
  */
 const request = options => {
   console.log(options);
-
   let data
   if (typeof options !== 'object') {
     var message = '请求传参应为 object 类型，但实际传了 ' + (typeof options) + ' 类型';
@@ -138,8 +137,11 @@ const request = options => {
     fail: function (error) {
       options.fail("------------------")
     },
+    /**
+     * 登录失败的回调
+     */
     complete: function (res) {
-      console.log("无论成功还是失败都会执行性", res)
+      options.fail(res)
     }
   })
 }

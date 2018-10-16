@@ -14,7 +14,7 @@
     <view class="activity-footer">
       <view class="activity-row">
         <image src="/img/common/calendar.png" mode="widthFix"></image>
-        <text class="font-size-28 comcolor">{{item.activitytime.split("|")[0]}} 至  {{item.activitytime.split("|")[1]}}</text>
+        <text class="font-size-28 comcolor">{{item.activitytime[0]}} 至  {{item.activitytime[1]}}</text>
       </view>
       <view class="activity-row">
         <image src="/img/common/location.png" mode="widthFix"></image>

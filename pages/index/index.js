@@ -11,7 +11,8 @@ Page({
     scrollTop:null,
     handBoxNone:true,
     showss:false,
-    butLogin:true
+    butLogin:true,
+    loginErrNum: 5
   },
   onPageScroll: function (e) {
     var _this=this;
@@ -38,10 +39,6 @@ Page({
               code: res.code
             },
             success: (result) => {
-              if (result.errcode == 40163){
-                that.refresh()
-                return false;
-              }
               if (result.code == 0) {
                 // console.log("首次，已经登陆")
                 obj['token'] = result.data.thSessionId
@@ -91,6 +88,21 @@ Page({
               // })
               that.init();
             }
+            , fail:function(err){
+              if(that.data.loginErrNum>0){
+                that.data.loginErrNum--
+                if (err.data.errcode == 40163) {
+                  that.refresh()
+                  return false;
+                }
+              }else{
+                wx.showModal({
+                  title: "系统提示",
+                  content: '登录失败错误码：'+err.data.errcode+'，请联系系统管理员！',
+                })
+                return;
+              }
+            }
           })
         }
       })
@@ -101,7 +113,6 @@ Page({
       userid: data.userid
     }
     api.getmyinfo(datas, function (res) {
-      console.log('请求成功')
       wx.setStorageSync('userInfo',res.data)
     })
   },

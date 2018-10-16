@@ -17,12 +17,13 @@
   <scroll-view bindscrolltolower="onReachBottom" scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true" class="result fixedWidth roll">
     <view id="a"></view>
     <block wx:for="{{list}}" wx:key>
-      <view bindtap="toPath" data-id="{{item.comid}}" data-comname="{{item.comname}}">
+      <view bindtap="toPath" data-id="{{item.comid}}" data-unlock="{{item.isunlock}}" data-comname="{{item.comname}}">
         <template is="comitem" data="{{...item}}"/>
       </view>
     </block>
-      <view class="font-size-28 comcolor bottomview" wx:if="{{none}}">没搜到？试试看输入更全的客户名称or<text bindtap='sdsrceach'>点此进行深度搜索</text></view>
+      <view class="font-size-28 comcolor bottomview" wx:if="{{none}}">没搜到？试试看输入更全的客户名称or<text bindtap='sdsrceach' style="color:rgba(255, 152, 0, 1);">点此进行深度搜索</text></view>
   <view class="font-size-28 comcolor bottomview" wx:if="{{list.length<=0&&!none}}">查无此公司</view>
+  <view style='height:100rpx;'></view>
   </scroll-view>
   <loginMot id='dialog'></loginMot>
 </view>
