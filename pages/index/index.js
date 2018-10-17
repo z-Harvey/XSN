@@ -4,6 +4,7 @@ const app = getApp();
 const wxapi = require("../../utils/wxapi.js");
 const api = require('../../utils/api.js');
 const Util = require('../../utils/util')
+wx.showShareMenu()
 
 Page({
   data: {
@@ -203,8 +204,8 @@ Page({
       current: e.detail.current
     })
   },
-  showDialog() {
-    this.selectComponent("#dialog").gits()
+  showDialog(bur) {
+    this.selectComponent("#dialog").gits(bur)
   },
   toPath: function(e){
     var data = e.currentTarget.dataset,url;
@@ -231,7 +232,7 @@ Page({
   togroup: function (e) {
     let loginInfo = this.data.loginInfo
     if (!loginInfo.userid){
-      this.showDialog();
+      this.showDialog(true);
       return;
     }
     var params = e.currentTarget.dataset, url;

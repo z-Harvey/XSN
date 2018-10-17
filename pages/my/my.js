@@ -1,6 +1,5 @@
 // pages/my/my.js
 const api = require('../../utils/api.js');
-
 Page({
   /**
    * 页面的初始数据
@@ -8,16 +7,16 @@ Page({
   data: {
     userinfo: null,
   },
-  showDialog() {
-    this.selectComponent("#dialog").gits()
+  showDialog(bur) {
+    this.selectComponent("#dialog").gits(bur)
   },
   toPath: function (e) {
     var url;
     var data = e.currentTarget.dataset;
     if(data.type!=8){
       if(!wx.getStorageSync('userid')){
-        this.showDialog();
-        return
+        this.showDialog(true);
+        return false;
       }
     }
     //用于解决后期 分享时 出现 undefined 的情况
@@ -100,6 +99,7 @@ Page({
       userInfo: wx.getStorageSync("userInfo"),
       loginInfo: wx.getStorageSync("loginInfo")
     })
+    this.showDialog(false);    
   },
   /**
    * 生命周期函数--监听页面显示
@@ -113,19 +113,6 @@ Page({
         userid: loginInfo.userid
       }
       _this.init(data)
-      // let userInfo = wx.getStorageSync('userInfo')
-      // userInfo['Sign_in'] = true;
-      // _this.setData({
-      //   list: userInfo,
-      //   rec: userInfo.rec_status,
-      //   team: userInfo.team_status,
-      //   guest: userInfo.comid_status,
-      //   activity: userInfo.actid_status,
-      //   rec_status: _this.changestate(userInfo.rec_status, 'rec', 'myrec'),
-      //   team_status: _this.changestate(userInfo.team_status, 'team', 'myteam'),
-      //   guest_status: _this.changestate(userInfo.comid_status, 'guest', 'myguest'),
-      //   activity_status: _this.changestate(userInfo.actid_status, 'activity', 'myactivity'),
-      // })
     }else{
       let obj = new Object();
       obj['avatarurl'] = '/img/my/noneSign.png';

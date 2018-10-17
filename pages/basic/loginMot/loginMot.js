@@ -20,15 +20,15 @@ Component({
    * 更新属性和数据的方法与更新页面数据的方法类似
    */
   methods: {
-    gits() {
+    gits(bur) {
       //触发成功回调
-      if(this.data.MotNone){
+      if(bur){
         this.setData({
-          MotNone:false
+          MotNone:true
         })
       }else{
         this.setData({
-          MotNone: true
+          MotNone: false
         })
       }
     },

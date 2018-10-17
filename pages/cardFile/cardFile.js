@@ -128,8 +128,8 @@ Page({
   /**
    * 登录框
    */
-  showDialog() {
-    this.selectComponent("#dialog").gits()
+  showDialog(bur) {
+    this.selectComponent("#dialog").gits(bur)
   },
   /**
    * 生命周期函数--监听页面加载
@@ -137,7 +137,7 @@ Page({
   onLoad: function (options) {
     wx.hideShareMenu()
     if (!wx.getStorageSync("userid")) {
-      this.showDialog();
+      this.showDialog(true);
       console.log('meiyou')
       return;
     }

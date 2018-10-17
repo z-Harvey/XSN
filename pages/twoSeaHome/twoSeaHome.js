@@ -35,8 +35,8 @@ Page({
   /**
    * 登录弹框组件
    */
-  showDialog() {
-    this.selectComponent("#dialog").gits()
+  showDialog(bur) {
+    this.selectComponent("#dialog").gits(bur)
   },
   /**
    * 生命周期函数--监听页面加载
@@ -215,7 +215,7 @@ Page({
   },
   togroup:function(e){
     if(!wx.getStorageSync('userid')){
-      this.showDialog()
+      this.showDialog(true)
       return
     }
     var params = e.currentTarget.dataset, url, mate = e.target.dataset.mate;
@@ -230,9 +230,6 @@ Page({
           url: url,
         })
       }
-  },
-  showDialog() {
-    this.selectComponent("#dialog").gits()
   },
   /**
    * 上拉加载数据

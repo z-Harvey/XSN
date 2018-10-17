@@ -46,14 +46,14 @@ Page({
     // }
     // this.init(data, this)
   },
-  showDialog() {
-    this.selectComponent("#dialog").gits()
+  showDialog(bur) {
+    this.selectComponent("#dialog").gits(bur)
   },
   toPath: function (e) {
     let params = e.currentTarget.dataset, url;    
     let that=this;
     if (!wx.getStorageSync('userid')){
-      this.showDialog()
+      this.showDialog(true)
       return
     }else if(that.data.my_sea){
       wx.setStorageSync('editcard_comname', params.comname)

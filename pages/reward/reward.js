@@ -15,7 +15,7 @@ Page({
     this.setData({
       NoLogin: 3
     })
-    this.showDialog()
+    this.showDialog(true)
   },
   showModal: function (that) {
     wx.showModal({
@@ -224,8 +224,8 @@ Page({
       // })
     // }
   },
-  showDialog() {
-    this.selectComponent("#dialog").gits()
+  showDialog(bur) {
+    this.selectComponent("#dialog").gits(bur)
   },
   ini: function (data) {
     // 是自己
