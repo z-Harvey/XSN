@@ -130,7 +130,7 @@ Page({
     //   url: '/pages/basic/LackNb/LackNb'
     // });
     // wx.navigateTo({
-    //   url: "/pages/Conversation/Conversation"
+    //   url: "/pages/comComment/comComment"
     // })
     // return
     this.refresh();    

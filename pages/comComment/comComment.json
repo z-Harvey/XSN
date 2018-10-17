@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "点评客户",
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "usingComponents": {
+    "inputAlert": "../basic/inputAlert/inputAlert"
+  }
+}

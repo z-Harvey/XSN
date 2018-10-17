@@ -1,0 +1,19 @@
+<view>
+  <view class="icon_title">
+    <view class='imgBox'>
+      <image class="icon" src="/img/index/icon.png"></image>
+    </view>
+    <view class="icon_title_cont" >{{list.comname}}</view>
+  </view>
+  <view class="comment_content">
+    <view class="comment_content_title">选择你对客户的印象或新增一个标签</view>
+    <view class="but_list">
+      <view wx:for="{{list.reviews_list}}" wx:key bindtap='tapClick' data-index='{{index}}' class="tap_bot {{item.show?'clic':''}}">{{item.value}}</view>
+    </view>
+    <view class="addTo" bindtap='addTo'>+</view>
+    <view style='height:100rpx;'></view>
+  </view>
+  <view wx:if="{{subShow}}" class="submit" bindtap='submit'>确认</view>
+  <view wx:else class="submit" style='background:#888;' >确认</view>
+  <inputAlert id="inp" bind:myevent="onMyevent"></inputAlert>
+</view>

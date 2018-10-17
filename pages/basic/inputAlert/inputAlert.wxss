@@ -1,0 +1,57 @@
+/* pages/basic/inputAlert/inputAlert.wxss */
+.inputAlert{
+  position: fixed;
+  top:0rpx;
+  left:0rpx;
+  width:100%;
+  height:100%;
+  background: rgba(16,16,16,.5)
+}
+.AlertBox{
+  position: relative;
+  top:400rpx;
+  left:98rpx;
+  width:560rpx;
+  padding-top:38rpx;
+  height:250rpx;
+  border-radius: 8rpx;
+  background: #fff;
+  overflow: hidden;
+}
+.AlertBox>.title{
+  color: rgba(3, 3, 3, 1);
+  text-align: center;
+  font-size: 34rpx;
+  height: 53rpx;
+  line-height: 53rpx;
+}
+.AlertBox>input{
+  width:500rpx;
+  padding-left:20rpx;
+  height:60rpx;
+  margin:20rpx auto;
+  font-size: 28rpx;
+  background: rgba(247, 247, 247, 1);
+}
+.butBox{
+  position: absolute;
+  bottom: 0rpx;
+  width:100%;
+}
+.butBox>button{
+  width: 280rpx;
+  height:90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 32rpx;
+  float: left;
+  border-radius: 0;
+  background: #fff;
+  border-top: 2rpx solid rgba(16, 16, 16, .05);  
+}
+.butBox>button:first-child{
+  border-right: 2rpx solid rgba(16, 16, 16, .05);
+}
+.butBox>button::after{
+  border:0;
+}

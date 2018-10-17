@@ -41,6 +41,9 @@ Page({
       url = `/pages/editguest/editguest?comid=${res.comid}`;
     } else if (data.type == 'mark') {
       url = "/pages/search/search"
+    } else if (data.type == 'eval') {
+      console.log(data.data.comid)
+      url = `/pages/comComment/comComment?comid=${data.data.comid}`
     } else if (data.type == 'navHome') {
       wx.switchTab({
         url: "../index/index"

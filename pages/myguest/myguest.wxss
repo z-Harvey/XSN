@@ -117,19 +117,18 @@
   font-style: italic;
 }
 .list-footer>button {
-  flex-basis: 120rpx;
-  height: 60rpx;
-  line-height: 60rpx;
+  height: 50rpx;
+  line-height: 50rpx;
   border-radius: 6rpx;
   text-align: center;
   display: inline-block;
 }
 
 .list-footer>button.tap {
-  color: rgba(255, 152, 0, 1);
-  border: 2rpx solid rgba(255, 152, 0, 1);
+  flex-basis: 120rpx;  
+  color: #101010;
+  border: 2rpx solid #ececed;
 }
-
 .blankBox{
   height: 116rpx;
   width: 1rpx;
@@ -190,4 +189,12 @@ margin-bottom: 60rpx;
   width:500rpx;
   border:1rpx solid red;
   float: left;
+}
+
+.wrap-flex>.Comment{
+  flex-basis: 254rpx;
+  height:50rpx;
+  color:rgba(255, 152, 0, 1);
+  border:2rpx solid rgba(255, 152, 0, 1);
+  margin-left:16rpx;
 }

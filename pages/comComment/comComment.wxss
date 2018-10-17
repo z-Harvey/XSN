@@ -1,0 +1,66 @@
+/* pages/comComment/comComment.wxss */
+.icon_title{
+  width:100%;
+  height:250rpx;
+  background:#fff;
+}
+.imgBox{
+  text-align: center;
+  padding-top: 50rpx;
+}
+.icon{
+  width:100rpx;
+  height:100rpx;
+  border:50%;
+  margin: 0 auto;
+}
+.icon_title_cont{
+  text-align: center;
+  font-size: 28rpx;
+  margin-top:24rpx;
+  color:#101010;
+}
+.comment_content{
+  padding: 40rpx 30rpx 0;
+  margin: 0 auto;
+}
+.comment_content_title{
+  color:#888;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+}
+.tap_bot{
+  height:60rpx;
+  display: inline-block;
+  font-size: 28rpx;
+  color:#888;
+  line-height: 60rpx;
+  padding: 2rpx 30rpx;
+  background: #fff;
+  margin:16rpx 16rpx 0 0;
+}
+.addTo{
+  width:90rpx;
+  height:60rpx;
+  line-height: 60rpx;
+  border:2rpx solid rgba(255, 152, 0, 1);
+  background: #fff;
+  color: rgba(255, 152, 0, 1);
+  text-align: center;
+  margin-top:16rpx;
+}
+.clic{
+  background: rgba(255, 152, 0, 1);  
+  color:#fff;
+}
+.submit{
+  position: fixed;
+  width:100%;
+  bottom: 0rpx;
+  height:96rpx;
+  line-height: 96rpx;
+  background: rgba(255, 152, 0, 1);
+  color:#fff;
+  font-size: 32rpx;
+  text-align: center;
+}

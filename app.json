@@ -51,7 +51,8 @@
     "pages/basic/loginMot/loginMot",
     "pages/basic/numReg/numReg",
     "pages/basic/Jump/Jump",
-    "pages/basic/LackNb/LackNb"
+    "pages/basic/LackNb/LackNb",
+    "pages/comComment/comComment"
   ],
   "window": {
     "backgroundTextStyle": "light",

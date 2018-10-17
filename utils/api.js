@@ -744,7 +744,9 @@ const api = function(fn) {
         }
       })
     },
-    // 获取 会话列表
+    /**
+     * 获取 会话列表
+     */
     converList: function (data, fn) {
       Util.request({
         modules: '/user/getnick',
@@ -756,7 +758,9 @@ const api = function(fn) {
         }
       })
     },
-    // 获取 部门信息
+    /**
+     * 获取 部门信息
+     */
     z_department: function (data, fn) {
       Util.request({
         modules: '/department',
@@ -768,7 +772,9 @@ const api = function(fn) {
         }
       })
     },
-    // 解锁公司  扣除牛币  
+    /**
+     * 解锁公司  扣除牛币
+     */
     z_unlockmate: function (data, fn) {
       Util.requestpost({
         modules: '/unlockmate',
@@ -780,7 +786,9 @@ const api = function(fn) {
         }
       })
     },
-    // 手机号获取验证码
+    /**
+     * 手机号获取验证码
+     */
     z_yzcode: function (data, fn) {
       Util.request({
         modules: '/user/yzcode',
@@ -791,7 +799,37 @@ const api = function(fn) {
           fn(result)
         }
       })
+    },
+    /**
+     * 拉取对该公司的评价列表 
+     * token userid comid（公司ID）
+     */
+    z_getRreviews: function (data, fn) {
+      Util.request({
+        modules: '/company/reviews',
+        method: 'get',
+        data: data,
+        success: (result) => {
+          console.log("评价列表 ", result)
+          fn(result)
+        }
+      })
     }
+    /**
+     * 添加对公司的评价 
+     * token userid comid（公司ID） reviews (字符串 按照 '|' 分割)
+     */
+    , z_postReviews: function (data, fn) {
+      Util.requestpost({
+        modules: '/company/reviews',
+        method: 'post',
+        data: data,
+        success: (result) => {
+          console.log('添加评价' + result)
+          fn(result)
+        }
+      })
+    },
   }
 }()
 module.exports = api
