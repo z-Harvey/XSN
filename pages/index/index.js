@@ -88,7 +88,12 @@ Page({
               // })
               that.init();
             }
-            , fail:function(err){
+            , fail: (err) => {
+
+              if (!(err.data.errcode == 40163))
+                                      return
+              console.log('err')
+              console.log(err)
               if(that.data.loginErrNum>0){
                 that.data.loginErrNum--
                 if (err.data.errcode == 40163) {
@@ -127,6 +132,7 @@ Page({
     //   url: "/pages/Conversation/Conversation"
     // })
     // return
+    this.refresh();    
   }, 
   onShow: function(){
     let _this=this;
@@ -144,7 +150,6 @@ Page({
         butLogin: false
       })
     }
-    this.refresh();
   },
   init: function(){
     var _this = this, loginInfo = this.data.loginInfo;

@@ -135,6 +135,7 @@ const request = options => {
       }
     },
     fail: function (error) {
+      options.fail(error)
       options.fail("------------------")
     },
     /**
