@@ -10,15 +10,26 @@ Page({
     personnum:null,
     lockShow:true, // 根据解锁状态控制显示
     money: null, //未解锁状态时 获取自己的牛币数量与 当前公司解锁需要的牛币数量
-    toView: 'eeede'
+    toView: 'eeede',
+    dire:true,
+    is_reviews: 1
+  },
+  tapNew:function(){
+    console.log(this.data)
+    wx.navigateTo({
+      url:`/pages/comComment/comComment?comid=${this.data.id}`
+    })
   },
   jumpTo: function (e) {
-    console.log(e)
-    // 获取标签元素上自定义的 data-opt 属性的值
-    let target = e.currentTarget.dataset.opt;
-    this.setData({
-      toView: target
+    wx.pageScrollTo({
+      scrollTop:0
     })
+    // console.log(e)
+    // // 获取标签元素上自定义的 data-opt 属性的值
+    // let target = e.currentTarget.dataset.opt;
+    // this.setData({
+    //   toView: target
+    // })
   },
   toIndex: function(){
     wx.reLaunch({
@@ -87,6 +98,67 @@ Page({
       url: url,
     })
   },
+  onShow: function (options){
+    let _this=this;
+    let loginInfo = _this.data.loginInfo,userInfo = _this.data.userInfo;
+    //判断是否解锁 
+    let obj = {
+      thSessionId: loginInfo.token,
+      userid: loginInfo.userid,
+      comname: _this.data.comname,
+      comeid: _this.data.id
+    }
+    if (_this.data.unlock == 0) {
+      _this.setData({
+        lockShow: false
+      })
+      let data = {
+        thSessionId: loginInfo.token,
+        userid: parseInt(loginInfo.userid),
+        comid: _this.data.id,
+        comname: _this.data.comname
+      }
+      api.markguestlock(data, function (res) {// 获取解锁需要的金币数目
+        let arr = [];
+        console.log(res)
+        if (res.data.reviews_list.length > 6) {
+          for (var i = 0; i < 6; i++) {
+            arr.push(res.data.reviews_list[i])
+          }
+        } else {
+          arr = res.data.reviews_list
+        }
+        _this.setData({
+          reviews_list: arr,
+          pri_reviews_list: res.data.reviews_list,
+          is_reviews: res.data.is_reviews,
+          money: res.data,
+          review_niub: res.data.review_niub
+        })
+      })
+      api.getmyinfo(data, function (res) {
+        console.log(res)
+      })
+
+    } else {
+      var data = {
+        thSessionId: loginInfo.token,
+        userid: loginInfo.userid
+      }
+      api.mycard(data, function (result) {
+        if (result[0].comname != null && result[0].comname != "" && result[0].position != "" && result[0].position != null && result[0].work != "" && result[0].work != null) {
+          _this.setData({
+            refuse: false
+          })
+        } else {
+          _this.setData({
+            refuse: true
+          })
+        }
+      })
+      this.init(_this.data.id, _this.data.comname)
+    }
+  },
   /**
    * 生命周期函数--监听页面加载
    */
@@ -99,53 +171,25 @@ Page({
     _this.setData({
       comname: options.comname,
       id: options.id,
-      userid: loginInfo.userid
-    })
-    //判断是否解锁 
-    let obj = {
-      thSessionId: loginInfo.token,
       userid: loginInfo.userid,
-      comname: options.comname,
-      comeid: options.id
+      unlock: options.unlock
+    })
+  },
+  showTapList:function(){
+    let arr = this.data.reviews_list;
+    if(arr.length>6){
+      this.setData({
+        reviews_list: this.data.pri_reviews_list,
+        pri_reviews_list: arr,
+        dire:true
+      })
+    }else{
+      this.setData({
+        reviews_list: this.data.pri_reviews_list,
+        pri_reviews_list: arr,
+        dire: false       
+      })
     }
-      if (options.unlock == 0) {
-        _this.setData({
-          lockShow: false
-        })
-        let data = {
-          thSessionId: loginInfo.token,
-          userid: parseInt(loginInfo.userid),
-          comid: options.id,
-          comname: options.comname
-        }
-        api.markguestlock(data, function (res) {// 获取解锁需要的金币数目
-          _this.setData({
-            money: res.data
-          })
-        })
-        api.getmyinfo(data, function (res) {
-          console.log(res)
-        })
-        
-      }else{
-        var data = {
-          thSessionId: loginInfo.token,
-          userid: loginInfo.userid
-        }
-        api.mycard(data, function (result) {
-          if (result[0].comname != null && result[0].comname != "" && result[0].position != "" && result[0].position != null && result[0].work != "" && result[0].work != null) {
-            _this.setData({
-              refuse: false
-            })
-          } else {
-            _this.setData({
-              refuse: true
-            })
-          }
-        })
-        this.init(options.id, options.comname)
-      }
-    
   },
   init: function (id, comname){
     var that=this;
@@ -158,6 +202,21 @@ Page({
       page_num: that.data.page
     };
     api.markguestlock(data,function(result){
+      console.log(result)
+      let arr=[];
+      if(result.reviews_list.length>6){
+        for(var i=0;i<6;i++){
+          arr.push(result.reviews_list[i])
+        }
+      }else{
+        arr = result.reviews_list
+      }
+      that.setData({
+        reviews_list: arr,
+        pri_reviews_list: result.reviews_list,
+        is_reviews: result.is_reviews,
+        review_niub: result.review_niub
+      })
       result.data.map(function(p1,p2){
         p1.department_list != null ? p1.department_list = p1.department_list.join('、') : p1.department_list=false;
       })   

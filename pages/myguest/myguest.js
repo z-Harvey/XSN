@@ -62,10 +62,9 @@ Page({
    */
   onLoad: function (options) {
     wx.hideShareMenu()
-    if (options.guest_status){
-      wx.setStorageSync('guest_status', options.guest_status);
-    }
-    this.init();
+    this.setData({
+      guest_status: options.guest_status
+    })
   },
   init: function (actid) {
     var that = this;
@@ -75,7 +74,6 @@ Page({
       page_num: that.data.page
     }
     api.myguest(data, function (result) {
-      console.log(result.data)
       if(result.data.length===0){
         that.setData({
           listNone:true
@@ -124,7 +122,10 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    if (this.data.guest_status) {
+      wx.setStorageSync('guest_status', this.data.guest_status);
+    }
+    this.init();
   },
 
   /**

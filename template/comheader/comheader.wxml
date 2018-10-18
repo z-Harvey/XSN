@@ -1,11 +1,27 @@
 <template name="activeheader">
   <view class="header">
-    <image src="/img/index/icon.png" mode="widthFix"></image>
-    <view class="companyinfo font-size-28 com1010">{{comname}}</view>
-    <view class="num" style="padding-bottom:20rpx;">
-      <!-- 这个图片设置了高度 -->
-      <text class="font-size-28 {{personnum?'com1010':'image'}}">{{personnum?personnum:3}}</text>
-      <text class="companyinfo font-size-28 com1010">个跟进人</text>
+    <view class="icon">
+      <image src="/img/index/icon.png" mode="widthFix"></image>      
+    </view>
+    <view class="comnametit">
+      <view class="companyinfo font-size-28 com1010" style='font-weight:900;'>{{comname}}</view>
+      <view class="num" style="padding-bottom:20rpx;">
+        <!-- 这个图片设置了高度 -->
+        <text class="font-size-28 {{personnum?'com1010':'image'}}">{{personnum?personnum:3}}</text>
+        <text class="companyinfo font-size-28 com1010">个跟进人</text>
+      </view>
+      <view class="botBoxs">
+        <view class="tapBox" wx:for="{{reviews_list}}" wx:key><text>{{item[0]}}</text><text>{{item[1]}}</text></view>
+        <view class="overflow" wx:if="{{reviews_list.length>6}}" bindtap='showTapList'>
+          <text wx:if="{{dire}}">···</text>
+          <image wx:if="{{dire}}" src='/img/my/right.png'></image>
+          <image wx:else src='/img/my/left.png'></image>
+        </view>
+      </view>
+      <view class="tapNew" bindtap='tapNew' wx:if="{{is_reviews==0}}">
+        <image src='/img/hand1.png'></image>
+        <text>点评客户得{{review_niub}}牛币</text>
+      </view>
     </view>
   </view>
   <view class="info font-size-28 comcolor">以下用户与当前企业标记过往来关系</view>

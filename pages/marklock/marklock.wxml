@@ -2,8 +2,8 @@
 <import src="/template/start/start.wxml" />
 
 <view class="activityInfo wrap-flex">
-  <view bindtap='toIndex' class="indextop font-size-28">首页</view>
-  <template is="activeheader" data="{{comname,personnum}}" />
+  <!-- <view bindtap='toIndex' class="indextop font-size-28">首页</view> -->
+  <template is="activeheader" data="{{comname,personnum,reviews_list,dire,is_reviews,review_niub}}" />
 <!-- 单人 -->
   <view wx:if="{{listOne}}">
     <view class="lock">
@@ -123,7 +123,6 @@
       <image src='/img/top.png'></image>
     </view>
   </view>
-  
 <!-- 未解锁 -->
   <view class="unlock" wx:else>
     <image src='/img/BG.png'></image>

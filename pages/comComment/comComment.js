@@ -16,13 +16,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
     let that=this,loginInfo = wx.getStorageSync('loginInfo')
     let data={
       thSessionId: loginInfo.token,
       userid: loginInfo.userid,
       comid: options.comid
     }
+    that.setData({
+      comid: options.comid
+    })
     api.z_getRreviews(data,function(res){
       let obj = res.data.reviews_list,arr=[];
       for(let i=0;i<obj.length;i++){
@@ -70,13 +72,19 @@ Page({
     let data={
       thSessionId: loginInfo.token,
       userid: loginInfo.userid,
-      comid: 2,
+      comid: that.data.comid,
       reviews:str
     }
     api.z_postReviews(data,function(res){
-      wx.navigateBack({
-        delta:-1
+      wx.showToast({
+        title: '评价成功',
+        mask:true
       })
+      setTimeout(function(){
+        wx.navigateBack({
+          delta: -1
+        })
+      },1500)
     })
   },
   addTo:function(){

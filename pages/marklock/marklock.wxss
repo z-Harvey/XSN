@@ -3,14 +3,14 @@
 @import "../../template/comheader/comheader.wxss";
 @import "../../template/start/start.wxss";
 @import "../../template/reward/reward.wxss";
-.roll{
+/* .roll{
   width:100%;
   height:70%;
   position: fixed;
   top:350rpx;
   left:0rpx;
   overflow: auto;
-}
+} */
 .GoTop{
   width:88rpx;
   height:88rpx;

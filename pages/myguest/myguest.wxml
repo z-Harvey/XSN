@@ -43,7 +43,7 @@
         <view class="list-footer wrap-flex">
           <view class="date"></view>
           <button class="font-size-28 tap" plain bindtap="toPath" data-type="edit" data-index="{{index}}">编辑</button>
-          <button class="font-size-28 Comment" wx:if="{{item.is_reviews == 0}}" plain bindtap="toPath" data-type='eval' data-data="{{item}}">点评客户得20牛币</button>
+          <button class="font-size-28 Comment" wx:if="{{item.is_reviews == 0}}" plain bindtap="toPath" data-type='eval' data-data="{{item}}">点评客户得{{item.review_niub}}牛币</button>
         </view>
       </view>
     </block>
