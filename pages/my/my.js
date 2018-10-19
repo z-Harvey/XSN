@@ -112,6 +112,7 @@ Page({
         thSessionId: loginInfo.token,
         userid: loginInfo.userid
       }
+      this.showDialog(false);
       _this.init(data)
     }else{
       let obj = new Object();

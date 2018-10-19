@@ -16,4 +16,14 @@
   <view wx:if="{{subShow}}" class="submit" bindtap='submit'>确认</view>
   <view wx:else class="submit" style='background:#888;' >确认</view>
   <inputAlert id="inp" bind:myevent="onMyevent"></inputAlert>
+  <view class="subMot" wx:if="{{subMot}}">
+    <view class="AlertBox">
+      <view class="title">点评成功</view>
+      <view class="text">获得牛币<text style='color:#FF9800;'>+20</text></view>
+      <view class="butBox">
+        <button bindtap='tapOk' data-bur='false'>匹配结果</button>
+        <button bindtap='tapOk' data-bur='true' style="color:#3DBE1C;">我的客户</button>
+      </view>
+    </view>
+  </view>
 </view>

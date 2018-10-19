@@ -26,7 +26,6 @@ Page({
   },
   markguest: function(e){
     var data = e.currentTarget.dataset;
-    console.log(data)
     var url = `/pages/marklock/marklock?id=${data.comid}&comname=${data.comname}&unlock=${data.unlock}`;
     wx.navigateTo({
       url: url,
@@ -35,15 +34,13 @@ Page({
   toPath: function (e) {
     var url;
     var data = e.currentTarget.dataset;
-    console.log(data.type == 'navHome')
     if (data.type == 'edit') {
       var res=this.data.list[data.index]
       url = `/pages/editguest/editguest?comid=${res.comid}`;
     } else if (data.type == 'mark') {
       url = "/pages/search/search"
     } else if (data.type == 'eval') {
-      console.log(data.data.comid)
-      url = `/pages/comComment/comComment?comid=${data.data.comid}`
+      url = `/pages/comComment/comComment?comid=${data.data.comid}&comname=${data.data.comname}&unlock=${data.data.isunlock}&source=myguest`
     } else if (data.type == 'navHome') {
       wx.switchTab({
         url: "../index/index"
@@ -62,6 +59,10 @@ Page({
    */
   onLoad: function (options) {
     wx.hideShareMenu()
+    if (!options.guest_status){
+      console.log('undefined')
+      return
+    }
     this.setData({
       guest_status: options.guest_status
     })
@@ -111,13 +112,6 @@ Page({
       comname: ''
     })
   },
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-  
-  },
-
   /**
    * 生命周期函数--监听页面显示
    */

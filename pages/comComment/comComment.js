@@ -9,8 +9,34 @@ Page({
     list:{
       comname: '1',
       reviews_list: '',
-      subShow: false
+      subShow: false,
+      subMot: false
     }
+  },
+  tapOk:function(e){
+    let that=this,bur = e.currentTarget.dataset,url
+    console.log(bur)
+    if(bur.bur=='true'){
+      console.log(bur.bur)
+      if (that.data.source =='myguest'){
+        wx.navigateBack({
+          delta: -1
+        })
+        return
+      }
+      url = `/pages/myguest/myguest`;
+    }else{
+      if (that.data.source == 'marklock') {
+        wx.navigateBack({
+          delta: -1
+        })
+        return
+      }
+      url = `/pages/marklock/marklock?id=${that.data.comid}&comname=${that.data.comname}&unlock=${that.data.unlock}`;
+    }
+    wx.redirectTo({
+      url: url,
+    })
   },
   /**
    * 生命周期函数--监听页面加载
@@ -23,7 +49,10 @@ Page({
       comid: options.comid
     }
     that.setData({
-      comid: options.comid
+      unlock: options.unlock,
+      comname: options.comname,
+      comid: options.comid,
+      source: options.source
     })
     api.z_getRreviews(data,function(res){
       let obj = res.data.reviews_list,arr=[];
@@ -76,15 +105,18 @@ Page({
       reviews:str
     }
     api.z_postReviews(data,function(res){
-      wx.showToast({
-        title: '评价成功',
-        mask:true
+      // wx.showToast({
+      //   title: '评价成功',
+      //   mask:true
+      // })
+      // setTimeout(function(){
+      //   wx.navigateBack({
+      //     delta: -1
+      //   })
+      // },1500)
+      that.setData({
+        subMot: true
       })
-      setTimeout(function(){
-        wx.navigateBack({
-          delta: -1
-        })
-      },1500)
     })
   },
   addTo:function(){
@@ -92,12 +124,21 @@ Page({
   },
   onMyevent:function(e){
     let that=this;
-    let obj={
-      value: e.detail.paramBtoA,
-      show: true
-    }
     let data = that.data.list;
-    data.reviews_list.push(obj)
+    let isPush=true;
+    data.reviews_list.map(function(p1){
+      if (p1.value == e.detail.paramBtoA){
+        p1.show=true;
+        isPush=false;
+      }
+    })
+    if(isPush){
+      let obj = {
+        value: e.detail.paramBtoA,
+        show: true
+      }
+      data.reviews_list.push(obj)
+    }
     that.setData({
       list: data,
       subShow: true      

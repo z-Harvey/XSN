@@ -1,7 +1,7 @@
 <view class="inputAlert" wx:if="{{show}}">
   <view class="AlertBox">
     <view class="title">新增标签</view>
-    <input placeholder='说说你对客户的印象，最多20字' bindblur='inpValue' maxlength='20'></input>
+    <input placeholder='说说你对客户的印象，最多20字' value='{{inpVal}}' bindinput='inpValue' maxlength='20'></input>
     <view class="butBox">
       <button bindtap='operation' data-bur='false'>取消</button>
       <button style="color:#3DBE1C;"  bindtap='operation' data-bur='true'>确认</button>

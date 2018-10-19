@@ -16,7 +16,7 @@
   </view>
   <scroll-view wx:else bindscrolltolower="onReachBottom" scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true"  class="lock roll">
   <view id='a'></view>
-    <block wx:for="{{list}}">
+    <block wx:for="{{list}}" wx:key>
       <view class="itemlist fixedWidth bodradius">
         <view class="list-header" bindtap="markguest" data-unlock='{{item.isunlock}}' data-comname="{{item.comname}}" data-comid="{{item.comid}}">
           <image class="icon_img" src="/img/index/icon.png" mode="widthFix"></image>
@@ -43,7 +43,10 @@
         <view class="list-footer wrap-flex">
           <view class="date"></view>
           <button class="font-size-28 tap" plain bindtap="toPath" data-type="edit" data-index="{{index}}">编辑</button>
-          <button class="font-size-28 Comment" wx:if="{{item.is_reviews == 0}}" plain bindtap="toPath" data-type='eval' data-data="{{item}}">点评客户得{{item.review_niub}}牛币</button>
+          <button class="font-size-28 Comment" wx:if="{{item.is_reviews == 0}}" plain bindtap="toPath" data-type='eval' data-data="{{item}}">
+            <image src="/img/Comment.png"></image>
+            <text>点评客户得{{item.review_niub}}牛币</text>
+          </button>
         </view>
       </view>
     </block>

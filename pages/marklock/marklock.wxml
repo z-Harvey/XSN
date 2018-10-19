@@ -3,8 +3,9 @@
 
 <view class="activityInfo wrap-flex">
   <!-- <view bindtap='toIndex' class="indextop font-size-28">首页</view> -->
-  <template is="activeheader" data="{{comname,personnum,reviews_list,dire,is_reviews,review_niub}}" />
+  <template is="activeheader" data="{{comname,personnum,reviews_list,dire,is_reviews,review_niub,reviews_num}}" />
 <!-- 单人 -->
+  <view class="comname" wx:if="{{showss}}">{{comname}}</view>
   <view wx:if="{{listOne}}">
     <view class="lock">
     <block wx:for="{{list}}" wx:key>

@@ -25,19 +25,26 @@ Component({
       })
     },
     inpValue:function(e){
+      if(e.detail.value==' '){
+        this.setData({
+          inpVal: ''
+        })
+        return
+      }
       this.setData({
         inpVal: e.detail.value
       })
-      console.log(e.detail.value)
     },
     operation:function(e){
       let that=this;
       if (e.currentTarget.dataset.bur==='true'){
-        this.triggerEvent('myevent', { paramBtoA: that.data.inpVal });
-        this.setData({
-          show: false,
-          inpVal: ''          
-        })
+        if (that.data.inpVal!=''){
+          this.triggerEvent('myevent', { paramBtoA: that.data.inpVal });
+          this.setData({
+            show: false,
+            inpVal: ''
+          })
+        }
       }else{
         this.setData({
           show: false

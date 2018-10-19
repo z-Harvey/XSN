@@ -1,7 +1,7 @@
 <template name="activeheader">
   <view class="header">
     <view class="icon">
-      <image src="/img/index/icon.png" mode="widthFix"></image>      
+      <image src="/img/index/icon.png" mode="widthFix"></image>
     </view>
     <view class="comnametit">
       <view class="companyinfo font-size-28 com1010" style='font-weight:900;'>{{comname}}</view>
@@ -10,16 +10,18 @@
         <text class="font-size-28 {{personnum?'com1010':'image'}}">{{personnum?personnum:3}}</text>
         <text class="companyinfo font-size-28 com1010">个跟进人</text>
       </view>
-      <view class="botBoxs">
-        <view class="tapBox" wx:for="{{reviews_list}}" wx:key><text>{{item[0]}}</text><text>{{item[1]}}</text></view>
-        <view class="overflow" wx:if="{{reviews_list.length>6}}" bindtap='showTapList'>
+      <view class="{{dire?'botBoxs':'botBoxss'}}">
+        <view class="tapBox" wx:for="{{reviews_list}}" wx:key>
+          <text>{{item[0]}}</text><text>{{item[1]}}</text>
+        </view>
+        <view class="overflow" wx:if="{{reviews_num>6}}" bindtap='showTapList'>
           <text wx:if="{{dire}}">···</text>
-          <image wx:if="{{dire}}" src='/img/my/right.png'></image>
-          <image wx:else src='/img/my/left.png'></image>
+          <image wx:if="{{dire}}" src='/img/my/bottom.png'></image>
+          <image wx:else src='/img/my/top.png'></image>
         </view>
       </view>
       <view class="tapNew" bindtap='tapNew' wx:if="{{is_reviews==0}}">
-        <image src='/img/hand1.png'></image>
+        <image src='/img/Comment.png'></image>
         <text>点评客户得{{review_niub}}牛币</text>
       </view>
     </view>

@@ -232,3 +232,16 @@ page{
   float: right;
   margin:-80rpx 10rpx 0 0;
 }
+.comname{
+  padding:40rpx 0;
+  font-size: 24rpx;
+  text-indent: 900;
+  text-align: center;
+  background: #fff;
+  position: fixed;
+  top:0rpx;
+  left:0rpx;
+  width: 100%;
+  z-index: 10;
+  box-shadow: 0px 3px 5px #888888;
+}

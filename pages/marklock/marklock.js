@@ -12,14 +12,28 @@ Page({
     money: null, //未解锁状态时 获取自己的牛币数量与 当前公司解锁需要的牛币数量
     toView: 'eeede',
     dire:true,
-    is_reviews: 1
+    is_reviews: 1,
+    reviews_num:Number
   },
   tapNew:function(){
-    console.log(this.data)
     wx.navigateTo({
-      url:`/pages/comComment/comComment?comid=${this.data.id}`
+      url: `/pages/comComment/comComment?comid=${this.data.id}&comname=${this.data.comname}&unlock=${this.data.unlock}&source=marklock`
     })
   },
+  onPageScroll: function (e) {
+    var _this = this;
+    if (e.scrollTop >= 100) {
+      _this.setData({
+        showss: true
+      })
+    } else {
+      _this.setData({
+        showss: false
+      })
+    }
+    // console.log(e);//{scrollTop:99}
+  },
+  //滚动到顶部
   jumpTo: function (e) {
     wx.pageScrollTo({
       scrollTop:0
@@ -37,7 +51,6 @@ Page({
     })
   },
   clock:function(e){
-    console.log(e.target.dataset.ind)
     if (e.target.dataset.ind==1){
       wx.switchTab({
         url: '/pages/twoSeaHome/twoSeaHome',
@@ -119,27 +132,19 @@ Page({
         comname: _this.data.comname
       }
       api.markguestlock(data, function (res) {// 获取解锁需要的金币数目
-        let arr = [];
         console.log(res)
-        if (res.data.reviews_list.length > 6) {
-          for (var i = 0; i < 6; i++) {
-            arr.push(res.data.reviews_list[i])
-          }
-        } else {
-          arr = res.data.reviews_list
-        }
         _this.setData({
-          reviews_list: arr,
+          reviews_list: res.data.reviews_list,
           pri_reviews_list: res.data.reviews_list,
           is_reviews: res.data.is_reviews,
           money: res.data,
-          review_niub: res.data.review_niub
+          review_niub: res.data.review_niub,
+          reviews_num: res.data.reviews_list.length
         })
       })
       api.getmyinfo(data, function (res) {
         console.log(res)
       })
-
     } else {
       var data = {
         thSessionId: loginInfo.token,
@@ -176,20 +181,16 @@ Page({
     })
   },
   showTapList:function(){
-    let arr = this.data.reviews_list;
-    if(arr.length>6){
+    console.log(this.data.dire)
+    if (this.data.dire){
       this.setData({
-        reviews_list: this.data.pri_reviews_list,
-        pri_reviews_list: arr,
-        dire:true
+        dire:false
       })
-    }else{
-      this.setData({
-        reviews_list: this.data.pri_reviews_list,
-        pri_reviews_list: arr,
-        dire: false       
-      })
+      return
     }
+    this.setData({
+      dire: true
+    })
   },
   init: function (id, comname){
     var that=this;
@@ -203,19 +204,12 @@ Page({
     };
     api.markguestlock(data,function(result){
       console.log(result)
-      let arr=[];
-      if(result.reviews_list.length>6){
-        for(var i=0;i<6;i++){
-          arr.push(result.reviews_list[i])
-        }
-      }else{
-        arr = result.reviews_list
-      }
       that.setData({
-        reviews_list: arr,
+        reviews_list: result.reviews_list,
         pri_reviews_list: result.reviews_list,
         is_reviews: result.is_reviews,
-        review_niub: result.review_niub
+        review_niub: result.review_niub,
+        reviews_num: result.reviews_list.length
       })
       result.data.map(function(p1,p2){
         p1.department_list != null ? p1.department_list = p1.department_list.join('、') : p1.department_list=false;

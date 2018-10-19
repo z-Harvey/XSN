@@ -1,5 +1,6 @@
 .header{
   background: #fff;
+  padding:0 0 20rpx 0;
 }
 .header>.icon{
   display: inline-block;
@@ -31,8 +32,18 @@
   max-width: 550rpx;
 }
 .botBoxs{
-  width: 550rpx;
+  position: relative;
+  width: 575rpx;
   font-size: 24rpx;
+  max-height:144rpx;
+  overflow: hidden;
+}
+.botBoxss{
+  position: relative;
+  width: 575rpx;
+  font-size: 24rpx;
+  height:auto;
+  overflow: inherit;
 }
 .tapBox{
   height:50rpx;
@@ -41,7 +52,7 @@
   color:#888;
   padding:4rpx 18rpx;
   border:2rpx solid rgba(236, 236, 237, 1);
-  line-height: 50rpx
+  line-height: 50rpx;
 }
 .tapBox>text:first-child{
   margin-right:10rpx;
@@ -63,9 +74,16 @@
 }
 .overflow{
   display: inline-block;
-  height:50rpx;
+  height:70rpx;
   font-size: 24rpx;
-  line-height: 50rpx;
+  line-height: 60rpx;
+  position: absolute;
+  bottom: 0rpx;
+  /* border:2rpx solid rgba(236, 236, 237, 1); */
+  border:2rpx solid rgba(236, 236, 237, 0);
+  background:#fff;
+  padding:0 16rpx;
+  right:0rpx;
 }
 .overflow>text:first-child{
   margin-right:10rpx;

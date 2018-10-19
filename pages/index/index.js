@@ -46,7 +46,7 @@ Page({
                 obj['userid'] = result.data.userid
                 wx.setStorageSync("token", result.data.thSessionId)
                 wx.setStorageSync('userid', result.data.userid)
-                that.userInfo(obj)
+                // that.userInfo(obj)
               } else if (result.code == 1) {
                 // console.log("已经登陆多次")
                 obj['token'] = result.data.thSessionId
@@ -55,7 +55,7 @@ Page({
                 wx.setStorageSync("token", result.data.thSessionId)
                 wx.setStorageSync('userid', result.data.userid)
                 wx.setStorageSync("UserSig", result.data.UserSig)
-                that.userInfo(obj)
+                // that.userInfo(obj)
               } else if (result.code == 2) {
                 // console.log("未注册")
                 obj['token'] = result.data.thSessionId

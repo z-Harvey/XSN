@@ -198,3 +198,14 @@ margin-bottom: 60rpx;
   border:2rpx solid rgba(255, 152, 0, 1);
   margin-left:16rpx;
 }
+
+
+.Comment{
+  font-size: 24rpx;
+  border:2rpx solid #FF9800;
+  color:#FF9800;
+}
+.Comment>image{
+  width: 24rpx;
+  height:24rpx;
+}
