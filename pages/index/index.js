@@ -166,6 +166,7 @@ Page({
           numtotal: data.data.all_mate_com_num + 10000,
           company: data.data.com_info
         })
+        console.log(data.data.com_info)
       }else if(data.code==-1){
         _this.refresh()
       }
@@ -210,8 +211,8 @@ Page({
   toPath: function(e){
     var data = e.currentTarget.dataset,url;
     if (data.id == 0) {
-      wx.switchTab({
-        url: '../twoSeaHome/twoSeaHome',
+      wx.navigateTo({
+        url: '/pages/twoSeaHome/twoSeaHome',
       })
       return
     }else if(data.id == 1){

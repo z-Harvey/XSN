@@ -73,24 +73,26 @@
       <view class="sizeSeat"></view>
       <scroll-view bindscrolltolower="onReachBottom" scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true" class="scr roll">
         <view id="a" style="height:20rpx;"></view>
-          <view wx:for="{{listData}}"  wx:for-item="idx" wx:key>
-        <view class="MerchantList">
-          <view class="merImg">
-            <image src="/img/index/icon.png" mode="widthFix"></image>
-          </view>
-          <view class="content_right">
-          <text class="merlistTitle font-size-28">{{idx.comname}}</text>
-          <view class="merImgList">
-            <view wx:for="{{idx.avatarurl_list}}" wx:for-item="im" wx:key>
-              <image src="{{im.avatarurl}}"></image>
+        <view class="list" wx:for="{{listData}}" wx:key>
+            <view class="listTit">
+              <view class='mark'>
+                <image src='/img/index/qi(1).png'></image>
+              </view>
+              <view>{{item.comname}}</view>
             </view>
-            <text class="font-size-24">有{{idx.matenum}}个销售在跟进</text>
+            <view class='tapList'>
+              <view>都是大佬</view>
+              <view>都是大是大佬</view>
+              <view>都是大</view>
+            </view>
+            <view class="headImg">
+              <view class='heaim' wx:for="{{item.avatarurl_list}}" wx:for-item="img" wx:key>
+                <image src='{{img.avatarurl}}'></image>
+              </view>
+              <view class="heaCont">..等{{item.matenum}}个销售跟进</view>
+              <button bindtap="togroup" data-id="{{item.comid}}" data-comname="{{item.comname}}" data-mate="{{item.has_mate}}" data-unlock="{{item.isunlock}}">查看跟进人</button>
+            </view>
           </view>
-          <button wx:if="{{idx.isunlock==1}}" class="merBut font-size-24" data-id="{{idx.comid}}" bindtap="togroup" data-comname="{{idx.comname}}" data-mate='{{idx.has_mate}}' data-unlock='{{idx.isunlock}}' >查看</button>
-          <button wx:else class="merBut font-size-24" data-id="{{idx.comid}}" bindtap="togroup" data-unlock='{{idx.isunlock}}' data-comname="{{idx.comname}}" data-mate='{{idx.has_mate}}'>{{idx.prices}}牛币查看</button>
-          </view>
-        </view>
-      </view>
       </scroll-view>
     <view style="height:150rpx;"></view>
     <Jump></Jump>

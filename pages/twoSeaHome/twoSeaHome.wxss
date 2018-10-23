@@ -167,71 +167,11 @@ page{
 .pxscli>text{
   color:#FF9800;
 }
-.MerchantList{
-  width:632rpx;
-  border-radius: 10rpx;
-  margin: 0 auto 20rpx;
-  background: #fff;
-  padding:30rpx 20rpx 28rpx;
-  position: relative
-}
-.merImg{
-  width:100rpx;
-  height:100rpx;
-  border: 1rpx solid rgba(255, 152, 0, 1);
-  border-radius: 50%;
-}
-.merImg>image{
-  width:100rpx;
-  height:100rpx;
-}
-.merlistTitle{
-
-}
-.merImgList{
-
-}
-.merImgList>view{
-  float: left;
-  margin-right: 4rpx;
-}
-.merImgList>text{
-  float: left;
-  color:rgba(136, 136, 136, 1);
-  line-height: 50rpx
-}
-.merImgList>view>image{
-  width: 40rpx;
-  height:40rpx;
-  border-radius: 50%;
-}
-.merBut{
-  position: absolute;
-  right: 20rpx;
-  width: 160rpx;
-  height:50rpx;
-  border:1rpx solid rgba(255, 152, 0, 1);
-  border-radius: 6rpx;
-  color:rgba(255, 152, 0, 1);
-  line-height: 50rpx;
-  background: #fff;
-}
-.merBut::after{
-  border:0;
-}
 .sizeSeat{
   height:200rpx;
 }
 .merImg{
   float: left;
-}
-.content_right{
-  margin-left:18rpx;
-  display: inline-block;  
-  width:500rpx;
-}
-.content_right>button{
-  float: right;
 }
 .roll{
   width:100%;
@@ -249,4 +189,95 @@ page{
 .GoTop>image{
   width:88rpx;
   height:88rpx;
+}
+
+
+.list{
+  background:#fff;
+  padding:20rpx;
+  width:650rpx;
+  margin:20rpx auto 0rpx;
+}
+.listTit{
+  height:46rpx;
+  font-size: 28rpx;
+}
+.listTit>view{
+  float: left;
+}
+.listTit>view:last-child{
+  line-height: 46rpx;
+}
+.mark{
+  margin:8rpx 10rpx 0rpx 0rpx;
+  width:32rpx;
+  height:32rpx;
+  border-radius: 6rpx;
+  background:#FF9800;
+}
+.mark>image{
+  width:28rpx;
+  height:28rpx;
+  margin: 2rpx 2rpx;
+}
+.tapList{
+  font-size: 20rpx;
+  padding-left:40rpx;
+  margin-top:10rpx;
+}
+.tapList>view{
+  height:40rpx;
+  background: #ececec;
+  line-height: 40rpx;
+  padding:0 18rpx;
+  display: inline-block;
+  margin-right:10rpx;
+}
+
+.headImg{
+  margin-top:16rpx;
+  padding:0 40rpx;
+}
+.headImg>.heaim{
+  width:40rpx;
+  height:40rpx;
+  border-radius: 50%;
+  display: inline-block;
+  margin-right:6rpx;
+  margin-top:14rpx;
+  overflow: hidden;
+}
+.headImg>.heaim>image{
+  width:40rpx;
+  height:40rpx;
+  border-radius: 50%;
+}
+.headImg>.heaCont{
+  width:auto;
+  display: inline-block;
+  font-size: 24rpx;
+  height:40rpx;
+  line-height: 40rpx;
+  vertical-align:top;
+  color:#888;
+  margin-top:14rpx;  
+}
+.headImg>button{
+  border:0;
+  width:168rpx;
+  height:60rpx;
+  border-radius: 30rpx;
+  background:rgba(255, 152, 0, 0.1);
+  color:#FF9800;
+  line-height: 60rpx;
+  font-size: 28rpx;
+  float: right;
+}
+.headImg>button::after{
+  border:0;
+}
+
+.listFoot{
+  height:100rpx;
+  border-top:2rpx solid rgba(255, 152, 0, 0.1);
 }

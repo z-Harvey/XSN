@@ -1,98 +1,122 @@
 <!--index.wxml-->
 <view class="index">
-    <view class="flexd" wx:if="{{showss}}">
-      <view id="searchInp" class="search1 wrap-flex bodradius" bindtap="toPath">
-          <image src="/img/index/search.png" mode="widthFix"></image>
-          <view class="searchCom font-size-28">输入客户名称关键字，例：聚牛天下</view>
-      </view>
-    </view>
-  <view class="header">
-    <image src="/img/index/banner.jpg" mode="widthFix"></image>
-    <view class="headerContentTitle">
-      <view class="headerContentTitleText font-size-28">想知道客户的关键人或其他情况？点击搜索框输入需要相助的客户名称，查看有谁在跟进并联系Ta~</view>
-      <view id="searchInp" class="search wrap-flex bodradius" bindtap="toPath">
-        <image src="/img/index/search.png" mode="widthFix"></image>
-        <view class="searchCom font-size-28">输入客户名称关键字，例：聚牛天下</view>
-        <view class="handBox" wx:if="{{handBoxNone}}">
-          <image src='/img/hand1.png'></image>
-        </view>
-      </view>
-    </view>
+  <view class="bgBox">
+    <image class="index_bgImg" src="/img/index/background.png"></image>
   </view>
-
-  <view class="content">
-    <view class="swiperLeft">
-      <swiper autoplay class="activity" circular bindchange="changecurrent">
-        <block wx:for="{{list.act_info[0]}}" wx:key>
-          <swiper-item class="bodradius" bindtap="toPath" data-id="{{item.actid}}" data-type="{{item.type}}">
-            <image src="{{item.picture}}" mode="widthFix"/>
+  <view class="dynamicText font-size-28">您有{{list.niub}}枚牛币，最多可找到{{list.can_unlock}}潜在客户</view>
+  <view class="dynamic">
+    <view class="swiperTop wrap-flex">
+      <swiper autoplay circular vertical="true" class="wrap-flex-item" interval="3000">
+        <block wx:for="{{list.movement_info}}" wx:key>
+          <swiper-item>
+            <view class='swiperImg'>
+              <image src='/img/top.png'></image>
+            </view>
+          <view class="font-size-24 comcolors">{{item}}</view>
           </swiper-item>
         </block>
-      </swiper> 
-      <view class="swiper-flag">
-        <text
-        wx:for="{{list.act_info[0]}}"
-        wx:key="index"
-        class="{{index === current?'active':''}}"></text>
-      </view>  
+      </swiper>
     </view>
-    <view class="dynamic">
-      <view class="swiperTop wrap-flex">
-        <view class="fixWidth wrap-flex">
-          <image src="/img/index/dong.png" mode="widthFix"></image>
-          <text class="font-size-28 combg">动态</text>
-        </view>
-        <swiper autoplay circular vertical="true" class="wrap-flex-item" interval="3000">
-          <block wx:for="{{list.movement_info}}" wx:key>
-            <swiper-item>
-              <text class="font-size-24 comcolor">{{item}}</text>
-            </swiper-item>
-          </block>
-        </swiper> 
+  </view>
+  <view class="Iwant">
+    <view class="btnBom" bindtap="toPath">
+      <view class="BomTile">
+        <view class="leftG"></view>
+        <view>我要了解客户实况</view>
       </view>
-      <view wx:if="{{butLogin}}">
-        <view class="dynamicText font-size-28">您有{{list.niub}}枚牛币，最多可查看{{list.can_unlock}}个已被跟进的客户</view>
-        <view class="dynamicButs">
-          <button class="font-size-28" bindtap='toPath' data-id='1'>去赚牛币</button>
-          <button class="font-size-28" bindtap='toPath' data-id='0'>查看客户</button>
-        </view>
-      </view>
-      <view wx:else>
-        <view class="dynamicText font-size-28">新人可领100牛币</view>
-        <view class="dynamicButs">
-          <button class="font-size-28" bindtap='showDialog'>登录</button>
-        </view>
+      <view class="BomCont" style='margin-left:36rpx;'>为你匹配跟进此客户的销售，向Ta了解客户的实况</view>
+      <view class="BomImg">
+        <image src="/img/right_black.png"></image>
       </view>
     </view>
+    <view class="btnBom" bindtap='toPath' data-id='0'>
+      <view class="BomTile">
+        <view class="leftG"></view>
+        <view>我要挖掘潜在客户</view>
+      </view>
+      <view class="BomCont" style='margin-left:36rpx;'>为你匹配感兴趣行业的销售，通过Ta挖掘潜在客户</view>
+      <view class="BomImg">
+        <image src="/img/right_black.png"></image>
+      </view>
+    </view>
+  </view>
 
-    <view class="recommend">
-      <text class="font-size-28 title" >客户推荐</text>
-      <text class="font-size-24 comcolor" >（共有</text>
-      <text class="font-size-24 title" > {{numtotal}} </text>
-      <text class="font-size-24 comcolor" >家客户被跟进）</text>  
-      <text class="font-size-28 title titleright" bindtap='toPath' data-id='0'>查看全部</text>
+  <view class="recList">
+    <view class="recListTitle">
+      <view>客户推荐</view>
+      <view class="recImg" bindtap='toPath' data-id='0'>
+        <image src="/img/index/rec.png"></image>
+      </view>
+    </view>
+    <view class="list" wx:for="{{company}}" wx:key>
+      <view class="listTit">
+        <view class='mark'>
+          <image src='/img/index/qi(1).png'></image>
+        </view>
+        <view>{{item.comname}}</view>
+      </view>
+      <view class='tapList'>
+        <view>都是大佬</view>
+        <view>都是大是大佬</view>
+        <view>都是大</view>
+      </view>
+      <view class="headImg">
+        <view class='heaim' wx:for="{{item.avatarurl_list}}" wx:for-item="img" wx:key>
+          <image src='{{img.avatarurl}}'></image>
+        </view>
+        <view class="heaCont">..等{{item.matenum}}个销售跟进</view>
+        <button bindtap="togroup" data-id="{{item.comid}}" data-comname="{{item.comname}}" data-mate="{{item.has_mate}}" data-unlock="{{item.isunlock}}">查看跟进人</button>
+      </view>
+    </view>
+    <view class="listFoot">
+      <button class="chexQb" bindtap='chexQb'>查看更多客户</button>
     </view>
   </view>
-  <view wx:for="{{company}}"  wx:for-item="idx" wx:key>
-      <view class="MerchantList">
-        <view class="merImg">
-          <image src="/img/index/icon.png" mode="widthFix"></image>
-        </view>
-        <view class="content_right">
-          <text class="merlistTitle font-size-28">{{idx.comname}}</text>
-        <view class="merImgList">
-          <view wx:for="{{idx.avatarurl_list}}" wx:for-item="im" wx:key>
-            <image src="{{im.avatarurl=='undefined'?'/img/my/noneSign.png':im.avatarurl}}"></image>
+
+  <view class="recList">
+    <view class="recListTitle">
+      <view>TopSales推荐</view>
+      <view class="recImg">
+        <image src="/img/index/rec.png"></image>
+      </view>
+    </view>
+    <view class="know" wx:for="{{company}}" wx:key>
+      <view class='knowImg'>
+        <image src='/img/home.png'></image>
+      </view>
+      <view class="idenInfo">
+        <view class="ideList1">
+          <view class="idenName">云端飞扬</view>
+          <view class="idenBox">
+            <image src='/img/common/startsolid.png'></image>            
           </view>
-          <text class="font-size-24">有{{idx.matenum}}个销售在跟进</text>
+          <view class='idenScore'>4.9分</view>
         </view>
-        <button wx:if="{{idx.isunlock==1}}" class="merBut font-size-24" data-id="{{idx.comid}}" bindtap="togroup" data-comname="{{idx.comname}}" data-mate="{{idx.has_mate}}" data-unlock="{{idx.isunlock}}" >查看</button>
-        <button wx:else class="merBut font-size-24" data-id="{{idx.comid}}" bindtap="togroup" data-comname="{{idx.comname}}" data-unlock='{{idx.isunlock}}' data-mate='{{idx.has_mate}}'>{{idx.prices}}牛币查看</button>
+        <view class="ideList2">
+          <view>
+            <view class="ide2Img">
+              <image src='/img/home.png'></image>
+            </view>
+            <view>黄金</view>
+          </view>
+          <view>
+            <view class="ide2Img">
+              <image src='/img/home.png'></image>
+            </view>
+            <view>已认证</view>
+          </view>
+        </view>
+        <view class="ideList3">
+          跟进客户 n
         </view>
       </view>
+      <button class="idenBtn">认识ta</button>
+    </view>
+    <view class="listFoot">
+      <button class="chexQb" bindtap='chexQb'>查看更多销售人脉</button>
+    </view>
   </view>
-      <button class="chexQb" bindtap='chexQb'>查看全部<text class="but_Text">{{numtotal}}</text>家已被跟进的客户</button>  
-      <view style="height:150rpx;"></view>
+  <view style='height:200rpx;'></view>
   <loginMot id='dialog'></loginMot>
   <Jump id='jump'></Jump>
 </view>

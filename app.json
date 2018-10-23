@@ -52,7 +52,8 @@
     "pages/basic/numReg/numReg",
     "pages/basic/Jump/Jump",
     "pages/basic/LackNb/LackNb",
-    "pages/comComment/comComment"
+    "pages/comComment/comComment",
+    "pages/traArea/traArea"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -73,10 +74,10 @@
         "selectedIconPath": "/img/tabbar/home.png"
       },
       {
-        "pagePath": "pages/twoSeaHome/twoSeaHome",
-        "text": "公海",
-        "iconPath": "/img/tabbar/twoHome2.png",
-        "selectedIconPath": "/img/tabbar/twoHome1.png"
+        "pagePath": "pages/traArea/traArea",
+        "text": "商圈",
+        "iconPath": "/img/tabbar/tra.png",
+        "selectedIconPath": "/img/tabbar/tra1.png"
       },
       {
         "pagePath": "pages/cardFile/cardFile",
