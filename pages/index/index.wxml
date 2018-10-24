@@ -29,7 +29,7 @@
         <image src="/img/right_black.png"></image>
       </view>
     </view>
-    <view class="btnBom" bindtap='toPath' data-id='0'>
+    <view class="btnBom" bindtap='toPath' data-id='2'>
       <view class="BomTile">
         <view class="leftG"></view>
         <view>我要挖掘潜在客户</view>

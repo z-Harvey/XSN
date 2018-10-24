@@ -124,14 +124,14 @@ Page({
   },
   onLoad: function(options){
     // wx.switchTab({
-    //   url: '/pages/twoSeaHome/twoSeaHome',
+    //   url: '/pages/industry/industry',
     // })
     // wx.navigateTo({
     //   url: '/pages/basic/LackNb/LackNb'
     // });
-    // wx.navigateTo({
-    //   url: "/pages/comComment/comComment"
-    // })
+    wx.navigateTo({
+      url: "/pages/industryHome/industryHome"
+    })
     // return
     this.refresh();    
   }, 
@@ -215,9 +215,14 @@ Page({
         url: '/pages/twoSeaHome/twoSeaHome',
       })
       return
-    }else if(data.id == 1){
+    } else if (data.id == 1) {
       wx.navigateTo({
         url: '/pages/welfare/welfare',
+      })
+      return
+    } else if (data.id == 2) {
+      wx.navigateTo({
+        url: '/pages/industry/industry',
       })
       return
     }

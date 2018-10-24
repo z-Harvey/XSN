@@ -25,10 +25,8 @@ Page({
     }
     console.log(options.source)
     if(options.source==="'edit'"){
-      console.log(1)
       this.init(0, str.split("|"));
     }else{
-      console.log(2)
       this.init(0, false);      
     }
   },
@@ -64,6 +62,7 @@ Page({
     }else{
       url = `/pages/card/card?str=${str}&comname=${this.data.comname}`
     }
+    wx.setStorageSync('key', str)
     let pages = getCurrentPages();
     let prevPage = pages[pages.length - 2];
     prevPage.setData({

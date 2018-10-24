@@ -1,0 +1,13 @@
+<!-- 选择行业 -->
+<view>
+  <view class="Tips">请选择你感兴趣人脉的行业</view>
+  <view class='content'>
+    <view class='inpClick' bindtap='inpButton' wx:if="{{arrList.length==0}}">
+      <view>请选择行业</view>
+      <image src='/img/my/right.png'></image>
+    </view>
+    <view class='inpConte' bindtap='inpConteClick' data-str='{{item}}' wx:for="{{arrList}}" wx:key>{{item}}</view>
+    <button class='inpButton' bindtap='inpButton'>+添加一个行业</button>
+  </view>
+  <view class='startTips'>开始匹配</view>
+</view>

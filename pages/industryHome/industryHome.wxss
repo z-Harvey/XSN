@@ -1,0 +1,61 @@
+/* pages/industry/industry.wxss */
+.Tips{
+  margin: 30rpx 0rpx 30rpx 32rpx;
+  font-size: 28rpx;
+  color:#101010;
+}
+.content{
+  width:690rpx;
+  border-radius: 10rpx;
+  background:#fff;
+  margin:0 auto;
+  padding-bottom: 40rpx;
+}
+.inpClick{
+  width:610rpx;
+  height:30rpx;
+  line-height: 30rpx;
+  padding:30rpx 40rpx;
+  font-size: 28rpx;
+  color:#888;
+}
+.inpClick>view{
+  display: inline-block;
+}
+.inpClick>image{
+  width: 30rpx;
+  height:30rpx;
+  float: right;
+}
+.inpButton{
+  width:232rpx;
+  height:60rpx;
+  border-radius: 8rpx;
+  font-size: 28rpx;
+  color:#FF9800;
+  border: 2rpx solid #FF9800;
+  line-height: 58rpx;
+  background: #fff;
+  margin-top:24rpx;
+}
+.inpButton::after{
+  border:0;
+}
+.startTips{
+  position: fixed;
+  bottom: 0rpx;
+  left:0rpx;
+  width: 100%;
+  height:96rpx;
+  line-height: 96rpx;
+  text-align: center;
+  color:#fff;
+  background: #FF9800;
+}
+.inpConte{
+  width:610rpx;
+  height:30rpx;
+  line-height: 30rpx;
+  padding:30rpx 40rpx;
+  font-size: 24rpx;
+}
