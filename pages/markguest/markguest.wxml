@@ -31,10 +31,10 @@
         <button catchtap='depBut'>确定</button>
       </view>
     </view>
-    <view class="{{selNone?'marContentYes':'marContent'}}">
+    <!-- <view class="{{selNone?'marContentYes':'marContent'}}">
       <text>其他销售邀请您组队，您同意组队后可获得</text>
       <text>随机 5~30牛币</text>
-    </view>
+    </view> -->
     <view class="warninfo">
       <image src='/img/my/tan.png'></image>
       <text>请确保所填信息真实性，如投诉，有可能会被永久封号！</text>

@@ -1,7 +1,13 @@
 <import src="/template/comitem/comitem.wxml" />
 
 <view class="createteam">
-  <template is="comitem" data="{{comname}}"/>
+  <view class='nav'>
+    <view class="navImg">
+      <image src='/img/index/qi(1).png'></image>      
+    </view>
+    <view>{{comname}}</view>
+    <view bindtap='srceach'>更换</view>
+  </view>
   <view class="teamadvise fixedWidth">
     <textarea placeholder="    " placeholder-class='font-size-28 comcolor info' class="font-size-28" bindinput="changeNum"  maxlength="200" value="{{message}}" bindfocus='changeshow' bindblur="changehide"></textarea>
     <view class="font-size-28 comcolor" wx:if="{{show}}">说明你组队的意图，如：你为什么要组队、组队成功后需要一起做什么事情、事成后有多少佣金分成</view>

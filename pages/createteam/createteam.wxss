@@ -1,6 +1,35 @@
 /* pages/createteam/createteam.wxss */
 @import "../../template/comitem/comitem.wxss";
 @import "../../template/textarea/textarea.wxss";
+
+.nav{
+  height:80rpx;
+  line-height: 80rpx;
+  font-size: 28rpx;
+  background: #fff;
+  padding: 0rpx 30rpx;
+}
+.nav>view{
+  float: left;
+}
+.nav>view:last-child{
+  color:rgba(255, 152, 0, 1);
+  float: right;
+}
+.nav>.navImg{
+  margin:26rpx 14rpx 0rpx 0rpx;
+  width:32rpx;
+  height:32rpx;
+  border-radius: 6rpx;
+  background:rgba(255, 152, 0, 1);
+}
+.navImg>image{
+  float: left;
+  margin: 2rpx;
+  width: 28rpx;
+  height:28rpx;
+}
+
 .createteam>.item{
   flex-direction: column;
   height: 240rpx;
@@ -58,6 +87,7 @@
 }
 
 .teamadvise{
+  top:20rpx;
   position: relative;
 }
 .teamadvise textarea{

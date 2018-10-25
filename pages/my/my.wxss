@@ -18,7 +18,8 @@
   position: absolute;
 }
 .bgImg{
-  width: 110%;
+  width: 100%;
+  margin-top:-106rpx;
 }
 .bigPicBox{
   width: 100rpx;

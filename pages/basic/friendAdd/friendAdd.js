@@ -1,32 +1,22 @@
-// pages/industry/industry.js
+// pages/basic/friendAdd/friendAdd.js
 Page({
+
   /**
    * 页面的初始数据
    */
   data: {
-    arrList: new Array(0)
+    details:true
   },
-  inpButton:function(){
-    wx.navigateTo({
-      url: '/pages/basic/industry/industry',
-    })
-  },
-  inpConteClick:function(e){
-    let str = e.currentTarget.dataset.str;
-    let arrList=this.data.arrList;
-    for(let i=0;i<arrList.length;i++){
-      if (arrList[i]==str){
-        arrList.splice(i,1)
-      }
-    }
+  details:function(){
     this.setData({
-      arrList: arrList
+      details: !this.data.details
     })
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+
   },
 
   /**
@@ -39,19 +29,10 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function (options) {
-    let arr = this.data.arrList;
-    let str = wx.getStorageSync('key');
-    if(!str){
-      return;
-    }
-    arr.push(wx.getStorageSync('key'))
-    let setArr = new Set(arr);    
-    this.setData({
-      arrList: Array.from(setArr)
-    })
-    wx.removeStorageSync('key')
+  onShow: function () {
+
   },
+
   /**
    * 生命周期函数--监听页面隐藏
    */

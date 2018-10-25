@@ -213,7 +213,7 @@ Page({
       })
       result.data.map(function(p1,p2){
         p1.department_list != null ? p1.department_list = p1.department_list.join('、') : p1.department_list=false;
-      })   
+      })
       if (result.data.length==1){
         that.setData({
           list: that.data.page === 1 ? result.data : that.data.list.concat(result.data),

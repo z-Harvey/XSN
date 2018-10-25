@@ -130,7 +130,7 @@ Page({
     //   url: '/pages/basic/LackNb/LackNb'
     // });
     wx.navigateTo({
-      url: "/pages/industryHome/industryHome"
+      url: "/pages/basic/friendAdd/friendAdd"
     })
     // return
     this.refresh();    

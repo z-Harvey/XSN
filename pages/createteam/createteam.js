@@ -92,24 +92,35 @@ Page({
    */
   onLoad: function (options) {
     wx.hideShareMenu()
+    console.log(2)
     this.setData({
       comid: options.comid,
       comname: options.comname
     })
   },
-
+  srceach:function(){
+    wx.navigateTo({
+      url: `/pages/search/search?crea=${true}`,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-  
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-  
+    let data=wx.getStorageSync('editcard_data')
+    if(data){
+      this.setData({
+        comid: data.id,
+        comname: data.comname
+      })
+    }
+    wx.removeStorageSync('editcard_data')
   },
 
   /**

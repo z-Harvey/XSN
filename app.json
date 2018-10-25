@@ -54,7 +54,8 @@
     "pages/basic/LackNb/LackNb",
     "pages/comComment/comComment",
     "pages/traArea/traArea",
-    "pages/industryHome/industryHome"
+    "pages/industryHome/industryHome",
+    "pages/basic/friendAdd/friendAdd"
   ],
   "window": {
     "backgroundTextStyle": "light",

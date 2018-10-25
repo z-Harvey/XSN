@@ -11,6 +11,23 @@
   left:0rpx;
   overflow: auto;
 } */
+.list-starts>image{
+  width:90rpx;
+  height:40rpx;
+  margin-right:8rpx;
+}
+.list-starts>.list-starts2{
+  width:120rpx;
+  height:40rpx;
+}
+.list-starts>view{
+  display: inline-block;
+  height:40rpx;
+  line-height: 40rpx;
+  font-size: 24rpx;
+  color:#888;
+  vertical-align: top;
+}
 .GoTop{
   width:88rpx;
   height:88rpx;
@@ -151,45 +168,31 @@ page{
   border:0;
 }
 .btn1{
-  width:690rpx;
-  height:96rpx;
+  width:376rpx;
+  height:70rpx;
   background:rgba(255, 152, 0, 1);
   color:#fff;
-  font-size: 32rpx;
-  line-height: 96rpx;
+  font-size: 28rpx;
+  line-height: 70rpx;
   border:0;  
+  border-radius: 50rpx;
 }
 .btn2{
-  width:340rpx;
-  height:96rpx;
-  color:#888888 100%;
-  font-size: 32rpx;
-  line-height: 96rpx;
-  float: left;
+  height:54rpx;
+  color:rgba(255, 152, 0, 1);
+  font-size: 24rpx;
+  line-height: 54rpx;
   border:0;
+  background: rgba(0,0,0,0);
+  margin-top:12rpx;
 }
 .btn2::after{
   border:0;
 }
-.butBox>view{
-  margin-top:20rpx;
-}
 .btn2:first-child{
-  margin-left: 30rpx;
 }
 .btn2:last-child{
-  margin-left: 10rpx;
-  color:#FF9800;
-}
-.butBox{
-  position: relative;
-}
-.butBox>image{
-  width:84rpx;
-  height:84rpx;
-  position: absolute;
-  top:23rpx;
-  left:440rpx;
+  color:#888;
 }
 .touxiang{
   margin-right:16rpx;
@@ -218,19 +221,13 @@ page{
 .list-cont-right{
   width: 100%;
   padding-left: 96rpx;
-  margin-top:36rpx;
+  margin-top:30rpx;
 }
 .dateTxt{
   margin-top:16rpx;
   color:#888;
   font-size: 24rpx;
   font-style:italic;
-}
-.zdNum{
-  height:80rpx;
-  line-height: 80rpx;
-  float: right;
-  margin:-80rpx 10rpx 0 0;
 }
 .comname{
   padding:40rpx 0;
@@ -244,4 +241,41 @@ page{
   width: 100%;
   z-index: 10;
   box-shadow: 0px 3px 5px #888888;
+}
+
+.ref_my{
+  color:#FF9800;
+  display: inline-block;
+  padding-right:20rpx;
+}
+
+
+.list-nick{
+  margin:-10rpx 0rpx 8rpx 0rpx;
+  vertical-align: top;
+}
+.list-nick>view{
+  display: inline-block;
+}
+.com1010{
+  margin-top:0;
+}
+.wrap-flex>.my_Btn{
+  margin-top:20rpx;
+  width:160rpx;
+  height:60rpx;
+  border-radius: 30rpx;
+  font-size: 28rpx;
+  line-height: 60rpx;
+  color:rgba(255, 152, 0, 1);
+}
+.wrap-flex>.my_Btn1{
+  background: rgba(255, 152, 0, 0.1);
+}
+.wrap-flex>.my_Btn2{
+  color:rgba(255, 152, 0, 1);
+  background: rgb(255, 152, 0,.1);
+}
+.wrap-flex>.my_Btn3{
+  border: 2rpx solid rgba(255, 152, 0, 1);
 }

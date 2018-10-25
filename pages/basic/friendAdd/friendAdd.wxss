@@ -1,0 +1,134 @@
+/* pages/basic/friendAdd/friendAdd.wxss */
+.friendAdd{
+  width: 100%;
+  height:100%;
+  position: fixed;
+  top:0rpx;
+  left: 0rpx;
+  background: rgba(0,0,0,.2);
+}
+.Box{
+  width: 690rpx;
+  background:#fff;
+  margin: 250rpx auto 0rpx;
+  border-radius: 8rpx;  
+}
+.title{
+  height:114rpx;
+  line-height: 114rpx;
+  text-align: center;
+  font-size: 34rpx;
+  color:#101010;  
+}
+.content{
+  font-size: 28rpx;
+  color:#101010;
+  width:630rpx;
+  margin: 0 auto;
+}
+.content>view{
+  display: inline-block;
+  height:40rpx;
+  line-height: 40rpx;
+}
+.content>view>image{
+  vertical-align: top;
+  display: inline-block;
+  width:90rpx;
+  height:40rpx;
+}
+.content>view>.Help{
+  width:40rpx;
+  height:40rpx;
+}
+.niubi_cont{
+  width: 630rpx;
+  margin: 0 auto;
+  color:rgba(255, 152, 0, 1);
+  font-size: 28rpx;
+  height: 68rpx;
+  line-height: 68rpx;
+}
+.niubi_cont>view>image{
+  width:28rpx;
+  height:28rpx;
+  display: inline-block;
+  margin-top:4rpx;
+}
+.niubi_cont>view:first-child{
+  float: left;
+}
+.niubi_cont>view:last-child{
+  float: right; 
+}
+.textInp{
+  width:610rpx;
+  height:220rpx;
+  margin: 0 auto;
+  background: rgba(247, 247, 247, 1);
+  padding:10rpx;
+  font-size: 28rpx;
+}
+.btnList{
+  border-top: 2rpx solid rgba(0,0,0,.08);
+  margin-top:20rpx;
+}
+.btnList>button{
+  background: #fff;
+  border:0;
+  width: 50%;
+  height:90rpx;
+  line-height: 90rpx;
+  display: inline-block;
+  border-radius: 0;
+}
+.btnList>button::after{
+  border:0;
+  border-radius: 0;
+}
+.btnList>button:last-child{
+  border-left:2rpx solid  rgba(0,0,0,.08);
+  color:rgba(61, 190, 28, 1);
+}
+.GradeTitle{
+  font-size: 28rpx;
+  height:80rpx;
+  line-height: 40rpx;
+  width:630rpx;
+  text-align: left;
+  margin: 0 auto;
+  padding-top:30rpx;
+}
+.greade{
+  width:630rpx;
+  margin:0 auto;
+  height:40rpx;
+  font-size: 28rpx;
+  color:rgba(255, 152, 0, 1);
+  margin-top:16rpx;
+}
+.greade>image{
+  width:90rpx;
+  height:40rpx;
+  float: left;
+}
+.xxian{
+  height:20rpx;
+  border-bottom:2rpx dashed #bbb;
+  width: 400rpx;
+  margin: 0 auto;
+}
+.greade>view:last-child{
+  float: right;
+  margin-top:-20rpx;
+}
+.ret{
+  width:90rpx;
+  height:90rpx;
+  margin:40rpx auto 0rpx;
+  padding-bottom: 40rpx;
+}
+.ret>image{
+  width:90rpx;
+  height:90rpx;
+}

@@ -13,7 +13,6 @@ Page({
     none:false
   },
   jumpTo: function (e) {
-    console.log(e)
     // 获取标签元素上自定义的 data-opt 属性的值
     let target = e.currentTarget.dataset.opt;
     console.log(target)
@@ -31,11 +30,9 @@ Page({
    */
   onLoad: function (options) {
     wx.hideShareMenu()
-    if (options.sea) {
       this.setData({
-        my_sea: options.sea
+        state: options
       })
-    }
     // var _this = this;
     // var data = {
     //   queryType: 'company',
@@ -55,8 +52,21 @@ Page({
     if (!wx.getStorageSync('userid')){
       this.showDialog(true)
       return
-    }else if(that.data.my_sea){
+    } else if (that.data.state.my_sea) {
       wx.setStorageSync('editcard_comname', params.comname)
+      wx.navigateBack({
+        delta: '-1'
+      })
+      return
+    } else if (that.data.state.crea) {
+      if (params.unlock==0){
+        wx.showToast({
+          title:'未标记客户',
+          icon: 'none'
+        })
+        return
+      }
+      wx.setStorageSync('editcard_data', params)
       wx.navigateBack({
         delta: '-1'
       })

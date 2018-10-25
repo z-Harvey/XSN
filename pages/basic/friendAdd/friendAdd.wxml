@@ -1,0 +1,44 @@
+<!--pages/basic/friendAdd/friendAdd.wxml-->
+
+<view class='friendAdd'>
+  <view class='Box' wx:if="{{details}}">
+    <view class='title'>好友申请</view>
+    <view class='content'>
+      <view>
+        对方是
+        <image src='/img/Lv1.png'></image>
+        用户，好友申请需花费10牛币，如对方未通过申请，我们将会把牛币退还给您
+        <image class="Help" src='/img/Help.png' bindtap='details'></image>
+      </view>
+    </view>
+    <view class='niubi_cont'>
+      <view>
+        <image src='/img/index/Gold_coin.png'></image>
+        牛币余额 nnn
+      </view>
+      <view>
+        赚牛币
+        <image src='/img/bom1.png'></image>
+      </view>
+    </view>
+    <textarea class='textInp' placeholder='捎句话，如：你的身份，你想要认识对方的原因'></textarea>
+    <view class='btnList'>
+      <button>取消</button>
+      <button>发送</button>
+    </view>
+  </view>
+  <view class='Box' wx:else>
+    <view class='GradeTitle'>
+      好友申请需花牛币，根据对方等级不同牛币费用不同，如对方拒绝或超过有效期（一周），牛币退回
+    </view>
+    <view class='greade'><image src='/img/LV1.png'></image><view class='xxian'></view><view>10牛币</view></view>
+    <view class='greade'><image src='/img/LV2.png'></image><view class='xxian'></view><view>20牛币</view></view>
+    <view class='greade'><image src='/img/LV3.png'></image><view class='xxian'></view><view>30牛币</view></view>
+    <view class='greade'><image src='/img/LV4.png'></image><view class='xxian'></view><view>50牛币</view></view>
+    <view class='greade'><image src='/img/LV5.png'></image><view class='xxian'></view><view>80牛币</view></view>
+    <view class='greade'><image src='/img/LV6.png'></image><view class='xxian'></view><view>100牛币</view></view>
+    <view class='ret'>
+      <image src='/img/Return.png' bindtap='details'></image>      
+    </view>
+  </view>
+</view>
