@@ -1,1 +1,150 @@
 /* pages/traArea/traArea.wxss */
+.nav{
+  width:100%;
+  height:100rpx;
+  padding:0rpx 30rpx;
+  position: fixed;
+  top:0rpx;
+  left:0rpx;
+  line-height: 100rpx;
+  font-size: 30rpx;
+  color:#888;
+  background: #fff;
+}
+.navList>view{
+  display: inline-block;
+  margin-right: 60rpx;
+}
+.navSele{
+  float: right;
+  width:30rpx;
+  height:30rpx;
+}
+.navSele>image{
+  width:30rpx;
+  height:30rpx;
+}
+.slider{
+  height:9rpx;
+  background: rgba(255, 152, 0, 1);
+  position: absolute;
+  top:75rpx;
+  transition: ease .2s;
+}
+
+.infoFor{
+  width:690rpx;
+  border-radius:10rpx;
+  background: #fff;
+  margin: 0 auto;
+  padding-bottom: 30rpx;
+}
+.userInfo{
+  padding:32rpx 20rpx 20rpx;
+}
+.nameImg{
+  width:80rpx;
+  height:80rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;  
+  margin-right: 16rpx;
+}
+.nameImg>image{
+  width:80rpx;
+  height:80rpx;
+  border-radius: 50%;  
+}
+.userText{
+  height:80rpx;
+  font-size: 28rpx;
+  color:#101010;
+  display: inline-block;
+}
+.userName{
+  margin-bottom:8rpx;
+}
+.userTapLv{
+  width:90rpx;
+  height:40rpx;
+}
+.userTapv{
+  width: 120rpx;
+  height:40rpx;
+}
+.listContent{
+  padding: 0 20rpx 20rpx 116rpx;
+  font-size: 28rpx;
+  color:#101010;
+  border-bottom: 2rpx solid rgba(240, 239, 245, 1);
+  margin-bottom: 30rpx;
+  margin-top:-20rpx;
+}
+.textState{
+  background: rgba(255, 152, 0, 1);
+  color:#fff;
+  width:66rpx;
+  height:36rpx;
+  border-radius:8rpx;
+  text-align: center;
+  line-height: 36rpx;
+  font-size: 20rpx;
+  float: right;
+}
+.nicname{
+  width:504rpx;
+  height:50rpx;
+  font-size: 24rpx;
+  line-height: 50rpx;
+  padding:0rpx 20rpx;
+  margin-left:116rpx;
+  border:2rpx dashed rgba(255, 152, 0, 1);
+  border-radius: 6rpx;
+}
+
+
+.forFooter{
+  padding: 0rpx 20rpx 0rpx 116rpx;
+}
+.forFooterList1{
+  display: inline-block;
+  font-size: 24rpx;
+}
+.forFooterList1>view{
+  display: inline-block;
+}
+.fangkua{
+  width:16rpx;
+  height:20rpx;
+  background:rgba(255, 152, 0, 1);
+  margin-right:8rpx;
+}
+.footerConte1{
+  color:#101010;
+  margin-right: 18rpx;
+}
+.footerConte2{
+  color:#888;
+}
+.forFooterList2{
+  float: right;
+}
+.forFooterList2>view{
+  display: inline-block;
+  margin-left:46rpx;
+  position: relative;
+  left:-30rpx;
+}
+.forFooterList2>view>image{
+  width:40rpx;
+  height:40rpx;
+}
+.fabulouNum{
+  color:rgba(255, 152, 0, 1);
+  font-size: 20rpx;
+  position: absolute;
+  top:0rpx;
+  right:-30rpx;
+  background: #fff;
+  border-radius: 80rpx;
+}

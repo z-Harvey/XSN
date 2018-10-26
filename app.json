@@ -55,7 +55,8 @@
     "pages/comComment/comComment",
     "pages/traArea/traArea",
     "pages/industryHome/industryHome",
-    "pages/basic/friendAdd/friendAdd"
+    "pages/basic/friendAdd/friendAdd",
+    "pages/experDeta/experDeta"
   ],
   "window": {
     "backgroundTextStyle": "light",

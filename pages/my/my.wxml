@@ -37,19 +37,19 @@
         <button class="mybutn" bindtap='showDialog' class="mymarkcode font-size-28" plain="true" >登陆</button>
       </view>
       <view class="my_list wrap-flex">
-        <view>
+        <view bindtap="toPath" data-type='1'>
           <view class="my_list_num">6666</view>
           <view>我的需求</view>
         </view>
-        <view>
+        <view bindtap="toPath" data-type='2'>
           <view class="my_list_num">6666</view>
           <view>我的标记</view>
         </view>
-        <view>
+        <view bindtap="toPath" data-type='3'>
           <view class="my_list_num">6666</view>
           <view>我的经验</view>
         </view>
-        <view>
+        <view bindtap="toPath" data-type='4'>
           <view class="my_list_num">6666</view>
           <view>我的活动</view>
         </view>

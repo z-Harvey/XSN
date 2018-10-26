@@ -1,7 +1,10 @@
 <view class="marksuccess">
   <image src="/img/common/right.png" mode="widthFix"></image>
   <view class="font-size-40 com1010">发布成功</view>
-  <view class="font-size-28 colora0">成功发布助力~快去分享让大家帮助你吧~</view>
-  <button plain class="activepublic font-size-36" open-type="share" id="1">分享</button>
-  <button plain class="gray font-size-36" bindtap="toPath">查看我的助力</button>
+  <view class="font-size-28 colora0">成功发布需求~分享至微信群寻找人脉吧~</view>
+  <button plain class="activepublic font-size-36" open-type="share" id="1">匿名分享</button>
+  <view class="xuqiu font-size-28" bindtap="toPath">
+    查看我的需求
+    <image src='/img/right_black.png'></image>
+  </view>
 </view>

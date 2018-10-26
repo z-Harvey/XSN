@@ -1,2 +1,61 @@
 <!--pages/traArea/traArea.wxml-->
-<text>pages/traArea/traArea.wxml</text>
+<!-- 商圈 -->
+<view>
+  <view class='nav'>
+    <view class="slider" style='left:{{slider_left}};width:{{slider_width}};'></view>
+    <view class='navList'>
+      <view bindtap='navListClick' data-navNum='0'>全部</view>
+      <view bindtap='navListClick' data-navNum='1'>需求</view>
+      <view bindtap='navListClick' data-navNum='2'>话题</view>
+      <view bindtap='navListClick' data-navNum='3'>活动</view>
+      <view bindtap='navListClick' data-navNum='4'>好友动态</view>
+      <view class='navSele'>
+        <image src='/img/pai2.png'></image>
+      </view>
+    </view>
+  </view>
+  <view style='height:118rpx;'></view>
+  <view class='infoFor'>
+    <view class='userInfo'>
+      <view class='nameImg'>
+        <image src='/img/my/logo.png'></image>
+      </view>
+      <view class='userText'>
+        <view class='userName'>牛哞哞</view>
+        <view class='userTap'>
+          <image class='userTapLv' src='/img/LV1.png'></image>
+          <image class='userTapv' src='/img/Auth.png'></image>
+        </view>
+      </view>
+      <view class='textState'>置顶</view>
+    </view>
+    <view class='nicname'>阿里巴巴（中国）网络技术有限公司</view>
+    <view class='listContent'>
+      <text>
+        Hi，欢迎进入商圈
+        我们在这里为各位销售牛创建了一个可以交流的空间，希望可以帮助大家提高工作效率~
+        在这里，你可以发布：需求话题、交流话题
+        这些话题将被传递给你的好友和其他更多智能推荐的优质人脉
+        在商圈可以进行话题的互动，还可以添加好友哦~快来发布一个话题吧！
+        未来的更新中我们会带给大家更多的玩法，欢迎大家留言提出意见~
+      </text>
+    </view>
+    <view class='forFooter'>
+      <view class='forFooterList1'>
+        <view class='fangkua'></view>
+        <view class='footerConte1'>经验</view>
+        <view class='footerConte2'>1天前</view>
+      </view>
+      <view class='forFooterList2'>
+        <view>
+          <image src='/img/Fabulous_2.png'></image>
+          <view class='fabulouNum'>99+</view>
+        </view>
+        <view>
+          <image src='/img/comments.png'></image>
+          <view class='fabulouNum'>99+</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

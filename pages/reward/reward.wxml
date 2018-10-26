@@ -34,7 +34,7 @@
           <text class="font-size-24">剩余{{list.sy_dayno}}天</text>
         </view>
       </view>
-      <view class="font-size-28">{{list.rec_status==1?'助力中':'已结束'}}</view>
+      <view class="font-size-28">{{list.rec_status==1?'进行中':'已结束'}}</view>
     </view>
   </view>
       <view class="list-info fixedWidth" wx:if="{{list.invatednum>0&&invitees&&list.rec_status==1}}" >
@@ -88,11 +88,11 @@
       </block>
     </view>
   </view>
-  <image src="/img/common/index.png" mode="widthFix" class="top" bindtap="toPath" data-type='2'></image>
+  <image src="/img/Home_one.png" mode="widthFix" class="top" bindtap="toPath" data-type='2'></image>
   
   <!-- <view class="wrap-flex btn-bottom" wx:if="{{myid!=reactid&&list.rec_status==1}}"> -->
   <view class="wrap-flex btn-bottom" wx:if="{{!butBlockNone}}">
-    <button class="wrap-flex-item firstbtn" plain="true" hover-class="activebtn"  open-type="share" id="1">邀请好友帮Ta</button>
+    <button class="wrap-flex-item firstbtn" plain="true" hover-class="activebtn"  open-type="share" id="1">推荐给好友</button>
     <button class="wrap-flex-item" plain="true" hover-class="activebtn" bindtap="toPath" data-type="1" wx:if="{{!showbtn&&!successbtn&&isfriend==0}}">我来帮Ta</button>
     <button  class="mymarkcode wrap-flex-item" plain="true" bindtap='logins' wx:elif="{{showbtn}}" hover-class="activebtn">我来帮Ta</button>
     <button class="wrap-flex-item" plain="true" hover-class="activebtn" disabled wx:elif="{{successbtn&&isfriend==0}}">已申请</button>

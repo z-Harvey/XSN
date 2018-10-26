@@ -1,5 +1,5 @@
 <!--pages/basic/friendAdd/friendAdd.wxml-->
-
+<!-- 好友申请 -->
 <view class='friendAdd'>
   <view class='Box' wx:if="{{details}}">
     <view class='title'>好友申请</view>

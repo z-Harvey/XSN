@@ -124,14 +124,14 @@ Page({
   },
   onLoad: function(options){
     // wx.switchTab({
-    //   url: '/pages/industry/industry',
+    //   url: '/pages/traArea/traArea',
     // })
-    // wx.navigateTo({
-    //   url: '/pages/basic/LackNb/LackNb'
-    // });
     wx.navigateTo({
-      url: "/pages/basic/friendAdd/friendAdd"
-    })
+      url: '/pages/experDeta/experDeta'
+    });
+    // wx.navigateTo({
+    //   url: "/pages/editcard/editcard"
+    // })
     // return
     this.refresh();    
   }, 

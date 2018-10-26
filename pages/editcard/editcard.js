@@ -126,10 +126,16 @@ Page({
     }
     api.mycard(data, function (result) {
       console.log('我的小页面',result[0])
-      var product = result[0].product?result[0].product.split(","):'';
+      var product = result[0].product?result[0].product.split(","):[];
       var region = result[0].address?result[0].address.split("|")[0]:'';
       var address = result[0].address ?result[0].address.split("|")[1]:'';
-
+      console.log(product)
+      for (let i = 0; i < product.length;i++){
+        if(product[i] == ''){
+          product.splice(i, 1);
+          i=0;
+        }
+      }
       _this.setData({
         list: result[0],
         name: result[0].name,
@@ -206,10 +212,13 @@ Page({
   changeproduct: function (e) {
     var index=e.currentTarget.dataset.index;
     this.data.productlist[index]=e.detail.value;
-    console.log(this.data.productlist)
   },
   changenum: function(e){
     var product = this.data.productlist ? this.data.productlist:[];
+    console.log(product.length)
+    if (product[product.length] == '' || product.length == 0){
+      return;
+    }
     product.push('');
     this.setData({
       productlist: product

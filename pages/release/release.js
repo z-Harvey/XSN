@@ -33,7 +33,7 @@ Page({
    * 用户点击右上角分享
    */
   onShareAppMessage: function (res) {
-    console.log(wx.getStorageSync('my_user_name'))
+    console.log(`/pages/reward/reward?id=${this.data.recid}&myid=${this.data.reccreate}&myname=${wx.getStorageSync('my_user_name')}`)
     if(res.target.id==1){
       return {
         title: `【${wx.getStorageSync('my_user_name')}@你】邀你组队联合打单，${this.data.minmoney}元佣金等你来拿~~`,

@@ -73,10 +73,36 @@
   <view class="fixedWidth require salepro">
     <view class="">
       <text class="rowleft row">销售产品</text>
-      <block wx:for="{{productlist}}">
+      <block wx:if="{{productlist.length==0}}">
+        <input placeholder="请输入产品名称" placeholder-class='rowright' class="rowinput" auto-height="true" value="{{item}}" bindinput="changeproduct" data-index="0"></input>
+      </block>
+      <block wx:if="{{productlist.length>0}}" wx:for="{{productlist}}">
         <!-- <textarea placeholder="请输入产品名称" placeholder-class='rowright' class="rowinput" auto-height="true" value="{{item}}" bindinput="changeproduct" data-index="{{index}}"></textarea> -->
-
         <input placeholder="请输入产品名称" placeholder-class='rowright' class="rowinput" auto-height="true" value="{{item}}" bindinput="changeproduct" data-index="{{index}}"></input>
+      </block>
+      <view class="add" bindtap="changenum">+</view>
+    </view>
+  </view>
+  <view class="fixedWidth require salepro">
+    <view class="">
+      <text class="rowleft row">销售荣誉</text>
+      <block wx:if="{{productlist.length==0}}">
+        <input placeholder="请输入荣誉名称" placeholder-class='rowright' class="rowinput" auto-height="true" value="{{item}}" bindinput="changeproduct" data-index="0"></input>
+      </block>
+      <block wx:if="{{productlist.length>0}}" wx:for="{{productlist}}">
+        <input placeholder="请输入荣誉名称" placeholder-class='rowright' class="rowinput" auto-height="true" value="{{item}}" bindinput="changeproduct" data-index="{{index}}"></input>
+      </block>
+      <view class="add" bindtap="changenum">+</view>
+    </view>
+  </view>
+  <view class="fixedWidth require salepro">
+    <view class="">
+      <text class="rowleft row">开发客户的对接部门</text>
+      <block wx:if="{{productlist.length==0}}">
+        <input placeholder="请选择部门" placeholder-class='rowright' class="rowinput" auto-height="true" value="{{item}}" bindinput="changeproduct" data-index="0"></input>
+      </block>
+      <block wx:if="{{productlist.length>0}}" wx:for="{{productlist}}">
+        <input placeholder="请选择部门" placeholder-class='rowright' class="rowinput" auto-height="true" value="{{item}}" bindinput="changeproduct" data-index="{{index}}"></input>
       </block>
       <view class="add" bindtap="changenum">+</view>
     </view>
