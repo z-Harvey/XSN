@@ -1,0 +1,177 @@
+/* pages/traArea/wholeReply/wholeReply.wxss */
+.wholeReply{
+  margin-top:20rpx;
+  background: #fff;
+}
+
+
+.userInfo{
+  background: #fff;
+  padding:20rpx 30rpx;
+}
+.nameImg{
+  width:80rpx;
+  height:80rpx;
+  border-radius: 50%;
+  overflow: hidden;
+  display: inline-block;  
+  margin-right: 16rpx;
+}
+.nameImg>image{
+  width:80rpx;
+  height:80rpx;
+  border-radius: 50%;  
+}
+.userText{
+  height:80rpx;
+  font-size: 28rpx;
+  color:#101010;
+  display: inline-block;
+}
+.userName{
+  margin-bottom:8rpx;
+}
+.userTapLv{
+  width:90rpx;
+  height:40rpx;
+}
+.userTapv{
+  width: 120rpx;
+  height:40rpx;
+}
+.Fabulous{
+  position: relative;
+  float: right;
+  right: 32rpx;
+}
+.Fabulous>image{
+  width: 40rpx;
+  height:40rpx;
+}
+.Fabulous>view{
+  width:40rpx;
+  height:22rpx;
+  line-height: 22rpx;
+  font-size: 20rpx;
+  color:rgba(255, 152, 0, 1);
+  position: absolute;
+  top:0rpx;
+  right:-32rpx;
+  border-radius: 80rpx;
+  background: #fff;
+}
+.forComment{
+  padding-bottom: 20rpx;
+}
+.commentTitle{
+  height:90rpx;
+  padding:0rpx 30rpx;
+  line-height: 90rpx;
+  font-size: 24rpx;
+  color:#101010;
+  border-bottom: 2rpx solid rgba(247, 247, 247, 1);
+}
+.commentContent{
+  padding-left:96rpx;
+  font-size: 28rpx;
+}
+.commentReply{
+  width: 120rpx;
+  height:50rpx;
+  line-height: 50rpx;
+  margin-top:8rpx;
+  background: rgba(204, 204, 204, 1);
+  border-radius: 30rpx;
+  text-align: center;
+  color:#fff;
+}
+.ReplyContent{
+  padding:20rpx;
+  background:rgba(246, 246, 246, 1);
+  margin:16rpx 0rpx 0rpx 96rpx;
+  font-size: 24rpx;
+}
+.replyName{
+  line-height: 34rpx;
+  margin-bottom: 16rpx
+}
+.replyTap{
+  width: 60rpx;
+  height:24rpx;
+  line-height: 24rpx;
+  display: inline-block;
+  background: rgba(255, 152, 0, 1);
+  text-align: center;
+  font-size: 20rpx;
+  color:#fff;
+  margin:0rpx 4rpx 0rpx 8rpx;
+  border-radius: 6rpx;
+}
+.replyWhole{
+  font-size: 24rpx;
+  color:rgba(255, 152, 0, 1);  
+}
+.replyWhole>image{
+  width: 24rpx;
+  height:24rpx;
+}
+.currentWhole{
+  height:80rpx;
+  border-top:2rpx solid rgba(247, 247, 247, 1);
+  padding-top:20rpx;
+}
+.currentWhole>view{
+  width: 356rpx;
+  height:60rpx;
+  color:rgba(255, 152, 0, 1);
+  border: 2rpx solid rgba(255, 152, 0, 1);
+  font-size: 28rpx;
+  line-height: 60rpx;
+  text-align: center;
+  border-radius: 30rpx;
+  margin:0 auto;
+}
+.commFor{
+  margin-bottom: 20rpx;
+  width:690rpx;
+  margin:0 auto;
+  padding:20rpx 0rpx;
+  border-bottom: 2rpx solid rgba(247, 247, 247, 1)
+}
+.fixdBottom{
+  height:74rpx;
+  background: #fff;
+  padding-top:16rpx;
+  position: fixed;
+  bottom: 0rpx;
+  left: 0rpx;
+  width: 100%;
+}
+.fixdBottom>view{
+  width:690rpx;
+  margin:0 auto;
+  height:60rpx;
+  background: #888;
+  border-radius:30rpx;
+  font-size: 28rpx;
+  color:#fff;
+  line-height: 60rpx;
+}
+.fixdBottom>view>view:first-child{
+  margin:0rpx 20rpx;
+}
+.fixdBottom>view>view{
+  display: inline-block;
+  vertical-align: top;
+}
+.HomeClick{
+  width:80rpx;
+  height:80rpx;
+  position: fixed;
+  bottom: 110rpx;
+  right:14rpx;
+}
+.HomeClick>image{
+  width: 80rpx;
+  height:80rpx;
+}

@@ -1,0 +1,12 @@
+<!--pages/traArea/Reply/Reply.wxml-->
+<!-- 回复 -->
+<view class='Reply'>
+  <view>
+    <textarea class='textareaInp' placeholder='回复 李晓沫' auto-height="true" bindinput='lengNum' maxlength="500"></textarea>
+    <view>{{lenNum}}/500</view>
+  </view>
+</view>
+<view style='height:120rpx;'></view>
+<view class='submit'>
+  确认发布
+</view>

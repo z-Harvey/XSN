@@ -1,0 +1,96 @@
+<!--pages/experDeta/experDeta.wxml-->
+<!-- 经验详情 -->
+<view class="experDeta">
+    <view class='userInfo'>
+      <view class='nameImg'>
+        <image src='/img/my/logo.png'></image>
+      </view>
+      <view class='userText'>
+        <view class='userName'>牛哞哞</view>
+        <view class='userTap'>
+          <image class='userTapLv' src='/img/LV1.png'></image>
+          <image class='userTapv' src='/img/Auth.png'></image>
+        </view>
+      </view>
+    </view>
+    <view class='listContent'>
+      <text>Hi，欢迎进入商圈
+        我们在这里为各位销售牛创建了一个可以交流的空间，希望可以帮助大家提高工作效率~
+        在这里，你可以发布：需求话题、交流话题
+        这些话题将被传递给你的好友和其他更多智能推荐的优质人脉
+        在商圈可以进行话题的互动，还可以添加好友哦~快来发布一个话题吧！
+        未来的更新中我们会带给大家更多的玩法，欢迎大家留言提出意见~
+      </text>
+    </view>
+    <view class='forFooter'>
+      <view class='footerConte1'>1天前</view>
+      <view class='footerConte2'>
+        <image src='/img/attention.png'></image>
+        <view>9999</view>
+      </view>
+    </view>
+    <view class='Fabulous_Boxs'>
+      <view>999个赞</view>
+      <view class='porBox'>
+        <view wx:for="1111111111111111111111111111111" wx:key>
+          <image src='/img/BG.png'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class='comment'>
+    <view class='commentTitle'>评论(999)</view>
+    <view class='forComment'>
+      <view>
+        <view class='nameImg'>
+          <image src='/img/my/logo.png'></image>
+        </view>
+        <view class='userText'>
+          <view class='userName'>牛哞哞<view class='replyTap'>楼主</view></view>
+          <view class='userTap' style='color:#bbb;'>06-26</view>
+        </view>
+        <view class='Fabulous'>
+          <image src='/img/Fabulous_2.png'></image>
+          <view>99+</view>
+        </view>
+      </view>
+      <view class='commentContent'>
+        <text>此处显示评论内容此处显示评论内容此处显示评论内容此处显示评论内容此处显示评论内容此处显示评论内容</text>     
+        <view class='commentReply'>回复</view>
+      </view>
+      <view class='ReplyContent'>
+        <view>
+          <view class='replyName'>牛哞哞<view class='replyTap'>楼主</view>：<text>此处显示评论内容此处显示评论内容此处显示评论内容</text></view>
+        </view>
+        <view>
+          <view class='replyName'>云端飞扬：<text>此处显示评论内容此处显示评论内容此处显示评论内容</text></view>
+        </view>
+        <view class='replyWhole'>
+          共99999条回复
+          <image src='/img/bom1.png'></image>
+        </view>
+      </view>
+    </view>
+    <view class='currentWhole'>
+        <view>查看全部 999 条评论</view>
+    </view>
+  </view>
+  <view style='height:210rpx;'></view>
+  <view class='HomeClick'>
+    <image src='/img/Home_one.png'></image>
+  </view>
+  <view class='speak'>
+    <view class='speakInp'>
+      <image src='/img/Communication.png'></image>
+      <view>说说你的观点</view>
+      <view class='speaktap'>99+</view>      
+    </view>
+    <view class='zan'>
+      <image src='/img/Fabulous_3.png'></image>
+      <view class='speaktap'>99+</view>
+    </view>
+    <button class='shareBtn speakCla'>
+      <image src='/img/share.png'></image>
+    </button>
+  </view>
+  

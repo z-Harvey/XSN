@@ -56,7 +56,10 @@
     "pages/traArea/traArea",
     "pages/industryHome/industryHome",
     "pages/basic/friendAdd/friendAdd",
-    "pages/experDeta/experDeta"
+    "pages/traArea/experDeta/experDeta",
+    "pages/traArea/wholecomment/wholecomment",
+    "pages/traArea/wholeReply/wholeReply",
+    "pages/traArea/Reply/Reply"
   ],
   "window": {
     "backgroundTextStyle": "light",

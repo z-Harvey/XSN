@@ -127,7 +127,7 @@ Page({
     //   url: '/pages/traArea/traArea',
     // })
     wx.navigateTo({
-      url: '/pages/experDeta/experDeta'
+      url: '/pages/traArea/Reply/Reply'
     });
     // wx.navigateTo({
     //   url: "/pages/editcard/editcard"

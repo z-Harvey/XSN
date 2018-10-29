@@ -1,0 +1,41 @@
+/* pages/traArea/Reply/Reply.wxss */
+.Reply{
+  padding-top:20rpx;
+}
+.Reply>view{
+  width: 690rpx;
+  min-height:240rpx;
+  margin:0 auto;
+  background: #fff;
+  border-radius: 10rpx;
+  position: relative;
+  padding-bottom: 56rpx;
+}
+.textareaInp{
+  color:#888;
+  padding:20rpx;
+  min-height:170rpx;  
+  font-size: 28rpx;
+}
+.Reply>view>view{
+  height:46rpx;
+  line-height: 46rpx;
+  text-align: right;
+  font-size: 28rpx;
+  position: absolute;
+  bottom: 22rpx;
+  padding-right:20rpx;
+  width:670rpx;
+}
+.submit{
+  width:100%;
+  height:96rpx;
+  line-height: 96rpx;
+  font-size: 32rpx;
+  color:#fff;
+  background:rgba(255, 152, 0, 1);
+  text-align: center;
+  position: fixed;
+  bottom: 0rpx;
+  left:0rpx;
+}
