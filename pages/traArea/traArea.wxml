@@ -16,11 +16,11 @@
   </view>
   <view style='height:118rpx;'></view>
   <view class='infoFor'>
-    <view class='userInfo'>
-      <view class='nameImg'>
+    <view class='userInfo' catchtap='toPath' data-type='info'>
+      <view class='nameImg' catchtap='toPath' data-type='userInfo'>
         <image src='/img/my/logo.png'></image>
       </view>
-      <view class='userText'>
+      <view class='userText' catchtap='toPath' data-type='userInfo'>
         <view class='userName'>牛哞哞</view>
         <view class='userTap'>
           <image class='userTapLv' src='/img/LV1.png'></image>
@@ -29,10 +29,9 @@
       </view>
       <view class='textState'>置顶</view>
     </view>
-    <view class='nicname'>阿里巴巴（中国）网络技术有限公司</view>
-    <view class='listContent'>
-      <text>
-        Hi，欢迎进入商圈
+    <view class='nicname' catchtap='toPath' data-type='info'>阿里巴巴（中国）网络技术有限公司</view>
+    <view class='listContent' catchtap='toPath' data-type='info'>
+      <text>Hi，欢迎进入商圈
         我们在这里为各位销售牛创建了一个可以交流的空间，希望可以帮助大家提高工作效率~
         在这里，你可以发布：需求话题、交流话题
         这些话题将被传递给你的好友和其他更多智能推荐的优质人脉

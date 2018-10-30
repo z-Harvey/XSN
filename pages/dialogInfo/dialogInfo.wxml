@@ -1,6 +1,6 @@
 <!--pages/defaultdialog/defaultdialog.wxml-->
 <view class="defaultdialog">
-  <block wx:for="{{currentMsgsArray}}">
+  <block wx:for="{{currentMsgsArray}}" wx:key>
     <view class="item fixedWidth wrap-flex left" wx:if="{{!item.isSelfSend}}">
       <image src="{{src}}"></image>
       <view class="dialogBorder font-size-24 com1010">

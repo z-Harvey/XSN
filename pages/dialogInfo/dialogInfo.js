@@ -3,6 +3,8 @@ var webim = require('../../utils/webim.js');
 var login = require("../../utils/loginpath.js");
 var webimhandler = require('../../utils/webim_handler.js');
 
+var app = getApp()
+
 var selSess, loginInfo, selSessHeadUrl;
 var selType = webim.SESSION_TYPE.C2C;
 var selToID;
@@ -13,11 +15,11 @@ Page({
    */
   data: {
     userinfo: null,
-    content:'',
+    content: '',
     currentMsgsArray: [],
     confirm: false
   },
-  changecontent: function(e){
+  changecontent: function (e) {
     this.setData({
       content: e.detail.value
     })
@@ -25,23 +27,22 @@ Page({
   bindConfirm: function () {
     var that = this;
     var content = this.data.content;
-    if (!content.replace(/^\s*|\s*$/g, '')){
+    if (!content.replace(/^\s*|\s*$/g, '')) {
       console.log('return')
       return
     };
-    console.log(selToID,'发送的id');
-    that.SendMsg(content, selToID, this.data.currentMsgsArray,function (result) {  
+    that.SendMsg(content, selToID, this.data.currentMsgsArray, function (result) {
       that.setData({
         currentMsgsArray: result,
         content: ""
       })
     })
-    setTimeout(function(){
+    setTimeout(function () {
       console.log(that.data.content)
       that.setData({
         content: ""
       })
-    },50)
+    }, 50)
   },
   /**
    * 生命周期函数--监听页面加载
@@ -50,167 +51,108 @@ Page({
     wx.hideShareMenu()
     var puserid = options.id;
     selToID = puserid;
-    console.log(options);
-
     this.setData({
       src: options.src
     })
-    this.login(puserid);
+    this.getChatInfo();
   },
   // wx.getStorageSync("lastMsgTime") ? wx.getStorageSync("lastMsgTime") :
-  getChatInfo: function(){
-    var that=this;
+  getChatInfo: function () {
+    var that = this;
     var options = {
-      "Peer_Account": ""+selToID+"", //指定的好友帐号
+      "Peer_Account": "" + selToID + "", //指定的好友帐号
       "MaxCnt": 10,//拉取的消息数目
       "LastMsgTime": 0,//上一次拉取的时间  在第一次拉去消息的时候，这里必须为0
-      "MsgKey":  ""
+      "MsgKey": ""
     };
     // "MsgKey": wx.getStorageSync("msgKey") ? wx.getStorageSync("msgKey") : ""
     that.getChat(options, that.data.currentMsgsArray)
   },
-  login: function (puserid){
-    var that = this, selSess;
-    var userid = wx.getStorageSync("userid");
-    var Config = {
-      sdkappid: 1400135303,
-      accountType: 37140,
-        accountMode: 0 //帐号模式，0-表示独立模式，1-表示托管模式
-      };
+  // login: function (puserid){
+  //   var that = this, selSess;
+  //   var userid = wx.getStorageSync("userid");
+  //   var Config = {
+  //     sdkappid: 1400135303,
+  //     accountType: 37140,
+  //       accountMode: 0 //帐号模式，0-表示独立模式，1-表示托管模式
+  //     };
+  //   //用户信息对象
+  //   loginInfo = {
+  //     'sdkAppID': Config.sdkappid,
+  //     'appIDAt3rd': Config.sdkappid,
+  //     'identifier': userid,
+  //     'identifierNick': wx.getStorageSync("userInfo").nickName, 
+  //     'accountType': Config.accountType,
+  //     'userSig': wx.getStorageSync("UserSig"),
+  //   }
+  //   var onConnNotify = function (resp) {
+  //     var info;
+  //     switch (resp.ErrorCode) { //链接状态码
+  //       case webim.CONNECTION_STATUS.ON:
+  //         webim.Log.warn('建立连接成功: ' + resp.ErrorInfo);
+  //         break;
+  //       case webim.CONNECTION_STATUS.OFF:
+  //         info = '连接已断开，无法收到新消息，请检查下您的网络是否正常: ' + resp.ErrorInfo;
+  //         alert(info);
+  //         webim.Log.warn(info);
+  //         break;
+  //       case webim.CONNECTION_STATUS.RECONNECT:
+  //         info = '连接状态恢复正常: ' + resp.ErrorInfo;
+  //         alert(info);
+  //         webim.Log.warn(info);
+  //         break;
+  //       default:
+  //         webim.Log.error('未知连接状态: =' + resp.ErrorInfo); //错误信息
+  //         break;
+  //     }
+  //   };
 
-    //用户信息对象
-    loginInfo = {
-      'sdkAppID': Config.sdkappid,
-      'appIDAt3rd': Config.sdkappid,
-      'identifier': wx.getStorageSync("userid"),
-      'identifierNick': wx.getStorageSync("userInfo").nickName, 
-      'accountType': Config.accountType,
-      'userSig': wx.getStorageSync("UserSig"),
-    }  
-    var listeners = {
-      "onConnNotify": onConnNotify,
-      "onMsgNotify": onMsgNotify 
-    };
-    
-    var onConnNotify = function (resp) {
-      var info;
-      switch (resp.ErrorCode) { //链接状态码
-        case webim.CONNECTION_STATUS.ON:
-          webim.Log.warn('建立连接成功: ' + resp.ErrorInfo);
-          break;
-        case webim.CONNECTION_STATUS.OFF:
-          info = '连接已断开，无法收到新消息，请检查下您的网络是否正常: ' + resp.ErrorInfo;
-          alert(info);
-          webim.Log.warn(info);
-          break;
-        case webim.CONNECTION_STATUS.RECONNECT:
-          info = '连接状态恢复正常: ' + resp.ErrorInfo;
-          alert(info);
-          webim.Log.warn(info);
-          break;
-        default:
-          webim.Log.error('未知连接状态: =' + resp.ErrorInfo); //错误信息
-          break;
-      }
-    };
-    
-    function onMsgNotify(newMsgList) {
-      var sess, newMsg, selSess;
-      //获取所有聊天会话
-      var sessMap = webim.MsgStore.sessMap();
-      for (var j in newMsgList) { //遍历新消息
-        newMsg = newMsgList[j];
-        if (newMsg.getSession().id() == selToID) { 
-          selSess = newMsg.getSession();
-          //在聊天窗体中新增一条消息
-          console.log('增加的新消息--------' + newMsg);
-          // that.getHeader(newMsg);
-          that.addMsg(newMsg);
-        }
-      }
+  //   function onMsgNotify(newMsgList) {
+  //     var sess, newMsg, selSess;
+  //     //获取所有聊天会话
+  //     var sessMap = webim.MsgStore.sessMap();
+  //     for (var j in newMsgList) { //遍历新消息
+  //       newMsg = newMsgList[j];
+  //       if (newMsg.getSession().id() == selToID) { 
+  //         selSess = newMsg.getSession();
+  //         //在聊天窗体中新增一条消息
+  //         console.log('增加的新消息--------' + newMsg);
+  //         // that.getHeader(newMsg);
+  //         that.addMsg(newMsg);
+  //       }
+  //     }
 
-      // 在这里是想存储，关于直接进入消息列表的用户的id情况，便于消息页面获取
-      // var elems = newMsgList[0].getElems();
-      // var content = elems[0].getContent();
-      // var msgContent = that.convertTextMsgToHtml(content);
+  //     webim.setAutoRead(selSess, true, true);
+  //     for (var i in sessMap) {
+  //       sess = sessMap[i];
+  //       if (selToID != sess.id()) { //更新其他聊天对象的未读消息数
+  //         updateSessDiv(sess.type(), sess.id(), sess.unread());
+  //       }
+  //     }
+  //   }
+  //   var listeners = {
+  //     "onConnNotify": onConnNotify,
+  //     "onMsgNotify": onMsgNotify
+  //   };
+  //   var options = {
+  //     'isAccessFormalEnv': true,
+  //     'isLogOn': false
+  //   };
+  //   webim.login(loginInfo, listeners, options, function (resp) {
+  //     console.log(resp)
+  //     loginInfo.identifierNick = resp.identifierNick; //设置当前用户昵称
+  //     loginInfo.headurl = resp.headurl;
+  //     wx.setStorageSync('loginInfo', loginInfo)
 
-      // var list = {
-      //   id: sess.id(),
-      //   unread: sess.unread(),
-      //   msgContent: msgContent,
-      //   time: that.time(sess.time())
-      // }
-      //获取好友头像
-      // var data = {
-      //   userid: list.id,
-      //   thSessionId: wx.getStorageSync('token')
-      // }
-      // api.getfriendimg(data, function (res) {
-      //   console.log(res);
-      //   list.src = res.data.avatarurl;
-      //   list.provestatus = res.data.provestatus;
+  //     that.getChatInfo();
 
-      //   var arr = [];
-      //   console.log(list);
-      //   if (wx.getStorageSync("msg")) {
-      //     arr = wx.getStorageSync("msg")
-      //   } else {
-      //     arr.push(list);
-      //   }
-      //   console.log(arr.length);
-      //   for (var i = 0; i < arr.length; i++) {
-      //     if (arr[i].id == list.id) {
-      //       arr.splice(i, 1)
-      //       arr.unshift(list)
-      //       break;
-      //     } else {
-      //       console.log("不相等")
-      //       arr.unshift(list)
-      //       break;
-      //     }
-      //   }
-      //   that.setData({
-      //     list: arr
-      //   })
-      //   wx.setStorageSync('msg', arr)
-      //   console.log(arr, that.data.list);
-      //   // that.data.list=arr;
-      // })
-
-
-
-
-
-
-
-
-
-      webim.setAutoRead(selSess, true, true);
-      for (var i in sessMap) {
-        sess = sessMap[i];
-        if (selToID != sess.id()) { //更新其他聊天对象的未读消息数
-          updateSessDiv(sess.type(), sess.id(), sess.unread());
-        }
-      }
-    }
-    var options = {
-      'isAccessFormalEnv': true,
-      'isLogOn': false
-    };
-    webim.login(loginInfo, listeners, options, function (resp) {
-      loginInfo.identifierNick = resp.identifierNick; //设置当前用户昵称
-      loginInfo.headurl = resp.headurl;
-      wx.setStorageSync('loginInfo', loginInfo)
-
-      that.getChatInfo();
-      
-    }, function (err) {
-      console.log("登录失败---", err, err.ErrorInfo)
-    })
-  },
+  //   }, function (err) {
+  //     console.log("登录失败---", err, err.ErrorInfo)
+  //   })
+  // },
 
   addMsg: function (newMsg) {
-    var that=this;
+    var that = this;
     var msg = newMsg;
     var fromAccount, fromAccountNick, sessType, subType;
     fromAccount = msg.getFromAccount();
@@ -239,8 +181,8 @@ Page({
         break;
     }
   },
-  convertMsg:function (msg, currentMsgsArray) {
-    var that=this;
+  convertMsg: function (msg, currentMsgsArray) {
+    var that = this;
     var elems, elem, type, content, isSelfSend;
     var loginInfo = wx.getStorageSync("loginInfo"); //自己的资料
 
@@ -303,10 +245,12 @@ Page({
   getChat: function (options, currentMsgsArray) {
     var _this = this;
     var selSess = null;
+
     webim.getC2CHistoryMsgs(
       options,
       function (resp) {
-        console.log("获取以往 聊天的内同"+resp)
+        console.log("获取以往 聊天的内同:")
+        console.log(resp)
         var complete = resp.Complete;
         if (resp.MsgList.length == 0) {
           return
@@ -316,18 +260,38 @@ Page({
         wx.setStorageSync('msgKey', resp.MsgKey);
         var msgList = resp.MsgList;
 
-        console.log(msgList,'发送数据的消息顺序'+'---------');
+        console.log(msgList, '发送数据的消息顺序' + '---------');
 
+        var sessMap = webim.MsgStore.sessMap();
+        console.log(sessMap.C2C1)
         for (var j in msgList) { //遍历新消息
           var msg = msgList[j];
           if (msg.getSession().id() == options.Peer_Account) { //为当前聊天对象的消息
             selSess = msg.getSession();
             //在聊天窗体中新增一条消息
+            // console.log(msg, currentMsgsArray)
             _this.addMsg(msg, currentMsgsArray)
           }
         }
         //消息已读上报，并将当前会话的消息设置成自动已读
         webim.setAutoRead(selSess, true, true);
+        // for (var i in sessMap) {
+        //   let sess = sessMap[i];
+        //   console.log(sess)
+        //   if (selToID != sess.id()) {//更新其他聊天对象的未读消息数
+        //     console.log(updateSessDiv(sess.type(), sess.id(), sess.unread()))
+        //   }
+        // }
+        webim.getRecentContactList({//获取会话列表的方法
+          'Count': 10 //最近的会话数 ,最大为 100
+        }, function (resp) {
+          console.log(resp)
+          var sessMap = webim.MsgStore.sessMap();
+          console.log(getApp().globalData.dialogInfo_nameImg.identifier)
+          console.log(sessMap['C2C' + getApp().globalData.dialogInfo_nameImg.identifier])
+        },function(err){
+          console.log(err)
+        })
       },
       function (err) {
         console.log("----------" + err.ErrorInfo + err.ErrorCode);
@@ -370,7 +334,7 @@ Page({
     if (subType == webim.SESSION_TYPE.C2C) {
       subType = webim.C2C_MSG_SUB_TYPE.COMMON;
     }
-    var msg = new webim.Msg(selSess, isSend, seq, random, msgTime, loginInfo.identifier, subType, loginInfo.identifierNick);
+    var msg = new webim.Msg(selSess, isSend, seq, random, msgTime, getApp().globalData.dialogInfo_nameImg.identifier, subType, getApp().globalData.dialogInfo_nameImg.identifierNick);
     var text_obj, face_obj, tmsg, emotionIndex, emotion, restMsgIndex;
 
     var expr = /\[[^[\]]{1,3}\]/mg;
@@ -399,7 +363,7 @@ Page({
   },
   getHeader: function (selSess) {
     console.log(selSess)
-    var that=this;
+    var that = this;
     var tag_list = new Array();
     tag_list.push("Tag_Profile_IM_Nick");
     tag_list.push("Tag_Profile_IM_Image");
@@ -431,42 +395,41 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    console.log("页面显示");
-    
+
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
   onHide: function () {
-  
+
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
   onUnload: function () {
-  
+
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function () {
-  
+
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-  
+
   },
 
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-  
+
   }
 })

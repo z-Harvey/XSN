@@ -125,22 +125,26 @@ page {
   position: relative
 }
 .userImg{
-  position: absolute;
-  top:30rpx;
-  left:22rpx;
-  width:96rpx;
-  height:96rpx;
+  width:110rpx;
+  height:110rpx;
   overflow: hidden;
+  border-radius: 50%;
+  line-height: 110rpx;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin-right: 16rpx;
 }
 .userImg>image{
-  width:96rpx;
+  align-items: center;
+  width:110rpx;
 }
 .userContent{
-  position: absolute;
-  top:30rpx;
-  left:140rpx;
+  vertical-align: top;
 }
-
+.user_title{
+  line-height: 28rpx;
+}
 
 .blankBox{
   text-align: center;
@@ -166,4 +170,86 @@ height: 16px;
 color: rgba(16, 16, 16, 1);
 text-align: left;
 font-family: PingFangSC-regular;
+}
+
+.friendApplication{
+  position: fixed;
+  top:132rpx;
+  left:0rpx;
+  height:90rpx;
+  width:690rpx;
+  line-height: 90rpx;
+  padding:0rpx 30rpx;
+  z-index: 9;
+  background: #fff;
+  font-size: 28rpx;
+  color:#101010;
+}
+.friendApplication>view{
+  float: right;
+  margin-top:32rpx;
+}
+.friendApplication>view>image{
+  width:24rpx;
+  height:24rpx;
+  display: inline-block;
+  vertical-align: top;
+}
+.friendApplication>view>view{
+  vertical-align: top;
+  display: inline-block;
+  width: 40rpx;
+  height:24rpx;
+  border-radius: 80rpx;
+  background: rgba(255, 152, 0, 1);
+  line-height: 24rpx;
+  font-size: 20rpx;
+  text-align: center;
+  color:#fff;
+}
+
+
+.user_realName{
+  font-size: 28rpx;
+  color: #101010;
+}
+.user_Name{
+  font-size: 24rpx;
+  color:#888;
+  margin-left:20rpx;
+}
+.user_imgLv{
+  width:90rpx;
+  height:40rpx;
+}
+.user_imgAuth{
+  width:120rpx;
+  height:40rpx;
+  margin-left: 8rpx;
+}
+.user_common{
+  font-size: 24rpx;
+  color:#888;
+}
+.getDialogue{
+  position: relative;
+  left:-28rpx;
+}
+.getDialogue>view{
+  width: 40rpx;
+  height: 22rpx;
+  border-radius: 80rpx;
+  background: #fff;
+  text-align: center;
+  color:rgba(255, 152, 0, 1);
+  font-size: 20rpx;
+  position: absolute;
+  line-height: 22rpx;
+  top:34rpx;
+  right: -32rpx;
+}
+.getDialogue>image{
+  width: 42rpx;
+  height:42rpx;
+  margin-top:34rpx;
 }

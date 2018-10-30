@@ -8,7 +8,7 @@
       <input placeholder="输入昵称、姓名搜索名片" placeholder-class="font-size-28 comcolor" value="{{comname}}" bindinput="inputComname" class="font-size-28 com101010"></input>
       <view class="closebtn" bindtap="close">
         <image src="/img/common/close.png" mode="widthFix" class="close" ></image> 
-      </view>   
+      </view>
     </view>
     <button class="searchbtn font-size-28" plain='true' bindtap="search">搜索</button> 
   </view>
@@ -16,32 +16,49 @@
     <image src="/img/my/tan.png"></image>
     <text class="font-size-24">当前版本聊天记录只能保留7天，必要时请注意做好截图备份~</text>
   </view>
+  <view class="friendApplication">
+    <text>好友申请</text>
+    <view>
+      <view>99+</view>
+      <image src='/img/my/right.png'></image>
+    </view>
+  </view>
+
   <view wx:if="{{listNone}}" class="blankBox">
     <image src="/img/blank.png"></image>
     <text class="blankBoxText font-size-28">暂时没有好友，把名片递给其他人互加好友吧~</text>
     <button class="font-size-28" bindtap='toPath' data-type='myName'>查看名片</button>
   </view>
+
   <scroll-view bindscrolltolower="onReachBottom" scroll-into-view="{{toView}}" scroll-y="true" scroll-with-animation="true"  class="result fixedWidth roll">
-    <view style='height:120rpx;' id="a"></view>
-    <block wx:for="{{list}}">
+    <view style='height:210rpx;' id="a"></view>
+    <block wx:for="{{list}}" wx:key>
       <view class="item bodradius fixedWidth wrap-flex" bindtap="toPath" data-id="{{item.id}}" wx:if="{{item.id!=userid}}">
       <view class="userImg">
-        <image src="{{item.avatarurl}}" mode="widthFix"></image>        
+        <image src="{{item.avatarurl}}" mode="widthFix"></image>
       </view>
       <view class="userContent list-right wrap-flex-item">
-        <view class="list-nick wrap-flex" style="margin-top: -5rpx">
-          <view class="imagetext wrap-flex-item">
-            <text class="font-size-28 com1010">{{item.nickname}}</text>
-            <image src="/img/common/confirm.png" mode="widthFix" wx:if="{{item.provestatus==1}}"></image>
-            <image src="/img/common/unconfirm.png" mode="widthFix" wx:else></image>
-          </view>
+        <view class='user_title'>
+          <text class='user_realName'>{{item.nickname}}</text>
+          <!-- <image src="/img/common/confirm.png" mode="widthFix" wx:if="{{item.provestatus==1}}"></image> -->
+          <!-- <image src="/img/common/unconfirm.png" mode="widthFix" wx:else></image> -->
+          <text class='user_Name'>(云端飞扬)</text>
         </view>
-        <view class="list-bottom font-size-24 com1010">{{item.comname}}</view>
+        <view>
+          <!-- {{item.comname}} -->
+          <image class='user_imgLv' src='/img/LV1.png'></image>
+          <image class='user_imgAuth' src='/img/Auth.png' wx:if="{{item.provestatus==1}}"></image>
+        </view>
+        <view class='user_common'>共同客户9999</view>
+      </view>
+      <view class='getDialogue' catchtap='dialogPath' data-name="{{item.nickname}}" data-src="{{item.avatarurl}}" data-id="{{item.id}}">
+        <image src='/img/comment_fill.png'></image>
+        <view>99+</view>
       </view>
     </view>
 
     </block>
-    <view style='height:20rpx;'></view>
+    <view style='height:210rpx;'></view>
   </scroll-view >
 <view class="GoTop" bindtap='jumpTo' data-opt='a'>
   <image src='/img/top.png'></image>

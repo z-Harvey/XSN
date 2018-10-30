@@ -36,7 +36,15 @@ Page({
   onReady: function () {
 
   },
-
+  toPath:function(e){
+    let data=e.currentTarget.dataset;
+    let domType=data.type
+    if(domType=='info'){
+      wx.navigateTo({
+        url: '/pages/traArea/experDeta/experDeta',
+      })
+    }
+  },
   /**
    * 生命周期函数--监听页面显示
    */

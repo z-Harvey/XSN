@@ -88,6 +88,7 @@ Page({
               //   console.log(res)
               // })
               that.init();
+              getApp().dialogLogin()
             }
             , fail: (err) => {
 
@@ -123,17 +124,17 @@ Page({
     })
   },
   onLoad: function(options){
-    // wx.switchTab({
-    //   url: '/pages/traArea/traArea',
-    // })
-    wx.navigateTo({
-      url: '/pages/traArea/Reply/Reply'
-    });
+    wx.switchTab({
+      url: '/pages/cardFile/cardFile',
+    })
+    // wx.navigateTo({
+    //   url: '/pages/traArea/Reply/Reply'
+    // });
     // wx.navigateTo({
     //   url: "/pages/editcard/editcard"
     // })
     // return
-    this.refresh();    
+    this.refresh();
   }, 
   onShow: function(){
     let _this=this;

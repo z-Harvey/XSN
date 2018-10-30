@@ -56,8 +56,8 @@ Page({
       thSessionId: wx.getStorageSync('token'),
       page_num: _this.data.page
     }
-    console.log("搜索页面",data)
     api.search(data, function (data) {
+      console.log(data)
       if(data.total===0){
         that.setData({
           listNone:true
@@ -72,6 +72,13 @@ Page({
           : _this.data.list.concat(data.friend_info),
           totalnum: data.total
       })
+    })
+  },
+  dialogPath:function(e){
+    let data = e.currentTarget.dataset;
+    let name=data.name,src=data.src,id=data.id;
+    wx.navigateTo({
+      url: `/pages/dialogInfo/dialogInfo?id=${id}&src=${src}`
     })
   },
   inputComname: function (e) {
@@ -147,6 +154,8 @@ Page({
       console.log('有userid');
       var _this = this;
       this.init(_this)
+    }else{
+      this.showDialog(false);
     }
   },
   /**
