@@ -4375,7 +4375,7 @@ module.exports = function() {
 
                             var GroupId = BigGroupId;
                             var opts = {
-                    'USP': 1,
+                                'USP': 1,
                                 'StartSeq': bigGroupLongPollingStartSeq, //请求拉消息的起始seq
                                 'HoldTime': bigGroupLongPollingHoldTime, //客户端长轮询的超时时间，单位是秒
                                 'Key': bigGroupLongPollingKey //客户端加入群组后收到的的Key
@@ -5803,7 +5803,6 @@ module.exports = function() {
                 //基本接口
                 //登录
                 webim.login = webim.init = function(loginInfo, listeners, opts, cbOk, cbErr) {
-
                     //初始化连接状态回调函数
                     ConnManager.init(listeners.onConnNotify, cbOk, cbErr);
 

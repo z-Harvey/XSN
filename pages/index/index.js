@@ -88,7 +88,7 @@ Page({
               //   console.log(res)
               // })
               that.init();
-              getApp().dialogLogin()
+              // getApp().dialogLogin()
             }
             , fail: (err) => {
 
@@ -124,9 +124,9 @@ Page({
     })
   },
   onLoad: function(options){
-    wx.switchTab({
-      url: '/pages/cardFile/cardFile',
-    })
+    // wx.switchTab({
+    //   url: '/pages/cardFile/cardFile',
+    // })
     // wx.navigateTo({
     //   url: '/pages/traArea/Reply/Reply'
     // });
